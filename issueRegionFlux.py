@@ -38,6 +38,12 @@ EdN=[]
 EavgdN=[] # Energy average in each limb bin
 EavgdNbg=[] # Energy average in each bg bin
 dNsb=[] # dN subtract background
+dN1=[]
+EavgdN1=[]
+dN2=[]
+EavgdN2=[]
+dN3=[]
+EavgdN3=[]
 for i in range(50): #have 0-50 but interest just 1-50
     dN.append(0)
     dNbg.append(0)
@@ -45,6 +51,12 @@ for i in range(50): #have 0-50 but interest just 1-50
     EavgdN.append(0)
     EavgdNbg.append(0)
     dNsb.append(0)
+    dN1.append(0)
+    EavgdN1.append(0)
+    dN2.append(0)
+    EavgdN2.append(0)
+    dN3.append(0)
+    EavgdN3.append(0)
 # process data
 for event in ev:
 #    print event.EVENTS
@@ -56,6 +68,7 @@ for event in ev:
 #print dN
     #print event.EVENTS
     energy=0.963*ev.ENERGY # bias energy
+    nadirshift=180.-event.ZENITHSHIFT
     if np.searchsorted(V,energy)>0 and np.searchsorted(V,energy)<51:
         cntmap[np.searchsorted(V,energy)-1].Fill(event.PHI,180.-event.ZENITHSHIFT)
         if event.ZENITHSHIFT>Zmin and event.ZENITHSHIFT<Zmax and event.THETA < 70.:# limb count
@@ -64,6 +77,15 @@ for event in ev:
         if event.ZENITHSHIFT>Zbgmin and event.ZENITHSHIFT<Zbgmax and event.THETA < 70.:# bg count
             dNbg[np.searchsorted(V,energy)-1]+=1.
             EavgdNbg[np.searchsorted(V,energy)-1]+=energy
+        if nadirshift>minnadir1 and nadirshift<maxnadir1 and event.THETA < 70.:
+            dN1[np.searchsorted(V,energy)-1]+=1.
+            EavgdN1[np.searchsorted(V,energy)-1]+=energy
+        if nadirshift>minnadir2 and nadirshift<maxnadir3 and event.THETA < 70.:
+            dN2[np.searchsorted(V,energy)-1]+=1.
+            EavgdN2[np.searchsorted(V,energy)-1]+=energy
+        if nadirshift>minnadir2 and nadirshift<maxnadir3 and event.THETA < 70.:
+            dN3[np.searchsorted(V,energy)-1]+=1.
+            EavgdN3[np.searchsorted(V,energy)-1]+=energy
 #print dN
 # create strMap
 strmap=TH2F('strmap','strmap',180,0.,360.,800,0.,80.)
