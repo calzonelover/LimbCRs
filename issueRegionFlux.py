@@ -102,8 +102,11 @@ for i in range(50):
     flxmap.append(flxmapadd)
 flxvallimb=[]
 flxvalbg=[]
+flxvalsampling1=[]
+flxvalsampling2=[]
+flxvalsampling3=[]
 # write dNsb,EavgdN to file
-#f1=file('alldat.olo','w')
+f1=file('testdat.olo','w')
 for i in range(len(V)-1):
     # dE
     dE=V[i+1]-V[i]
@@ -121,12 +124,27 @@ for i in range(len(V)-1):
     flxmap[i].GetXaxis().SetRangeUser(0.,360.)
     flxmap[i].GetYaxis().SetRangeUser(180.-Zbgmax,180.-Zbgmin)
     flxvalbg.append(flxmap[i].Integral()/dE)
+    # get flux from sampling 1
+    flxmap[i].GetXaxis().SetRangeUser(0.,360.)
+    flxmap[i].GetYaxis().SetRangeUser(minnadir1,maxnadir1)
+    flxvalsampling1.append(flxmap[i].Integral()/dE)
+    # get flux from sampling 2
+    flxmap[i].GetXaxis().SetRangeUser(0.,360.)
+    flxmap[i].GetYaxis().SetRangeUser(minnadir2,maxnadir2)
+    flxvalsampling2.append(flxmap[i].Integral()/dE)
+    # get flux from sampling 3
+    flxmap[i].GetXaxis().SetRangeUser(0.,360.)
+    flxmap[i].GetYaxis().SetRangeUser(minnadir3,maxnadir3)
+    flxvalsampling3.append(flxmap[i].Integral()/dE)
     #
     dNsb[i]=dN[i]-dNbg[i]*((Zmin-Zmax)/(Zbgmin-Zbgmax)) # weight str bg ti str limb
     EavgdN[i]=EavgdN[i]/dN[i]
     EavgdNbg[i]=EavgdNbg[i]/dNbg[i]
-    #f1.write('%f %f %e %f %f %e\n'%(dNsb[i],EavgdN[i],flxvallimb[i],dNbg[i],EavgdNbg[i],flxvalbg[i]))
+    EavgdN1[i]=EavgdN1[i]/dN1[i]
+    EavgdN2[i]=EavgdN2[i]/dN2[i]
+    EavgdN3[i]=EavgdN3[i]/dN3[i]
+    f1.write('%f %f %e %f %f %e %f %f %e %f %f %e %f %f %e\n'%(dNsb[i],EavgdN[i],flxvallimb[i],dNbg[i],EavgdNbg[i],flxvalbg[i],dN1[i],EavgdN1[i],flxvalsampling1[i],dN2[i],EavgdN2[i],flxvalsampling2[i],dN3[i],EavgdN3[i],flxvalsampling3[i]))
     # write count map in root file
 # Close all file
 Fexpmap.Close()
-#f1.close()
+f1.close()
