@@ -84,14 +84,15 @@ for i in range(len(V)-1):
     #
     flxmap[i].Divide(cntmap[i],expmap)
     flxmap[i].Divide(flxmap[i],strmap)
+    flxmap[i].Scale(1./dE)
     # get flux value limb
     flxmap[i].GetXaxis().SetRangeUser(0.,360.)
     flxmap[i].GetYaxis().SetRangeUser(180.-Zmax,180.-Zmin)
-    flxvallimb.append(flxmap[i].Integral()/(dE))
+    flxvallimb.append(flxmap[i].Integral())
     # get flux value bg
     flxmap[i].GetXaxis().SetRangeUser(0.,360.)
     flxmap[i].GetYaxis().SetRangeUser(180.-Zbgmax,180.-Zbgmin)
-    flxvalbg.append(flxmap[i].Integral()/dE)
+    flxvalbg.append(flxmap[i].Integral())
     #
     dNsb[i]=dN[i]-dNbg[i]*((Zmin-Zmax)/(Zbgmin-Zbgmax)) # weight str bg ti str limb
     EavgdN[i]=EavgdN[i]/dN[i]
