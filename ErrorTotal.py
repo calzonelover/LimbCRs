@@ -73,7 +73,11 @@ if __name__ == "__main__":
 	# choose Emidbin only 3 point
 	Eavgbin_simulate=[Eavgbin[0],Eavgbin[24],Eavgbin[49]]
     # open to write output parameters
-	foutput=open(modelname+'outputTotal.dat','w')
+	if fitalgorithm==1:
+		namealgorithm='fmin'
+	if fitalgorithm==2:
+		namealgorithm='brute'
+	foutput=open(modelname+namealgorithm+'Total.dat','w')
 	for i in range(number_simulation):
 		Flux275=[] # create global variable
 		Flux275=SimulateFlux(Flux275) # simulate new flux (Random Error stat.)

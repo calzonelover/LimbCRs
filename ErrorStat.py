@@ -62,7 +62,11 @@ if __name__ == "__main__":
 	Filedat=np.genfromtxt('alldat.olo')
 	Eavgbin=Filedat[:,1] # GOT Emidbin
     # open to write output parameters
-	foutput=open(modelname+'outputStat.dat','w')
+	if fitalgorithm==1:
+		namealgorithm='fmin'
+	if fitalgorithm==2:
+		namealgorithm='brute'
+	foutput=open(modelname+namealgorithm+'Stat.dat','w')
 	for i in range(number_simulation):
 		Flux275=[] # create variable
 		Flux275=SimulateFlux(Flux275) # simulate new flux (Random Error stat.)
