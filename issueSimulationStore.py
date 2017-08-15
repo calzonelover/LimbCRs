@@ -5,6 +5,7 @@ import numpy as np
 global Filedat
 # my condition
 number_simulation=2
+# subfunction
 def SimulateStat(flux275): # Simlate Random count (Stat. err.)
 	flux275=[]
 	dNsb,Eavgbin,flxlimb=Filedat[:,0],Filedat[:,1],Filedat[:,2]
@@ -37,33 +38,32 @@ def SimulateTot(flux275): # include
 	flux275.append(simtot100GeV_flux*(Eavgbin[24]**2.75))
 	flux275.append(simtot1000GeV_flux*(Eavgbin[49]**2.75))
 	return flux275
-# open dat file
-Filedat=np.genfromtxt('alldat.olo')
-Eavgbin=Filedat[:,1]
-# initialize tree
-ft=TFile('MontySim.root','RECREATE')
-t1=TTree('Simulation tree','data simulation')
-# array want to insert in tree
-SimStat=np.zeros(1,dtype=float)
-SimSys=np.zeros(1,dtype=float)
-SimTot=np.zeros(1,dtype=float)
-# declare branch in tree
-t1.Branch('SimStat',SimStat,'SimStat/D')
-t1.Branch('SimSys',SimSys,'SimSys/D')
-t1.Branch('SimTot',SimTot,'SimTot/D')
-for i in range(number_simulation):
-    # Simulation
-    SStat=[]
-    SStat=SimulateStat(SStat)
-    SSys=[]
-    SSys=array('d',SimulateSys(SSys))
-    SStat=[]
-    SStat=array('d',SimulateTot(SStat))
-    print 'bue',SStat
-    # insert in tree
-    SimStat[0]=SStat
-    SimSys[0]=SSys
-    SimTot[0]=SStat
-    t1.Fill()
+if __name__ == "__main__":
+	# open dat file
+	Filedat=np.genfromtxt('alldat.olo')
+	Eavgbin=Filedat[:,1]
+	# initialize tree
+	#ft=TFile('MontySim.root','RECREATE')
+	#t1=TTree('Simulation tree','data simulation')
+	# array want to insert in tree
+	#SimStat=np.zeros(1,dtype=float)
+	#SimSys=np.zeros(1,dtype=float)
+	#SimTot=np.zeros(1,dtype=float)
+	# declare branch in tree
+	#t1.Branch('SimStat',SimStat,'SimStat/D')
+	#t1.Branch('SimSys',SimSys,'SimSys/D')
+	#t1.Branch('SimTot',SimTot,'SimTot/D')
+	for i in range(number_simulation):
+		SStat=[]
+    	SStat=SimulateStat(SStat)
+    	SSys=[]
+    	SSys=array('d',SimulateSys(SSys))
+    	SStat=[]
+    	SStat=array('d',SimulateTot(SStat))
+    	print i,'bue',SStat
+    	#SimStat[0]=SStat
+    	#SimSys[0]=SSys
+    	#SimTot[0]=SStat
+    	#t1.Fill()
 # close dat file
-ft.Close()
+#ft.Close()
