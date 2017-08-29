@@ -5,12 +5,14 @@ import numpy as np
 from scipy.optimize import fmin,brute
 import os
 import sys
-global Filedat,Ebinbefore,Ebin,initialguesspar,gm1,gm2,Ebr
+global Filedat,Ebinbefore,Ebin
 # my condition
 number_simulation=2000
 mode=2 # 1=SPLwHe, 2=BPLwHe
 fitalgorithm=1 # 1=fmin,2=brute
-fixparnum=1 #fix parameter 1=gamma1,2=gama2,3=Ebreak
+# Energy bin
+oV=[(10**((float(i)/25)+1)) for i in range(51)]
+V=array('d',oV)
 # Resolution of hill (when use brute force)
 if mode==1:
 	rangetrial=[slice(5000.,35000.,5000.),slice(2.5,3.0,0.1),slice(2.5,3.0,0.5),slice(200.,400.,200.),slice(0.0001,0.0003,0.0001)]
@@ -20,24 +22,12 @@ def Fluxcompute(A,gamma1,gamma2,Ebreak,normAll):
 	RunFlux='./test1.out %f %f %f %f %f'%(A,gamma1,gamma2,Ebreak,normAll)
 	os.system(RunFlux)
 def SumlogPois(dummy):
-	if fixparnum==1:
-		A=dummy[0]
-		gamma1=dummy[1]
-		gamma2=gm2
-		Ebreak=Ebr
-		normAll=dummy[2]
-	if fixparnum==2:
-		A=dummy[0]
-		gamma1=gm1
-		gamma2=dummy[1]
-		Ebreak=Ebr
-		normAll=dummy[2]
-	if fixparnum==3:
-		A=dummy[0]
-		gamma1=gm1
-		gamma2=gm2
-		Ebreak=dummy[1]
-		normAll=dummy[2]
+	#print dummy
+	A=dummy[0]
+	gamma1=dummy[1]
+	gamma2=dummy[2]
+	Ebreak=dummy[3]
+	normAll=dummy[4]
 	Fluxcompute(A,gamma1,gamma2,Ebreak,normAll)
 	file=open('0.dat')
 	data=np.genfromtxt('0.dat')
@@ -90,11 +80,7 @@ if __name__ == "__main__":
 		namealgorithm='fmin'
 	if fitalgorithm==2:
 		namealgorithm='brute'
-	# choose name paraeter to file
-	gm1=2.7916925
-	gm2=2.60771950
-	Ebr=349.226419
-	foutput=open(modelname+namealgorithm+'FixOther'+'Total.dat','w')
+	foutput=open(modelname+namealgorithm+'Total.dat','w')
 	for i in range(number_simulation):
 		Flux275=[] # create global variable
 		Flux275=SimulateFlux(Flux275) # simulate new flux (Random Error stat.)
@@ -102,27 +88,77 @@ if __name__ == "__main__":
 		if mode==1: #SPLwHe
 			if fitalgorithm==1:
 				bestfit=fmin(SumlogPois,initialguesspar)
+				###
+				print bestfit
+				Eavgbin,FluxDat=Filedat[:,1],Filedat[:,2]
+				Etestdat=TH1F('Etestdat','Etestdat',len(V)-1,V)
+				Etestsim=TH1F('Etestsim','Etestsim',len(V)-1,V)
+				Emodel,FluxModel=np.genfromtxt('0.dat')[:,0],np.genfromtxt('0.dat')[:,1]
+				for i in range(len(FluxModel)):
+					FluxModel[i]=FluxModel[i]*(Emodel[i]**2.75)
+				gModel=TGraph(len(Emodel),array('d',Emodel),array('d',FluxModel))
+				for i in range(50):
+					Etestdat.SetBinContent(i+1,FluxDat[i]*(Eavgbin[i]**2.75))
+					Etestsim.SetBinContent(i+1,Sim_Flux275.Eval(Eavgbin[i],0,'S'))
+				C=TCanvas('C','C',800,600)
+				C.SetLogx()
+				C.SetLogy()
+				Etestdat.SetMarkerStyle(20)
+				Etestdat.SetMarkerColor(2)
+				Etestdat.SetStats(0)
+				Etestdat.SetTitle('Measurement')
+				Etestdat.Draw('P')
+				Etestsim.SetTitle('SimulateFlux')
+				Etestsim.SetMarkerStyle(22)
+				Etestsim.Draw('Psame')
+				gModel.Draw('same')
+				gModel.SetTitle('Best fit for Model')
+				C.BuildLegend()
+				Etestdat.GetXaxis().SetTitle('E (GeV)')
+				Etestdat.GetYaxis().SetTitle('E^{2.75}Flux (#gamma-ray)')
+				Etestdat.SetTitle('#gamma-ray Mod Mea Sim')
+				raw_input()
+				exit()
+				###
 			if fitalgorithm==2:
 				bestfit=brute(SumlogPois,rangetrial)
 		if mode==2: #BPLwHe
 			if fitalgorithm==1:
-				fixparnum=1
-				initialguesspar1=[72287.4,2.7916925,0.000197465908]
-				bestfit1=fmin(SumlogPois,initialguesspar1)
-				fixparnum=2
-				initialguesspar2=[72287.4,2.60771950,0.000197465908]
-				bestfit2=fmin(SumlogPois,initialguesspar2)
-				fixparnum=3
-				initialguesspar3=[72287.4,349.226419,0.000197465908]
-				bestfit3=fmin(SumlogPois,initialguesspar3)
+				bestfit=fmin(SumlogPois,initialguesspar)
+				###
+				print bestfit
+				Eavgbin,FluxDat=Filedat[:,1],Filedat[:,2]
+				Etestdat=TH1F('Etestdat','Etestdat',len(V)-1,V)
+				Etestsim=TH1F('Etestsim','Etestsim',len(V)-1,V)
+				Emodel,FluxModel=np.genfromtxt('0.dat')[:,0],np.genfromtxt('0.dat')[:,1]
+				for i in range(len(FluxModel)):
+					FluxModel[i]=FluxModel[i]*(Emodel[i]**2.75)
+				gModel=TGraph(len(Emodel),array('d',Emodel),array('d',FluxModel))
+				for i in range(50):
+					Etestdat.SetBinContent(i+1,FluxDat[i]*(Eavgbin[i]**2.75))
+					Etestsim.SetBinContent(i+1,Sim_Flux275.Eval(Eavgbin[i],0,'S'))
+				C=TCanvas('C','C',800,600)
+				C.SetLogx()
+				C.SetLogy()
+				Etestdat.SetMarkerStyle(20)
+				Etestdat.SetMarkerColor(2)
+				Etestdat.SetStats(0)
+				Etestdat.SetTitle('Measurement')
+				Etestdat.Draw('P')
+				Etestsim.SetTitle('SimulateFlux')
+				Etestsim.SetMarkerStyle(22)
+				Etestsim.Draw('Psame')
+				gModel.Draw('same')
+				gModel.SetTitle('Best fit for Model')
+				C.BuildLegend()
+				Etestdat.GetXaxis().SetTitle('E (GeV)')
+				Etestdat.GetYaxis().SetTitle('E^{2.75}Flux (#gamma-ray)')
+				Etestdat.SetTitle('#gamma-ray Mod Mea Sim')
+				raw_input()
+				exit()
+				###
 			if fitalgorithm==2:
-				if fixparnum==1:
-					initialguesspar=[72287.4,2.7916925,0.000197465908]
-				if fixparnum==2:
-					initialguesspar=[72287.4,2.60771950,0.000197465908]
-				if fixparnum==3:
-					initialguesspar=[72287.4,349.226419,0.000197465908]
 				bestfit=brute(SumlogPois,rangetrial)
-		foutput.write('%f %f %f \n' %(bestfit1[1],bestfit2[1],bestfit3[1]))
+		foutput.write('%f %f %f \n' %(bestfit[1],bestfit[2],bestfit[3]))
 # close dat file
 foutput.close()
