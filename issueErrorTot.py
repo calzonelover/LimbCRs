@@ -8,7 +8,7 @@ import sys
 global Filedat,Ebinbefore,Ebin
 # my condition
 number_simulation=2000
-mode=2 # 1=SPLwHe, 2=BPLwHe
+mode=1 # 1=SPLwHe, 2=BPLwHe
 fitalgorithm=1 # 1=fmin,2=brute
 # Energy bin
 oV=[(10**((float(i)/25)+1)) for i in range(51)]
@@ -112,7 +112,7 @@ if __name__ == "__main__":
 				Etestsim.SetMarkerStyle(22)
 				Etestsim.Draw('Psame')
 				gModel.Draw('same')
-				gModel.SetTitle('Best fit for Model')
+				gModel.SetTitle('Best fit from Model')
 				C.BuildLegend()
 				Etestdat.GetXaxis().SetTitle('E (GeV)')
 				Etestdat.GetYaxis().SetTitle('E^{2.75}Flux (#gamma-ray)')
@@ -149,7 +149,7 @@ if __name__ == "__main__":
 				Etestsim.SetMarkerStyle(22)
 				Etestsim.Draw('Psame')
 				gModel.Draw('same')
-				gModel.SetTitle('Best fit for Model')
+				gModel.SetTitle('Best fit from Model')
 				C.BuildLegend()
 				Etestdat.GetXaxis().SetTitle('E (GeV)')
 				Etestdat.GetYaxis().SetTitle('E^{2.75}Flux (#gamma-ray)')
