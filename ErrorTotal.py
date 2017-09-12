@@ -12,9 +12,9 @@ mode=1 # 1=SPLwHe, 2=BPLwHe
 fitalgorithm=1 # 1=fmin,2=brute
 # Resolution of hill (when use brute force)
 if mode==1:
-	rangetrial=[slice(5000.,35000.,5000.),slice(2.5,3.0,0.1),slice(2.5,3.0,0.5),slice(200.,400.,200.),slice(0.0001,0.0003,0.0001)]
+	rangetrial=[slice(5000.,35000.,5000.),slice(2.5,3.0,0.01),slice(2.5,3.0,0.5),slice(200.,400.,200.),slice(0.0001,0.0003,0.0001)]
 if mode==2:
-	rangetrial=[slice(5000.,35000.,5000.),slice(2.5,3.0,0.1),slice(2.5,3.0,0.1),slice(200.,400.,50.),slice(0.0001,0.0003,0.0001)]
+	rangetrial=[slice(5000.,35000.,5000.),slice(2.5,3.0,0.01),slice(2.5,3.0,0.01),slice(200.,400.,5.),slice(0.0001,0.0003,0.0001)]
 def Fluxcompute(A,gamma1,gamma2,Ebreak,normAll):
 	RunFlux='./test1.out %f %f %f %f %f'%(A,gamma1,gamma2,Ebreak,normAll)
 	os.system(RunFlux)
@@ -42,8 +42,14 @@ def SumlogPois(dummy):
 def SimulateFlux(flux275): # include
 	flux275=[]
 	dNsb,Eavgbin,flxlimb=Filedat[:,0],Filedat[:,1],Filedat[:,2]
+	# sim systematic distortion curve
+	EdummySys=[]
+	EdummySys.append(Eavgbin[0])
+	EdummySys.append(Eavgbin[24])
+	EdummySys.append(Eavgbin[49])
+
 	for i in range(len(dNsb)):
-		flux275.append()
+		flux275.append((flxlimb[i]/dNsb[i])*gRandom.PoissonD(dNsb[i])*(Eavgbin[i]**2.75))
 	return flux275
 if __name__ == "__main__":
 	# Initialize model
@@ -72,7 +78,7 @@ if __name__ == "__main__":
 	for i in range(number_simulation):
 		Flux275=[] # create global variable
 		Flux275=SimulateFlux(Flux275) # simulate new flux (Random Error stat.)
-		Sim_Flux275=TGraph(5,array('d',Eavgbin_simulate),array('d',Flux275))
+		Sim_Flux275=TGraph(50,array('d',Eavgbin_simulate),array('d',Flux275))
 		if mode==1: #SPLwHe
 			if fitalgorithm==1:
 				bestfit=fmin(SumlogPois,initialguesspar)
