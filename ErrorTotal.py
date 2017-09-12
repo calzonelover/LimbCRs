@@ -42,24 +42,8 @@ def SumlogPois(dummy):
 def SimulateFlux(flux275): # include
 	flux275=[]
 	dNsb,Eavgbin,flxlimb=Filedat[:,0],Filedat[:,1],Filedat[:,2]
-	# simulate random coutn (Statistical error)
-	simstat10GeV_flux=(flxlimb[0]/dNsb[0])*gRandom.PoissonD(dNsb[0])
-	simstat10e15GeV_flux=(flxlimb[12]/dNsb[12])*gRandom.PoissonD(dNsb[12])
-	simstat100GeV_flux=(flxlimb[24]/dNsb[24])*gRandom.PoissonD(dNsb[24])
-	simstat10e25GeV_flux=(flxlimb[37]/dNsb[37])*gRandom.PoissonD(dNsb[37])
-	simstat1000GeV_flux=(flxlimb[49]/dNsb[49])*gRandom.PoissonD(dNsb[49])
-	# simulate Systematic error (Aeff err.)
-	simtot10GeV_flux=gRandom.Gaus(simstat10GeV_flux,simstat10GeV_flux*0.05) # Error 5% at 10GeV
-	simtot10e15GeV_flux=gRandom.Gaus(simstat10e15GeV_flux,simstat10e15GeV_flux*0.05) # Error 5%
-	simtot100GeV_flux=gRandom.Gaus(simstat100GeV_flux,simstat100GeV_flux*0.05) # Error 5% at 100GeV
-	simtot10e25GeV_flux=gRandom.Gaus(simstat10e25GeV_flux,simstat10e25GeV_flux*0.098) # Error 9.8%
-	simtot1000GeV_flux=gRandom.Gaus(simstat1000GeV_flux,simstat1000GeV_flux*0.15) #Error 15% at 10GeV
-	#
-	flux275.append(simtot10GeV_flux*(Eavgbin[0]**2.75))
-	flux275.append(simtot10e15GeV_flux*(Eavgbin[12]**2.75))
-	flux275.append(simtot100GeV_flux*(Eavgbin[24]**2.75))
-	flux275.append(simtot10e25GeV_flux*(Eavgbin[37]**2.75))
-	flux275.append(simtot1000GeV_flux*(Eavgbin[49]**2.75))
+	for i in range(len(dNsb)):
+		flux275.append()
 	return flux275
 if __name__ == "__main__":
 	# Initialize model
