@@ -47,9 +47,15 @@ def SimulateFlux(flux275): # include
 	EdummySys.append(Eavgbin[0])
 	EdummySys.append(Eavgbin[24])
 	EdummySys.append(Eavgbin[49])
-
+	ErrordummySys=[]
+	ErrordummySys.append(1.00+gRandom.Gaus(0,0.05))
+	ErrordummySys.append(1.00+gRandom.Gaus(0,0.05))
+	ErrordummySys.append(1.00+gRandom.Gaus(0,0.15))
+	gErrorSys=TGraph(3,array('d',EdummySys),array('d',ErrordummySys))
 	for i in range(len(dNsb)):
-		flux275.append((flxlimb[i]/dNsb[i])*gRandom.PoissonD(dNsb[i])*(Eavgbin[i]**2.75))
+		flux275.append((flxlimb[i]/dNsb[i])
+			*gRandom.PoissonD(dNsb[i])*(Eavgbin[i]**2.75)
+			*gErrorSys.Eval(Eavgbin[i],0,'S'))
 	return flux275
 if __name__ == "__main__":
 	# Initialize model
@@ -67,8 +73,6 @@ if __name__ == "__main__":
 	# open dat file
 	Filedat=np.genfromtxt('alldat.olo')
 	Eavgbin=Filedat[:,1] # GOT Emidbin
-	# choose Emidbin only 3 point
-	Eavgbin_simulate=[Eavgbin[0],Eavgbin[12],Eavgbin[24],Eavgbin[37],Eavgbin[49]]
     # open to write output parameters
 	if fitalgorithm==1:
 		namealgorithm='fmin'
@@ -78,7 +82,7 @@ if __name__ == "__main__":
 	for i in range(number_simulation):
 		Flux275=[] # create global variable
 		Flux275=SimulateFlux(Flux275) # simulate new flux (Random Error stat.)
-		Sim_Flux275=TGraph(50,array('d',Eavgbin_simulate),array('d',Flux275))
+		Sim_Flux275=TGraph(50,array('d',Eavgbin),array('d',Flux275))
 		if mode==1: #SPLwHe
 			if fitalgorithm==1:
 				bestfit=fmin(SumlogPois,initialguesspar)
