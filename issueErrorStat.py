@@ -5,7 +5,7 @@ import numpy as np
 from scipy.optimize import fmin,brute
 import os
 import sys
-global Filedat
+global Filedat,rangetrial
 # my condition
 number_simulation=2000
 mode=1 # 1=SPLwHe, 2=BPLwHe
@@ -19,7 +19,7 @@ def Fluxcompute(A,gamma1,gamma2,Ebreak,normAll):
 	RunFlux='./test1.out %f %f %f %f %f'%(A,gamma1,gamma2,Ebreak,normAll)
 	os.system(RunFlux)
 def SumlogPois(dummy):
-	#print dummy
+    #print dummy
 	A=dummy[0]
 	gamma1=dummy[1]
 	gamma2=dummy[2]
@@ -31,31 +31,21 @@ def SumlogPois(dummy):
 	x,y=data[:,0],data[:,1]
 	sumlogpois=0.
 	for i in range(len(x)):
-		measurement=Sim_Flux275.Eval(x[i],0,'S') # Cubic spline interpolate
+		measurement=Sim_Flux275.Eval(x[i],0,'S')
 		model=y[i]*(x[i]**2.75)
 		if TMath.Poisson(measurement,model)==0:
 			sumlogpois+=308.
 		if TMath.Poisson(measurement,model)!=0:
 			sumlogpois+=-log(TMath.Poisson(measurement,model))
 	return sumlogpois
-def SimulateFlux(flux275): # include
+def SimulateFlux(flux275): # Simlate Random count (Stat. err.)
 	flux275=[]
 	dNsb,Eavgbin,flxlimb=Filedat[:,0],Filedat[:,1],Filedat[:,2]
-	# sim systematic distortion curve
-	EdummySys=[]
-	EdummySys.append(Eavgbin[0])
-	EdummySys.append(Eavgbin[24])
-	EdummySys.append(Eavgbin[49])
-	ErrordummySys=[]
-	ErrordummySys.append(1.00+gRandom.Gaus(0,0.05))
-	ErrordummySys.append(1.00+gRandom.Gaus(0,0.05))
-	ErrordummySys.append(1.00+gRandom.Gaus(0,0.15))
-	gErrorSys=TGraph(3,array('d',EdummySys),array('d',ErrordummySys))
 	for i in range(len(dNsb)):
-		flux275.append((flxlimb[i]/dNsb[i]*(Eavgbin[i]**2.75))*gRandom.PoissonD(dNsb[i])*gErrorSys.Eval(Eavgbin[i],0,'S'))
+		flux275.append((flxlimb[i]/dNsb[i]*(Eavgbin[i]**2.75))*gRandom.PoissonD(dNsb[i]))
 	return flux275
 if __name__ == "__main__":
-	# Initialize model
+	# initialize model
 	if mode==1:
 		modelname='SPLwHe'
 		model='SPLwHe.f'
@@ -67,7 +57,7 @@ if __name__ == "__main__":
 		# came from brute force
 		initialguesspar=[72287.4,2.7916925,2.60771950,349.226419,0.000197465908]
 	os.system('gfortran %s frag.f -o test1.out' %(model))
-	# open dat file
+	# Open dat file
 	Filedat=np.genfromtxt('alldat.olo')
 	Eavgbin=Filedat[:,1] # GOT Emidbin
     # open to write output parameters
@@ -75,45 +65,15 @@ if __name__ == "__main__":
 		namealgorithm='fmin'
 	if fitalgorithm==2:
 		namealgorithm='brute'
-	foutput=open(modelname+namealgorithm+'Separate'+'Total.dat','w')
+	foutput=open(modelname+namealgorithm+'Separate'+'Stat.dat','w')
 	for i in range(number_simulation):
-		Flux275=[] # create global variable
-		Flux275=SimulateFlux(Flux275) # simulate new flux (Random Error stat.+sys.)
+		Flux275=[] # create variable
+		Flux275=SimulateFlux(Flux275) # simulate new flux (Random Error stat.)
+		# let Flux to E^{2.75}Flux
 		Sim_Flux275=TGraph(50,array('d',Eavgbin),array('d',Flux275))
 		if mode==1: #SPLwHe
 			if fitalgorithm==1:
 				bestfit=fmin(SumlogPois,initialguesspar)
-				### try ###
-				Eavgbin, y_mea = Filedat[:,1],Filedat[:,2]
-				for i in range(len(Eavgbin)):
-					y_mea[i] = y_mea[i]*(Eavgbin[i]**2.75)
-				gMea = TGraph(50, array('d',Eavgbin),array('d',y_mea))
-				Fmodel = np.genfromtxt('0.dat')
-				x_model,y_model = Fmodel[:,0],Fmodel[:,1]
-				for i in range(len(x_model)):
-					y_model[i] = y_model[i]*x_model[i]**2.75
-				gfit = TGraph(len(x_model),array('d',x_model),array('d',y_model))
-				# draw part
-				C = TCanvas('C','C',800,600)
-				Sim_Flux275.SetMarkerStyle(22)
-				Sim_Flux275.SetMarkerColor(2)
-				Sim_Flux275.Draw('P')
-				Sim_Flux275.SetLineColor(0)
-				raw_input()
-				gMea.SetMarkerStyle(33)
-				gMea.SetMarkerColor(3)
-				gMea.SetLineColor(0)
-				gMea.Draw('Psame')
-				gfit.SetMarkerStyle(34)
-				gfit.SetMarkerColor(9)
-				gfit.SetLineColor(0)
-				gfit.Draw('Psame')
-				C.SetLogx()
-				C.SetLogy()
-				C.BuildLegend()
-				raw_input()
-				exit()
-				### try ###
 			if fitalgorithm==2:
 				bestfit=brute(SumlogPois,rangetrial)
 		if mode==2: #BPLwHe
@@ -121,6 +81,6 @@ if __name__ == "__main__":
 				bestfit=fmin(SumlogPois,initialguesspar)
 			if fitalgorithm==2:
 				bestfit=brute(SumlogPois,rangetrial)
-		foutput.write('%f %f %f \n' %(bestfit[1],bestfit[2],bestfit[3]))
+		foutput.write('%f %f %f \n'%(bestfit[1],bestfit[2],bestfit[3]))
 # close dat file
 foutput.close()

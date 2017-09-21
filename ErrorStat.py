@@ -5,14 +5,14 @@ import numpy as np
 from scipy.optimize import fmin,brute
 import os
 import sys
-global Filedat,Ebinbefore,Ebin,rangetrial
+global Filedat,rangetrial
 # my condition
 number_simulation=2000
-mode=2 # 1=SPLwHe, 2=BPLwHe
+mode=1 # 1=SPLwHe, 2=BPLwHe
 fitalgorithm=1 # 1=fmin,2=brute
 # Resolution of hill (when use brute force)
 if mode==1:
-	rangetrial=[slice(5000.,35000.,5000.),slice(2.5,3.0,0.1),slice(2.5,3.0,0.5),slice(200.,400.,200.),slice(0.0001,0.0003,0.0001)]
+	rangetrial=[slice(5000.,35000.,5000.),slice(2.5,3.0,0.01),slice(2.5,3.0,0.5),slice(200.,400.,200.),slice(0.0001,0.0003,0.0001)]
 if mode==2:
 	rangetrial=[slice(5000.,35000.,5000.),slice(2.5,3.0,0.01),slice(2.5,3.0,0.01),slice(200.,400.,5.),slice(0.0001,0.0003,0.0001)]
 def Fluxcompute(A,gamma1,gamma2,Ebreak,normAll):
@@ -28,11 +28,10 @@ def SumlogPois(dummy):
 	Fluxcompute(A,gamma1,gamma2,Ebreak,normAll)
 	file=open('0.dat')
 	data=np.genfromtxt('0.dat')
-	file.close()
 	x,y=data[:,0],data[:,1]
 	sumlogpois=0.
 	for i in range(len(x)):
-		measurement=Sim_Flux275.Eval(x[i])
+		measurement=Sim_Flux275.Eval(x[i],0,'S')
 		model=y[i]*(x[i]**2.75)
 		if TMath.Poisson(measurement,model)==0:
 			sumlogpois+=308.
@@ -43,7 +42,7 @@ def SimulateFlux(flux275): # Simlate Random count (Stat. err.)
 	flux275=[]
 	dNsb,Eavgbin,flxlimb=Filedat[:,0],Filedat[:,1],Filedat[:,2]
 	for i in range(len(dNsb)):
-		flux275.append((flxlimb[i]/dNsb[i])*gRandom.PoissonD(dNsb[i])*(Eavgbin[i]**2.75))
+		flux275.append((flxlimb[i]/dNsb[i]*(Eavgbin[i]**2.75))*gRandom.PoissonD(dNsb[i]))
 	return flux275
 if __name__ == "__main__":
 	# initialize model

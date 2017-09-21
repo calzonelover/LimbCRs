@@ -5,9 +5,9 @@ import numpy as np
 from scipy.optimize import fmin,brute
 import os
 import sys
-global Filedat,Ebinbefore,Ebin
+global Filedat
 # my condition
-number_simulation=2
+number_simulation=2000
 mode=1 # 1=SPLwHe, 2=BPLwHe
 fitalgorithm=1 # 1=fmin,2=brute
 # Resolution of hill (when use brute force)
@@ -28,7 +28,6 @@ def SumlogPois(dummy):
 	Fluxcompute(A,gamma1,gamma2,Ebreak,normAll)
 	file=open('0.dat')
 	data=np.genfromtxt('0.dat')
-	file.close()
 	x,y=data[:,0],data[:,1]
 	sumlogpois=0.
 	for i in range(len(x)):
@@ -53,9 +52,7 @@ def SimulateFlux(flux275): # include
 	ErrordummySys.append(1.00+gRandom.Gaus(0,0.15))
 	gErrorSys=TGraph(3,array('d',EdummySys),array('d',ErrordummySys))
 	for i in range(len(dNsb)):
-		flux275.append((flxlimb[i]/dNsb[i])
-			*gRandom.PoissonD(dNsb[i])*(Eavgbin[i]**2.75)
-			*gErrorSys.Eval(Eavgbin[i],0,'S'))
+		flux275.append((flxlimb[i]/dNsb[i]*(Eavgbin[i]**2.75))*gRandom.PoissonD(dNsb[i])*gErrorSys.Eval(Eavgbin[i],0,'S'))
 	return flux275
 if __name__ == "__main__":
 	# Initialize model
@@ -81,7 +78,7 @@ if __name__ == "__main__":
 	foutput=open(modelname+namealgorithm+'Total.dat','w')
 	for i in range(number_simulation):
 		Flux275=[] # create global variable
-		Flux275=SimulateFlux(Flux275) # simulate new flux (Random Error stat.)
+		Flux275=SimulateFlux(Flux275) # simulate new flux (Random Error stat.+sys.)
 		Sim_Flux275=TGraph(50,array('d',Eavgbin),array('d',Flux275))
 		if mode==1: #SPLwHe
 			if fitalgorithm==1:
