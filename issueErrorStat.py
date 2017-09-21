@@ -65,7 +65,7 @@ if __name__ == "__main__":
 		namealgorithm='fmin'
 	if fitalgorithm==2:
 		namealgorithm='brute'
-	foutput=open(modelname+namealgorithm+'Stat.dat','w')
+	foutput=open(modelname+namealgorithm+'Separate'+'Stat.dat','w')
 	for i in range(number_simulation):
 		Flux275=[] # create variable
 		Flux275=SimulateFlux(Flux275) # simulate new flux (Random Error stat.)

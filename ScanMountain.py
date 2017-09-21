@@ -33,18 +33,19 @@ def SumlogPois(dummy):
 # initialize model
 os.system('gfortran SPLwHe.f frag.f -o test1.out')
 # gen data Limb
+#datlimb=np.genfromtxt('testdat.olo')
 datlimb=np.genfromtxt('alldat.olo')
 Eavgbin=datlimb[:,1]
-Flux275=datlimb[:,2]
+Flux=datlimb[:,2]
+Flux275=[]
+for i in range(50):
+    Flux275.append(Flux[i]*(Eavgbin[i]**2.75))
 g=TGraph(len(Eavgbin),array('d',Eavgbin),array('d',Flux275))
 # find bestfit
 trial=[10000.,2.849,2.716,336,0.00021]
-rangetrial=[slice(5000.,35000.,5000.),slice(2.5,3.1,0.1),slice(2.5,3.1,0.1),slice(200.,400.,20.),slice(0.0001,0.0003,0.0001)]
+#rangetrial=[slice(5000.,35000.,5000.),slice(2.5,3.1,0.1),slice(2.5,3.1,0.1),slice(200.,400.,20.),slice(0.0001,0.0003,0.0001)]
+rangetrial=[slice(5000.,35000.,5000.),slice(2.5,3.0,0.1),slice(2.5,3.0,0.5),slice(200.,400.,20.),slice(0.0001,0.0003,0.0001)]
 bestfit=fmin(SumlogPois,trial)
 fuck=brute(SumlogPois,rangetrial)
-print fuck
-print bestfit
-print SumlogPois(fuck)
-print SumlogPois(bestfit)
-bestfit=fmin(SumlogPois,fuck)
-print SumlogPois(bestfit)
+print 'fmin',bestfit,'SLPS=',SumlogPois(bestfit)
+print 'brute',fuck,'SLPS=',SumlogPois(fuck)

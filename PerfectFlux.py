@@ -84,20 +84,64 @@ for i in range(len(V)-1):
     #
     flxmap[i].Divide(cntmap[i],expmap)
     flxmap[i].Divide(flxmap[i],strmap)
+    flxmap[i].Scale(1./dE)
     # get flux value limb
     flxmap[i].GetXaxis().SetRangeUser(0.,360.)
     flxmap[i].GetYaxis().SetRangeUser(180.-Zmax,180.-Zmin)
-    flxvallimb.append(flxmap[i].Integral()/(dE))
+    flxvallimb.append(flxmap[i].Integral())
     # get flux value bg
     flxmap[i].GetXaxis().SetRangeUser(0.,360.)
     flxmap[i].GetYaxis().SetRangeUser(180.-Zbgmax,180.-Zbgmin)
-    flxvalbg.append(flxmap[i].Integral()/dE)
+    flxvalbg.append(flxmap[i].Integral())
     #
     dNsb[i]=dN[i]-dNbg[i]*((Zmin-Zmax)/(Zbgmin-Zbgmax)) # weight str bg ti str limb
     EavgdN[i]=EavgdN[i]/dN[i]
     EavgdNbg[i]=EavgdNbg[i]/dNbg[i]
     f1.write('%f %f %e %f %f %e\n'%(dNsb[i],EavgdN[i],flxvallimb[i],dNbg[i],EavgdNbg[i],flxvalbg[i]))
     # write count map in root file
+#####
+C=TCanvas('C','C',800,600)
+C.Divide(2,2)
+C.cd(1)
+gStyle.SetPalette(kRainBow)
+expmap=flxmap[0]
+expmap.SetStats(0)
+expmap.Draw('COLZ')
+expmap.GetXaxis().SetTitle('#phi (degree)')
+expmap.GetYaxis().SetTitle('#theta_{nadir} (degree)')
+expmap.GetYaxis().SetRangeUser(62.,80.)
+expmap.SetTitle('Flux map 10.000-10.965 GeV')
+C.cd(1).SetLogz()
+C.cd(2)
+expmap2=flxmap[12]
+expmap2.SetStats(0)
+expmap2.Draw('COLZ')
+expmap2.GetXaxis().SetTitle('#phi (degree)')
+expmap2.GetYaxis().SetTitle('#theta_{nadir} (degree)')
+expmap2.GetYaxis().SetRangeUser(62.,80.)
+expmap2.SetTitle('Flux map 30.200-33.113 GeV')
+C.cd(2).SetLogz()
+C.cd(3)
+expmap3=flxmap[24]
+expmap3.SetStats(0)
+expmap3.Draw('COLZ')
+expmap3.GetXaxis().SetTitle('#phi (degree)')
+expmap3.GetYaxis().SetTitle('#theta_{nadir} (degree)')
+expmap3.GetYaxis().SetRangeUser(62.,80.)
+expmap3.SetTitle('Flux map 91.201-100.000 GeV')
+C.cd(3).SetLogz()
+C.cd(4)
+expmap4=flxmap[49]
+expmap4.SetStats(0)
+expmap4.Draw('COLZ')
+expmap4.GetXaxis().SetTitle('#phi (degree)')
+expmap4.GetYaxis().SetTitle('#theta_{nadir} (degree)')
+expmap4.GetYaxis().SetRangeUser(62.,80.)
+expmap4.SetTitle('Flux map 912.011-1000.000 GeV')
+C.cd(4).SetLogz()
+raw_input()
+exit()
+#####
 # Close all file
 Fexpmap.Close()
 f1.close()
