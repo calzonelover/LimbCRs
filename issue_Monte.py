@@ -7,7 +7,7 @@ import os
 import sys
 global Filedat
 # my condition
-number_simulation=2000
+number_simulation=100
 simtype = 1# 1=Stat, 2=Tot
 mode=1 # 1=SPLwHe, 2=BPLwHe
 fitalgorithm=1 # 1=fmin,2=brute
@@ -76,36 +76,35 @@ if __name__ == "__main__":
 	os.system('gfortran %s frag.f -o test1.out' %(model))
 	# open dat file
 	Filedat=np.genfromtxt('alldat.olo')
-	Eavgbin, Flux_mea = Filedat[:,1], Filedat[:,2] # GOT Emidbin
+	Eavgbin, Flux_meas = Filedat[:,1], Filedat[:,2]# GOT Emidbin
+	Flux_meas = np.multiply(Flux_meas,np.power(Eavgbin,2.75))
     # open to write output parameters
 	if fitalgorithm==1:
 		namealgorithm='fmin'
 	if fitalgorithm==2:
 		namealgorithm='brute'
 	foutput=open(modelname+namealgorithm+'Total.dat','w')
+	Hist_Stat = []
+	Hist_Tot = []
+	for i in range(50):
+		Hist_Stat.append(TH1F('Stat%d'%i,'Stat%d'%i,50,float('%f'%(Flux_meas[i]*0.2)),float('%f'%(Flux_meas[i]*2.0))))
+		Hist_Tot.append(TH1F('Tot%d'%i,'Tot%d'%i,50,float('%f'%(Flux_meas[i]*0.2)),float('%f'%(Flux_meas[i]*2.0))))
+	# start simulation
 	for i in range(number_simulation):
 		Sim_stat = [] # create global variable
-        Sim_stat = Sim_Flux_Stat(Sim_stat)
+        Sim_stat = np.multiply(Sim_Flux_Stat(Sim_stat),np.power(Eavgbin,2.75))
         Sim_tot = []
-        Sim_tot = Sim_Flux_Tot(Sim_tot)
-        Hist_Sim = []
-        for i in range(50):
-            Hist_Sim = TH1F('H{}','H{}',50,'{}','{}') %()
-            Sim_stat[i], Sim_tot[i] = Sim_stat[i]*(Eavgbin[i]**2.75), Sim_tot[i]*(Eavgbin[i]**2.75)
-		Flux275=SimulateFlux(Flux275) # simulate new flux (Random Error stat.+sys.)
-        # let Simulation be a graph
-		Sim_Flux275=TGraph(50,array('d',Eavgbin),array('d',Flux275))
-        # fit section
-		#if mode==1: #SPLwHe
-		#	if fitalgorithm==1:
-		#		bestfit=fmin(SumlogPois,initialguesspar)
-		#	if fitalgorithm==2:
-		#		bestfit=brute(SumlogPois,rangetrial)
-		#if mode==2: #BPLwHe
-		#	if fitalgorithm==1:
-		#		bestfit=fmin(SumlogPois,initialguesspar)
-		#	if fitalgorithm==2:
-		#		bestfit=brute(SumlogPois,rangetrial)
-		#foutput.write('%f %f %f \n' %(bestfit[1],bestfit[2],bestfit[3]))
+        Sim_tot = np.multiply(Sim_Flux_Tot(Sim_tot),np.power(Eavgbin,2.75))
+        for j in range(50):
+            Hist_Stat[j].Fill(Sim_stat[j])
+			C=TCanvas('C','C',800,600)
+			raw_input()
+            Hist_Tot[j].Fill(Sim_tot[j])
+	File_Sim = TFile('Monte_Sim.root','RECREATE')
+	for i in range(50):
+		Hist_Stat[i].Write()
+		Hist_Tot[i].Write()
+	File_Sim.Close()
+
 # close dat file
 foutput.close()
