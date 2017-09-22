@@ -7,15 +7,17 @@ import os
 import sys
 global Filedat
 # my condition
-number_simulation=100
+number_simulation = 2
 simtype = 1# 1=Stat, 2=Tot
-mode=1 # 1=SPLwHe, 2=BPLwHe
-fitalgorithm=1 # 1=fmin,2=brute
+mode = 1 # 1=SPLwHe, 2=BPLwHe
+fitalgorithm = 1 # 1=fmin,2=brute
 # Resolution of hill (when use brute force)
 if mode==1:
-	rangetrial=[slice(5000.,35000.,5000.),slice(2.5,3.0,0.01),slice(2.5,3.0,0.5),slice(200.,400.,200.),slice(0.0001,0.0003,0.0001)]
+	rangetrial=[slice(5000.,35000.,5000.),slice(2.5,3.0,0.01),\
+		slice(2.5,3.0,0.5),slice(200.,400.,200.),slice(0.0001,0.0003,0.0001)]
 if mode==2:
-	rangetrial=[slice(5000.,35000.,5000.),slice(2.5,3.0,0.01),slice(2.5,3.0,0.01),slice(200.,400.,5.),slice(0.0001,0.0003,0.0001)]
+	rangetrial=[slice(5000.,35000.,5000.),slice(2.5,3.0,0.01),\
+	slice(2.5,3.0,0.01),slice(200.,400.,5.),slice(0.0001,0.0003,0.0001)]
 def Fluxcompute(A,gamma1,gamma2,Ebreak,normAll):
 	RunFlux='./test1.out %f %f %f %f %f'%(A,gamma1,gamma2,Ebreak,normAll)
 	os.system(RunFlux)
@@ -59,7 +61,8 @@ def Sim_Flux_Tot(flux275): # include
 	ErrordummySys.append(1.00+gRandom.Gaus(0,0.15))
 	gErrorSys=TGraph(3,array('d',EdummySys),array('d',ErrordummySys))
 	for i in range(len(dNsb)):
-		flux275.append((flxlimb[i]/dNsb[i]*(Eavgbin[i]**2.75))*gRandom.PoissonD(dNsb[i])*gErrorSys.Eval(Eavgbin[i],0,'S'))
+		flux275.append((flxlimb[i]/dNsb[i]*(Eavgbin[i]**2.75))\
+			*gRandom.PoissonD(dNsb[i])*gErrorSys.Eval(Eavgbin[i],0,'S'))
 	return flux275
 if __name__ == "__main__":
 	# Initialize model
@@ -76,7 +79,7 @@ if __name__ == "__main__":
 	os.system('gfortran %s frag.f -o test1.out' %(model))
 	# open dat file
 	Filedat=np.genfromtxt('alldat.olo')
-	Eavgbin, Flux_meas = Filedat[:,1], Filedat[:,2]# GOT Emidbin
+	Eavgbin, Flux_meas = Filedat[:,1], Filedat[:,2]
 	Flux_meas = np.multiply(Flux_meas,np.power(Eavgbin,2.75))
     # open to write output parameters
 	if fitalgorithm==1:
@@ -87,19 +90,24 @@ if __name__ == "__main__":
 	Hist_Stat = []
 	Hist_Tot = []
 	for i in range(50):
-		Hist_Stat.append(TH1F('Stat%d'%i,'Stat%d'%i,50,float('%f'%(Flux_meas[i]*0.2)),float('%f'%(Flux_meas[i]*2.0))))
-		Hist_Tot.append(TH1F('Tot%d'%i,'Tot%d'%i,50,float('%f'%(Flux_meas[i]*0.2)),float('%f'%(Flux_meas[i]*2.0))))
-	# start simulation
+		Hist_Stat.append(TH1F('Stat%d'%i,'Stat%d'%i,50,\
+			float('%f'%(Flux_meas[i]*0.2)),float('%f'%(Flux_meas[i]*2.0))))
+		Hist_Tot.append(TH1F('Tot%d'%i,'Tot%d'%i,50,\
+			float('%f'%(Flux_meas[i]*0.2)),float('%f'%(Flux_meas[i]*2.0))))
 	for i in range(number_simulation):
-		Sim_stat = [] # create global variable
+		Sim_stat = []
         Sim_stat = np.multiply(Sim_Flux_Stat(Sim_stat),np.power(Eavgbin,2.75))
         Sim_tot = []
         Sim_tot = np.multiply(Sim_Flux_Tot(Sim_tot),np.power(Eavgbin,2.75))
+		print Sim_stat,Sim_tot
         for j in range(50):
             Hist_Stat[j].Fill(Sim_stat[j])
-			C=TCanvas('C','C',800,600)
-			raw_input()
             Hist_Tot[j].Fill(Sim_tot[j])
+	## try anyfuck
+	C = TCanvas('C','C',800,600)
+	Hist_Stat[0].Draw()
+	raw_input()
+	## TRY anyfuck
 	File_Sim = TFile('Monte_Sim.root','RECREATE')
 	for i in range(50):
 		Hist_Stat[i].Write()

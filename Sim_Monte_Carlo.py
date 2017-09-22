@@ -12,10 +12,29 @@ simtype = 1# 1=Stat, 2=Tot
 mode=1 # 1=SPLwHe, 2=BPLwHe
 fitalgorithm=1 # 1=fmin,2=brute
 # Resolution of hill (when use brute force)
-if mode==1:
-	rangetrial=[slice(5000.,35000.,5000.),slice(2.5,3.0,0.01),slice(2.5,3.0,0.5),slice(200.,400.,200.),slice(0.0001,0.0003,0.0001)]
-if mode==2:
-	rangetrial=[slice(5000.,35000.,5000.),slice(2.5,3.0,0.01),slice(2.5,3.0,0.01),slice(200.,400.,5.),slice(0.0001,0.0003,0.0001)]
+def setting(simtype,mode,fitalgorithm):
+	# initial guess parameters
+	if mode==1:
+		modelname='SPLwHe'
+		model='SPLwHe.f'
+		# came from brute force
+		initialguesspar=[25247.9912,2.65232725,2.57566350,90.1658378,0.000271940836]
+	if mode==2:
+		modelname='BPLwHe'
+		model='BPLwHe.f'
+		# came from brute force
+		initialguesspar=[72287.4,2.7916925,2.60771950,349.226419,0.000197465908]
+	# rangetrial
+	if mode==1:
+		rangetrial=[slice(5000.,35000.,5000.),slice(2.5,3.0,0.01),slice(2.5,3.0,0.5),slice(200.,400.,200.),slice(0.0001,0.0003,0.0001)]
+	if mode==2:
+		rangetrial=[slice(5000.,35000.,5000.),slice(2.5,3.0,0.01),slice(2.5,3.0,0.01),slice(200.,400.,5.),slice(0.0001,0.0003,0.0001)]
+    # just name of fit algorithm
+	if fitalgorithm==1:
+		namealgorithm='fmin'
+	if fitalgorithm==2:
+		namealgorithm='brute'
+	return initialguesspar,rangetrial,namealgorithm
 def Fluxcompute(A,gamma1,gamma2,Ebreak,normAll):
 	RunFlux='./test1.out %f %f %f %f %f'%(A,gamma1,gamma2,Ebreak,normAll)
 	os.system(RunFlux)
@@ -62,26 +81,12 @@ def Sim_Flux_Tot(flux275): # include
 		flux275.append((flxlimb[i]/dNsb[i]*(Eavgbin[i]**2.75))*gRandom.PoissonD(dNsb[i])*gErrorSys.Eval(Eavgbin[i],0,'S'))
 	return flux275
 if __name__ == "__main__":
-	# Initialize model
-	if mode==1:
-		modelname='SPLwHe'
-		model='SPLwHe.f'
-		# came from brute force
-		initialguesspar=[25247.9912,2.65232725,2.57566350,90.1658378,0.000271940836]
-	if mode==2:
-		modelname='BPLwHe'
-		model='BPLwHe.f'
-		# came from brute force
-		initialguesspar=[72287.4,2.7916925,2.60771950,349.226419,0.000197465908]
+	# setting simulation
+	initialguesspar,rangetrial,namealgorithm = setting(simytpe, mode, fitalgorithm)
 	os.system('gfortran %s frag.f -o test1.out' %(model))
 	# open dat file
 	Filedat=np.genfromtxt('alldat.olo')
 	Eavgbin=Filedat[:,1] # GOT Emidbin
-    # open to write output parameters
-	if fitalgorithm==1:
-		namealgorithm='fmin'
-	if fitalgorithm==2:
-		namealgorithm='brute'
 	foutput=open(modelname+namealgorithm+'Total.dat','w')
 	for i in range(number_simulation):
 		Flux275=[] # create global variable
