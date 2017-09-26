@@ -7,11 +7,20 @@ import os
 import sys
 global Filedat
 # my condition
-number_simulation=2000
+number_simulation=2
 simtype = 1# 1=Stat, 2=Tot
 mode=1 # 1=SPLwHe, 2=BPLwHe
 fitalgorithm=1 # 1=fmin,2=brute
 # Resolution of hill (when use brute force)
+def def_Hist_Sys_Stat(Flux275_mea):
+    Hist_Stat = []
+    Hist_Tot = []
+    for i in range(len(Eavgbin)):
+        Hist_Stat.append(TH1F('Stat%d'%i,'Stat%d'%i,len(Flux275_mea)\
+            ,Flux275_mea[i]*0.2,Flux275_mea[i]*2.0))
+        Hist_Tot.append(TH1F('Tot%d'%i,'Tot%d'%i,len(Flux275_mea)\
+            ,Flux275_mea[i]*0.2,Flux275_mea[i]*2.0))
+    return Hist_Stat, Hist_Tot
 def setting(simtype,mode,fitalgorithm):
 	# initial guess parameters
 	if mode==1:
@@ -34,7 +43,7 @@ def setting(simtype,mode,fitalgorithm):
 		namealgorithm='fmin'
 	if fitalgorithm==2:
 		namealgorithm='brute'
-	return initialguesspar,rangetrial,namealgorithm, model
+	return initialguesspar,rangetrial,namealgorithm,model
 def Fluxcompute(A,gamma1,gamma2,Ebreak,normAll):
 	RunFlux='./test1.out %f %f %f %f %f'%(A,gamma1,gamma2,Ebreak,normAll)
 	os.system(RunFlux)
@@ -58,13 +67,14 @@ def SumlogPois(dummy):
 		if TMath.Poisson(measurement,model)!=0:
 			sumlogpois+=-log(TMath.Poisson(measurement,model))
 	return sumlogpois
-def Sim_Flux_Stat(flux275): # Simlate Random count (Stat. err.)
+def Sim_Flux_Stat(flux275, Filedat): # Simlate Random count (Stat. err.)
 	flux275=[]
 	dNsb,Eavgbin,flxlimb=Filedat[:,0],Filedat[:,1],Filedat[:,2]
 	for i in range(len(dNsb)):
-		flux275.append((flxlimb[i]/dNsb[i]*(Eavgbin[i]**2.75))*gRandom.PoissonD(dNsb[i]))
+		flux275.append((flxlimb[i]/dNsb[i]*(Eavgbin[i]**2.75))\
+            *gRandom.PoissonD(dNsb[i]))
 	return flux275
-def Sim_Flux_Tot(flux275): # include
+def Sim_Flux_Tot(flux275, Filedat): # include
 	flux275=[]
 	dNsb,Eavgbin,flxlimb=Filedat[:,0],Filedat[:,1],Filedat[:,2]
 	# sim systematic distortion curve
@@ -78,37 +88,33 @@ def Sim_Flux_Tot(flux275): # include
 	ErrordummySys.append(1.00+gRandom.Gaus(0,0.15))
 	gErrorSys=TGraph(3,array('d',EdummySys),array('d',ErrordummySys))
 	for i in range(len(dNsb)):
-		flux275.append((flxlimb[i]/dNsb[i]*(Eavgbin[i]**2.75))*gRandom.PoissonD(dNsb[i])*gErrorSys.Eval(Eavgbin[i],0,'S'))
+		flux275.append((flxlimb[i]/dNsb[i]*(Eavgbin[i]**2.75))\
+            *gRandom.PoissonD(dNsb[i])*gErrorSys.Eval(Eavgbin[i],0,'S'))
 	return flux275
-if __name__ == '__main__':
+if __name__ == "__main__":
 	# setting simulation
-	initialguesspar, rangetrial, namealgorithm, model = setting(simytype, mode, fitalgorithm)
+	initialguesspar,rangetrial,namealgorithm,model = setting(simytpe, mode, fitalgorithm)
 	os.system('gfortran %s frag.f -o test1.out' %(model))
 	# open dat file
 	Filedat=np.genfromtxt('alldat.olo')
-	Eavgbin=Filedat[:,1] # GOT Emidbin
-	foutput=open(modelname+namealgorithm+'Total.dat','w')
+	Eavgbin, Flux_mea = Filedat[:,1], Filedat[:,2]
+    Flux275_mea = np.multiply(Flux_mea,np.power(Eavgbin,2.75))
+	# define histogram to collect simulation
+    Hist_Stat, Hist_Tot = def_Hist_Sys_Stat(Flux275_mea)
+    # start simulation
 	for i in range(number_simulation):
 		Flux275=[] # create global variable
-        # choose Simulation type
-        if simtype == 1:
-            Flux275 = Sim_Flux_Stat(Flux275)
-        if simtype == 2:
-            Flux275 = Sim_Flux_Tot(Flux275)
-		Flux275=SimulateFlux(Flux275) # simulate new flux (Random Error stat.+sys.)
-        # let Simulation be a graph
-		Sim_Flux275=TGraph(50,array('d',Eavgbin),array('d',Flux275))
-        # fit section
-		if mode==1: #SPLwHe
-			if fitalgorithm==1:
-				bestfit=fmin(SumlogPois,initialguesspar)
-			if fitalgorithm==2:
-				bestfit=brute(SumlogPois,rangetrial)
-		if mode==2: #BPLwHe
-			if fitalgorithm==1:
-				bestfit=fmin(SumlogPois,initialguesspar)
-			if fitalgorithm==2:
-				bestfit=brute(SumlogPois,rangetrial)
-		foutput.write('%f %f %f \n' %(bestfit[1],bestfit[2],bestfit[3]))
-# close dat file
-foutput.close()
+        # Track Stat
+        Flux275_Stat = Sim_Flux_Stat(Flux275, Filedat)
+        for j in range(len(Flux275)):
+            Hist_Stat[j].Fill(Flux275_Stat[j])
+        # Track Tot
+        Flux275_Tot = Sim_Flux_Tot(Flux275, Filedat)
+        for j in range(len(Flux275)):
+            Hist_Tot[j].Fill(Flux275_Tot[j])
+        # save to root file
+        File_Hist = TFile('Monte_Sim.root','RECREATE')
+        for j in range(len(Hist_Stat)):
+            Hist_Stat[j].Write()
+            Hist_Tot[j].Write()
+        File_Hist.Close()
