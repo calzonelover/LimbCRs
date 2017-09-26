@@ -17,7 +17,7 @@ if mode==1:
 		slice(2.5,3.0,0.5),slice(200.,400.,200.),slice(0.0001,0.0003,0.0001)]
 if mode==2:
 	rangetrial=[slice(5000.,35000.,5000.),slice(2.5,3.0,0.01),\
-	slice(2.5,3.0,0.01),slice(200.,400.,5.),slice(0.0001,0.0003,0.0001)]
+		slice(2.5,3.0,0.01),slice(200.,400.,5.),slice(0.0001,0.0003,0.0001)]
 def Fluxcompute(A,gamma1,gamma2,Ebreak,normAll):
 	RunFlux='./test1.out %f %f %f %f %f'%(A,gamma1,gamma2,Ebreak,normAll)
 	os.system(RunFlux)
