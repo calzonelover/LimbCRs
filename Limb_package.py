@@ -109,7 +109,7 @@ def write_sim_to_ROOTFile(Hist_Stat, Hist_Tot, name_f_root):
         Hist_Stat[j].Write()
         Hist_Tot[j].Write()
     F_ROOT.Close() 
-def Flux_to_Flux275(Eavgbin,Flux):
+def Flux_to_Flux275(Eavgbin, Flux):
     return np.multiply(Flux,np.power(Eavgbin,2.75))
 
 
