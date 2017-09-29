@@ -14,9 +14,9 @@ def def_Hist_Sys_Stat(f_dat_mea):# define histogram with mean is Flux*E^2.75
     Hist_Stat = []
     Hist_Tot = []
     for i in range(len(Flux_mea)):
-        Hist_Stat.append(TH1F('Stat%d'%i,'Stat%d'%i,len(Flux275_mea)\
+        Hist_Stat.append(TH1F('Stat%d'%i,'Stat%d'%i,100\
             ,Flux275_mea[i]*0.2,Flux275_mea[i]*2.0))
-        Hist_Tot.append(TH1F('Tot%d'%i,'Tot%d'%i,len(Flux275_mea)\
+        Hist_Tot.append(TH1F('Tot%d'%i,'Tot%d'%i,100\
             ,Flux275_mea[i]*0.2,Flux275_mea[i]*2.0))
     return Hist_Stat, Hist_Tot
 
@@ -44,7 +44,11 @@ def setting(simtype,mode,fitalgorithm): # setting
 		namealgorithm='fmin'
 	if fitalgorithm==2:
 		namealgorithm='brute'
-	return initialguesspar,rangetrial,namealgorithm,model
+	if simtype == 1:
+	    simname = 'Stat'
+	if simtype == 2:
+	    simname = 'Total'
+	return initialguesspar,rangetrial,namealgorithm,model,modelname,simname
 
 def init_model(model):
 	os.system('gfortran %s frag.f -o test1.out' %(model))
@@ -53,32 +57,41 @@ def Fluxcompute(A,gamma1,gamma2,Ebreak,normAll):
 	RunFlux='./test1.out %f %f %f %f %f'%(A,gamma1,gamma2,Ebreak,normAll)
 	os.system(RunFlux)
 
-def SumlogPois(dummy):
-    # get measured data
-    Filedat = np.genfromtxt(f_dat_mea) # f_dat_mea should be 'alldat.olo'
-	# get parameter
-	A = dummy[0]
-	gamma1 = dummy[1]
-	gamma2 = Ebreak[2]
-	Ebreak = dummy[3]
-	normAll = dummy[4]
-	# simulation (in gfortran)
-	Fluxcompute(A,gamma1,gamma2,Ebreak,normAll)
-	# get data from measurement
-	E_mea, F_mea = Filedat[:,1], Filedat[:,2]
-	gF_mea = TGraph(len(E_mea), array('d',E_mea), array('d',F_mea))
-	# get data from simulation
-	dat_sim = np.genfromtxt(Filedat)
-	x, y = data_sim[:,0], data_sim[:,1]
-	sumlogpois = 0.
-	for i in range(len(x)):
-		measurement = gF_mea.Eval(x[i])
-		model = y[i]
-		if TMath.Poisson(measurement,model) == 0:
-			sumlogpois += 308.
-		if TMath.Poisson(measurement,model) != 0:
-			sumlogpois += -log(TMath.Poisson(measurement,model))
-	return sumlogpois
+def Let_xy_to_TGraph(x, y): # note that x,y should be an array
+    return TGraph(len(x), array('d',x), array('d',y))
+
+def get_simulation(remember):
+	return remember.gFlux_sim
+
+class deal_simulation:
+    def __init__(self, Eavgbin, flux_sim):
+        self.Eavgbin = Eavgbin
+        self.flux_sim = flux_sim
+        self.gFlux_sim = TGraph(len(Eavgbin), array('d', Eavgbin), array('d', flux_sim))
+        self.f_dat_model = '0.dat'
+    def SumlogPois(self, dummy): # g_sim = TGraph from simulation
+        # get measured data
+        gFlux_mea = self.gFlux_sim
+        # get parameter
+        A = dummy[0]
+        gamma1 = dummy[1]
+        gamma2 = dummy[2]
+        Ebreak = dummy[3]
+        normAll = dummy[4]
+        # let model compute (in gfortran)
+        Fluxcompute(A,gamma1,gamma2,Ebreak,normAll)
+        # get data from simulation
+        dat_model = np.genfromtxt(self.f_dat_model)
+        x, y = dat_model[:,0], dat_model[:,1]
+        sumlogpois = 0.
+        for i in range(len(x)):
+            measurement = gFlux_mea.Eval(x[i])
+            model = y[i]
+            if TMath.Poisson(measurement,model) == 0:
+                sumlogpois += 308.
+            if TMath.Poisson(measurement,model) != 0:
+                sumlogpois += -log(TMath.Poisson(measurement,model))
+        return sumlogpois
 
 def Sim_Flux_Stat(f_dat_mea):
     Filedat = np.genfromtxt(f_dat_mea)
@@ -114,8 +127,10 @@ def write_sim_to_ROOTFile(Hist_Stat, Hist_Tot, name_f_root):
     F_ROOT.Close() 
 def Flux_to_Flux275(Eavgbin, Flux):
     return np.multiply(Flux,np.power(Eavgbin,2.75))
+
 def ScanMountain(f_dat_mea, mode): # mode 1 SPL 2 BPL
     # to scan let it brute
+    simtype = 2 # it this function it has no meaning
     fitalgorithm = 2
 	# get parameter
     initialguesspar, rangetrial, namealgorithm, model = setting(simtype, mode, fitalgorithm)
