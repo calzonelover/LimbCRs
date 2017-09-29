@@ -53,7 +53,9 @@ def Fluxcompute(A,gamma1,gamma2,Ebreak,normAll):
 	RunFlux='./test1.out %f %f %f %f %f'%(A,gamma1,gamma2,Ebreak,normAll)
 	os.system(RunFlux)
 
-def SumlogPois(dummy, Filedat):
+def SumlogPois(dummy):
+    # get measured data
+    Filedat = np.genfromtxt(f_dat_mea) # f_dat_mea should be 'alldat.olo'
 	# get parameter
 	A = dummy[0]
 	gamma1 = dummy[1]
@@ -112,13 +114,18 @@ def write_sim_to_ROOTFile(Hist_Stat, Hist_Tot, name_f_root):
     F_ROOT.Close() 
 def Flux_to_Flux275(Eavgbin, Flux):
     return np.multiply(Flux,np.power(Eavgbin,2.75))
-def ScanMountain(f_dat_mea, mode):
+def ScanMountain(f_dat_mea, mode): # mode 1 SPL 2 BPL
+    # to scan let it brute
+    fitalgorithm = 2
+	# get parameter
     initialguesspar, rangetrial, namealgorithm, model = setting(simtype, mode, fitalgorithm)
     # init model
     init_model(model)
-    return 
-
-
+    # get measured data
+    dat_mea = np.genfromtxt(f_dat_mea)
+    Eavgbin, Flux = dat_mea[:,1], dat_mea[:,2]
+    bestfit = brute(SumlogPois, rangetrial)
+    return 'bestfit',bestfit
 
 
 
