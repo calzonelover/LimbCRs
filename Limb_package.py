@@ -1,3 +1,4 @@
+
 from ROOT import *
 from math import *
 from array import *
@@ -111,6 +112,23 @@ def write_sim_to_ROOTFile(Hist_Stat, Hist_Tot, name_f_root):
     F_ROOT.Close() 
 def Flux_to_Flux275(Eavgbin, Flux):
     return np.multiply(Flux,np.power(Eavgbin,2.75))
+def ScanMountain(f_dat_mea, mode):
+    initialguesspar, rangetrial, namealgorithm, model = setting(simtype, mode, fitalgorithm)
+    # init model
+    init_model(model)
+    return 
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

@@ -6,6 +6,42 @@ simtype = 1# 1=Stat, 2=Tot
 mode = 1 # 1=SPLwHe, 2=BPLwHe
 fitalgorithm = 1 # 1=fmin,2=brute
 f_dat_mea = 'alldat.olo'
+
+if __name__ == '__main__':
+    # setting
+    initialguesspar, rangetrial, namealgorithm, model = setting(simtype, mode, fitalgorithm)
+    # initialize model
+    init_model(model)
+    # get Eavgbin from measurement
+    Eavgbin = np.genfromtxt(f_dat_mea)[:,1]
+    # open dat file
+    Hist_Stat, Hist_Tot = def_Hist_Sys_Stat(f_dat_mea)
+    # open output file
+    foutput = open(modelname+namealgorithm+'Total.dat','w')
+    for i in range(n_simulation):
+        # Simulation
+        if simtype == 1:
+            flux_sim = Sim_Flux_Stat(f_dat_mea)
+        if simtype == 2:
+            flux_sim = Sim_Flux_Tot(f_dat_mea)
+        # fit section
+        if fitalgorithm ==1:
+            bestfit = fmin(SumlogPois,initialguesspar)
+        if fitalgorithm == 2:
+            bestfit = brute(SumlogPois,rangetrial)
+        foutput.write('%f %f %f \n' %(bestfit[1],bestfit[2],bestfit[3]))
+# close dat file
+foutput.close()
+
+'''  ###  plot simulation section   ###
+from Limb_package import *
+
+# condition
+n_simulation = 2000
+simtype = 1# 1=Stat, 2=Tot
+mode = 1 # 1=SPLwHe, 2=BPLwHe
+fitalgorithm = 1 # 1=fmin,2=brute
+f_dat_mea = 'alldat.olo'
 if __name__ == '__main__':
     # setting
     initialguesspar, rangetrial, namealgorithm, model = setting(simtype, mode, fitalgorithm)
@@ -29,3 +65,4 @@ if __name__ == '__main__':
     flux_tot = []
     flux = Sim_Flux_Tot(flux_tot, 'alldat.olo')
     print flux
+'''
