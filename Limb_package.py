@@ -38,7 +38,7 @@ def setting(simtype,mode,fitalgorithm): # setting
 			,slice(2.5,3.0,0.5),slice(200.,400.,200.),slice(0.0001,0.0003,0.0001)]
 	if mode==2:
 		rangetrial=[slice(5000.,35000.,5000.),slice(2.5,3.0,0.01)\
-			,slice(2.5,3.0,0.01),slice(200.,400.,5.),slice(0.0001,0.0003,0.0001)]
+			,slice(2.5,3.0,0.01),slice(200.,400.,10.),slice(0.0001,0.0003,0.0001)]
     # just name of fit algorithm
 	if fitalgorithm==1:
 		namealgorithm='fmin'

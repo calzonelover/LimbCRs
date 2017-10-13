@@ -3,9 +3,9 @@ from Limb_package import *
 
 # condition
 n_simulation = 2000
-simtype = 1# 1=Stat, 2=Tot
-mode = 1 # 1=SPLwHe, 2=BPLwHe
-fitalgorithm = 1 # 1=fmin,2=brute
+simtype = 1 # 1=Stat, 2=Tot
+mode = 2 # 1=SPLwHe, 2=BPLwHe
+fitalgorithm = 2 # 1=fmin,2=brute
 f_dat_mea = 'alldat.olo'
 
 if __name__ == '__main__':
@@ -25,6 +25,7 @@ if __name__ == '__main__':
             flux_sim = Sim_Flux_Stat(f_dat_mea)
         if simtype == 2:
             flux_sim = Sim_Flux_Tot(f_dat_mea)
+        flux_sim = np.genfromtxt(f_dat_mea)[:,2] ####
         # let boss do it
         boss = deal_simulation(Eavgbin, flux_sim)
         # fit section
@@ -32,6 +33,8 @@ if __name__ == '__main__':
             bestfit = fmin(boss.SumlogPois, initialguesspar)
         if fitalgorithm == 2:
             bestfit = brute(boss.SumlogPois, rangetrial)
+        print bestfit ####
+        exit() ####
         foutput.write('%f %f %f \n' %(bestfit[1],bestfit[2],bestfit[3]))
 # close dat file
 foutput.close()
