@@ -64,9 +64,11 @@ def get_simulation(remember):
 	return remember.gFlux_sim
 
 class deal_simulation:
-    def __init__(self, Eavgbin, flux_sim):
+    def __init__(self,count_bin, Eavgbin, flux_sim):
+        self.mea_count_bin = count_bin
         self.Eavgbin = Eavgbin
         self.flux_sim = flux_sim
+        self.exp_val_bin = np.divide(self.flux_sim,self.mea_count_bin) # Defined count_bin * exp_val_bin = flux_bin
         self.gFlux_sim = TGraph(len(Eavgbin), array('d', Eavgbin), array('d', flux_sim))
         self.f_dat_model = '0.dat'
     def SumlogPois(self, dummy): # g_sim = TGraph from simulation
@@ -82,15 +84,19 @@ class deal_simulation:
         Fluxcompute(A,gamma1,gamma2,Ebreak,normAll)
         # get data from simulation
         dat_model = np.genfromtxt(self.f_dat_model)
-        x, y = dat_model[:,0], dat_model[:,1]
+        E_model, Flux_model = dat_model[:,0], dat_model[:,1]
         sumlogpois = 0.
-        for i in range(len(x)):
-            measurement = gFlux_mea.Eval(x[i])
-            model = y[i]
-            if TMath.Poisson(measurement,model) == 0:
+        for i in range(len(E_model)):
+            flux_measurement = gFlux_mea.Eval(E_model[i])
+            count_i_measurement = flux_measurement/self.exp_val_bin[i]
+            count_i_model = Flux_model[i]/self.exp_val_bin[i]
+            print self.mea_count_bin
+            print np.divide(Flux_model, self.E)
+            exit()
+            if TMath.Poisson(count_i_measurement, count_i_model) == 0:
                 sumlogpois += 308.
             if TMath.Poisson(measurement,model) != 0:
-                sumlogpois += -log(TMath.Poisson(measurement,model))
+                sumlogpois += -log(TMath.Poisson(count_i_measurement,count_i_model))
         return sumlogpois
 
 def Sim_Flux_Stat(f_dat_mea):

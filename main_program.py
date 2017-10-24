@@ -4,17 +4,18 @@ from Limb_package import *
 # condition
 n_simulation = 2000
 simtype = 1 # 1=Stat, 2=Tot
-mode = 2 # 1=SPLwHe, 2=BPLwHe
+mode = 1 # 1=SPLwHe, 2=BPLwHe
 fitalgorithm = 2 # 1=fmin,2=brute
 f_dat_mea = 'alldat.olo'
 
 if __name__ == '__main__':
     # setting
-    initialguesspar, rangetrial, namealgorithm, model, modelname,simname = setting(simtype, mode, fitalgorithm)
+    initialguesspar, rangetrial, namealgorithm, model,\
+         modelname,simname = setting(simtype, mode, fitalgorithm)
     # initialize model
     init_model(model)
     # get Eavgbin from measurement
-    Eavgbin = np.genfromtxt(f_dat_mea)[:,1]
+    count_bin, Eavgbin = np.genfromtxt(f_dat_mea)[:,0], np.genfromtxt(f_dat_mea)[:,1]
     # open dat file
     Hist_Stat, Hist_Tot = def_Hist_Sys_Stat(f_dat_mea)
     # open output file
@@ -25,9 +26,9 @@ if __name__ == '__main__':
             flux_sim = Sim_Flux_Stat(f_dat_mea)
         if simtype == 2:
             flux_sim = Sim_Flux_Tot(f_dat_mea)
-        flux_sim = np.genfromtxt(f_dat_mea)[:,2] ####
+        #flux_sim = np.genfromtxt(f_dat_mea)[:,2] ####
         # let boss do it
-        boss = deal_simulation(Eavgbin, flux_sim)
+        boss = deal_simulation(count_bin, Eavgbin, flux_sim)
         # fit section
         if fitalgorithm ==1:
             bestfit = fmin(boss.SumlogPois, initialguesspar)
