@@ -46,7 +46,7 @@
       dlEp=log(10.0)*(1.0/Nbinsp)
       do i=lEming,(Nbinsg*(lEmaxg-lEming))+1
        Eg=10.0**(lEming+((i-1.0)/Nbinsg))
-       print *, i, Eg
+       print *, Eg
        y=0
        do j=lEminp,(Nbinsp*(lEmaxp-lEminp))+1
         Ep=(10.0)**(lEminp+((j-1.0)/Nbinsp))

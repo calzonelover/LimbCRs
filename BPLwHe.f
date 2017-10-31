@@ -30,7 +30,7 @@
       Nbinsg=50
       lEming=1
       lEmaxg=3
-      Nbinsp=50
+      Nbinsp=100
       lEminp=1
       lEmaxp=6
 ! test multiple file

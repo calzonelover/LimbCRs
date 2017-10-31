@@ -90,8 +90,8 @@ class deal_simulation:
             flux_measurement = gFlux_mea.Eval(E_model[i])
             count_i_measurement = flux_measurement/self.exp_val_bin[i]
             count_i_model = Flux_model[i]/self.exp_val_bin[i]
-            print self.mea_count_bin
-            print np.divide(Flux_model, self.E)
+            print self.mea_count_bin[i]
+            print Flux_model[0]/self.exp_val_bin[0]
             exit()
             if TMath.Poisson(count_i_measurement, count_i_model) == 0:
                 sumlogpois += 308.
