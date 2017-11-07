@@ -30,7 +30,7 @@
       Nbinsg=50
       lEming=1
       lEmaxg=3
-      Nbinsp=100
+      Nbinsp=1000
       lEminp=1
       lEmaxp=6
 ! consequently from Eg=10**(c_a+c_b*i) !!!!
@@ -80,8 +80,7 @@
          frac=sigmafrac*dNHedR*(1.0/dNHdR)*2.0
          factorHe=1.0+frac
          !!
-         sum=(Ep/Eg)*powerlaw*fff*dlEp*factorHe
-         y=y+sum
+         y=y+(Ep/Eg)*powerlaw*fff*dlEp*factorHe
         endif
        enddo
        write(2,*) Eg,y*normAll
