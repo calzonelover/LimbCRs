@@ -9,6 +9,8 @@ import numpy as np
 ### mode theta = 62.10
 theta_fix = 62.10
 livetime = 70761348.6153
+Zmin=110.0 # nadir 70.0
+Zmax=111.6 # nadir 68.4
 
 # setting Aeff factory
 pyIrfLoader.Loader_go()
@@ -26,18 +28,41 @@ ev.Add('finaltree.root')
 oV=[(10**((float(i)/25)+1)) for i in range(51)]
 V=array('d',oV)
 # graph
+cntmap = TH1F('cntmap', 'cntmap', len(V)-1, V)
 Eff0 = TH1F('Eff0', '#phi = 0', len(V)-1, V) # phi 0
+'''
 Eff1 = TH1F('Eff1', '#phi = 45', len(V)-1, V) # phi 45
 Eff2 = TH1F('Eff2', '#phi = 180', len(V)-1, V) # phi 180
 Eff3 = TH1F('Eff3', '#phi = 275', len(V)-1, V) # phi 275
-
+'''
+# Declare variable
+dN = []
+EavgdN = []
+for i in range(50):
+	dN.append(0)
+	EavgdN.append(0)
+# for fill event
+for event in ev:
+	if np.searchsorted(V,event.ENERGY)>0 and np.searchsorted(V,event.ENERGY)<51: # select photon range (10,1000)
+		if event.EVENTS % 10000 == 0:
+			print(event.EVENTS, event.ENERGY)
+		if event.ZENITH>Zmin and event.ZENITH<Zmax and event.THETA<70.:
+			cntmap.Fill(event.ENERGY)
+			dN[np.searchsorted(V,event.ENERGY)-1]+=1.
+			EavgdN[np.searchsorted(V,event.ENERGY)-1]+=event.ENERGY
 # check Aeff
 for i in range(50):
 	i = i+1 # start from 0 => 1
 	Ebin_i =  Eff0.GetBinLowEdge(i)+Eff0.GetBinWidth(i)/2.
 	Ebin_i = Ebin_i*1000.0 # MeV => GeV
-	Aeff_i = ((aeff_f.value(Ebin_i,theta_fix,0.)+aeff_b.value(Ebin_i,theta_fix,30.0)))/10000.
+	Aeff_i = ((aeff_f.value(Ebin_i,theta_fix,0.)+aeff_b.value(Ebin_i,theta_fix,30.0)))/10000. # cm^2 -> m^2
 	Eff0.SetBinContent(i, Aeff_i)
+	cntbin_i = dN[i-1]
+	Eavgbin_i = EavgdN[i-1]/cntbin_i
+	print Eavgbin_i
+	cntmap.SetBinContent(i, cntbin_i/Aeff_i/livetime*(Eavgbin_i**2.75))
+print V
+'''
 	#### 
 	Aeff_i1 = ((aeff_f.value(Ebin_i,theta_fix,45.)+aeff_b.value(Ebin_i,theta_fix,45.0)))/10000.
 	Eff1.SetBinContent(i, Aeff_i1)
@@ -46,19 +71,14 @@ for i in range(50):
 	Aeff_i3 = ((aeff_f.value(Ebin_i,theta_fix,275.)+aeff_b.value(Ebin_i,theta_fix,275.0)))/10000.
 	Eff3.SetBinContent(i, Aeff_i3)
 	####
-
-''' # for fill event
-for event in ev:
-	#print event.EVENTS
-	Eff0.Fill()
-	#if event.EVENTS == 1000:
-	#	break
 '''
 
 C = TCanvas('C','C',800,600)
 C.SetLogx()
 C.SetLogy()
 C.SetGrid()
+cntmap.Draw()
+'''
 #gPad.SetGrid()
 Eff0.GetXaxis().SetTitle('E (GeV)')
 Eff0.GetYaxis().SetTitle('Effective area (m^{2})')
@@ -72,5 +92,6 @@ Eff3.SetLineColor(8)
 Eff3.Draw('same')
 C.BuildLegend()
 Eff0.SetTitle('Effective area')
+'''
 
 raw_input()
