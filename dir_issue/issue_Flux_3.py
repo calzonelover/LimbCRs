@@ -8,15 +8,16 @@ import numpy as np
 # approximate value
 ### mode theta = 62.10
 theta_fix = 62.10
-livetime = 70761348.6153
+livetime = 5294102.3631 # 70761348.6153
 Zmin=110.0 # nadir 70.0
 Zmax=111.6 # nadir 68.4
+solidangle=(cos(Zmin*(pi/180.))-cos(Zmax*(pi/180.)))*(2.*pi)
 
 # setting Aeff factory
 pyIrfLoader.Loader_go()
 myFactory = pyIrfLoader.IrfsFactory_instance()
-irfs_f = myFactory.create("P8R2_SOURCE_V6::FRONT")
-irfs_b = myFactory.create("P8R2_SOURCE_V6::BACK")
+irfs_f = myFactory.create("P8R2_ULTRACLEANVETO_V6::FRONT")
+irfs_b = myFactory.create("P8R2_ULTRACLEANVETO_V6::BACK")
 aeff_f = irfs_f.aeff()
 aeff_b = irfs_b.aeff()
 
@@ -44,9 +45,9 @@ for i in range(50):
 # for fill event
 for event in ev:
 	if np.searchsorted(V,event.ENERGY)>0 and np.searchsorted(V,event.ENERGY)<51: # select photon range (10,1000)
-		if event.EVENTS % 10000 == 0:
+		if event.EVENTS % 10000 == 0: # this condition just print
 			print(event.EVENTS, event.ENERGY)
-		if event.ZENITH>Zmin and event.ZENITH<Zmax and event.THETA<70.:
+		if event.ZENITH>Zmin and event.ZENITH<Zmax and event.THETA<70.: # select photon
 			cntmap.Fill(event.ENERGY)
 			dN[np.searchsorted(V,event.ENERGY)-1]+=1.
 			EavgdN[np.searchsorted(V,event.ENERGY)-1]+=event.ENERGY
@@ -54,30 +55,27 @@ for event in ev:
 for i in range(50):
 	i = i+1 # start from 0 => 1
 	cntbin_i = dN[i-1]
-	Ebin_i = EavgdN[i-1]/cntbin_i
-	Aeff_i = ((aeff_f.value(Ebin_i,theta_fix,0.)+aeff_b.value(Ebin_i,theta_fix,0.0)))/10000. # cm^2 -> m^2
+	Ebin_i = EavgdN[i-1]/cntbin_i # GeV
+	Ebin_i_MeV = Ebin_i*1000. # GeV -> MeV
+	Aeff_i = ((aeff_f.value(Ebin_i_MeV,theta_fix,0.)\
+			  +aeff_b.value(Ebin_i_MeV,theta_fix,0.)))/10000. # cm^2 -> m^2
 	Eff0.SetBinContent(i, Aeff_i)
+	dE_bin_i = V[i]-V[i-1]
 	print Ebin_i
-	cntmap.SetBinContent(i, cntbin_i/Aeff_i/livetime*(Ebin_i**2.75))
+	cntmap.SetBinContent(i, cntbin_i/dE_bin_i/Aeff_i/solidangle/livetime*(Ebin_i**2.75))
+	cntmap.SetBinError(i, cntmap.GetBinContent(i)/sqrt(cntbin_i))
+
 print V
-'''
-	#### 
-	Aeff_i1 = ((aeff_f.value(Ebin_i,theta_fix,45.)+aeff_b.value(Ebin_i,theta_fix,45.0)))/10000.
-	Eff1.SetBinContent(i, Aeff_i1)
-	Aeff_i2 = ((aeff_f.value(Ebin_i,theta_fix,180.)+aeff_b.value(Ebin_i,theta_fix,180.0)))/10000.
-	Eff2.SetBinContent(i, Aeff_i2)
-	Aeff_i3 = ((aeff_f.value(Ebin_i,theta_fix,275.)+aeff_b.value(Ebin_i,theta_fix,275.0)))/10000.
-	Eff3.SetBinContent(i, Aeff_i3)
-	####
-'''
 
 C = TCanvas('C','C',800,600)
 C.SetLogx()
 C.SetLogy()
 C.SetGrid()
-cntmap.GetXaxis().SetTitle('E_#gamma (GeV)')
+cntmap.GetXaxis().SetTitle('E_{#gamma} (GeV)')
 cntmap.GetYaxis().SetTitle('E^{2.75}Flux (GeV^{1.75}s^{-1}m^{-2}sr^{-1})')
-cntmap.Draw()
+cntmap.SetStats(0)
+cntmap.SetTitle('#gamma-ray flux')
+cntmap.Draw('E1')
 '''
 #gPad.SetGrid()
 Eff0.GetXaxis().SetTitle('E (GeV)')
