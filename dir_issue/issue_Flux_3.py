@@ -53,14 +53,12 @@ for event in ev:
 # check Aeff
 for i in range(50):
 	i = i+1 # start from 0 => 1
-	Ebin_i =  Eff0.GetBinLowEdge(i)+Eff0.GetBinWidth(i)/2.
-	Ebin_i = Ebin_i*1000.0 # MeV => GeV
-	Aeff_i = ((aeff_f.value(Ebin_i,theta_fix,0.)+aeff_b.value(Ebin_i,theta_fix,30.0)))/10000. # cm^2 -> m^2
-	Eff0.SetBinContent(i, Aeff_i)
 	cntbin_i = dN[i-1]
-	Eavgbin_i = EavgdN[i-1]/cntbin_i
-	print Eavgbin_i
-	cntmap.SetBinContent(i, cntbin_i/Aeff_i/livetime*(Eavgbin_i**2.75))
+	Ebin_i = EavgdN[i-1]/cntbin_i
+	Aeff_i = ((aeff_f.value(Ebin_i,theta_fix,0.)+aeff_b.value(Ebin_i,theta_fix,0.0)))/10000. # cm^2 -> m^2
+	Eff0.SetBinContent(i, Aeff_i)
+	print Ebin_i
+	cntmap.SetBinContent(i, cntbin_i/Aeff_i/livetime*(Ebin_i**2.75))
 print V
 '''
 	#### 
@@ -77,6 +75,8 @@ C = TCanvas('C','C',800,600)
 C.SetLogx()
 C.SetLogy()
 C.SetGrid()
+cntmap.GetXaxis().SetTitle('E_#gamma (GeV)')
+cntmap.GetYaxis().SetTitle('E^{2.75}Flux (GeV^{1.75}s^{-1}m^{-2}sr^{-1})')
 cntmap.Draw()
 '''
 #gPad.SetGrid()
