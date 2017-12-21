@@ -25,13 +25,19 @@ for f in f_sp:
 '''
 
 # plot distribution
-Dist_ROCK = TH1F('ROCK distribution', 'ROCK distribution', 900, 0., 90.)
+Dist_ROCK = TH1F('ROCK distribution', 'ROCK distribution', 2700, 0., 90.)
+#file = 0
 for f in f_sp:
+	'''
+	file +=1
+	if file == 3:
+		break
+	'''
+	print(f)
 	file_sp = pyfits.open(f)
 	event = file_sp[1].data
 	for i in range(len(event)):
-		Dist_ROCK.Fill(abs(event[i]['ROCK_ANGLE'])
-	print(f)
+		Dist_ROCK.Fill(abs(event[i]['ROCK_ANGLE']))
 
 C = TCanvas('C','C',800,600)
 Dist_ROCK.Draw()
