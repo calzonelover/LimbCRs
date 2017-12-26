@@ -2,8 +2,11 @@
 Indirect measurement CRs spectrum from gamma-ray spectrum which measured by Fermi LAT
 
 # Issue
-* FixRegionFlux branch : fix correction of region of interest when deal with theta-nadir shift due to LAT altitude
-* Flux value from exposure map was so weird
+* Extract new finaltree.root file which contained a LAT_rocking_angle
+* Extract better gamma-ray spectrum that take into account LAT_rocking_angle
+* Make a new approximation flux -> compare to previous Limb's paper (2014) ? (waiting root file)
+* Flux value from exposure map was so weird ???
+* Redefined likelihood function from flux -> count comparation
 
 # This work
 * Extract Limb's gamma-ray flux data from `finaltree.root` and `exposuremap` by `PerfecrFlux.py`, then keep processing file in `alldat.olo`

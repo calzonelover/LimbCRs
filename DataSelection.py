@@ -6,14 +6,22 @@ import pyfits
 ####### condition ########
 typedat=21 #ultraclean_veto
 #subfunction
-#def rockang(processweek,missiontime):
-#	fsp=pyfits.open(filenamesp[processweek])
-#	eventsp=fsp[1].data
-#	if missiontime<=eventsp[0]['START']:
-#		return eventsp[i]['ROCK_ANGLE']
-#	if missiontime>=eventsp[len(eventsp)-2]['START']:
-#		return eventsp[i]['ROCK_ANGLE']
-#	return (eventsp[np.searchsorted(eventsp[:,]['START'],missiontime)]['ROCK_ANGLE']+eventsp[np.searchsorted(eventsp[:,]['START'],missiontime)+1]['ROCK_ANGLE'])/2.
+class GetFT2:
+	def __init__(self, ,column_name, processweek):
+		self.pw = processweek
+		self.mt = missiontime
+		self.Col_n = 0
+	def 
+
+
+def rockang(processweek,missiontime):
+	fsp=pyfits.open(filenamesp[processweek])
+	eventsp=fsp[1].data
+	if missiontime<=eventsp[0]['START']:
+		return eventsp[i]['ROCK_ANGLE']
+	if missiontime>=eventsp[len(eventsp)-2]['START']:
+		return eventsp[i]['ROCK_ANGLE']
+	return (eventsp[np.searchsorted(eventsp[:,]['START'],missiontime)]['ROCK_ANGLE']+eventsp[np.searchsorted(eventsp[:,]['START'],missiontime)+1]['ROCK_ANGLE'])/2.
 def altitudesp(processweek,missiontime):
         fsp=pyfits.open(filenamesp[processweek])
         eventsp=fsp[1].data
