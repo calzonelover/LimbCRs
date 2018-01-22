@@ -15,7 +15,7 @@ V=array('d',oV)
 # Build count map
 cntmap=[]
 # open expmap
-Fexpmap=TFile('ExpMap_P8R2_ULTRACLEANVETO_V6_w010-w399.root')
+Fexpmap=TFile('ExpMap_P8R2_ULTRACLEANVETO_V6_w010-w399_2.root') # has two type (2) is newest
 name_expmap=[]# declare map name in expmap
 for i in range(50):
     namecntmap='cntmap%03d'%(i)

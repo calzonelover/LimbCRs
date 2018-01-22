@@ -12,7 +12,7 @@
 
       call spec_ini                !initialization
 
-      reac=0                       !pp collision, combined Kamae+QGSJET
+      reac=0                       !pp collision, combined Kamae+QGSJETs
       id=0                         !photon spectrum
       sigmafrac=1.77               !fraction of crssection HeN/pN
 
