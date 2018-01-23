@@ -17,9 +17,9 @@ class LookFT2:
 		self.missiontime = missiontime
 		self.array_n = self.OrderArray()
 	def OrderArray(self): # Serves order of an array
-		return np.searchsorted(self.eventsp[:,]['START'],self.missiontime)
+		return np.searchsorted(self.eventsp[:,]['START'],self.missiontime) - 1
 	def AltitudeSP(self): # For altitude SP
-		return self.eventsp[self.array_n]['RAD_GEO']/1000.
+		return self.eventsp[self.array_n]['RAD_GEO']/1000. # m => km
 	def ZenithShift(self):
 		return self.events[self.i]['ZENITH_ANGLE']\
 			   +(0.0211*(550.0-self.AltitudeSP()))
@@ -28,14 +28,15 @@ class LookFT2:
 		if self.missiontime <= self.eventsp[0]['START']: # Event before first
 			return self.eventsp[self.i]['ROCK_ANGLE'], \
 				   self.eventsp[self.i]['RAD_GEO']/1000., self.ZenithShift()
-		if self.missiontime >= self.eventsp[len(self.eventsp)-2]['START']: # event after first
+		if self.missiontime >= self.eventsp[len(self.eventsp)-1]['STOP']: # event after first
+			print('!!!! More than end !!!!')
 			return self.eventsp[self.i]['ROCK_ANGLE'], \
 				   self.eventsp[self.i]['RAD_GEO']/1000., self.ZenithShift()
 		# Collect proper photon
 		return self.eventsp[self.array_n]['ROCK_ANGLE'], self.eventsp[self.array_n]['RAD_GEO']/1000., \
 			   self.ZenithShift()
 
-''' Old function
+'''
 def rockang(processweek,missiontime):
 	fsp=pyfits.open(filenamesp[processweek])
 	eventsp=fsp[1].data
@@ -46,8 +47,8 @@ def rockang(processweek,missiontime):
 	return (eventsp[np.searchsorted(eventsp[:,]['START'],missiontime)]['ROCK_ANGLE']\
 		+eventsp[np.searchsorted(eventsp[:,]['START'],missiontime)+1]['ROCK_ANGLE'])/2.
 def altitudesp(processweek,missiontime):
-    fsp=pyfits.open(filenamesp[processweek])
-    eventsp=fsp[1].data
+	fsp=pyfits.open(filenamesp[processweek])
+	eventsp=fsp[1].data
 	if missiontime<=eventsp[0]['START']:
 		return eventsp[i]['ROCK_ANGLE']
 	if missiontime>=eventsp[len(eventsp)-2]['START']:
@@ -55,9 +56,10 @@ def altitudesp(processweek,missiontime):
 	return (eventsp[np.searchsorted(eventsp[:,]['START'],missiontime)]['RAD_GEO']\
 		+eventsp[np.searchsorted(eventsp[:,]['START'],missiontime)+1]['RAD_GEO'])/2000.
 def zenithshift(zenithang,processweek,missiontime):
-        return zenithang+(0.0211*(550.0-altitudesp(processweek,missiontime)))
+	return zenithang+(0.0211*(550.0-altitudesp(processweek,missiontime)))
 '''
-        
+
+
 #filename photon
 filename = ['select_photon_w%d.fits'%(i+10) for i in range(390)] ##
 #filename spacecraft
@@ -94,9 +96,9 @@ t1.Branch('ROCK',ROCK,'ROCK/D')
 
 #freport=open('reportdat.olo','w')
 #freport.truncate()
-numberevent=0
-processweek=0
-for f in filename:
+numberevent = 0
+# processweek=0
+for processweek, f in enumerate(filename):
 	file=pyfits.open(f)
 	events=file[1].data
 	fsp=pyfits.open(filenamesp[processweek])
@@ -105,8 +107,9 @@ for f in filename:
 		if events[i]['EVENT_CLASS'][typedat]==True:
 			# Let looker seek SP data at that time
 			looker = LookFT2(events, eventsp, i, processweek, events[i]['TIME'])
+			print(f,i,numberevent, looker.array_n, len(looker.eventsp))
 			RockAngle, AltitudeSP, ZenithShift = looker.GetData()
-			# just count 
+			# just count
 			numberevent+=1
 			# Fill in th tree
 			EVENTS[0]=numberevent
@@ -121,9 +124,9 @@ for f in filename:
 			ROCK[0]= RockAngle # rockang(processweek,events[i]['TIME'])
 			t1.Fill()
 			#print(f,i,numberevent)
-			if numberevent%10000 == 0:
-				print(f,i,numberevent)
-	processweek+=1
+			#if numberevent%1 == 0:
+			#	print(f,i,numberevent, looker.array_n, len(looker.eventsp))
+	# processweek+=1
 #freport.close()
 
 # finish tree branch
