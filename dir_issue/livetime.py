@@ -50,7 +50,6 @@ for f in filenamesp:
 #galtitude.Draw()
         if events[i]['ROCK_ANGLE'] > 52.0:	# past 42 
            sum_livetime += events[i]['LIVETIME']
-
 #            print f,i,sum
 #sum over all = 70761348.6153
 # over all at ROCK_ANGLE > 42 => livetime = 70545074.725537941

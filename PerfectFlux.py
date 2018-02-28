@@ -24,18 +24,16 @@ for i in range(50):
 
 # import data from tree
 ev=TChain('Data of photon and spacecraft')
-ev.Add('finaltree.root')
+ev.Add('limb_photon_data.root')
 # Declare variable
 dN=[] # raw count
 dNbg=[] # background count
-EdN=[]
 EavgdN=[] # Energy average in each limb bin
 EavgdNbg=[] # Energy average in each bg bin
-dNsb=[] # dN subtract background
+dNsb=[] # dN limb after subtract background
 for i in range(50): #have 0-50 but interest just 1-50
     dN.append(0)
     dNbg.append(0)
-    EdN.append(0)
     EavgdN.append(0)
     EavgdNbg.append(0)
     dNsb.append(0)
@@ -44,17 +42,19 @@ for i in range(50): #have 0-50 but interest just 1-50
 # process data
 #mapt = TH1F('mapt','mapt',900,0.,90.)####
 #mapt_shift = TH1F('mapt_shift','mapt_shift',900,0.,90.)
+
 for event in ev:
     # original selection
-    energy=ev.ENERGY
-    if np.searchsorted(V,energy)>0 and np.searchsorted(V,energy)<51: # select photon range (10,1000)
+    energy=event.ENERGY
+    if np.searchsorted(V,energy)>0 and np.searchsorted(V,energy)<51 \
+        and abs(event.ROCK) > 52. and event.THETA < 70.: # select photon range (10,1000)
         cntmap[np.searchsorted(V,energy)-1].Fill(event.PHI_EARTH,180.-event.ZENITH)
         # limb photon
-        if event.ZENITH>Zmin and event.ZENITH<Zmax and event.THETA<70.:
+        if event.ZENITH>Zmin and event.ZENITH<Zmax:
             dN[np.searchsorted(V,energy)-1]+=1.
             EavgdN[np.searchsorted(V,energy)-1]+=energy # sum before, average in next for-loop
         # bg photon
-        if event.ZENITH>Zbgmin and event.ZENITH<Zbgmax and event.THETA < 70.:# bg count
+        if event.ZENITH>Zbgmin and event.ZENITH<Zbgmax:# bg count
             dNbg[np.searchsorted(V,energy)-1]+=1.
             EavgdNbg[np.searchsorted(V,energy)-1]+=energy
 '''    # correct bias
@@ -112,7 +112,10 @@ for i in range(len(V)-1):
     #
     dNsb[i]=dN[i]-dNbg[i]*((Zmin-Zmax)/(Zbgmin-Zbgmax)) # weight str bg ti str limb
     EavgdN[i]=EavgdN[i]/dN[i]
-    EavgdNbg[i]=EavgdNbg[i]/dNbg[i]
+    if dNbg[i] != 0:###
+        EavgdNbg[i] = EavgdNbg[i]/dNbg[i]
+    else:
+        EavgdNbg[i] = 0.
     f1.write('%f %f %e %f %f %e\n'%(dNsb[i],EavgdN[i],flxvallimb[i],dNbg[i],EavgdNbg[i],flxvalbg[i]))
     print dN[i]
     # write count map in root file
@@ -128,72 +131,76 @@ C=TCanvas('C','C',800,600)
 C.Divide(2,2)
 C.cd(1)
 C.cd(1).SetLogz()
-gStyle.SetPalette(kRainBow)
+# gStyle.SetPalette(kRainBow)
 expmap=flxmap[0]
-#expmap=Fexpmap.Get(name_expmap[0]) ###
+# expmap=Fexpmap.Get(name_expmap[0]) ###
 expmap.SetStats(0)
 gPad.SetTheta(-90)
 gPad.SetPhi(-90)
 expmap.Draw('SURF2POLZ')
 expmap.GetXaxis().SetTitle('#phi (degree)')
 expmap.GetYaxis().SetTitle('#theta_{nadir} (degree)')
-expmap.GetYaxis().SetRangeUser(62.,80.)
+# expmap.GetYaxis().SetRangeUser(62.,80.)
 expmap.GetZaxis().SetLabelOffset(lbOS)
 expmap.GetZaxis().SetLabelSize(lbS)
 expmap.GetZaxis().SetTitleOffset(ttOS)
 expmap.GetZaxis().SetTitleSize(ttS)
-expmap.GetZaxis().SetTitle('Flux (GeV^{-1}s^{-1}sr^{-1}m^{-2})') #
+expmap.GetZaxis().SetTitle('Flux (GeV^{-1}s^{-1}sr^{-1}m^{-2})')
+# expmap.GetZaxis().SetTitle('Count')
 expmap.SetTitle('Flux map 10.000-10.965 GeV')
 #C.cd(1).SetLogz()
 C.cd(2)
 expmap2=flxmap[12]
-#expmap2=Fexpmap.Get(name_expmap[12]) ###
+# expmap2=Fexpmap.Get(name_expmap[12]) ###
 expmap2.SetStats(0)
 expmap2.Draw('SURF2POLZ')
 gPad.SetTheta(-90)
 gPad.SetPhi(-90)
 expmap2.GetXaxis().SetTitle('#phi (degree)')
 expmap2.GetYaxis().SetTitle('#theta_{nadir} (degree)')
-expmap2.GetYaxis().SetRangeUser(62.,80.)
+# expmap2.GetYaxis().SetRangeUser(62.,80.)
 expmap2.GetZaxis().SetLabelOffset(lbOS)
 expmap2.GetZaxis().SetLabelSize(lbS)
 expmap2.GetZaxis().SetTitleOffset(ttOS)
 expmap2.GetZaxis().SetTitleSize(ttS)
 expmap2.GetZaxis().SetTitle('Flux (GeV^{-1}s^{-1}sr^{-1}m^{-2})') #
+# expmap2.GetZaxis().SetTitle('Count')
 expmap2.SetTitle('Flux map 30.200-33.113 GeV')
 C.cd(2).SetLogz()
 C.cd(3)
 expmap3=flxmap[24]
-#expmap3=Fexpmap.Get(name_expmap[24]) ###
+# expmap3=Fexpmap.Get(name_expmap[24]) ###
 expmap3.SetStats(0)
 expmap3.Draw('SURF2POLZ')
 gPad.SetTheta(-90)
 gPad.SetPhi(-90)
 expmap3.GetXaxis().SetTitle('#phi (degree)')
 expmap3.GetYaxis().SetTitle('#theta_{nadir} (degree)')
-expmap3.GetYaxis().SetRangeUser(62.,80.)
+# expmap3.GetYaxis().SetRangeUser(62.,80.)
 expmap3.GetZaxis().SetLabelOffset(lbOS)
 expmap3.GetZaxis().SetLabelSize(lbS)
 expmap3.GetZaxis().SetTitleOffset(ttOS)
 expmap3.GetZaxis().SetTitleSize(ttS)
-expmap3.GetZaxis().SetTitle('Flux (GeV^{-1}s^{-1}sr^{-1}m^{-2})') #
+expmap3.GetZaxis().SetTitle('Flux (GeV^{-1}s^{-1}sr^{-1}m^{-2})')
+# expmap3.GetZaxis().SetTitle('Count')
 expmap3.SetTitle('Flux map 91.201-100.000 GeV')
 C.cd(3).SetLogz()
 C.cd(4)
 expmap4=flxmap[49]
-#expmap4=Fexpmap.Get(name_expmap[49]) ###
+# expmap4=Fexpmap.Get(name_expmap[49]) ###
 expmap4.SetStats(0)
 expmap4.Draw('SURF2POLZ')
 gPad.SetTheta(-90)
 gPad.SetPhi(-90)
 expmap4.GetXaxis().SetTitle('#phi (degree)')
 expmap4.GetYaxis().SetTitle('#theta_{nadir} (degree)')
-expmap4.GetYaxis().SetRangeUser(62.,80.)
+# expmap4.GetYaxis().SetRangeUser(62.,80.)
 expmap4.GetZaxis().SetLabelOffset(lbOS)
 expmap4.GetZaxis().SetLabelSize(lbS)
 expmap4.GetZaxis().SetTitleOffset(ttOS)
 expmap4.GetZaxis().SetTitleSize(ttS)
 expmap4.GetZaxis().SetTitle('Flux (GeV^{-1}s^{-1}sr^{-1}m^{-2})') #
+# expmap4.GetZaxis().SetTitle('Count')
 expmap4.SetTitle('Flux map 912.011-1000.000 GeV')
 C.cd(4).SetLogz()
 raw_input()
