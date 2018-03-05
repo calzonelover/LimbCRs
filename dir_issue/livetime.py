@@ -39,20 +39,21 @@ processweek=0
 sum_livetime = 0
 for f in filenamesp:
     file=pyfits.open(f)
-    events=file[1].data
-    print(f, sum_livetime )
-    for i in range(len(events)):
+    eventsp=file[1].data
+    print(f, '%e'%sum_livetime)
+    for i in range(len(eventsp)):
+        sum_livetime += eventsp[i]['LIVETIME']
 #		if events[i]['THETA'] < 70.0 and events[i]['ZENITH_ANGLE'] > 100.0:
 #			galtitude.Fill(altitudesp(processweek,events[i]['TIME']))
 #    		print events[i]['ROCK_ANGLE']
 #    processweek+=1
 #Cgaltitude=TCanvas('Cg','Cg',800,600)
 #galtitude.Draw()
-        if events[i]['ROCK_ANGLE'] > 52.0:	# past 42 
-           sum_livetime += events[i]['LIVETIME']
+        # if events[i]['ROCK_ANGLE'] > 52.0:	# past 42 
+           # sum_livetime += events[i]['LIVETIME']
 #            print f,i,sum
 #sum over all = 70761348.6153
 # over all at ROCK_ANGLE > 42 => livetime = 70545074.725537941
 # over all at ROCK_ANGLE > 42 => livetime = 5294102.3631355334
-print "finish"
+print "finish, livetime = ",sum_livetime
 raw_input()

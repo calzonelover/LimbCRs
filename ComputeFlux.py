@@ -2,9 +2,10 @@ from math import *
 from ROOT import *
 from array import *
 import numpy as np
+####################
 # out condition ()
-expmap_version = 2 # 1 = Old, 2 = Cutted limb
-
+expmap_version = 1 # 1 = Old, 2 = Cutted limb
+###############
 
 # our condition (Limb Peak at nadir 68.02)
 Zmin=110.0 # nadir 70.0
@@ -131,10 +132,11 @@ for i in range(len(V)-1):
 #####################
 # Just Visualize map
 ######################
+# visualize setting
 name_plotmap = "Flxmap"
 plotmap = flxmap
 is_expmap = False
-###
+#####################
 lbOS=-0.13 #Z-axis label offset
 lbS=0.05   #Z-axis label size
 ttOS=0.5   #Z-axis tltle offset
