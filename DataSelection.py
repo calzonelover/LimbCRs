@@ -3,6 +3,7 @@ from math import *
 from array import *
 import numpy as np
 import pyfits
+
 ####### condition ########
 typedat=21 # ultraclean_veto
 #subfunction
@@ -36,28 +37,6 @@ class LookFT2:
 		return self.eventsp[self.array_n]['ROCK_ANGLE'], self.eventsp[self.array_n]['RAD_GEO']/1000., \
 			   self.ZenithShift()
 
-'''
-def rockang(processweek,missiontime):
-	fsp=pyfits.open(filenamesp[processweek])
-	eventsp=fsp[1].data
-	if missiontime<=eventsp[0]['START']:
-		return eventsp[i]['ROCK_ANGLE']
-	if missiontime>=eventsp[len(eventsp)-2]['START']:
-		return eventsp[i]['ROCK_ANGLE']
-	return (eventsp[np.searchsorted(eventsp[:,]['START'],missiontime)]['ROCK_ANGLE']\
-		+eventsp[np.searchsorted(eventsp[:,]['START'],missiontime)+1]['ROCK_ANGLE'])/2.
-def altitudesp(processweek,missiontime):
-	fsp=pyfits.open(filenamesp[processweek])
-	eventsp=fsp[1].data
-	if missiontime<=eventsp[0]['START']:
-		return eventsp[i]['ROCK_ANGLE']
-	if missiontime>=eventsp[len(eventsp)-2]['START']:
-		return eventsp[i]['RAD_GEO']/1000.
-	return (eventsp[np.searchsorted(eventsp[:,]['START'],missiontime)]['RAD_GEO']\
-		+eventsp[np.searchsorted(eventsp[:,]['START'],missiontime)+1]['RAD_GEO'])/2000.
-def zenithshift(zenithang,processweek,missiontime):
-	return zenithang+(0.0211*(550.0-altitudesp(processweek,missiontime)))
-'''
 
 
 #filename photon
@@ -72,6 +51,7 @@ t1=TTree('Data of photon and spacecraft','Data events')
 #array that we want
 EVENTS = np.zeros(1, dtype=int)
 TIME=np.zeros(1,dtype=float)
+PROCESSWEEK=np.zeros(1,dtype=float)
 ENERGY = np.zeros(1, dtype=float)
 ZENITH = np.zeros(1, dtype=float)
 ZENITHSHIFT = np.zeros(1, dtype=float)
@@ -80,9 +60,12 @@ PHI = np.zeros(1, dtype=float)
 ALTITUDE = np.zeros(1,dtype=float)
 PHI_EARTH = np.zeros(1,dtype=float)
 ROCK = np.zeros(1,dtype=float)
+
+
 # create the branch of our tre
 t1.Branch('EVENTS',EVENTS,'EVENTS/I')
 t1.Branch('TIME',TIME,'TIME/D')
+t1.Branch('PROCESSWEEK',PROCESSWEEK,'PROCESSWEEK/D')
 t1.Branch('ENERGY',ENERGY,'ENERGY/D')
 t1.Branch('ZENITH',ZENITH,'ZENITH/D')
 t1.Branch('ZENITHSHIFT',ZENITHSHIFT,'ZENITHSHIFT/D')
@@ -94,26 +77,26 @@ t1.Branch('ROCK',ROCK,'ROCK/D')
 
 
 
-#freport=open('reportdat.olo','w')
-#freport.truncate()
+
 numberevent = 0
-# processweek=0
 for processweek, f in enumerate(filename):
 	file=pyfits.open(f)
 	events=file[1].data
 	fsp=pyfits.open(filenamesp[processweek])
 	eventsp=fsp[1].data
+	print(f," Done !")
 	for i in range(len(events)): # i is an array number in file photon
 		if events[i]['EVENT_CLASS'][typedat]==True:
 			# Let looker seek SP data at that time
 			looker = LookFT2(events, eventsp, i, processweek, events[i]['TIME'])
-			print(f,i,numberevent, looker.array_n, len(looker.eventsp))
+			# print(f,i,numberevent, looker.array_n, len(looker.eventsp))
 			RockAngle, AltitudeSP, ZenithShift = looker.GetData()
 			# just count
 			numberevent+=1
 			# Fill in th tree
 			EVENTS[0]=numberevent
 			TIME[0]=events[i]['TIME']
+			PROCESSWEEK[0]=processweek
 			ENERGY[0]=events[i]['ENERGY']/1000. # MeV -> Gev
 			ZENITH[0]=events[i]['ZENITH_ANGLE']
 			ZENITHSHIFT[0]= ZenithShift # zenithshift(events[i]['ZENITH_ANGLE'],processweek,events[i]['TIME'])
@@ -123,11 +106,9 @@ for processweek, f in enumerate(filename):
 			PHI_EARTH[0]=events[i]['EARTH_AZIMUTH_ANGLE']
 			ROCK[0]= RockAngle # rockang(processweek,events[i]['TIME'])
 			t1.Fill()
-			#print(f,i,numberevent)
 			#if numberevent%1 == 0:
 			#	print(f,i,numberevent, looker.array_n, len(looker.eventsp))
-	# processweek+=1
-#freport.close()
+
 
 # finish tree branch
 f1.Write()
