@@ -39,12 +39,8 @@ ev = TChain('Data of photon and spacecraft')
 ev.Add('limb_photon_data.root')
 
 # Declare variables
-dN_limb = []
-dN_week = []
-
-for i in range(50):
-	dN_limb.append(0)
-	dN_week.append(0)
+dN_limb = 0
+dN_week = 0
 
 def getWeekRegard(f_regard):
 	week_sp_start = 10 # 010 is the starting week of our data
@@ -63,15 +59,14 @@ for event in ev:
 	if array_n < len(V) - 1 and (ev.PROCESSWEEK in regard_week) \
 	and event.THETA < 70.0 and array_n != -1:
 		# for ordinary photon
-		dN_week[array_n-1]+=1.
+		dN_week += 1.
 		# for limb's photon
-		if abs(event.ROCK) > cutted_rock_angle \
-		and event.ZENITH > Zmin and event.ZENITH < Zmax:
-			dN_limb[array_n-1]+=1.
+		if abs(event.ROCK) > cutted_rock_angle and event.ZENITH > Zmin and event.ZENITH < Zmax:
+			dN_limb += 1.
+			print('hi limb!!')
 
 ## save data to text
-for i in range(len(V)-1):
-	f_report.write('%f %f'%(dN_limb, dN_week))
+f_report.write('Report ordinary photon %f \n Got limb photon %f \n'%(dN_week, dN_limb))
 
 
 
