@@ -43,8 +43,7 @@ foutput.close()
 
 
 
-
-'''  ###  plot simulation section   ###
+###  plot simulation section   ###
 from Limb_package import *
 
 # condition
@@ -71,9 +70,6 @@ if __name__ == '__main__':
             Hist_Tot[j].Fill(flux275_tot[j])
     # write
     write_sim_to_ROOTFile(Hist_Stat, Hist_Tot, 'Monte_Sim.root')
-    exit()
-    a = np.array([2])
     flux_tot = []
     flux = Sim_Flux_Tot(flux_tot, 'alldat.olo')
     print flux
-'''

@@ -130,7 +130,7 @@ def write_sim_to_ROOTFile(Hist_Stat, Hist_Tot, name_f_root):
     for j in range(len(Hist_Stat)):
         Hist_Stat[j].Write()
         Hist_Tot[j].Write()
-    F_ROOT.Close() 
+    F_ROOT.Close()
 def Flux_to_Flux275(Eavgbin, Flux):
     return np.multiply(Flux,np.power(Eavgbin,2.75))
 
@@ -147,20 +147,3 @@ def ScanMountain(f_dat_mea, mode): # mode 1 SPL 2 BPL
     Eavgbin, Flux = dat_mea[:,1], dat_mea[:,2]
     bestfit = brute(SumlogPois, rangetrial)
     return 'bestfit',bestfit
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
