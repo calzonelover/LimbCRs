@@ -162,6 +162,7 @@ if __name__ == "__main__":
 	###    Plot      #####
 	######################
 	C = TCanvas('C','C',800,700)
+	C.Range(0,0,1,1)
 	C.Divide(1,2,0,0)
 	C.GetPad(1).SetRightMargin(.01)
 	#############
@@ -197,8 +198,8 @@ if __name__ == "__main__":
 	gSPLmax.SetLineWidth(ModelMinMax_LineWidth)
 	# Set title after legend
 	HistE275FluxAMS.SetTitle(title)
-	HistE275FluxAMS.GetYaxis().SetTitle('Proton E^{2.75}#times Flux (GV^{1.75}m^{-2}s^{-1}sr^{-1})')
-	HistE275FluxAMS.GetXaxis().SetTitle('Rigidity (GV)')
+	HistE275FluxAMS.GetYaxis().SetTitle()#('Proton E^{2.75}#times Flux (GV^{1.75}m^{-2}s^{-1}sr^{-1})')
+	HistE275FluxAMS.GetXaxis().SetTitle()#('Rigidity (GV)')
 	HistE275FluxAMS.GetXaxis().SetRangeUser(Plot_Range[0], Plot_Range[1])
 	############
 	###   2  ###
@@ -232,10 +233,59 @@ if __name__ == "__main__":
 	###############################
 	#  Setting global Label Axis  #
 	###############################
-	# C.cd()
-	# XLabel = TText(.05, 0.8, "Rigidity")
-	# XLabel.SetTextSize(0.1)
-	# XLabel.Draw()
+	### FOr SPL quote
+	C.cd(1)
+	gPadSPL = TPad("padSPL", "padSPL", 0.75, 0.75, 0.9, 0.9)
+	gPadSPL.Range(0,0,1,1)
+	gPadSPL.SetBottomMargin(0)
+	gPadSPL.SetGridx()
+	gPadSPL.Draw()
+	gPadSPL.cd()
+	ttSPL = TLatex()
+	ttSPL.SetTextAlign(11)
+	ttSPL.SetTextColor(2)
+	ttSPL.SetTextSize(0.4)
+	ttSPL.DrawLatex(0.5,0.5, "SPL")
+	### FOr BPL quote
+	C.cd(2)
+	gPadBPL = TPad("padBPL", "padBPL", 0.75, 0.75, 0.9, 0.9)
+	gPadBPL.Range(0,0,1,1)
+	gPadBPL.SetBottomMargin(0)
+	gPadBPL.SetGridx()
+	gPadBPL.Draw()
+	gPadBPL.cd()
+	ttBPL = TLatex()
+	ttBPL.SetTextAlign(11)
+	ttBPL.SetTextColor(2)
+	ttBPL.SetTextSize(0.4)
+	ttBPL.DrawLatex(0.5,0.5, "BPL")
+	## For Y axis label
+	C.cd()
+	pad1 = TPad("pad1", "pad1", 0.0, 0.0, 0.05, 0.9)
+	pad1.Range(0,0,1,1)
+	pad1.SetBottomMargin(0)
+	pad1.SetGridx()
+	pad1.Draw()
+	pad1.cd()
+	tt = TLatex()
+	tt.SetTextAlign(12)
+	tt.SetTextSize(0.5)
+	tt.SetTextAngle(90)
+	tt.DrawLatex(0.5,0.5,'Proton E^{2.75}Flux (GV^{1.75}m^{-2}s^{-1}sr^{-1})')
+	## For X axis label
+	C.cd()
+	pad2 = TPad("pad2", "pad2", 0.5, 0.0, 0.9, 0.035)
+	pad2.Range(0,0,1,1)
+	pad2.SetBottomMargin(0)
+	pad2.SetGridx()
+	pad2.Draw()
+	pad2.cd()
+	tt2 = TLatex()
+	tt2.SetTextAlign(32)
+	tt2.SetTextSize(0.8)
+	tt2.SetTextAngle(0)
+	tt2.DrawLatex(0.5,0.5,'Rigidity (GV)')
+
 	raw_input()
 	C.SaveAs('ProtonSpectrumModelMeasurement.pdf')
 	print("done")

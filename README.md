@@ -11,3 +11,6 @@ Indirect measurement CRs spectrum from gamma-ray spectrum which measured by Ferm
 # File description
 * K&O model : `SPLwHe.f` , `BPLwHe.f`
 * Scan Range of good trial parameter : `ScanMountain.py`
+
+# Reference
+* [Tools](https://www.graphpad.com/quickcalcs/pvalue1.cfm) for likelihood ratio test (LRT) 

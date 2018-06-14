@@ -5,7 +5,7 @@ import numpy as np
 
 ####################
 # out condition ()
-expmap_version = 2 # 1 = Old, 2 = Cutted limb
+expmap_version = 1 # 1 = Old, 2 = Cutted limb
 ###############
 
 # our condition (Limb Peak at nadir 68.02)
@@ -55,7 +55,7 @@ for i in range(50):
 for event in ev:
 	energy = event.ENERGY
 	array_n = np.searchsorted(V, energy) - 1 ### *** need to check for sure again
-	if array_n < len(V)-1 and abs(event.ROCK) > cutted_rock_angle \
+	if array_n < len(V)-1 and abs(event.ROCK) >= cutted_rock_angle \
 	   and event.THETA < 70. and array_n != -1:
 		cntmap[array_n].Fill(event.PHI_EARTH, 180.-event.ZENITH)
 		# limb photon
@@ -105,7 +105,7 @@ for i in range(len(V)-1):
 	#
 	flxmap[i].Scale(1./dE)
 	flxmap[i].Divide(strMap)
-	# 
+	#
 	dNsb[i] = dN[i] - dNbg[i]*((Zmin-Zmax)/(Zbgmin-Zbgmax))
 	EavgdN[i] = EavgdN[i]/dN[i]
 	# Just condition for weak emission from bg
@@ -252,7 +252,7 @@ elif name_plotmap == "Expmap":
 	expmap4.GetZaxis().SetTitle('Exposure (m^{2}s)')
 elif name_plotmap == "Cntmap":
 	expmap4.GetZaxis().SetTitle('Count')
-# 
+#
 expmap4.SetTitle('%s 912.011-1000.000 GeV'%name_plotmap)
 C.cd(4).SetLogz()
 raw_input()
@@ -262,7 +262,3 @@ Fexpmap.Close()
 f_report.close()
 
 raw_input()
-
-
-
-
