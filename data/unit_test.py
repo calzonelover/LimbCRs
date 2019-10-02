@@ -4,6 +4,8 @@ import numpy as np
 import math
 import pyfits
 import os
+import matplotlib.pyplot as plt
+from mpl_toolkits.mplot3d import Axes3D
 
 from utility import transform
 import settings
@@ -36,8 +38,8 @@ def main():
             exp_map = np.zeros(shape=(settings.N_BINS_PHI_NADIR, settings.N_BINS_THETA_NADIR), dtype=float)
             for i_phi_nadir in range(settings.N_BINS_PHI_NADIR):
                 for i_theta_nadir in range(settings.N_BINS_THETA_NADIR):
-                    phi_nadir = settings.D_PHI * i_phi_nadir
-                    theta_nadir = settings.D_THETA * i_theta_nadir
+                    phi_nadir = transform.d2r(settings.D_PHI * i_phi_nadir)
+                    theta_nadir = transform.d2r(settings.D_THETA * i_theta_nadir)
                     r_sp = np.array([
                         -math.cos(theta_nadir),
                         math.sin(theta_nadir)*math.cos(phi_nadir),
@@ -53,21 +55,34 @@ def main():
                     rho = math.sqrt(r_p[0]*r_p[0]+r_p[1]*r_p[1])
                     theta_p = math.pi/2 - math.atan(r_p[2]/rho)
                     phi_p = math.acos(r_p[0]/rho)
-                    if transform.r2d(theta_p) < 70:
-                        if transform.r2d(theta_p) < 0:
-                            print("negative !!")
-                            break
+                    if transform.r2d(theta_p) < settings.THETA_LAT_CUTOFF:
+                        exp_map[i_phi_nadir, i_theta_nadir] += row['LIVETIME']
+            # cartesian plot
+            plt.figure()
+            x, y = np.mgrid[
+                slice(settings.PHI_NADIR_MIN, settings.PHI_NADIR_MAX + settings.D_PHI, settings.D_PHI),
+                slice(settings.THETA_NADIR_MIN, settings.THETA_NADIR_MAX + settings.D_THETA, settings.D_THETA),
+            ]
+            plt.pcolormesh(x, y, exp_map, cmap="cividis")
+            a = plt.colorbar()
+            a.set_label('Livetime (s)')
+            plt.title("Live map (one row of week:{}, rock:{:.02f})".format(WEEK, row['ROCK_ANGLE']))
+            plt.xlabel("$\phi_{nadir}$ (deg)")
+            plt.ylabel("$\\theta_{nadir}$ (deg)")
+            plt.show()
+            # polar plot
+            plt.clf()
+            plt.subplot(projection='polar')
+            plt.pcolormesh(transform.d2r(x), y, exp_map)
+            # plt.thetagrids([theta * 15 for theta in range(int(settings.PHI_NADIR_MAX)//15)])
+            plt.rgrids([theta * 30 for theta in range(int(settings.THETA_NADIR_MAX)//30)])
+            plt.grid(alpha=0.5, linestyle='--')
+            a = plt.colorbar()
+            a.set_label('Livetime (s)')
+            plt.title("Live map (one row of week:{}, rock:{:.02f})".format(WEEK, row['ROCK_ANGLE']))
+            plt.show()
             break
-            # print(
-            #     row['ROCK_ANGLE'],
-            #     row['LIVETIME'],
-            #     row['RA_ZENITH'],
-            #     row['DEC_ZENITH'],
-            #     row['RA_SCZ'],
-            #     row['DEC_SCZ'],
-            #     row['RA_SCX'],
-            #     row['DEC_SCX'],
-            # )
+            # ref https://stackoverflow.com/questions/36513312/polar-heatmaps-in-python
 
 def find_lat_looking():
     path = os.path.join(
