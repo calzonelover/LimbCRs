@@ -9,9 +9,14 @@ from utility import transform
 import settings
 
 WEEK = 164
-ROCK_ANGLE = 175.71
-T_START = 333352615.6
-T_END = 333352645.6
+## ROCK 50.00395
+ROCK_ANGLE = 50.00395
+T_START = 332902412.6
+T_END = 332902442.6
+## ROCK 171
+# ROCK_ANGLE = 175.71
+# T_START = 333352615.6
+# T_END = 333352645.6
 
 path = os.path.join(
     os.getcwd(),
@@ -34,18 +39,34 @@ def main():
             if row['THETA'] < settings.THETA_LAT_CUTOFF:
                 interested_photon_theta_nads.append(180.0 - row['ZENITH_ANGLE'])
                 interested_photon_phi_nads.append(row['EARTH_AZIMUTH_ANGLE'])
-    # cartesian
+    # visualize
     np_cntmap, _, _ = np.histogram2d(
         interested_photon_phi_nads,
         interested_photon_theta_nads,
         bins=(settings.N_BINS_PHI_NADIR, settings.N_BINS_THETA_NADIR),
         range=([settings.PHI_NADIR_MIN, settings.PHI_NADIR_MAX], [settings.THETA_NADIR_MIN, settings.THETA_NADIR_MAX]),        
     )
+    # phi_nad_hist = np.histogram(
+    #     interested_photon_phi_nads,
+    #     bins=settings.N_BINS_PHI_NADIR,
+    #     range=(settings.PHI_NADIR_MIN, settings.PHI_NADIR_MAX),
+    # )
     x, y = np.mgrid[
         slice(settings.PHI_NADIR_MIN, settings.PHI_NADIR_MAX + settings.D_PHI, settings.D_PHI),
         slice(settings.THETA_NADIR_MIN, settings.THETA_NADIR_MAX + settings.D_THETA, settings.D_THETA),
-    ]    
-    
+    ] 
+    # 1D hist
+    plt.hist(
+        interested_photon_phi_nads,
+        bins=int(settings.N_BINS_PHI_NADIR),
+        range=(settings.PHI_NADIR_MIN, settings.PHI_NADIR_MAX)
+    )
+    plt.title("Distribution of PHI_NAD (one row of week:{}, rock:{:.02f})".format(WEEK, ROCK_ANGLE))
+    plt.xlabel("$\phi_{nadir}$ (deg)")
+    plt.ylabel("Count")
+    plt.show()
+    # cartesian  
+    plt.clf()  
     plt.pcolormesh(x, y, np_cntmap, cmap="cividis")
     plt.title("Count map (one row of week:{}, rock:{:.02f})".format(WEEK, ROCK_ANGLE))
     plt.xlabel("$\phi_{nadir}$ (deg)")

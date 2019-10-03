@@ -26,8 +26,8 @@ def main():
     f = pyfits.open(os.path.join(path, "lat_spacecraft_weekly_w{0:3d}_p202_v001.fits").format(WEEK))
     rows = f[1].data
     for row in rows:
-        if abs(row['ROCK_ANGLE']) > 170:
-            print(row['START'], row['STOP'])
+        if abs(row['ROCK_ANGLE']) > 50:
+            print("ROCK:{} T_START: {}, T_STOP: {}".format(row['ROCK_ANGLE'],row['START'], row['STOP']))
             t_eq_sp = transform.get_T_eq_sp(transform.d2r(row['DEC_ZENITH']), transform.d2r(row['RA_ZENITH']))
             inv_t_eq_sp = np.linalg.inv(t_eq_sp)
             t_eq_p = transform.get_T_eq_p(
@@ -55,7 +55,7 @@ def main():
                     )
                     rho = math.sqrt(r_p[0]*r_p[0]+r_p[1]*r_p[1])
                     theta_p = math.pi/2 - math.atan(r_p[2]/rho)
-                    phi_p = math.acos(r_p[0]/rho)
+                    phi_p = math.acos(r_p[0]/rho) if r_p[1] < 0 else 2*math.pi - math.acos(r_p[0]/rho)
                     if transform.r2d(theta_p) < settings.THETA_LAT_CUTOFF:
                         exp_map[i_phi_nadir, i_theta_nadir] += row['LIVETIME']
             # cartesian plot
