@@ -4,6 +4,7 @@ import numpy as np
 import math
 import pyfits
 import os
+import matplotlib
 import matplotlib.pyplot as plt
 from mpl_toolkits.mplot3d import Axes3D
 
@@ -23,8 +24,8 @@ def main():
     exp_map = np.zeros(shape=(settings.N_BINS_PHI_NADIR, settings.N_BINS_THETA_NADIR), dtype=float)
     f = pyfits.open(os.path.join(path, "lat_spacecraft_weekly_w{0:3d}_p202_v001.fits").format(WEEK))
     rows = f[1].data
-    for row in rows:
-        print("ROCK:{} T_START: {}, T_STOP: {}".format(row['ROCK_ANGLE'],row['START'], row['STOP']))
+    for i, row in enumerate(rows):
+        print("{}/{} ROCK:{} T_START: {}, T_STOP: {}".format(i+1, len(rows), row['ROCK_ANGLE'],row['START'], row['STOP']))
         t_eq_sp = transform.get_T_eq_sp(transform.d2r(row['DEC_ZENITH']), transform.d2r(row['RA_ZENITH']))
         inv_t_eq_sp = np.linalg.inv(t_eq_sp)
         t_eq_p = transform.get_T_eq_p(
@@ -60,26 +61,30 @@ def main():
         slice(settings.PHI_NADIR_MIN, settings.PHI_NADIR_MAX + settings.D_PHI, settings.D_PHI),
         slice(settings.THETA_NADIR_MIN, settings.THETA_NADIR_MAX + settings.D_THETA, settings.D_THETA),
     ]
-    plt.pcolormesh(x, y, exp_map, cmap="cividis")
+    plt.pcolormesh(x, y, exp_map, cmap="viridis", norm=matplotlib.colors.LogNorm())
     a = plt.colorbar()
     a.set_label('Livetime (s)')
-    plt.title("Live map (one row of week:{}, rock:{:.02f})".format(WEEK, row['ROCK_ANGLE']))
+    plt.title("Live map (week:{})".format(WEEK))
+    # plt.title("Live map (one row of week:{}, rock:{:.02f})".format(WEEK, row['ROCK_ANGLE']))
     plt.xlabel("$\phi_{nadir}$ (deg)")
     plt.ylabel("$\\theta_{nadir}$ (deg)")
-    plt.show()
+    plt.savefig("livemap.png")
+    # plt.show()
     # polar plot
     plt.clf()
     ax = plt.subplot(projection='polar')
     ax.set_theta_zero_location("N")  # theta=0 at the top
     ax.set_theta_direction(-1)  # theta increasing clockwise
-    plt.pcolormesh(transform.d2r(x), y, exp_map, cmap="cividis")
+    plt.pcolormesh(transform.d2r(x), y, exp_map, cmap="viridis", norm=matplotlib.colors.LogNorm())
     # plt.thetagrids([theta * 15 for theta in range(int(settings.PHI_NADIR_MAX)//15)])
     plt.rgrids([theta * 30 for theta in range(int(settings.THETA_NADIR_MAX)//30)])
     plt.grid(alpha=0.5, linestyle='--')
     a = plt.colorbar()
     a.set_label('Livetime (s)')
-    plt.title("Live map (one row of week:{}, rock:{:.02f})".format(WEEK, row['ROCK_ANGLE']))
-    plt.show()
+    plt.title("Live map (week:{})".format(WEEK))
+    # plt.title("Live map (one row of week:{}, rock:{:.02f})".format(WEEK, row['ROCK_ANGLE']))
+    plt.savefig("livemap_polar.png")
+    # plt.show()
     # ref https://stackoverflow.com/questions/36513312/polar-heatmaps-in-python
 
 def find_lat_looking():

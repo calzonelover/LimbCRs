@@ -2,6 +2,7 @@ import numpy as np
 import math
 import pyfits
 import os
+import matplotlib
 import matplotlib.pyplot as plt
 from mpl_toolkits.mplot3d import Axes3D
 
@@ -70,14 +71,16 @@ def main():
         bins=int(settings.N_BINS_PHI_NADIR),
         range=(settings.PHI_NADIR_MIN, settings.PHI_NADIR_MAX)
     )
-    plt.title("Distribution of PHI_NAD (one row of week:{}, rock:{:.02f})".format(WEEK, ROCK_ANGLE))
+    plt.title("Distribution of PHI_NAD (week:{})".format(WEEK))
+    # plt.title("Distribution of PHI_NAD (one row of week:{}, rock:{:.02f})".format(WEEK, ROCK_ANGLE))
     plt.xlabel("$\phi_{nadir}$ (deg)")
     plt.ylabel("Count")
     plt.show()
     # cartesian  
-    plt.clf()  
-    plt.pcolormesh(x, y, np_cntmap, cmap="cividis")
-    plt.title("Count map (one row of week:{}, rock:{:.02f})".format(WEEK, ROCK_ANGLE))
+    plt.clf()
+    plt.pcolormesh(x, y, np_cntmap, cmap="viridis", norm=matplotlib.colors.LogNorm())
+    plt.title("Count map (week:{})".format(WEEK))
+    # plt.title("Count map (one row of week:{}, rock:{:.02f})".format(WEEK, ROCK_ANGLE))
     plt.xlabel("$\phi_{nadir}$ (deg)")
     plt.ylabel("$\\theta_{nadir}$ (deg)")
     a = plt.colorbar()
@@ -88,11 +91,12 @@ def main():
     ax = plt.subplot(projection='polar')
     ax.set_theta_zero_location("N")  # theta=0 at the top
     ax.set_theta_direction(-1)  # theta increasing clockwise
-    plt.pcolormesh(transform.d2r(x), y, np_cntmap, cmap="cividis")
+    plt.pcolormesh(transform.d2r(x), y, np_cntmap, cmap="viridis", norm=matplotlib.colors.LogNorm())
     # plt.thetagrids([theta * 15 for theta in range(int(settings.PHI_NADIR_MAX)//15)])
     plt.rgrids([theta * 30 for theta in range(int(settings.THETA_NADIR_MAX)//30)])
     plt.grid(alpha=0.5, linestyle='--')
     a = plt.colorbar()
     a.set_label('Count')
-    plt.title("Count map (one row of week:{}, rock:{:.02f})".format(WEEK, ROCK_ANGLE))
+    plt.title("Count map (week:{})".format(WEEK))
+    # plt.title("Count map (one row of week:{}, rock:{:.02f})".format(WEEK, ROCK_ANGLE))
     plt.show()
