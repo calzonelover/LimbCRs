@@ -6,6 +6,7 @@ import math
 import pyfits
 import os
 import matplotlib
+matplotlib.use('TkAgg')
 import matplotlib.pyplot as plt
 from mpl_toolkits.mplot3d import Axes3D
 
@@ -13,8 +14,18 @@ from utility import transform
 import settings
 
 WEEK = 164
+FT2_START_ROW = 280
+FT2_STOP_ROW = 480
 T_START = None
 T_STOP = None
+FILE_EFF = path = os.path.join(
+    os.getcwd(),
+    "unit_test",
+    "exposure_map",
+    "eff_E1000_PHI0.csv"
+)
+E_MIN_CUT = 1e2 # 100 MeV
+E_MAX_CUT = 1e5 # 100 GeV
 
 path = os.path.join(
     os.getcwd(),
@@ -23,9 +34,11 @@ path = os.path.join(
 )
 
 def main():
+    eff = pd.read_csv(FILE_EFF)["eff_m2"]
+
     exp_map = np.zeros(shape=(settings.N_BINS_PHI_NADIR, settings.N_BINS_THETA_NADIR), dtype=float)
     f = pyfits.open(os.path.join(path, "lat_spacecraft_weekly_w{0:3d}_p202_v001.fits").format(WEEK))
-    rows = f[1].data[280:480]
+    rows = f[1].data[FT2_START_ROW:FT2_STOP_ROW]
     T_START, T_STOP = rows[0]['START'], rows[-1]['STOP']
     print("T_START: {}, T_STOP: {}".format(T_START, T_STOP))
     for i, row in enumerate(rows):
@@ -56,9 +69,9 @@ def main():
                 )
                 rho = math.sqrt(r_p[0]*r_p[0]+r_p[1]*r_p[1])
                 theta_p = math.pi/2 - math.atan(r_p[2]/rho)
-                phi_p = math.acos(r_p[0]/rho) if r_p[1] < 0 else 2*math.pi - math.acos(r_p[0]/rho)
                 if transform.r2d(theta_p) < settings.THETA_LAT_CUTOFF:
-                    exp_map[i_phi_nadir, i_theta_nadir] += row['LIVETIME']
+                    phi_p = math.acos(r_p[0]/rho) if r_p[1] < 0 else 2*math.pi - math.acos(r_p[0]/rho)
+                    exp_map[i_phi_nadir, i_theta_nadir] += row['LIVETIME'] * eff[math.floor(transform.r2d(theta_p))]
     # cartesian plot
     plt.figure()
     x, y = np.mgrid[
@@ -67,8 +80,8 @@ def main():
     ]
     plt.pcolormesh(x, y, exp_map, cmap="viridis", norm=matplotlib.colors.LogNorm())
     a = plt.colorbar()
-    a.set_label('Livetime (s)')
-    plt.title("Live map (week:{}, t_start:{}, t_stop:{})".format(WEEK, T_START, T_STOP))
+    a.set_label('Exposure ($m^2 s$)')
+    plt.title("Exposure map (week:{}, t_start:{}, t_stop:{})".format(WEEK, T_START, T_STOP))
     # plt.title("Live map (one row of week:{}, rock:{:.02f})".format(WEEK, row['ROCK_ANGLE']))
     plt.xlabel("$\phi_{nadir}$ (deg)")
     plt.ylabel("$\\theta_{nadir}$ (deg)")
@@ -84,8 +97,8 @@ def main():
     plt.rgrids([theta * 30 for theta in range(int(settings.THETA_NADIR_MAX)//30)])
     plt.grid(alpha=0.5, linestyle='--')
     a = plt.colorbar()
-    a.set_label('Livetime (s)')
-    plt.title("Live map (week:{}, t_start:{}, t_stop:{})".format(WEEK, T_START, T_STOP))
+    a.set_label('Exposure ($m^2 s$)')
+    plt.title("Exposure map (week:{}, t_start:{}, t_stop:{})".format(WEEK, T_START, T_STOP))
     # plt.title("Live map (one row of week:{}, rock:{:.02f})".format(WEEK, row['ROCK_ANGLE']))
     # plt.savefig("livemap_polar.png")
     plt.show()
@@ -98,11 +111,12 @@ def main():
     f = pyfits.open(os.path.join(path, "lat_photon_weekly_w{0:3d}_p302_v001.fits").format(WEEK))
     rows = f[1].data
 
-    df = pd.DataFrame(rows)
-    print(df)
-    exit()
+    # df = pd.DataFrame(rows)
+    # print(df)
+    # exit()
     rows = list(filter(
         lambda x: x['THETA'] < settings.THETA_LAT_CUTOFF
+            and x['ENERGY'] > E_MIN_CUT and x['ENERGY'] < E_MAX_CUT
             and x['TIME'] > float(T_START) and x['TIME'] < float(T_STOP),
         rows
     ))    
