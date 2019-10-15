@@ -1,63 +1,77 @@
+#include <stdio.h>
 #include <stdlib.h>
-#include <string>
+#include <string> 
 #include <vector>
 #include <sstream> //istringstream
 #include <iostream> // cout
 #include <fstream> // ifstream
+#include <math.h> 
 
-#define WEEK 164
+#include "main.h"
 
-typedef struct FT2
-{
-  float DEC_SCX;
-  float DEC_SCZ;
-  float DEC_ZENITH;
-  float LIVETIME;
-  float RA_SCX;
-  float RA_SCZ;
-  float RA_ZENITH;
-  float ROCK_ANGLE;
-  float START;
-  float STOP;
-} FT2;
-
-void crossProduct(float *_A, float *_B, float *_C);
-void readCSV(char *_filename, float *_out);
+/*
+ Compile using c++ 11
+ g++ main.cpp -o out -std=c++11
+*/
 
 int main(){
-  char file_ft2[] = "ft2_w164.csv";
-  float *out;
-  readCSV(file_ft2, out);
+    int week = 164;
+    std::string file_ft2 = getFT2Filename(week);
+    std::vector<FT2> ft2_rows = readCSV(file_ft2);
+    
+
+    //std::cout << ft2_rows[20].DEC_SCZ << std::endl;
 }
 
-void crossProduct(float *_A, float *_B, float *_C) {
-    _C[0] = _A[1] * _B[2] - _A[2] * _B[1]; 
-    _C[1] = _A[0] * _B[2] - _A[2] * _B[0]; 
-    _C[2] = _A[0] * _B[1] - _A[1] * _B[0]; 
-}
-
-void readCSV(char *_filename, float *_out){
+std::vector<FT2> readCSV(std::string _filename){
   std::ifstream file(_filename);
-  std::vector<float> matrix;
+  std::vector<FT2> ft2_rows;
+  
+  if (!file.good()){
+    std::cout << "file " << _filename << " does not exist"  << std::endl;
+    std::cout << "Program exit!" << std::endl;
+    exit(0);
+  }
+
   std::string line;
+  int row_i = 0;
 
   while (getline(file, line,'\n'))
 	{
-	  std::istringstream templine(line);
-	  std::string data;
-    std::cout << line << std::endl;
-
-	  for (std::getline(templine, data,','))
-	  {
-	    std::cout << data << std::endl;
-	  }
-    exit(0);
-	  while (std::getline(templine, data,','))
-	  {
-	    matrix.push_back(atof(data.c_str()));
-	  }
+    if (row_i > 0 && !file.eof()){
+      std::istringstream templine(line);
+      // std::cout << line << std::endl;
+      std::vector<float> row;
+      std::string data;
+      while (std::getline(templine, data,','))
+      {
+        row.push_back(atof(data.c_str()));
+      }
+      
+      FT2 row_ft2 = {
+        .DEC_SCX = row[1],
+        .DEC_SCZ = row[2],
+        .DEC_ZENITH = row[3],
+        .LIVETIME = row[4],
+        .RA_SCX = row[5],
+        .RA_SCZ = row[6],
+        .RA_ZENITH = row[7],
+        .ROCK_ANGLE = row[8],
+        .START = row[9],
+        .STOP = row[10],
+      };
+      ft2_rows.push_back(row_ft2);
+    }
+    row_i++;
 	}
-  
-  std::cout << matrix.size();
   file.close();
+  return ft2_rows;
+}
+
+std::string getFT2Filename(int _week){
+  std::string week = std::to_string(_week);
+  while (week.size() < 3){
+    week = "0" + week;
+  }
+  return "ft2_w" + week + ".csv";
 }
