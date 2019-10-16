@@ -14,29 +14,63 @@
  g++ main.cpp -o out -std=c++11
 */
 
+
 int main(){
-    int week = 164;
-    std::string file_ft2 = getFT2Filename(week);
+    live_map = (float*)malloc(N_BINS_THETA_NADIR*N_BINS_PHI_NADIR*sizeof(float));
+    for (unsigned int i=0; i<N_BINS_THETA_NADIR*N_BINS_PHI_NADIR; i++)  live_map[i] = 0.0f;
+    d_phi = float(PHI_NADIR_MAX-PHI_NADIR_MIN)/float(N_BINS_PHI_NADIR);
+    d_theta = float(THETA_NADIR_MAX-THETA_NADIR_MIN)/float(N_BINS_THETA_NADIR);
+
+    week = 164;    
+    std::string file_ft2 = getSpecialFilename(week, "ft2");
     std::vector<FT2> ft2_rows = readCSV(file_ft2);
 
-    float *t_eq_sp = (float*)malloc(9*sizeof(float));
-    // get_T_eq_sp(ft2_rows[40].DEC_ZENITH, ft2_rows[40].RA_ZENITH, t_eq_sp);
-    // for (unsigned int i=0; i<9; i++){
-    //   std::cout << t_eq_sp[i] << std::endl;
-    // }
-	float *t_eq_p = (float*)malloc(9*sizeof(float));
-	float *inv_t_eq_p = (float*)malloc(9*sizeof(float));
-	// get_T_eq_p(ft2_rows[40].DEC_SCX, ft2_rows[40].RA_SCX, ft2_rows[40].DEC_SCZ, ft2_rows[40].RA_SCZ, t_eq_p);
-	// inverseMatrix(t_eq_p, inv_t_eq_p, 3);
-    for (unsigned int i=0; i<9; i++){
-      std::cout << t_eq_p[i] << std::endl;
-    }
-    // for (unsigned int i=0; i<9; i++){
-    //   std::cout << inv_t_eq_p[i] << std::endl;
-    // }
+    r_sp = (float*)malloc(3*sizeof(float));
+    r_eq = (float*)malloc(3*sizeof(float));
+    r_p = (float*)malloc(3*sizeof(float));
+	t_eq_p = (float*)malloc(9*sizeof(float));
+    t_eq_sp = (float*)malloc(9*sizeof(float));
+	inv_t_eq_sp = (float*)malloc(9*sizeof(float));
 
-	free(t_eq_sp);free(t_eq_p);
+    for(FT2 ft2_row : ft2_rows){
+        get_T_eq_p(ft2_row.DEC_SCX, ft2_row.RA_SCX, ft2_row.DEC_SCZ, ft2_row.RA_SCZ, t_eq_p);
+        get_T_eq_sp(ft2_row.DEC_ZENITH, ft2_row.RA_ZENITH, t_eq_sp);
+    	inverseMatrix(t_eq_sp, inv_t_eq_sp, 3);
+        for (unsigned int i_phi_nad=0; i_phi_nad < N_BINS_PHI_NADIR; i_phi_nad++){
+            for (unsigned int i_theta_nad=0; i_theta_nad < N_BINS_THETA_NADIR; i_theta_nad++){
+                phi_nadir = float(PHI_NADIR_MIN) + d_phi/2 + d_phi * i_phi_nad;
+                theta_nadir = float(THETA_NADIR_MIN) + d_theta/2 + d_theta * i_theta_nad;
+                
+                r_sp[0] = -cos(theta_nadir); r_sp[1] = sin(theta_nadir)*sin(phi_nadir); r_sp[2] = sin(theta_nadir)*cos(phi_nadir);                
+                matrix_mul_vector(inv_t_eq_sp, r_sp, r_eq, 3, 3);
+                matrix_mul_vector(t_eq_p, r_sp, r_p, 3, 3);
+                rho = sqrt(r_p[0]*r_p[0] + r_p[1]*r_p[1]);
+                theta_p = float(PI)/2.0f - atan(r_p[2]/rho);
+                phi_p = r_p[1] < 0 ? acos(r_p[0]/rho) : 2.0f*float(PI) - acos(r_p[0]/rho);
+                if (r2d(theta_p) < float(THETA_LAT_CUTOFF)){
+                    live_map[i_phi_nad + i_theta_nad * N_BINS_PHI_NADIR] += ft2_row.LIVETIME;
+                }
+            }
+        }
+    }
+
+    printMatrix(live_map, N_BINS_PHI_NADIR, N_BINS_THETA_NADIR);
+    std::string out_livemap = getSpecialFilename(week, "livemap");
+    writeFile(out_livemap, live_map, N_BINS_PHI_NADIR*N_BINS_THETA_NADIR);
+
+    free(live_map);
+    free(r_sp);free(r_eq);free(r_p);
+	free(t_eq_p);free(t_eq_sp);free(inv_t_eq_sp);
 }
+
+
+
+
+
+
+
+
+
 
 std::vector<FT2> readCSV(std::string _filename){
   std::ifstream file(_filename);
@@ -83,12 +117,12 @@ std::vector<FT2> readCSV(std::string _filename){
   return ft2_rows;
 }
 
-std::string getFT2Filename(int _week){
+std::string getSpecialFilename(int _week, std::string name){
   std::string week = std::to_string(_week);
   while (week.size() < 3){
     week = "0" + week;
   }
-  return "ft2_w" + week + ".csv";
+  return name + "_w" + week + ".csv";
 }
 
 
@@ -137,13 +171,49 @@ void get_T_eq_p(float de_x_p, float ra_x_p, float de_z_p, float ra_z_p, float *t
     free(x_p);free(y_p);free(z_p);
 }
 
+template <class T>
+void matrix_mul_vector(T *m, T *v, T *v_out, int N, int M){
+    T sum;
+    for (unsigned int j=0; j<M; j++){
+        sum = 0;
+        for (unsigned int i=0; i<N; i++){
+            sum += m[i+j*N] * v[i];
+        }
+        v_out[j] = sum;
+    }
+}
+
+template <class T>
+void printMatrix(T *x, int n, int m){
+    for (unsigned int j=0;j<m;j++){
+		for (unsigned int i=0;i<n;i++){
+			std::cout << x[i+j*n] << " ";
+		}
+        std::cout << std::endl;
+	}
+}
+
+template <class T>
+void writeFile(std::string filename, T *vec, int size_vec){
+	std::ofstream out_hist;
+	out_hist.open(filename);
+	for (unsigned int d=0; d < size_vec; d++){
+		out_hist << vec[d] << "," << std::endl;
+	}
+	out_hist.close();
+}
+
 // Matrix inversion
-// the result is put in Y
 void inverseMatrix(float *x, float *y, int order){
-	float **_x = new float*[order];
-	float **_y = new float*[order];
-	for (unsigned int j=0; j<order; j++){
-		for (unsigned int i=0; i<order; i++){
+    float **_x = new float*[order];
+    float **_y = new float*[order];
+    for(unsigned int i=0 ; i<order ; i++)
+    {
+        _x[i] = new float[order];
+        _y[i] = new float[order];
+    }
+	for (unsigned int j=0;j<order;j++){
+		for (unsigned int i=0;i<order;i++){
 			_x[i][j] = x[i+j*order];
 		}
 	}
