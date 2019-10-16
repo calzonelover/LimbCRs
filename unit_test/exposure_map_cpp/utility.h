@@ -11,4 +11,3 @@ float r2d(float r);
 void get_T_eq_sp(float de_sp, float ra_sp, float *t_eq_p);
 
 #endif
-
