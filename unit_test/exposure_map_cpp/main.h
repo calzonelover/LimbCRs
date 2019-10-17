@@ -38,13 +38,14 @@ std::vector<FT2> readCSV(std::string _filename);
 /* Utility */
 #define PI 3.14159265
 
-void crossProduct(float *_A, float *_B, float *_C);
-
 float d2r(float d);
 float r2d(float r);
 
 void get_T_eq_sp(float de_sp, float ra_sp, float *t_eq_sp);
 void get_T_eq_p(float de_x_p, float ra_x_p, float de_z_p, float ra_z_p, float *t_eq_p);
+
+template <class T>
+void crossProduct(T *_A, T *_B, T *_C);
 
 template <class T>
 void matrix_mul_vector(T *m, T *v, T *v_out, int N, int M);

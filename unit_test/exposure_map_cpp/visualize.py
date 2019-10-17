@@ -24,7 +24,7 @@ def main():
         header=None
     )
     exp_map = df.to_numpy()[:,0].reshape(settings.N_BINS_PHI_NADIR, settings.N_BINS_THETA_NADIR)
-    print(exp_map)
+    # exit()
     plt.figure()
     x, y = np.mgrid[
         slice(settings.PHI_NADIR_MIN, settings.PHI_NADIR_MAX + settings.D_PHI, settings.D_PHI),

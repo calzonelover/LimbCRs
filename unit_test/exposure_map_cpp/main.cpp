@@ -2,9 +2,9 @@
 #include <stdlib.h>
 #include <string> 
 #include <vector>
-#include <sstream> //istringstream
-#include <iostream> // cout
-#include <fstream> // ifstream
+#include <sstream>
+#include <iostream>
+#include <fstream>
 #include <math.h> 
 
 #include "main.h"
@@ -14,14 +14,14 @@
  g++ main.cpp -o out -std=c++11
 */
 
-
 int main(){
     live_map = (float*)malloc(N_BINS_THETA_NADIR*N_BINS_PHI_NADIR*sizeof(float));
-    for (unsigned int i=0; i<N_BINS_THETA_NADIR*N_BINS_PHI_NADIR; i++)  live_map[i] = 0.0f;
+    for (unsigned int i=0; i<N_BINS_THETA_NADIR*N_BINS_PHI_NADIR; i++) live_map[i] = 0.0f;
     d_phi = float(PHI_NADIR_MAX-PHI_NADIR_MIN)/float(N_BINS_PHI_NADIR);
     d_theta = float(THETA_NADIR_MAX-THETA_NADIR_MIN)/float(N_BINS_THETA_NADIR);
 
-    week = 164;    
+    // for loop of week
+    week = 164;
     std::string file_ft2 = getSpecialFilename(week, "ft2");
     std::vector<FT2> ft2_rows = readCSV(file_ft2);
 
@@ -33,25 +33,36 @@ int main(){
 	inv_t_eq_sp = (float*)malloc(9*sizeof(float));
 
     for(FT2 ft2_row : ft2_rows){
-        get_T_eq_p(ft2_row.DEC_SCX, ft2_row.RA_SCX, ft2_row.DEC_SCZ, ft2_row.RA_SCZ, t_eq_p);
-        get_T_eq_sp(ft2_row.DEC_ZENITH, ft2_row.RA_ZENITH, t_eq_sp);
+        get_T_eq_sp(
+            d2r(ft2_row.DEC_ZENITH), d2r(ft2_row.RA_ZENITH),
+            t_eq_sp
+        );
     	inverseMatrix(t_eq_sp, inv_t_eq_sp, 3);
+        get_T_eq_p(
+            d2r(ft2_row.DEC_SCX), d2r(ft2_row.RA_SCX),
+            d2r(ft2_row.DEC_SCZ), d2r(ft2_row.RA_SCZ),
+            t_eq_p
+        );
+        // parallelizable
         for (unsigned int i_phi_nad=0; i_phi_nad < N_BINS_PHI_NADIR; i_phi_nad++){
             for (unsigned int i_theta_nad=0; i_theta_nad < N_BINS_THETA_NADIR; i_theta_nad++){
-                phi_nadir = float(PHI_NADIR_MIN) + d_phi/2 + d_phi * i_phi_nad;
-                theta_nadir = float(THETA_NADIR_MIN) + d_theta/2 + d_theta * i_theta_nad;
-                
-                r_sp[0] = -cos(theta_nadir); r_sp[1] = sin(theta_nadir)*sin(phi_nadir); r_sp[2] = sin(theta_nadir)*cos(phi_nadir);                
+                phi_nadir = d2r(float(PHI_NADIR_MIN) + d_phi * float(i_phi_nad));
+                theta_nadir = d2r(float(THETA_NADIR_MIN) + d_theta * float(i_theta_nad));
+
+                r_sp[0] = -cos(theta_nadir); r_sp[1] = sin(theta_nadir)*sin(phi_nadir); r_sp[2] = sin(theta_nadir)*cos(phi_nadir);
                 matrix_mul_vector(inv_t_eq_sp, r_sp, r_eq, 3, 3);
-                matrix_mul_vector(t_eq_p, r_sp, r_p, 3, 3);
+                matrix_mul_vector(t_eq_p, r_eq, r_p, 3, 3);
+
                 rho = sqrt(r_p[0]*r_p[0] + r_p[1]*r_p[1]);
                 theta_p = float(PI)/2.0f - atan(r_p[2]/rho);
-                phi_p = r_p[1] < 0 ? acos(r_p[0]/rho) : 2.0f*float(PI) - acos(r_p[0]/rho);
+                phi_p = r_p[1] < 0.0f ? acos(r_p[0]/rho) : 2.0f*float(PI) - acos(r_p[0]/rho);
+
                 if (r2d(theta_p) < float(THETA_LAT_CUTOFF)){
                     live_map[i_phi_nad + i_theta_nad * N_BINS_PHI_NADIR] += ft2_row.LIVETIME;
                 }
             }
         }
+        // end parallelizable
     }
 
     printMatrix(live_map, N_BINS_PHI_NADIR, N_BINS_THETA_NADIR);
@@ -96,7 +107,6 @@ std::vector<FT2> readCSV(std::string _filename){
       {
         row.push_back(atof(data.c_str()));
       }
-      
       FT2 row_ft2 = {
         .DEC_SCX = row[1],
         .DEC_SCZ = row[2],
@@ -125,20 +135,20 @@ std::string getSpecialFilename(int _week, std::string name){
   return name + "_w" + week + ".csv";
 }
 
-
 /* Utility */
-void crossProduct(float *_A, float *_B, float *_C){
-    _C[0] = _A[1] * _B[2] - _A[2] * _B[1]; 
-    _C[1] = _A[0] * _B[2] - _A[2] * _B[0]; 
-    _C[2] = _A[0] * _B[1] - _A[1] * _B[0]; 
+template <class T>
+void crossProduct(T *_A, T *_B, T *_C){
+    _C[0] = _A[1] * _B[2] - _A[2] * _B[1];
+    _C[1] = _A[2] * _B[0] - _A[0] * _B[2];
+    _C[2] = _A[0] * _B[1] - _A[1] * _B[0];
 }
 
 float d2r(float d){
-    return d * PI / 180.0;
+    return d * float(PI) / 180.0f;
 }
 
 float r2d(float r){
-    return r * 180.0 / PI;
+    return r * 180.0f / float(PI);
 }
 
 void get_T_eq_sp(float de_sp, float ra_sp, float *t_eq_sp){
@@ -173,11 +183,12 @@ void get_T_eq_p(float de_x_p, float ra_x_p, float de_z_p, float ra_z_p, float *t
 
 template <class T>
 void matrix_mul_vector(T *m, T *v, T *v_out, int N, int M){
-    T sum;
-    for (unsigned int j=0; j<M; j++){
-        sum = 0;
-        for (unsigned int i=0; i<N; i++){
-            sum += m[i+j*N] * v[i];
+    for (unsigned int j=0;j<M;j++)
+    {
+        T sum = 0;
+        for (unsigned int i=0;i<N;i++)
+        {
+            sum += m[i+j*3] * v[i];
         }
         v_out[j] = sum;
     }

@@ -33,7 +33,7 @@ def main():
             transform.d2r(row['RA_SCX']),
             transform.d2r(row['DEC_SCZ']),
             transform.d2r(row['RA_SCZ'])
-        )     
+        )
         for i_phi_nadir in range(settings.N_BINS_PHI_NADIR):
             for i_theta_nadir in range(settings.N_BINS_THETA_NADIR):
                 phi_nadir = transform.d2r(settings.D_PHI * i_phi_nadir)
