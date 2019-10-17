@@ -5,6 +5,7 @@
 #include <sstream>
 #include <iostream>
 #include <fstream>
+#include <ctime>
 #include <math.h> 
 
 #include "main.h"
@@ -12,6 +13,7 @@
 /*
  Compile using c++ 11
  g++ main.cpp -o out -std=c++11
+ Elapses time 7.37503 s (livetime week 164)
 */
 
 int main(){
@@ -32,6 +34,7 @@ int main(){
     t_eq_sp = (float*)malloc(9*sizeof(float));
 	inv_t_eq_sp = (float*)malloc(9*sizeof(float));
 
+    t_begin = clock();
     for(FT2 ft2_row : ft2_rows){
         get_T_eq_sp(
             d2r(ft2_row.DEC_ZENITH), d2r(ft2_row.RA_ZENITH),
@@ -64,8 +67,11 @@ int main(){
         }
         // end parallelizable
     }
+    t_end = clock();
+    double elapsed_secs = double(t_end - t_begin) / CLOCKS_PER_SEC;
+    std::cout << "Elapses time " << elapsed_secs << " s" << std::endl;
 
-    printMatrix(live_map, N_BINS_PHI_NADIR, N_BINS_THETA_NADIR);
+    // printMatrix(live_map, N_BINS_PHI_NADIR, N_BINS_THETA_NADIR);
     std::string out_livemap = getSpecialFilename(week, "livemap");
     writeFile(out_livemap, live_map, N_BINS_PHI_NADIR*N_BINS_THETA_NADIR);
 
@@ -208,9 +214,11 @@ template <class T>
 void writeFile(std::string filename, T *vec, int size_vec){
 	std::ofstream out_hist;
 	out_hist.open(filename);
-	for (unsigned int d=0; d < size_vec; d++){
-		out_hist << vec[d] << "," << std::endl;
-	}
+    for (unsigned int i=0; i < N_BINS_PHI_NADIR; i++){
+        for (unsigned int j=0; j < N_BINS_THETA_NADIR; j++){
+            out_hist << vec[i + j * N_BINS_PHI_NADIR] << "," << std::endl;
+        }
+    }
 	out_hist.close();
 }
 

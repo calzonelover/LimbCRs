@@ -2,6 +2,7 @@
 # import ROOT as rt
 import numpy as np
 import math
+import time
 import pyfits
 import os
 import matplotlib
@@ -24,8 +25,10 @@ def main():
     exp_map = np.zeros(shape=(settings.N_BINS_PHI_NADIR, settings.N_BINS_THETA_NADIR), dtype=float)
     f = pyfits.open(os.path.join(path, "lat_spacecraft_weekly_w{0:3d}_p202_v001.fits").format(WEEK))
     rows = f[1].data
+
+    t_start = time.time()
     for i, row in enumerate(rows):
-        print("{}/{} ROCK:{} T_START: {}, T_STOP: {}".format(i+1, len(rows), row['ROCK_ANGLE'],row['START'], row['STOP']))
+        # print("{}/{} ROCK:{} T_START: {}, T_STOP: {}".format(i+1, len(rows), row['ROCK_ANGLE'],row['START'], row['STOP']))
         t_eq_sp = transform.get_T_eq_sp(transform.d2r(row['DEC_ZENITH']), transform.d2r(row['RA_ZENITH']))
         inv_t_eq_sp = np.linalg.inv(t_eq_sp)
         t_eq_p = transform.get_T_eq_p(
@@ -55,6 +58,7 @@ def main():
                 phi_p = math.acos(r_p[0]/rho) if r_p[1] < 0 else 2*math.pi - math.acos(r_p[0]/rho)
                 if transform.r2d(theta_p) < settings.THETA_LAT_CUTOFF:
                     exp_map[i_phi_nadir, i_theta_nadir] += row['LIVETIME']
+    print("Elapses time {} (s)".format(time.time() - t_start))
     # cartesian plot
     plt.figure()
     x, y = np.mgrid[

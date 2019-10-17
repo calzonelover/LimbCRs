@@ -70,5 +70,7 @@ int week;
 
 float *r_sp, *r_eq, *r_p, *t_eq_p, *t_eq_sp, *inv_t_eq_sp;
 
+clock_t t_begin, t_end;
+
 #endif
 
