@@ -2,7 +2,6 @@
 #define MAIN
 
 // settings
-#define N_E_BINS 50
 #define THETA_LAT_CUTOFF 70.0
 
 #define N_BINS_PHI_NADIR 20
@@ -12,7 +11,8 @@
 #define THETA_NADIR_MIN 0.0
 #define THETA_NADIR_MAX 160.0
 
-typedef struct FT2 {
+typedef struct FT2
+{
   float DEC_SCX;
   float DEC_SCZ;
   float DEC_ZENITH;
@@ -25,11 +25,12 @@ typedef struct FT2 {
   float STOP;
 } FT2;
 
-typedef struct MAP {
-  float energyGEV;
-  double *exp_map;
-  double *live_map;
-} MAP;
+typedef struct EXPOSURE {
+    float thetaNadir;
+    float phiNadir;
+    float livetime;
+    float exposure;
+} EXPOSURE;
 
 std::string getSpecialFilename(int _week, std::string name);
 std::vector<FT2> readCSV(std::string _filename);
@@ -59,9 +60,9 @@ void writeFile(std::string filename, T *vec, int size_vec);
 void inverseMatrix(float *x, float *y, int order);
 void matrixInversion(float **A, int order, float **Y);
 int getMinor(float **src, float **dest, int row, int col, int order);
-double calcDeterminant(float **mat, int order);
+double calcDeterminant( float **mat, int order);
 
-double *live_map; double *exp_map; float *energy_bins;
+float *live_map;
 float d_phi, d_theta;
 float phi_nadir, theta_nadir, rho, theta_p, phi_p;
 

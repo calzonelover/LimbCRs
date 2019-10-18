@@ -16,34 +16,14 @@
  Elapses time 7.37503 s (livetime week 164)
 */
 
-void assignEnergyBin(float *_energy_bins, float energy_start_gev, float energy_end_gev){
-    for (unsigned i=0; i<=N_E_BINS; i++){
-        _energy_bins[i] = log10(energy_start_gev) + float(i)*log10(energy_end_gev/energy_start_gev);
-    }
-}
-
 int main(){
+    live_map = (float*)malloc(N_BINS_THETA_NADIR*N_BINS_PHI_NADIR*sizeof(float));
+    for (unsigned int i=0; i<N_BINS_THETA_NADIR*N_BINS_PHI_NADIR; i++) live_map[i] = 0.0f;
     d_phi = float(PHI_NADIR_MAX-PHI_NADIR_MIN)/float(N_BINS_PHI_NADIR);
     d_theta = float(THETA_NADIR_MAX-THETA_NADIR_MIN)/float(N_BINS_THETA_NADIR);
-    energy_bins = (float*)malloc(N_E_BINS*sizeof(float));
-    live_map = (double*)malloc(N_BINS_THETA_NADIR*N_BINS_PHI_NADIR*sizeof(double));
-    exp_map = (double*)malloc(N_BINS_THETA_NADIR*N_BINS_PHI_NADIR*sizeof(double));
-
-    // assign energy
-    assignEnergyBin(energy_bins, 10.0f, 1000.0f);
-    // for (unsigned i=0; i<=N_E_BINS; i++){
-    //     std::cout << energy_bins[i] << std::endl;
-    // }
-    exit(0);
-
-    // for loop energy
-
 
     // for loop of week
     week = 164;
-    for (unsigned int i=0; i<N_BINS_THETA_NADIR*N_BINS_PHI_NADIR; i++){
-        live_map[i] = 0.0f; exp_map[i] = 0.0f;
-    }
     std::string file_ft2 = getSpecialFilename(week, "ft2");
     std::vector<FT2> ft2_rows = readCSV(file_ft2);
 
@@ -54,6 +34,7 @@ int main(){
     t_eq_sp = (float*)malloc(9*sizeof(float));
 	inv_t_eq_sp = (float*)malloc(9*sizeof(float));
 
+    t_begin = clock();
     for(FT2 ft2_row : ft2_rows){
         get_T_eq_sp(
             d2r(ft2_row.DEC_ZENITH), d2r(ft2_row.RA_ZENITH),
@@ -80,18 +61,21 @@ int main(){
                 phi_p = r_p[1] < 0.0f ? acos(r_p[0]/rho) : 2.0f*float(PI) - acos(r_p[0]/rho);
 
                 if (r2d(theta_p) < float(THETA_LAT_CUTOFF)){
-                    live_map[i_phi_nad + i_theta_nad * N_BINS_PHI_NADIR] += double(ft2_row.LIVETIME);
+                    live_map[i_phi_nad + i_theta_nad * N_BINS_PHI_NADIR] += ft2_row.LIVETIME;
                 }
             }
         }
         // end parallelizable
     }
+    t_end = clock();
+    double elapsed_secs = double(t_end - t_begin) / CLOCKS_PER_SEC;
+    std::cout << "Elapses time " << elapsed_secs << " s" << std::endl;
 
+    // printMatrix(live_map, N_BINS_PHI_NADIR, N_BINS_THETA_NADIR);
     std::string out_livemap = getSpecialFilename(week, "livemap");
     writeFile(out_livemap, live_map, N_BINS_PHI_NADIR*N_BINS_THETA_NADIR);
-    // for loop of week
 
-    free(energy_bins);free(live_map);free(exp_map);
+    free(live_map);
     free(r_sp);free(r_eq);free(r_p);
 	free(t_eq_p);free(t_eq_sp);free(inv_t_eq_sp);
 }
