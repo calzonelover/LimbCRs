@@ -1,3 +1,7 @@
+'''
+Elapses time 1434.7676122188568 (s) (week 164)
+'''
+
 # import pyIrfLoader
 # import ROOT as rt
 import numpy as np
