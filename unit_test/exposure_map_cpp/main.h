@@ -2,7 +2,11 @@
 #define MAIN
 
 // settings
+#define GAMMA 2.66
+#define E_START_GEV 10
+#define E_STOP_GEV 1000
 #define N_E_BINS 50
+
 #define THETA_LAT_CUTOFF 70.0
 
 #define N_BINS_PHI_NADIR 20
@@ -25,11 +29,10 @@ typedef struct FT2 {
   float STOP;
 } FT2;
 
-typedef struct MAP {
+typedef struct EXPMAP {
   float energyGEV;
   double *exp_map;
-  double *live_map;
-} MAP;
+} EXPMAP;
 
 std::string getSpecialFilename(int _week, std::string name);
 std::vector<FT2> readCSV(std::string _filename);
@@ -55,17 +58,20 @@ void printMatrix(T *x, int n, int m);
 template <class T>
 void writeFile(std::string filename, T *vec, int size_vec);
 
+void assignEnergyBin(float *_energy_mid_bins, float energy_start_gev, float energy_end_gev);
+std::vector<EXPMAP> getZeroExposureMaps();
+
 // Matrix inversion
 void inverseMatrix(float *x, float *y, int order);
 void matrixInversion(float **A, int order, float **Y);
 int getMinor(float **src, float **dest, int row, int col, int order);
 double calcDeterminant(float **mat, int order);
 
-double *live_map; double *exp_map; float *energy_bins;
+double *live_map; std::vector<EXPMAP> expmaps; float *energy_mid_bins;
 float d_phi, d_theta;
 float phi_nadir, theta_nadir, rho, theta_p, phi_p;
 
-int week;
+unsigned int week;
 
 float *r_sp, *r_eq, *r_p, *t_eq_p, *t_eq_sp, *inv_t_eq_sp;
 

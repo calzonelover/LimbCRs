@@ -16,34 +16,16 @@
  Elapses time 7.37503 s (livetime week 164)
 */
 
-void assignEnergyBin(float *_energy_bins, float energy_start_gev, float energy_end_gev){
-    for (unsigned i=0; i<=N_E_BINS; i++){
-        _energy_bins[i] = log10(energy_start_gev) + float(i)*log10(energy_end_gev/energy_start_gev);
-    }
-}
-
 int main(){
     d_phi = float(PHI_NADIR_MAX-PHI_NADIR_MIN)/float(N_BINS_PHI_NADIR);
     d_theta = float(THETA_NADIR_MAX-THETA_NADIR_MIN)/float(N_BINS_THETA_NADIR);
-    energy_bins = (float*)malloc(N_E_BINS*sizeof(float));
-    live_map = (double*)malloc(N_BINS_THETA_NADIR*N_BINS_PHI_NADIR*sizeof(double));
-    exp_map = (double*)malloc(N_BINS_THETA_NADIR*N_BINS_PHI_NADIR*sizeof(double));
+    live_map = (double*)malloc(N_BINS_THETA_NADIR * N_BINS_PHI_NADIR * sizeof(double));
 
-    // assign energy
-    assignEnergyBin(energy_bins, 10.0f, 1000.0f);
-    // for (unsigned i=0; i<=N_E_BINS; i++){
-    //     std::cout << energy_bins[i] << std::endl;
-    // }
-    exit(0);
-
-    // for loop energy
-
+    expmaps = getZeroExposureMaps();
 
     // for loop of week
     week = 164;
-    for (unsigned int i=0; i<N_BINS_THETA_NADIR*N_BINS_PHI_NADIR; i++){
-        live_map[i] = 0.0f; exp_map[i] = 0.0f;
-    }
+    for (unsigned int i=0; i<N_BINS_THETA_NADIR*N_BINS_PHI_NADIR; i++) live_map[i] = 0.0f;
     std::string file_ft2 = getSpecialFilename(week, "ft2");
     std::vector<FT2> ft2_rows = readCSV(file_ft2);
 
@@ -78,10 +60,14 @@ int main(){
                 rho = sqrt(r_p[0]*r_p[0] + r_p[1]*r_p[1]);
                 theta_p = float(PI)/2.0f - atan(r_p[2]/rho);
                 phi_p = r_p[1] < 0.0f ? acos(r_p[0]/rho) : 2.0f*float(PI) - acos(r_p[0]/rho);
-
+                // for loop energy (correct exposure map)
                 if (r2d(theta_p) < float(THETA_LAT_CUTOFF)){
                     live_map[i_phi_nad + i_theta_nad * N_BINS_PHI_NADIR] += double(ft2_row.LIVETIME);
+                    // for (EXPMAP expmap : expmaps){
+                    //     // loop over energy 
+                    // }
                 }
+                // end loop energy
             }
         }
         // end parallelizable
@@ -91,7 +77,7 @@ int main(){
     writeFile(out_livemap, live_map, N_BINS_PHI_NADIR*N_BINS_THETA_NADIR);
     // for loop of week
 
-    free(energy_bins);free(live_map);free(exp_map);
+    free(live_map);
     free(r_sp);free(r_eq);free(r_p);
 	free(t_eq_p);free(t_eq_sp);free(inv_t_eq_sp);
 }
@@ -236,6 +222,38 @@ void writeFile(std::string filename, T *vec, int size_vec){
         }
     }
 	out_hist.close();
+}
+
+void assignEnergyBin(float *_energy_mid_bins, float energy_start_gev, float energy_end_gev){
+    float divider, e2d, e1d, ln;
+    float *energy_edge_bins = (float*)malloc(N_E_BINS*sizeof(float));
+    for (unsigned int i=0; i <= N_E_BINS; i++){
+        energy_edge_bins[i] = energy_start_gev * pow(energy_end_gev/energy_start_gev, float(i)/float(N_E_BINS));
+    }
+    for (unsigned i=0; i < N_E_BINS; i++){
+        divider = 1.0f - float(GAMMA);
+        e2d = pow(energy_edge_bins[i+1], divider);
+        e1d = pow(energy_edge_bins[i], divider);
+        ln = log(0.5f*(e2d - e1d)+ e1d);
+        _energy_mid_bins[i] = exp(ln/(divider));
+    }
+    free(energy_edge_bins);
+}
+
+std::vector<EXPMAP> getZeroExposureMaps(){
+    std::vector<EXPMAP> expmaps;
+    float *energy_mid_bins = (float*)malloc(N_E_BINS*sizeof(float));
+    assignEnergyBin(energy_mid_bins, float(E_START_GEV), float(E_START_GEV));
+    for (unsigned int k=0; k<N_E_BINS; k++){
+        EXPMAP expmap = {
+            .energyGEV = energy_mid_bins[k],
+            .exp_map = (double*)malloc(N_BINS_THETA_NADIR*N_BINS_PHI_NADIR*sizeof(double))
+        };
+        for (unsigned int i=0; i<N_BINS_THETA_NADIR*N_BINS_PHI_NADIR; i++) expmap.exp_map[i] = double(0);
+        expmaps.push_back(expmap);
+    }
+    free(energy_mid_bins);
+    return expmaps;
 }
 
 // Matrix inversion

@@ -38,3 +38,16 @@ def main():
     plt.xlabel("$\phi_{nadir}$ (deg)")
     plt.ylabel("$\\theta_{nadir}$ (deg)")
     plt.show()
+    # polar plot
+    plt.clf()
+    ax = plt.subplot(projection='polar')
+    ax.set_theta_zero_location("N")  # theta=0 at the top
+    ax.set_theta_direction(-1)  # theta increasing clockwise
+    plt.pcolormesh(transform.d2r(x), y, exp_map, cmap="viridis", norm=matplotlib.colors.LogNorm())
+    # plt.thetagrids([theta * 15 for theta in range(int(settings.PHI_NADIR_MAX)//15)])
+    plt.rgrids([theta * 30 for theta in range(int(settings.THETA_NADIR_MAX)//30)])
+    plt.grid(alpha=0.5, linestyle='--')
+    a = plt.colorbar()
+    a.set_label('Livetime (s)')
+    plt.title("Live map (week:{})".format(WEEK))
+    plt.show()

@@ -35,6 +35,23 @@
         "utility": "cpp",
         "typeinfo": "cpp",
         "random": "cpp",
-        "ctime": "cpp"
+        "ctime": "cpp",
+        "complex": "cpp",
+        "cstddef": "cpp",
+        "cstring": "cpp",
+        "memory": "cpp",
+        "cinttypes": "cpp",
+        "hashtable": "cpp",
+        "atomic": "cpp",
+        "bit": "cpp",
+        "iterator": "cpp",
+        "memory_resource": "cpp",
+        "optional": "cpp",
+        "string": "cpp",
+        "string_view": "cpp",
+        "iomanip": "cpp",
+        "chrono": "cpp",
+        "codecvt": "cpp",
+        "ratio": "cpp"
     }
 }
