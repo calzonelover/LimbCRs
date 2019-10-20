@@ -16,6 +16,8 @@
 #define THETA_NADIR_MIN 0.0
 #define THETA_NADIR_MAX 160.0
 
+#define PI 3.14159265
+
 typedef struct FT2 {
   float DEC_SCX;
   float DEC_SCZ;
@@ -34,18 +36,28 @@ typedef struct EXPMAP {
   double *exp_map;
 } EXPMAP;
 
+typedef struct EFFECTIVE_AREA {
+  double *eff_m2;
+  float *theta_nadir;
+  float energy_mid_bin;
+} EFFECTIVE_AREA;
+
+
+// io
 std::string getSpecialFilename(int _week, std::string name);
-std::vector<FT2> readCSV(std::string _filename);
+std::vector<FT2> readFT2CSV(std::string _filename);
 
-/* Utility */
-#define PI 3.14159265
+template <class T>
+void writeFile(std::string filename, T *vec, int size_vec);
 
+// transform
 float d2r(float d);
 float r2d(float r);
 
 void get_T_eq_sp(float de_sp, float ra_sp, float *t_eq_sp);
 void get_T_eq_p(float de_x_p, float ra_x_p, float de_z_p, float ra_z_p, float *t_eq_p);
 
+// math
 template <class T>
 void crossProduct(T *_A, T *_B, T *_C);
 
@@ -55,18 +67,17 @@ void matrix_mul_vector(T *m, T *v, T *v_out, int N, int M);
 template <class T>
 void printMatrix(T *x, int n, int m);
 
-template <class T>
-void writeFile(std::string filename, T *vec, int size_vec);
-
-void assignEnergyBin(float *_energy_mid_bins, float energy_start_gev, float energy_end_gev);
-std::vector<EXPMAP> getZeroExposureMaps();
-
 // Matrix inversion
 void inverseMatrix(float *x, float *y, int order);
 void matrixInversion(float **A, int order, float **Y);
 int getMinor(float **src, float **dest, int row, int col, int order);
 double calcDeterminant(float **mat, int order);
 
+/* Utility */
+void assignEnergyBin(float *_energy_mid_bins, float energy_start_gev, float energy_end_gev);
+std::vector<EXPMAP> getZeroExposureMaps();
+
+/* Variables */
 double *live_map; std::vector<EXPMAP> expmaps; float *energy_mid_bins;
 float d_phi, d_theta;
 float phi_nadir, theta_nadir, rho, theta_p, phi_p;

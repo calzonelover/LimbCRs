@@ -16,7 +16,62 @@
  Elapses time 7.37503 s (livetime week 164)
 */
 
+void readEffCSV(std::string _filename, float energy_mid_bin, double *out_eff_m2, float *out_theta_nadirs){ // "../exposure_map/eff_E1000_PHI0.csv"
+    std::ifstream file(_filename);
+    if (!file.good()){
+        std::cout << "file " << _filename << " does not exist"  << std::endl;
+        std::cout << "Program exit!" << std::endl;
+        exit(0);
+    }
+
+    std::string line;
+    int row_i = 0;
+
+    while(getline(file, line,'\n')){
+        if (row_i > 0 && !file.eof() && row_i <= int(THETA_LAT_CUTOFF+1)){
+            std::istringstream templine(line);
+            std::vector<float> row;
+            std::string data;            
+            while (std::getline(templine, data,','))
+            {
+                row.push_back(atof(data.c_str()));
+            }
+            out_eff_m2[row_i-1] = double(row[1]);
+            out_theta_nadirs[row_i-1] = row[0];
+        }
+        row_i++;
+    }
+    file.close();
+}
+
+std::vector<EFFECTIVE_AREA> getEffectiveAreas(){
+    std::vector<EFFECTIVE_AREA> eff_rows;
+
+    // float *energy_mid_bins = (float*)malloc(N_E_BINS*sizeof(float));
+    // assignEnergyBin(energy_mid_bins);
+
+    // loop energy
+    float energy_mid_bin = 1000;
+    EFFECTIVE_AREA eff = {
+        .eff_m2 = (double*)malloc(int(THETA_LAT_CUTOFF+1)*sizeof(double)),
+        .theta_nadir = (float*)malloc(int(THETA_LAT_CUTOFF+1)*sizeof(float)),
+        .energy_mid_bin = energy_mid_bin,
+    };
+    readEffCSV("../exposure_map/eff_E1000.csv", energy_mid_bin, eff.eff_m2, eff.theta_nadir);
+    eff_rows.push_back(eff);
+    // end loop energy
+
+    // free(energy_mid_bins);
+    return eff_rows;
+}
+
 int main(){
+    std::vector<EFFECTIVE_AREA> effs = getEffectiveAreas();
+    // for (unsigned int i=0; i<=int(THETA_LAT_CUTOFF); i++){
+    //     std::cout << "i " << i << " theta_nad " <<  effs[0].theta_nadir[i] << " eff_m2 " << effs[0].eff_m2[i] << std::endl;
+    // }
+    exit(0);
+
     d_phi = float(PHI_NADIR_MAX-PHI_NADIR_MIN)/float(N_BINS_PHI_NADIR);
     d_theta = float(THETA_NADIR_MAX-THETA_NADIR_MIN)/float(N_BINS_THETA_NADIR);
     live_map = (double*)malloc(N_BINS_THETA_NADIR * N_BINS_PHI_NADIR * sizeof(double));
@@ -27,7 +82,7 @@ int main(){
     week = 164;
     for (unsigned int i=0; i<N_BINS_THETA_NADIR*N_BINS_PHI_NADIR; i++) live_map[i] = 0.0f;
     std::string file_ft2 = getSpecialFilename(week, "ft2");
-    std::vector<FT2> ft2_rows = readCSV(file_ft2);
+    std::vector<FT2> ft2_rows = readFT2CSV(file_ft2);
 
     r_sp = (float*)malloc(3*sizeof(float));
     r_eq = (float*)malloc(3*sizeof(float));
@@ -88,10 +143,16 @@ int main(){
 
 
 
+// IO
+std::string getSpecialFilename(int _week, std::string name){
+  std::string week = std::to_string(_week);
+  while (week.size() < 3){
+    week = "0" + week;
+  }
+  return name + "_w" + week + ".csv";
+}
 
-
-
-std::vector<FT2> readCSV(std::string _filename){
+std::vector<FT2> readFT2CSV(std::string _filename){
   std::ifstream file(_filename);
   std::vector<FT2> ft2_rows;
   
@@ -108,7 +169,6 @@ std::vector<FT2> readCSV(std::string _filename){
 	{
     if (row_i > 0 && !file.eof()){
       std::istringstream templine(line);
-      // std::cout << line << std::endl;
       std::vector<float> row;
       std::string data;
       while (std::getline(templine, data,','))
@@ -135,22 +195,19 @@ std::vector<FT2> readCSV(std::string _filename){
   return ft2_rows;
 }
 
-std::string getSpecialFilename(int _week, std::string name){
-  std::string week = std::to_string(_week);
-  while (week.size() < 3){
-    week = "0" + week;
-  }
-  return name + "_w" + week + ".csv";
-}
-
-/* Utility */
 template <class T>
-void crossProduct(T *_A, T *_B, T *_C){
-    _C[0] = _A[1] * _B[2] - _A[2] * _B[1];
-    _C[1] = _A[2] * _B[0] - _A[0] * _B[2];
-    _C[2] = _A[0] * _B[1] - _A[1] * _B[0];
+void writeFile(std::string filename, T *vec, int size_vec){
+	std::ofstream out_hist;
+	out_hist.open(filename);
+    for (unsigned int i=0; i < N_BINS_PHI_NADIR; i++){
+        for (unsigned int j=0; j < N_BINS_THETA_NADIR; j++){
+            out_hist << vec[i + j * N_BINS_PHI_NADIR] << "," << std::endl;
+        }
+    }
+	out_hist.close();
 }
 
+// TRANSFORM
 float d2r(float d){
     return d * float(PI) / 180.0f;
 }
@@ -189,6 +246,16 @@ void get_T_eq_p(float de_x_p, float ra_x_p, float de_z_p, float ra_z_p, float *t
     free(x_p);free(y_p);free(z_p);
 }
 
+// MATH
+template <class T>
+void crossProduct(T *_A, T *_B, T *_C){
+    _C[0] = _A[1] * _B[2] - _A[2] * _B[1];
+    _C[1] = _A[2] * _B[0] - _A[0] * _B[2];
+    _C[2] = _A[0] * _B[1] - _A[1] * _B[0];
+}
+
+
+
 template <class T>
 void matrix_mul_vector(T *m, T *v, T *v_out, int N, int M){
     for (unsigned int j=0;j<M;j++)
@@ -212,51 +279,7 @@ void printMatrix(T *x, int n, int m){
 	}
 }
 
-template <class T>
-void writeFile(std::string filename, T *vec, int size_vec){
-	std::ofstream out_hist;
-	out_hist.open(filename);
-    for (unsigned int i=0; i < N_BINS_PHI_NADIR; i++){
-        for (unsigned int j=0; j < N_BINS_THETA_NADIR; j++){
-            out_hist << vec[i + j * N_BINS_PHI_NADIR] << "," << std::endl;
-        }
-    }
-	out_hist.close();
-}
-
-void assignEnergyBin(float *_energy_mid_bins, float energy_start_gev, float energy_end_gev){
-    float divider, e2d, e1d, ln;
-    float *energy_edge_bins = (float*)malloc(N_E_BINS*sizeof(float));
-    for (unsigned int i=0; i <= N_E_BINS; i++){
-        energy_edge_bins[i] = energy_start_gev * pow(energy_end_gev/energy_start_gev, float(i)/float(N_E_BINS));
-    }
-    for (unsigned i=0; i < N_E_BINS; i++){
-        divider = 1.0f - float(GAMMA);
-        e2d = pow(energy_edge_bins[i+1], divider);
-        e1d = pow(energy_edge_bins[i], divider);
-        ln = log(0.5f*(e2d - e1d)+ e1d);
-        _energy_mid_bins[i] = exp(ln/(divider));
-    }
-    free(energy_edge_bins);
-}
-
-std::vector<EXPMAP> getZeroExposureMaps(){
-    std::vector<EXPMAP> expmaps;
-    float *energy_mid_bins = (float*)malloc(N_E_BINS*sizeof(float));
-    assignEnergyBin(energy_mid_bins, float(E_START_GEV), float(E_START_GEV));
-    for (unsigned int k=0; k<N_E_BINS; k++){
-        EXPMAP expmap = {
-            .energyGEV = energy_mid_bins[k],
-            .exp_map = (double*)malloc(N_BINS_THETA_NADIR*N_BINS_PHI_NADIR*sizeof(double))
-        };
-        for (unsigned int i=0; i<N_BINS_THETA_NADIR*N_BINS_PHI_NADIR; i++) expmap.exp_map[i] = double(0);
-        expmaps.push_back(expmap);
-    }
-    free(energy_mid_bins);
-    return expmaps;
-}
-
-// Matrix inversion
+// MATRIX INVERSION
 void inverseMatrix(float *x, float *y, int order){
     float **_x = new float*[order];
     float **_y = new float*[order];
@@ -309,7 +332,6 @@ void matrixInversion(float **A, int order, float **Y)
     delete [] minor;
 }
  
-// calculate the cofactor of element (row,col)
 int getMinor(float **src, float **dest, int row, int col, int order)
 {
     // indicate which col and row is being copied to dest
@@ -336,7 +358,6 @@ int getMinor(float **src, float **dest, int row, int col, int order)
     return 1;
 }
  
-// Calculate the determinant recursively.
 double calcDeterminant( float **mat, int order)
 {
     // order must be >= 0
@@ -369,4 +390,37 @@ double calcDeterminant( float **mat, int order)
     delete [] minor;
  
     return det;
+}
+
+/* Utility */
+void assignEnergyBin(float *_energy_mid_bins, float energy_start_gev = float(E_START_GEV), float energy_end_gev = float(E_STOP_GEV)){
+    float divider, e2d, e1d, ln;
+    float *energy_edge_bins = (float*)malloc((N_E_BINS+1)*sizeof(float));
+    for (unsigned int i=0; i <= N_E_BINS; i++){
+        energy_edge_bins[i] = energy_start_gev * pow(energy_end_gev/energy_start_gev, float(i)/float(N_E_BINS));
+    }
+    for (unsigned i=0; i < N_E_BINS; i++){
+        divider = 1.0f - float(GAMMA);
+        e2d = pow(energy_edge_bins[i+1], divider);
+        e1d = pow(energy_edge_bins[i], divider);
+        ln = log(0.5f*(e2d - e1d)+ e1d);
+        _energy_mid_bins[i] = exp(ln/(divider));
+    }
+    free(energy_edge_bins);
+}
+
+std::vector<EXPMAP> getZeroExposureMaps(){
+    std::vector<EXPMAP> expmaps;
+    float *energy_mid_bins = (float*)malloc(N_E_BINS*sizeof(float));
+    assignEnergyBin(energy_mid_bins);
+    for (unsigned int k=0; k<N_E_BINS; k++){
+        EXPMAP expmap = {
+            .energyGEV = energy_mid_bins[k],
+            .exp_map = (double*)malloc(N_BINS_THETA_NADIR*N_BINS_PHI_NADIR*sizeof(double))
+        };
+        for (unsigned int i=0; i<N_BINS_THETA_NADIR*N_BINS_PHI_NADIR; i++) expmap.exp_map[i] = double(0);
+        expmaps.push_back(expmap);
+    }
+    free(energy_mid_bins);
+    return expmaps;
 }
