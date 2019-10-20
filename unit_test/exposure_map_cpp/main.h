@@ -46,6 +46,7 @@ typedef struct EFFECTIVE_AREA {
 // io
 std::string getSpecialFilename(int _week, std::string name);
 std::vector<FT2> readFT2CSV(std::string _filename);
+void readEffCSV(std::string _filename, float energy_mid_bin, double *out_eff_m2, float *out_theta_nadirs);
 
 template <class T>
 void writeFile(std::string filename, T *vec, int size_vec);
@@ -76,6 +77,7 @@ double calcDeterminant(float **mat, int order);
 /* Utility */
 void assignEnergyBin(float *_energy_mid_bins, float energy_start_gev, float energy_end_gev);
 std::vector<EXPMAP> getZeroExposureMaps();
+std::vector<EFFECTIVE_AREA> getEffectiveAreas();
 
 /* Variables */
 double *live_map; std::vector<EXPMAP> expmaps; float *energy_mid_bins;

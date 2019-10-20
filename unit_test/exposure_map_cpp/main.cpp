@@ -1,12 +1,12 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include <string> 
+#include <string>
 #include <vector>
 #include <sstream>
 #include <iostream>
 #include <fstream>
 #include <ctime>
-#include <math.h> 
+#include <math.h>
 
 #include "main.h"
 
@@ -16,66 +16,16 @@
  Elapses time 7.37503 s (livetime week 164)
 */
 
-void readEffCSV(std::string _filename, float energy_mid_bin, double *out_eff_m2, float *out_theta_nadirs){ // "../exposure_map/eff_E1000_PHI0.csv"
-    std::ifstream file(_filename);
-    if (!file.good()){
-        std::cout << "file " << _filename << " does not exist"  << std::endl;
-        std::cout << "Program exit!" << std::endl;
-        exit(0);
-    }
-
-    std::string line;
-    int row_i = 0;
-
-    while(getline(file, line,'\n')){
-        if (row_i > 0 && !file.eof() && row_i <= int(THETA_LAT_CUTOFF+1)){
-            std::istringstream templine(line);
-            std::vector<float> row;
-            std::string data;            
-            while (std::getline(templine, data,','))
-            {
-                row.push_back(atof(data.c_str()));
-            }
-            out_eff_m2[row_i-1] = double(row[1]);
-            out_theta_nadirs[row_i-1] = row[0];
-        }
-        row_i++;
-    }
-    file.close();
-}
-
-std::vector<EFFECTIVE_AREA> getEffectiveAreas(){
-    std::vector<EFFECTIVE_AREA> eff_rows;
-
-    // float *energy_mid_bins = (float*)malloc(N_E_BINS*sizeof(float));
-    // assignEnergyBin(energy_mid_bins);
-
-    // loop energy
-    float energy_mid_bin = 1000;
-    EFFECTIVE_AREA eff = {
-        .eff_m2 = (double*)malloc(int(THETA_LAT_CUTOFF+1)*sizeof(double)),
-        .theta_nadir = (float*)malloc(int(THETA_LAT_CUTOFF+1)*sizeof(float)),
-        .energy_mid_bin = energy_mid_bin,
-    };
-    readEffCSV("../exposure_map/eff_E1000.csv", energy_mid_bin, eff.eff_m2, eff.theta_nadir);
-    eff_rows.push_back(eff);
-    // end loop energy
-
-    // free(energy_mid_bins);
-    return eff_rows;
-}
-
 int main(){
-    std::vector<EFFECTIVE_AREA> effs = getEffectiveAreas();
     // for (unsigned int i=0; i<=int(THETA_LAT_CUTOFF); i++){
-    //     std::cout << "i " << i << " theta_nad " <<  effs[0].theta_nadir[i] << " eff_m2 " << effs[0].eff_m2[i] << std::endl;
+    //     std::cout << "i " << i << " theta_nad " <<  effs[49].theta_nadir[i] << " eff_m2 " << effs[49].eff_m2[i] << std::endl;
     // }
-    exit(0);
 
     d_phi = float(PHI_NADIR_MAX-PHI_NADIR_MIN)/float(N_BINS_PHI_NADIR);
     d_theta = float(THETA_NADIR_MAX-THETA_NADIR_MIN)/float(N_BINS_THETA_NADIR);
     live_map = (double*)malloc(N_BINS_THETA_NADIR * N_BINS_PHI_NADIR * sizeof(double));
 
+    std::vector<EFFECTIVE_AREA> effs = getEffectiveAreas();
     expmaps = getZeroExposureMaps();
 
     // for loop of week
@@ -115,27 +65,31 @@ int main(){
                 rho = sqrt(r_p[0]*r_p[0] + r_p[1]*r_p[1]);
                 theta_p = float(PI)/2.0f - atan(r_p[2]/rho);
                 phi_p = r_p[1] < 0.0f ? acos(r_p[0]/rho) : 2.0f*float(PI) - acos(r_p[0]/rho);
-                // for loop energy (correct exposure map)
                 if (r2d(theta_p) < float(THETA_LAT_CUTOFF)){
-                    live_map[i_phi_nad + i_theta_nad * N_BINS_PHI_NADIR] += double(ft2_row.LIVETIME);
-                    // for (EXPMAP expmap : expmaps){
-                    //     // loop over energy 
+                    // loop expmap
+                    // for (unsigned int i_energy=25; i_energy<N_E_BINS; i_energy++){
+                        int i_energy = 25;
+                        live_map[i_phi_nad + i_theta_nad * N_BINS_PHI_NADIR] += double(ft2_row.LIVETIME * effs[i_energy].eff_m2[int(floor(theta_p))]);
+                        // expmap[i_energy].exp_map[i_phi_nad + i_theta_nad * N_BINS_PHI_NADIR] += double(ft2_row.LIVETIME * effs[i_energy].eff_m2[int(floor(theta_p))]);
                     // }
+                    // end loop expmap
                 }
-                // end loop energy
             }
         }
         // end parallelizable
     }
-
-    std::string out_livemap = getSpecialFilename(week, "livemap");
-    writeFile(out_livemap, live_map, N_BINS_PHI_NADIR*N_BINS_THETA_NADIR);
-    // for loop of week
+    // std::string specialname_out = "expmap_E" + std::to_string(int(floor(energy_mid_bins[i])));
+    std::string filename_out = getSpecialFilename(week, "expmap");
+    writeFile(filename_out, live_map, N_BINS_PHI_NADIR*N_BINS_THETA_NADIR);
+    // end for loop of week
 
     free(live_map);
     free(r_sp);free(r_eq);free(r_p);
 	free(t_eq_p);free(t_eq_sp);free(inv_t_eq_sp);
 }
+
+
+
 
 
 
@@ -193,6 +147,34 @@ std::vector<FT2> readFT2CSV(std::string _filename){
 	}
   file.close();
   return ft2_rows;
+}
+
+void readEffCSV(std::string _filename, float energy_mid_bin, double *out_eff_m2, float *out_theta_nadirs){
+    std::ifstream file(_filename);
+    if (!file.good()){
+        std::cout << "file " << _filename << " does not exist"  << std::endl;
+        std::cout << "Program exit!" << std::endl;
+        exit(0);
+    }
+
+    std::string line;
+    int row_i = 0;
+
+    while(getline(file, line,'\n')){
+        if (row_i > 0 && !file.eof() && row_i <= int(THETA_LAT_CUTOFF+1)){
+            std::istringstream templine(line);
+            std::vector<float> row;
+            std::string data;            
+            while (std::getline(templine, data,','))
+            {
+                row.push_back(atof(data.c_str()));
+            }
+            out_eff_m2[row_i-1] = double(row[1]);
+            out_theta_nadirs[row_i-1] = row[0];
+        }
+        row_i++;
+    }
+    file.close();
 }
 
 template <class T>
@@ -423,4 +405,26 @@ std::vector<EXPMAP> getZeroExposureMaps(){
     }
     free(energy_mid_bins);
     return expmaps;
+}
+
+std::vector<EFFECTIVE_AREA> getEffectiveAreas(){
+    std::vector<EFFECTIVE_AREA> eff_rows;
+    std::string _filename;
+    float energy_mid_bin;
+
+    float *energy_mid_bins = (float*)malloc(N_E_BINS*sizeof(float));
+    assignEnergyBin(energy_mid_bins);
+    for (unsigned int i=0; i<N_E_BINS; i++){
+        energy_mid_bin = energy_mid_bins[i];
+        _filename = "../../effective_area/static_table/eff_E" + std::to_string(int(floor(energy_mid_bin))) + ".csv";        
+        EFFECTIVE_AREA eff = {
+            .eff_m2 = (double*)malloc(int(THETA_LAT_CUTOFF+1)*sizeof(double)),
+            .theta_nadir = (float*)malloc(int(THETA_LAT_CUTOFF+1)*sizeof(float)),
+            .energy_mid_bin = energy_mid_bin,
+        };
+        readEffCSV(_filename, energy_mid_bin, eff.eff_m2, eff.theta_nadir);
+        eff_rows.push_back(eff);
+    }
+    free(energy_mid_bins);
+    return eff_rows;
 }

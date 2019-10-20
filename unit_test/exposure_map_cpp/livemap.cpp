@@ -8,7 +8,7 @@
 #include <ctime>
 #include <math.h> 
 
-#include "main.h"
+#include "livemap.h"
 
 /*
  Compile using c++ 11
