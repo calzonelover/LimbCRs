@@ -10,6 +10,7 @@ from utility import transform
 import settings
 
 WEEK = 164
+E = 953
 path = os.path.join(
     os.getcwd(),
     os.path.join(
@@ -20,7 +21,7 @@ path = os.path.join(
 
 def main():
     df = pd.read_csv(
-        os.path.join(path, "livemap_w{0:02d}.csv".format(WEEK)),
+        os.path.join(path, "../../data/exposure_map/expmap_E{}.csv".format(E)),
         header=None
     )
     exp_map = df.to_numpy()[:,0].reshape(settings.N_BINS_PHI_NADIR, settings.N_BINS_THETA_NADIR)
@@ -32,8 +33,8 @@ def main():
     ]
     plt.pcolormesh(x, y, exp_map, cmap="viridis", norm=matplotlib.colors.LogNorm())
     a = plt.colorbar()
-    a.set_label('Livetime (s)')
-    plt.title("Live map (week:{})".format(WEEK))
+    a.set_label('Exposure ($s\ m^2$)')
+    plt.title("Exposure map (week:{}, E:{} GeV)".format(WEEK, E))
     # plt.title("Live map (one row of week:{}, rock:{:.02f})".format(WEEK, row['ROCK_ANGLE']))
     plt.xlabel("$\phi_{nadir}$ (deg)")
     plt.ylabel("$\\theta_{nadir}$ (deg)")
@@ -48,6 +49,6 @@ def main():
     plt.rgrids([theta * 30 for theta in range(int(settings.THETA_NADIR_MAX)//30)])
     plt.grid(alpha=0.5, linestyle='--')
     a = plt.colorbar()
-    a.set_label('Livetime (s)')
-    plt.title("Live map (week:{})".format(WEEK))
+    a.set_label('Exposure ($s\ m^2$)')
+    plt.title("Exposure map (week:{}, E:{} GeV)".format(WEEK, E))
     plt.show()

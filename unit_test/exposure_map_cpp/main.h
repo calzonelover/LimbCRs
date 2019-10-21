@@ -80,7 +80,7 @@ std::vector<EXPMAP> getZeroExposureMaps();
 std::vector<EFFECTIVE_AREA> getEffectiveAreas();
 
 /* Variables */
-double *live_map; std::vector<EXPMAP> expmaps; float *energy_mid_bins;
+std::vector<EXPMAP> expmaps; float *energy_mid_bins;
 float d_phi, d_theta;
 float phi_nadir, theta_nadir, rho, theta_p, phi_p;
 

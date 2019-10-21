@@ -14,25 +14,15 @@
  Compile using c++ 11
  g++ main.cpp -o out -std=c++11
  Elapses time 7.37503 s (livetime week 164)
+ Elapses time 11.8531 s (expmap week 164 including 50 energy mid bins)
 */
 
 int main(){
-    // for (unsigned int i=0; i<=int(THETA_LAT_CUTOFF); i++){
-    //     std::cout << "i " << i << " theta_nad " <<  effs[49].theta_nadir[i] << " eff_m2 " << effs[49].eff_m2[i] << std::endl;
-    // }
-
-    d_phi = float(PHI_NADIR_MAX-PHI_NADIR_MIN)/float(N_BINS_PHI_NADIR);
-    d_theta = float(THETA_NADIR_MAX-THETA_NADIR_MIN)/float(N_BINS_THETA_NADIR);
-    live_map = (double*)malloc(N_BINS_THETA_NADIR * N_BINS_PHI_NADIR * sizeof(double));
-
     std::vector<EFFECTIVE_AREA> effs = getEffectiveAreas();
     expmaps = getZeroExposureMaps();
 
-    // for loop of week
-    week = 164;
-    for (unsigned int i=0; i<N_BINS_THETA_NADIR*N_BINS_PHI_NADIR; i++) live_map[i] = 0.0f;
-    std::string file_ft2 = getSpecialFilename(week, "ft2");
-    std::vector<FT2> ft2_rows = readFT2CSV(file_ft2);
+    d_phi = float(PHI_NADIR_MAX-PHI_NADIR_MIN)/float(N_BINS_PHI_NADIR);
+    d_theta = float(THETA_NADIR_MAX-THETA_NADIR_MIN)/float(N_BINS_THETA_NADIR);
 
     r_sp = (float*)malloc(3*sizeof(float));
     r_eq = (float*)malloc(3*sizeof(float));
@@ -41,6 +31,12 @@ int main(){
     t_eq_sp = (float*)malloc(9*sizeof(float));
 	inv_t_eq_sp = (float*)malloc(9*sizeof(float));
 
+    // node parallelizable (send ft2_rows)
+    // for loop of week 
+    week = 164;
+    std::string file_ft2 = getSpecialFilename(week, "ft2");
+    std::vector<FT2> ft2_rows = readFT2CSV(file_ft2);
+    
     for(FT2 ft2_row : ft2_rows){
         get_T_eq_sp(
             d2r(ft2_row.DEC_ZENITH), d2r(ft2_row.RA_ZENITH),
@@ -52,7 +48,7 @@ int main(){
             d2r(ft2_row.DEC_SCZ), d2r(ft2_row.RA_SCZ),
             t_eq_p
         );
-        // parallelizable
+        // GPU parallelizable
         for (unsigned int i_phi_nad=0; i_phi_nad < N_BINS_PHI_NADIR; i_phi_nad++){
             for (unsigned int i_theta_nad=0; i_theta_nad < N_BINS_THETA_NADIR; i_theta_nad++){
                 phi_nadir = d2r(float(PHI_NADIR_MIN) + d_phi * float(i_phi_nad));
@@ -66,24 +62,22 @@ int main(){
                 theta_p = float(PI)/2.0f - atan(r_p[2]/rho);
                 phi_p = r_p[1] < 0.0f ? acos(r_p[0]/rho) : 2.0f*float(PI) - acos(r_p[0]/rho);
                 if (r2d(theta_p) < float(THETA_LAT_CUTOFF)){
-                    // loop expmap
-                    // for (unsigned int i_energy=25; i_energy<N_E_BINS; i_energy++){
-                        int i_energy = 25;
-                        live_map[i_phi_nad + i_theta_nad * N_BINS_PHI_NADIR] += double(ft2_row.LIVETIME * effs[i_energy].eff_m2[int(floor(theta_p))]);
-                        // expmap[i_energy].exp_map[i_phi_nad + i_theta_nad * N_BINS_PHI_NADIR] += double(ft2_row.LIVETIME * effs[i_energy].eff_m2[int(floor(theta_p))]);
-                    // }
-                    // end loop expmap
+                    for (unsigned int i_energy=0; i_energy<N_E_BINS; i_energy++){
+                        expmaps[i_energy].exp_map[i_phi_nad + i_theta_nad * N_BINS_PHI_NADIR] += double(ft2_row.LIVETIME * effs[i_energy].eff_m2[int(floor(r2d(theta_p)))]);
+                    }
                 }
             }
         }
-        // end parallelizable
+        // end GPU parallelizable
     }
-    // std::string specialname_out = "expmap_E" + std::to_string(int(floor(energy_mid_bins[i])));
-    std::string filename_out = getSpecialFilename(week, "expmap");
-    writeFile(filename_out, live_map, N_BINS_PHI_NADIR*N_BINS_THETA_NADIR);
     // end for loop of week
-
-    free(live_map);
+    // end node parallelizable
+    
+    for (unsigned int i_energy=0; i_energy<N_E_BINS; i_energy++){
+        std::string specialname_out = "../../data/exposure_map/expmap_E" + std::to_string(int(floor(effs[i_energy].energy_mid_bin))) + ".csv";
+        writeFile(specialname_out, expmaps[i_energy].exp_map, N_BINS_PHI_NADIR*N_BINS_THETA_NADIR);
+    }
+    
     free(r_sp);free(r_eq);free(r_p);
 	free(t_eq_p);free(t_eq_sp);free(inv_t_eq_sp);
 }
