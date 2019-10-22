@@ -19,7 +19,22 @@
  Elapses time 11.8531 s (expmap week 164 including 50 energy mid bins)
 */
 
-int main(){
+void registerMPIDatatype(){
+    MPI_Datatype MPI_EXPMAP;
+    MPI_Type_contiguous(1, MPI_FLOAT, &MPI_EXPMAP);
+    MPI_Type_contiguous(N_BINS_PHI_NADIR*N_BINS_THETA_NADIR, MPI_DOUBLE, &MPI_EXPMAP);
+    MPI_Type_commit(&MPI_EXPMAP);
+
+    MPI_Datatype MPI_FT2;
+    MPI_Type_contiguous(1, MPI_FLOAT, &MPI_FT2); MPI_Type_contiguous(1, MPI_FLOAT, &MPI_FT2);
+    MPI_Type_contiguous(1, MPI_FLOAT, &MPI_FT2); MPI_Type_contiguous(1, MPI_FLOAT, &MPI_FT2);
+    MPI_Type_contiguous(1, MPI_FLOAT, &MPI_FT2); MPI_Type_contiguous(1, MPI_FLOAT, &MPI_FT2);
+    MPI_Type_contiguous(1, MPI_FLOAT, &MPI_FT2); MPI_Type_contiguous(1, MPI_FLOAT, &MPI_FT2);
+    MPI_Type_contiguous(1, MPI_FLOAT, &MPI_FT2); MPI_Type_contiguous(1, MPI_FLOAT, &MPI_FT2);
+    MPI_Type_commit(&MPI_FT2);
+}
+
+int main(int argc, char** argv){
     // MPI
     int rank, size;
     MPI_Status status;
@@ -27,11 +42,15 @@ int main(){
     MPI_Comm_rank(MPI_COMM_WORLD, &rank);
     MPI_Comm_size(MPI_COMM_WORLD, &size);
 
+    registerMPIDatatype();
+
     d_phi = float(PHI_NADIR_MAX-PHI_NADIR_MIN)/float(N_BINS_PHI_NADIR);
     d_theta = float(THETA_NADIR_MAX-THETA_NADIR_MIN)/float(N_BINS_THETA_NADIR);
 
     // try
     if (rank == 0){ // Master
+        int numsent = 0;
+        int j;
         expmaps = getZeroExposureMaps();
         std::vector<EXPMAP> recv_expmaps;
 
@@ -40,10 +59,15 @@ int main(){
         std::vector<FT2> ft2_rows = readFT2CSV(file_ft2);
 
         // send ft2_row
-
+        for (unsigned int i=1; i<size; i++) {
+            j = numsent++;
+            MPI_Send(&j, 1, MPI_INT, i, TAG_INPROGRESS, MPI_COMM_WORLD);
+        }
         // recv expmaps
     }
     else { // Slave
+        int tag;
+
         std::vector<EFFECTIVE_AREA> effs = getEffectiveAreas();
 
         r_sp = (float*)malloc(3*sizeof(float));
@@ -53,7 +77,9 @@ int main(){
         t_eq_sp = (float*)malloc(9*sizeof(float));
         inv_t_eq_sp = (float*)malloc(9*sizeof(float));
 
+        do {
 
+        } while (tag == TAG_DONE);
     }
     MPI_Finalize();
     return 0;

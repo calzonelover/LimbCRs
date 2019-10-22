@@ -19,6 +19,10 @@
 
 #define PI 3.14159265
 
+// MPI
+#define TAG_DONE 0
+#define TAG_INPROGRESS 1
+
 typedef struct FT2 {
   float DEC_SCX;
   float DEC_SCZ;
