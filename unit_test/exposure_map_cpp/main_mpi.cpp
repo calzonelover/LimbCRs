@@ -17,22 +17,13 @@
  g++ main.cpp -o out -std=c++11
  Elapses time 7.37503 s (livetime week 164)
  Elapses time 11.8531 s (expmap week 164 including 50 energy mid bins)
+
+ how to run
+ >> mpic++ main_mpi.cpp -o out.o -std=c++11
+ >> mpirun main_mpi.cpp -np 2 out.o
 */
 
-void registerMPIDatatype(){
-    MPI_Datatype MPI_EXPMAP;
-    MPI_Type_contiguous(1, MPI_FLOAT, &MPI_EXPMAP);
-    MPI_Type_contiguous(N_BINS_PHI_NADIR*N_BINS_THETA_NADIR, MPI_DOUBLE, &MPI_EXPMAP);
-    MPI_Type_commit(&MPI_EXPMAP);
-
-    MPI_Datatype MPI_FT2;
-    MPI_Type_contiguous(1, MPI_FLOAT, &MPI_FT2); MPI_Type_contiguous(1, MPI_FLOAT, &MPI_FT2);
-    MPI_Type_contiguous(1, MPI_FLOAT, &MPI_FT2); MPI_Type_contiguous(1, MPI_FLOAT, &MPI_FT2);
-    MPI_Type_contiguous(1, MPI_FLOAT, &MPI_FT2); MPI_Type_contiguous(1, MPI_FLOAT, &MPI_FT2);
-    MPI_Type_contiguous(1, MPI_FLOAT, &MPI_FT2); MPI_Type_contiguous(1, MPI_FLOAT, &MPI_FT2);
-    MPI_Type_contiguous(1, MPI_FLOAT, &MPI_FT2); MPI_Type_contiguous(1, MPI_FLOAT, &MPI_FT2);
-    MPI_Type_commit(&MPI_FT2);
-}
+void registerMPIDatatype(MPI_Datatype _MPI_EXPMAP, MPI_Datatype _MPI_FT2);
 
 int main(int argc, char** argv){
     // MPI
@@ -41,34 +32,52 @@ int main(int argc, char** argv){
     MPI_Init(&argc, &argv);
     MPI_Comm_rank(MPI_COMM_WORLD, &rank);
     MPI_Comm_size(MPI_COMM_WORLD, &size);
-
-    registerMPIDatatype();
+    MPI_Datatype MPI_EXPMAP, MPI_FT2;
+    registerMPIDatatype(MPI_EXPMAP, MPI_FT2);
+    if (rank == 0){
+		printf("number of processes = %d\n", size);
+	}
+	printf("Init process rank %d\n", rank);
 
     d_phi = float(PHI_NADIR_MAX-PHI_NADIR_MIN)/float(N_BINS_PHI_NADIR);
     d_theta = float(THETA_NADIR_MAX-THETA_NADIR_MIN)/float(N_BINS_THETA_NADIR);
 
-    // try
+    expmaps = getZeroExposureMaps();
+    std::vector<EFFECTIVE_AREA> effs = getEffectiveAreas();
+
+    // MPI_Finalize();
+    // return 0;
     if (rank == 0){ // Master
         int numsent = 0;
-        int j;
-        expmaps = getZeroExposureMaps();
-        std::vector<EXPMAP> recv_expmaps;
+        int j, slave;
+        std::vector<EXPMAP> recv_expmaps = getZeroExposureMaps();
 
         week = 164;
         std::string file_ft2 = getSpecialFilename(week, "ft2");
         std::vector<FT2> ft2_rows = readFT2CSV(file_ft2);
 
-        // send ft2_row
-        for (unsigned int i=1; i<size; i++) {
+        // wake slave up (first send)
+        for (unsigned int i=1; i<size; i++){
             j = numsent++;
-            MPI_Send(&j, 1, MPI_INT, i, TAG_INPROGRESS, MPI_COMM_WORLD);
+            std::cout << "slave # " << i << std::endl;
+            MPI_Send(&ft2_rows[j], 1, MPI_FT2, i, TAG_INPROGRESS, MPI_COMM_WORLD);
         }
-        // recv expmaps
+        // loop recv and send until all ft2_rows
+        for (unsigned int i=0; i<ft2_rows.size(); i++){
+            MPI_Recv(&recv_expmaps, N_E_BINS, MPI_EXPMAP, MPI_ANY_SOURCE, MPI_ANY_TAG, MPI_COMM_WORLD, &status);
+            slave = status.MPI_SOURCE;
+            printf("Master receive from slave %d\n",  slave);
+            if (numsent < ft2_rows.size()){
+                j = numsent++;
+                MPI_Send(&ft2_rows[j], 1, MPI_FT2, slave, TAG_INPROGRESS, MPI_COMM_WORLD);
+            }
+            else {
+                MPI_Send(&ft2_rows[j], 1, MPI_FT2, slave, TAG_DONE, MPI_COMM_WORLD);
+            }
+        }
     }
     else { // Slave
-        int tag;
-
-        std::vector<EFFECTIVE_AREA> effs = getEffectiveAreas();
+        int tag; FT2 ft2_row;
 
         r_sp = (float*)malloc(3*sizeof(float));
         r_eq = (float*)malloc(3*sizeof(float));
@@ -78,62 +87,61 @@ int main(int argc, char** argv){
         inv_t_eq_sp = (float*)malloc(9*sizeof(float));
 
         do {
+            // recv
+            MPI_Recv(&ft2_row, 1, MPI_FT2, 0, MPI_ANY_TAG, MPI_COMM_WORLD, &status);
+            tag = status.MPI_TAG;
+            if (tag == TAG_DONE)
+                break;
+            get_T_eq_sp(
+                d2r(ft2_row.DEC_ZENITH), d2r(ft2_row.RA_ZENITH),
+                t_eq_sp
+            );
+            inverseMatrix(t_eq_sp, inv_t_eq_sp, 3);
+            get_T_eq_p(
+                d2r(ft2_row.DEC_SCX), d2r(ft2_row.RA_SCX),
+                d2r(ft2_row.DEC_SCZ), d2r(ft2_row.RA_SCZ),
+                t_eq_p
+            );
+            for (unsigned int i_phi_nad=0; i_phi_nad < N_BINS_PHI_NADIR; i_phi_nad++){
+                for (unsigned int i_theta_nad=0; i_theta_nad < N_BINS_THETA_NADIR; i_theta_nad++){
+                    phi_nadir = d2r(float(PHI_NADIR_MIN) + d_phi * float(i_phi_nad));
+                    theta_nadir = d2r(float(THETA_NADIR_MIN) + d_theta * float(i_theta_nad));
 
-        } while (tag == TAG_DONE);
-    }
-    MPI_Finalize();
-    return 0;
-    // End try
+                    r_sp[0] = -cos(theta_nadir); r_sp[1] = sin(theta_nadir)*sin(phi_nadir); r_sp[2] = sin(theta_nadir)*cos(phi_nadir);
+                    matrix_mul_vector(inv_t_eq_sp, r_sp, r_eq, 3, 3);
+                    matrix_mul_vector(t_eq_p, r_eq, r_p, 3, 3);
 
-
-
-    // node parallelizable (send ft2_rows)
-    // for loop of week 
-    
-    for(FT2 ft2_row : ft2_rows){
-        get_T_eq_sp(
-            d2r(ft2_row.DEC_ZENITH), d2r(ft2_row.RA_ZENITH),
-            t_eq_sp
-        );
-    	inverseMatrix(t_eq_sp, inv_t_eq_sp, 3);
-        get_T_eq_p(
-            d2r(ft2_row.DEC_SCX), d2r(ft2_row.RA_SCX),
-            d2r(ft2_row.DEC_SCZ), d2r(ft2_row.RA_SCZ),
-            t_eq_p
-        );
-        // GPU parallelizable
-        for (unsigned int i_phi_nad=0; i_phi_nad < N_BINS_PHI_NADIR; i_phi_nad++){
-            for (unsigned int i_theta_nad=0; i_theta_nad < N_BINS_THETA_NADIR; i_theta_nad++){
-                phi_nadir = d2r(float(PHI_NADIR_MIN) + d_phi * float(i_phi_nad));
-                theta_nadir = d2r(float(THETA_NADIR_MIN) + d_theta * float(i_theta_nad));
-
-                r_sp[0] = -cos(theta_nadir); r_sp[1] = sin(theta_nadir)*sin(phi_nadir); r_sp[2] = sin(theta_nadir)*cos(phi_nadir);
-                matrix_mul_vector(inv_t_eq_sp, r_sp, r_eq, 3, 3);
-                matrix_mul_vector(t_eq_p, r_eq, r_p, 3, 3);
-
-                rho = sqrt(r_p[0]*r_p[0] + r_p[1]*r_p[1]);
-                theta_p = float(PI)/2.0f - atan(r_p[2]/rho);
-                phi_p = r_p[1] < 0.0f ? acos(r_p[0]/rho) : 2.0f*float(PI) - acos(r_p[0]/rho);
-                if (r2d(theta_p) < float(THETA_LAT_CUTOFF)){
-                    for (unsigned int i_energy=0; i_energy<N_E_BINS; i_energy++){
-                        expmaps[i_energy].exp_map[i_phi_nad + i_theta_nad * N_BINS_PHI_NADIR] += 
-                            double(ft2_row.LIVETIME * effs[i_energy].eff_m2[int(floor(r2d(theta_p)))]);
+                    rho = sqrt(r_p[0]*r_p[0] + r_p[1]*r_p[1]);
+                    theta_p = float(PI)/2.0f - atan(r_p[2]/rho);
+                    phi_p = r_p[1] < 0.0f ? acos(r_p[0]/rho) : 2.0f*float(PI) - acos(r_p[0]/rho);
+                    if (r2d(theta_p) < float(THETA_LAT_CUTOFF)){
+                        for (unsigned int i_energy=0; i_energy<N_E_BINS; i_energy++){
+                            expmaps[i_energy].exp_map[i_phi_nad + i_theta_nad * N_BINS_PHI_NADIR] += 
+                                double(ft2_row.LIVETIME * effs[i_energy].eff_m2[int(floor(r2d(theta_p)))]);
+                        }
                     }
                 }
             }
-        }
-        // end GPU parallelizable
+            MPI_Send(&expmaps, N_E_BINS, MPI_EXPMAP, 0, rank, MPI_COMM_WORLD);
+            for (unsigned int i_energy=0; i_energy<N_E_BINS; i_energy++){
+                for (unsigned int i=0; i<N_BINS_THETA_NADIR*N_BINS_PHI_NADIR; i++) expmaps[i_energy].exp_map[i] = 0;
+            }
+        } while (true);
     }
-    // end for loop of week
-    // end node parallelizable
-    
-    for (unsigned int i_energy=0; i_energy<N_E_BINS; i_energy++){
-        std::string specialname_out = "../../data/exposure_map/" + std::string(IRF_NAME) +"/expmap_E" + std::to_string(int(floor(effs[i_energy].energy_mid_bin))) + ".csv";
-        writeFile(specialname_out, expmaps[i_energy].exp_map, N_BINS_PHI_NADIR*N_BINS_THETA_NADIR);
+
+
+    MPI_Barrier(MPI_COMM_WORLD);
+    if (rank == 0){
+        for (unsigned int i_energy=0; i_energy<N_E_BINS; i_energy++){
+            std::string specialname_out = "../../data/exposure_map/" + std::string(IRF_NAME) +"/expmap_E" + std::to_string(int(floor(effs[i_energy].energy_mid_bin))) + ".csv";
+            writeFile(specialname_out, expmaps[i_energy].exp_map, N_BINS_PHI_NADIR*N_BINS_THETA_NADIR);
+        }
     }
     
     free(r_sp);free(r_eq);free(r_p);
 	free(t_eq_p);free(t_eq_sp);free(inv_t_eq_sp);
+    MPI_Finalize();
+    return 0;
 }
 
 
@@ -144,6 +152,20 @@ int main(int argc, char** argv){
 
 
 
+
+// MPI
+void registerMPIDatatype(MPI_Datatype _MPI_EXPMAP, MPI_Datatype _MPI_FT2){
+    MPI_Type_contiguous(1, MPI_FLOAT, &_MPI_EXPMAP);
+    MPI_Type_contiguous(N_BINS_PHI_NADIR*N_BINS_THETA_NADIR, MPI_DOUBLE, &_MPI_EXPMAP);
+    MPI_Type_commit(&_MPI_EXPMAP);
+
+    MPI_Type_contiguous(1, MPI_FLOAT, &_MPI_FT2); MPI_Type_contiguous(1, MPI_FLOAT, &_MPI_FT2);
+    MPI_Type_contiguous(1, MPI_FLOAT, &_MPI_FT2); MPI_Type_contiguous(1, MPI_FLOAT, &_MPI_FT2);
+    MPI_Type_contiguous(1, MPI_FLOAT, &_MPI_FT2); MPI_Type_contiguous(1, MPI_FLOAT, &_MPI_FT2);
+    MPI_Type_contiguous(1, MPI_FLOAT, &_MPI_FT2); MPI_Type_contiguous(1, MPI_FLOAT, &_MPI_FT2);
+    MPI_Type_contiguous(1, MPI_FLOAT, &_MPI_FT2); MPI_Type_contiguous(1, MPI_FLOAT, &_MPI_FT2);
+    MPI_Type_commit(&_MPI_FT2);
+}
 
 // IO
 std::string getSpecialFilename(int _week, std::string name){
