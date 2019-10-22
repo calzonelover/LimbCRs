@@ -8,6 +8,8 @@
 #include <ctime>
 #include <math.h>
 
+#include <mpi.h>
+
 #include "main.h"
 
 /*
@@ -18,24 +20,49 @@
 */
 
 int main(){
-    std::vector<EFFECTIVE_AREA> effs = getEffectiveAreas();
-    expmaps = getZeroExposureMaps();
+    // MPI
+    int rank, size;
+    MPI_Status status;
+    MPI_Init(&argc, &argv);
+    MPI_Comm_rank(MPI_COMM_WORLD, &rank);
+    MPI_Comm_size(MPI_COMM_WORLD, &size);
 
     d_phi = float(PHI_NADIR_MAX-PHI_NADIR_MIN)/float(N_BINS_PHI_NADIR);
     d_theta = float(THETA_NADIR_MAX-THETA_NADIR_MIN)/float(N_BINS_THETA_NADIR);
 
-    r_sp = (float*)malloc(3*sizeof(float));
-    r_eq = (float*)malloc(3*sizeof(float));
-    r_p = (float*)malloc(3*sizeof(float));
-	t_eq_p = (float*)malloc(9*sizeof(float));
-    t_eq_sp = (float*)malloc(9*sizeof(float));
-	inv_t_eq_sp = (float*)malloc(9*sizeof(float));
+    // try
+    if (rank == 0){ // Master
+        expmaps = getZeroExposureMaps();
+        std::vector<EXPMAP> recv_expmaps;
+
+        week = 164;
+        std::string file_ft2 = getSpecialFilename(week, "ft2");
+        std::vector<FT2> ft2_rows = readFT2CSV(file_ft2);
+
+        // send ft2_row
+
+        // recv expmaps
+    }
+    else { // Slave
+        std::vector<EFFECTIVE_AREA> effs = getEffectiveAreas();
+
+        r_sp = (float*)malloc(3*sizeof(float));
+        r_eq = (float*)malloc(3*sizeof(float));
+        r_p = (float*)malloc(3*sizeof(float));
+        t_eq_p = (float*)malloc(9*sizeof(float));
+        t_eq_sp = (float*)malloc(9*sizeof(float));
+        inv_t_eq_sp = (float*)malloc(9*sizeof(float));
+
+
+    }
+    MPI_Finalize();
+    return 0;
+    // End try
+
+
 
     // node parallelizable (send ft2_rows)
     // for loop of week 
-    week = 164;
-    std::string file_ft2 = getSpecialFilename(week, "ft2");
-    std::vector<FT2> ft2_rows = readFT2CSV(file_ft2);
     
     for(FT2 ft2_row : ft2_rows){
         get_T_eq_sp(

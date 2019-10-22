@@ -11,7 +11,9 @@ import settings
 PHI_LATs = [45.0*i for i in range(8)]
 PATH_SAVE_EFF = os.path.join(
     os.getcwd(),
-    "eff_log"
+    "effective_area",
+    "static_table",
+    settings.IRF_NAME
 )
 
 CM2_TO_M2 = 10000.0
@@ -53,7 +55,10 @@ def main():
     aeff_f = irfs_f.aeff()
     aeff_b = irfs_b.aeff()
     for energy_mid_bin in energy_mid_bins:
-        f_eff = open("effective_area/static_table/eff_E%d.csv"%(int(math.floor(energy_mid_bin))), "w")
+        f_eff = open(
+            os.path.join(PATH_SAVE_EFF, "eff_E%d.csv"%(int(math.floor(energy_mid_bin))))
+            , "w"
+        )
         f_eff.write("theta_lat,eff_m2\n")
         for theta_lat in theta_lats:
             for phi_lat in phi_lats:
@@ -64,16 +69,6 @@ def main():
             mean_eff = sum(eff)/len(eff)
             f_eff.write("%f,%f\n"%(theta_lat, mean_eff))
         f_eff.close()
-    # visualize
-    # plt.plot(LOG_EFF_FRONT, 'ro-',label="FRONT")
-    # plt.plot(LOG_EFF_BACK, 'bo-' ,label="BACK")
-    # plt.plot(LOG_EFF, 'ko-' ,label="TOTAL")
-    # plt.legend()
-    # plt.title('%s eff area E %d GeV PHI_LAT %d'%(IRF_NAME, FIX_E/1000, FIX_PHI_LAT))
-    # plt.xlabel('$\\theta_{LAT}$')
-    # plt.ylabel('Effective area ($m^2$)')
-    # plt.savefig('eff_theta_nadir_dist.png')
-    # plt.show()
 
 if __name__ == "__main__":
     main()
