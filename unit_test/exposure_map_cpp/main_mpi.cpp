@@ -23,7 +23,27 @@
  >> mpirun -np 2 out.o
 */
 
-void registerMPIDatatype(MPI_Datatype _MPI_EXPMAP, MPI_Datatype _MPI_FT2);
+template <class T>
+void send(std::vector<T> const& vec, MPI_Datatype _mpi_data_type, int dest, int tag, MPI_Comm comm){
+    unsigned len = vec.size();
+    MPI_Send(&len, 1, MPI_UNSIGNED, dest, tag, comm);
+    if(len!= 0)
+        MPI_Send(vec.data(), len, _mpi_data_type, dest, tag, comm);
+}
+
+template <class T>
+void recv(std::vector<T> &vec, MPI_Datatype _mpi_data_type, int src, int tag, MPI_Comm comm, MPI_Status s)
+{
+    unsigned len;
+    MPI_Recv(&len, 1, MPI_UNSIGNED, src, tag, comm, &s);
+    if(len!= 0) {
+        vec.resize(len);
+        MPI_Recv(vec.data(), len, _mpi_data_type, src, tag, comm, &s);
+    } else
+        vec.clear();
+}
+
+
 
 int main(int argc, char** argv){
     // MPI
@@ -32,22 +52,22 @@ int main(int argc, char** argv){
     MPI_Init(&argc, &argv);
     MPI_Comm_rank(MPI_COMM_WORLD, &rank);
     MPI_Comm_size(MPI_COMM_WORLD, &size);
+    
     MPI_Datatype MPI_EXPMAP, MPI_FT2;
-
     int block_lengths_expmap[2] = {1, N_BINS_PHI_NADIR*N_BINS_THETA_NADIR};
-    MPI_Aint disp_expmap[2] = {offsetof(EXPMAP, energyGEV), offsetof(EXPMAP, exp_map)};
+    MPI_Aint offsets_expmap[2] = {offsetof(EXPMAP, energyGEV), offsetof(EXPMAP, exp_map)};
     MPI_Datatype type_expmap[2] = { MPI_FLOAT, MPI_DOUBLE };
     MPI_Type_create_struct(
         2,
         block_lengths_expmap,
-        disp_expmap,
+        offsets_expmap,
         type_expmap,
         &MPI_EXPMAP
     );
     MPI_Type_commit(&MPI_EXPMAP);
     MPI_Type_contiguous(10, MPI_FLOAT, &MPI_FT2);
     MPI_Type_commit(&MPI_FT2);
-    // registerMPIDatatype(MPI_EXPMAP, MPI_FT2);
+
     if (rank == 0){
 		printf("number of processes = %d\n", size);
 	}
@@ -78,6 +98,7 @@ int main(int argc, char** argv){
         //loop recv and send until all ft2_rows
         for (unsigned int i=0; i<ft2_rows.size(); i++){
             MPI_Recv(&recv_expmaps, N_E_BINS, MPI_EXPMAP, MPI_ANY_SOURCE, MPI_ANY_TAG, MPI_COMM_WORLD, &status);
+            // recv(recv_expmaps, MPI_EXPMAP, MPI_ANY_SOURCE, MPI_ANY_TAG, MPI_COMM_WORLD, status);
             slave = status.MPI_SOURCE;
             printf("Master receive from slave %d\n",  slave);
             if (numsent < ft2_rows.size()){
@@ -136,7 +157,8 @@ int main(int argc, char** argv){
                     }
                 }
             }
-            MPI_Send(&expmaps, N_E_BINS, MPI_EXPMAP, 0, rank, MPI_COMM_WORLD);
+            MPI_Send(expmaps.data(), N_E_BINS, MPI_EXPMAP, 0, rank, MPI_COMM_WORLD);
+            // send(expmaps, MPI_EXPMAP, 0, rank, MPI_COMM_WORLD);
             for (unsigned int i_energy=0; i_energy<N_E_BINS; i_energy++){
                 for (unsigned int i=0; i<N_BINS_THETA_NADIR*N_BINS_PHI_NADIR; i++) expmaps[i_energy].exp_map[i] = 0;
             }
@@ -153,6 +175,7 @@ int main(int argc, char** argv){
     //         writeFile(specialname_out, expmaps[i_energy].exp_map, N_BINS_PHI_NADIR*N_BINS_THETA_NADIR);
     //     }
     // }
+    MPI_Type_free(&MPI_EXPMAP); MPI_Type_free(&MPI_FT2);
     MPI_Finalize();
     return 0;
 }
@@ -165,30 +188,6 @@ int main(int argc, char** argv){
 
 
 
-
-// MPI
-void registerMPIDatatype(MPI_Datatype _MPI_EXPMAP, MPI_Datatype _MPI_FT2){
-    int block_lengths_expmap[2] = {1, N_BINS_PHI_NADIR*N_BINS_THETA_NADIR};
-    MPI_Aint disp_expmap[2] = {offsetof(EXPMAP, energyGEV), offsetof(EXPMAP, exp_map)};
-    MPI_Datatype type_expmap[2] = { MPI_FLOAT, MPI_DOUBLE };
-    MPI_Type_create_struct(
-        2,
-        block_lengths_expmap,
-        disp_expmap,
-        type_expmap,
-        &_MPI_EXPMAP
-    );
-    MPI_Type_commit(&_MPI_EXPMAP);
-
-    /*
-    MPI_Type_contiguous(1, MPI_FLOAT, &_MPI_EXPMAP);
-    MPI_Type_contiguous(N_BINS_PHI_NADIR*N_BINS_THETA_NADIR, MPI_DOUBLE, &_MPI_EXPMAP);
-    MPI_Type_commit(&_MPI_EXPMAP);
-    */
-
-    MPI_Type_contiguous(10, MPI_FLOAT, &_MPI_FT2);
-    MPI_Type_commit(&_MPI_FT2);
-}
 
 // IO
 std::string getSpecialFilename(int _week, std::string name){
