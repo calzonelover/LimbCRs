@@ -10,7 +10,7 @@
 
 #include <mpi.h>
 
-#include "main.h"
+#include "main_mpi.h"
 
 /*
  Compile using c++ 11
@@ -22,27 +22,6 @@
  >> mpic++ main_mpi.cpp -o out.o -std=c++11
  >> mpirun -np 2 out.o
 */
-
-template <class T>
-void send(std::vector<T> const& vec, MPI_Datatype _mpi_data_type, int dest, int tag, MPI_Comm comm){
-    unsigned len = vec.size();
-    MPI_Send(&len, 1, MPI_UNSIGNED, dest, tag, comm);
-    if(len!= 0)
-        MPI_Send(vec.data(), len, _mpi_data_type, dest, tag, comm);
-}
-
-template <class T>
-void recv(std::vector<T> &vec, MPI_Datatype _mpi_data_type, int src, int tag, MPI_Comm comm, MPI_Status s)
-{
-    unsigned len;
-    MPI_Recv(&len, 1, MPI_UNSIGNED, src, tag, comm, &s);
-    if(len!= 0) {
-        vec.resize(len);
-        MPI_Recv(vec.data(), len, _mpi_data_type, src, tag, comm, &s);
-    } else
-        vec.clear();
-}
-
 
 
 int main(int argc, char** argv){
@@ -80,14 +59,17 @@ int main(int argc, char** argv){
     std::vector<EFFECTIVE_AREA> effs = getEffectiveAreas();
 
     if (rank == 0){ // Master
-        int numsent = 0;
+        int numsent;
         int j, slave;
         std::vector<EXPMAP> recv_expmaps = getZeroExposureMaps();
 
         week = 164;
+        // loop week
+        numsent = 0;
         std::string file_ft2 = getSpecialFilename(week, "ft2");
         std::vector<FT2> ft2_rows = readFT2CSV(file_ft2);
 
+        double start_t = MPI_Wtime();
         // wake slave up (first send)
         for (unsigned int i=1; i<size; i++){
             j = numsent++;
@@ -97,10 +79,14 @@ int main(int argc, char** argv){
         }
         //loop recv and send until all ft2_rows
         for (unsigned int i=0; i<ft2_rows.size(); i++){
-            MPI_Recv(&recv_expmaps, N_E_BINS, MPI_EXPMAP, MPI_ANY_SOURCE, MPI_ANY_TAG, MPI_COMM_WORLD, &status);
-            // recv(recv_expmaps, MPI_EXPMAP, MPI_ANY_SOURCE, MPI_ANY_TAG, MPI_COMM_WORLD, status);
+            MPI_Recv(recv_expmaps.data(), N_E_BINS, MPI_EXPMAP, MPI_ANY_SOURCE, MPI_ANY_TAG, MPI_COMM_WORLD, &status);
+            // recv(recv_expmaps, MPI_ANY_SOURCE, MPI_ANY_TAG, MPI_COMM_WORLD, status);
+            for (unsigned int i_energy=0; i_energy<N_E_BINS; i_energy++){
+                for (unsigned int i=0; i<N_BINS_THETA_NADIR*N_BINS_PHI_NADIR; i++) expmaps[i_energy].exp_map[i] += recv_expmaps[i_energy].exp_map[i];
+            }
+
             slave = status.MPI_SOURCE;
-            printf("Master receive from slave %d\n",  slave);
+            // printf("Master receive from slave %d\n",  slave);
             if (numsent < ft2_rows.size()){
                 j = numsent++;
                 MPI_Send(&ft2_rows[j], 1, MPI_FT2, slave, TAG_INPROGRESS, MPI_COMM_WORLD);
@@ -109,6 +95,9 @@ int main(int argc, char** argv){
                 MPI_Send(&ft2_rows[j], 1, MPI_FT2, slave, TAG_DONE, MPI_COMM_WORLD);
             }
         }
+        double stop_t = MPI_Wtime();
+        double cpu_time = stop_t-start_t;
+        printf("Master-Slave (slave=%d) CPU time %lf s\n", size-1,cpu_time);
     }
     else { // Slave
         int tag; FT2 ft2_row;
@@ -121,9 +110,9 @@ int main(int argc, char** argv){
         inv_t_eq_sp = (float*)malloc(9*sizeof(float));
 
         do {
-            std::cout << "slave # " << rank << " waiting for signal" << std::endl;
+            // std::cout << "slave # " << rank << " waiting for signal" << std::endl;
             MPI_Recv(&ft2_row, 1, MPI_FT2, 0, MPI_ANY_TAG, MPI_COMM_WORLD, &status);
-            std::cout << "slave # " << rank << " receive signal" << std::endl;
+            // std::cout << "slave # " << rank << " receive signal" << std::endl;
             tag = status.MPI_TAG;
             if (tag == TAG_DONE)
                 break;
@@ -158,7 +147,7 @@ int main(int argc, char** argv){
                 }
             }
             MPI_Send(expmaps.data(), N_E_BINS, MPI_EXPMAP, 0, rank, MPI_COMM_WORLD);
-            // send(expmaps, MPI_EXPMAP, 0, rank, MPI_COMM_WORLD);
+            // send(expmaps, 0, rank, MPI_COMM_WORLD);
             for (unsigned int i_energy=0; i_energy<N_E_BINS; i_energy++){
                 for (unsigned int i=0; i<N_BINS_THETA_NADIR*N_BINS_PHI_NADIR; i++) expmaps[i_energy].exp_map[i] = 0;
             }
@@ -169,17 +158,16 @@ int main(int argc, char** argv){
 
 
     MPI_Barrier(MPI_COMM_WORLD);
-    // if (rank == 0){
-    //     for (unsigned int i_energy=0; i_energy<N_E_BINS; i_energy++){
-    //         std::string specialname_out = "../../data/exposure_map/" + std::string(IRF_NAME) +"/expmap_E" + std::to_string(int(floor(effs[i_energy].energy_mid_bin))) + ".csv";
-    //         writeFile(specialname_out, expmaps[i_energy].exp_map, N_BINS_PHI_NADIR*N_BINS_THETA_NADIR);
-    //     }
-    // }
+    if (rank == 0){
+        for (unsigned int i_energy=0; i_energy<N_E_BINS; i_energy++){
+            std::string specialname_out = "../../data/exposure_map/" + std::string(IRF_NAME) +"/expmap_E" + std::to_string(int(floor(effs[i_energy].energy_mid_bin))) + ".csv";
+            writeFile(specialname_out, expmaps[i_energy].exp_map, N_BINS_PHI_NADIR*N_BINS_THETA_NADIR);
+        }
+    }
     MPI_Type_free(&MPI_EXPMAP); MPI_Type_free(&MPI_FT2);
     MPI_Finalize();
     return 0;
 }
-
 
 
 
@@ -490,7 +478,6 @@ std::vector<EXPMAP> getZeroExposureMaps(){
     for (unsigned int k=0; k<N_E_BINS; k++){
         EXPMAP expmap = {
             .energyGEV = energy_mid_bins[k],
-            .exp_map = (double*)malloc(N_BINS_THETA_NADIR*N_BINS_PHI_NADIR*sizeof(double))
         };
         for (unsigned int i=0; i<N_BINS_THETA_NADIR*N_BINS_PHI_NADIR; i++) expmap.exp_map[i] = double(0);
         expmaps.push_back(expmap);
