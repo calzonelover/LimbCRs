@@ -18,6 +18,9 @@
  Elapses time 7.37503 s (livetime week 164)
  Elapses time 11.8531 s (expmap week 164 including 50 energy mid bins)
 
+ // MPI
+ Full res Master-Slave (slave=11) CPU time 784.306050 s
+
  how to run
  >> mpic++ main_mpi.cpp -o out.o -std=c++11
  >> mpirun -np 2 out.o
@@ -59,13 +62,12 @@ int main(int argc, char** argv){
     std::vector<EFFECTIVE_AREA> effs = getEffectiveAreas();
 
     if (rank == 0){ // Master
-        int numsent;
+        int numsent, num_receive;
         int j, slave;
-        std::vector<EXPMAP> recv_expmaps = getZeroExposureMaps();
 
         week = 164;
         // loop week
-        numsent = 0;
+        numsent = 0; num_receive = 0;
         std::string file_ft2 = getSpecialFilename(week, "ft2");
         std::vector<FT2> ft2_rows = readFT2CSV(file_ft2);
 
@@ -73,19 +75,11 @@ int main(int argc, char** argv){
         // wake slave up (first send)
         for (unsigned int i=1; i<size; i++){
             j = numsent++;
-            std::cout << "Master before send"<< std::endl;
             MPI_Send(&ft2_rows[j], 1, MPI_FT2, i, TAG_INPROGRESS, MPI_COMM_WORLD);
             std::cout << "Master send to slave # " << i << std::endl;
         }
-        //loop recv and send until all ft2_rows
         for (unsigned int i=0; i<ft2_rows.size(); i++){
-            MPI_Recv(recv_expmaps.data(), N_E_BINS, MPI_EXPMAP, MPI_ANY_SOURCE, MPI_ANY_TAG, MPI_COMM_WORLD, &status);
-            // recv(recv_expmaps, MPI_ANY_SOURCE, MPI_ANY_TAG, MPI_COMM_WORLD, status);
-            for (unsigned int i_energy=0; i_energy<N_E_BINS; i_energy++){
-                for (unsigned int i=0; i<N_BINS_THETA_NADIR*N_BINS_PHI_NADIR; i++) expmaps[i_energy].exp_map[i] += recv_expmaps[i_energy].exp_map[i];
-            }
-            slave = status.MPI_SOURCE;
-            // printf("Master receive from slave %d\n",  slave);
+            MPI_Recv(&slave, 1, MPI_INT, MPI_ANY_SOURCE, MPI_ANY_TAG, MPI_COMM_WORLD, &status);
             if (numsent < ft2_rows.size()){
                 j = numsent++;
                 MPI_Send(&ft2_rows[j], 1, MPI_FT2, slave, TAG_INPROGRESS, MPI_COMM_WORLD);
@@ -109,9 +103,7 @@ int main(int argc, char** argv){
         inv_t_eq_sp = (float*)malloc(9*sizeof(float));
 
         do {
-            // std::cout << "slave # " << rank << " waiting for signal" << std::endl;
             MPI_Recv(&ft2_row, 1, MPI_FT2, 0, MPI_ANY_TAG, MPI_COMM_WORLD, &status);
-            // std::cout << "slave # " << rank << " receive signal" << std::endl;
             tag = status.MPI_TAG;
             if (tag == TAG_DONE)
                 break;
@@ -145,17 +137,25 @@ int main(int argc, char** argv){
                     }
                 }
             }
-            MPI_Send(expmaps.data(), N_E_BINS, MPI_EXPMAP, 0, rank, MPI_COMM_WORLD);
-            // send(expmaps, 0, rank, MPI_COMM_WORLD);
-            for (unsigned int i_energy=0; i_energy<N_E_BINS; i_energy++){
-                for (unsigned int i=0; i<N_BINS_THETA_NADIR*N_BINS_PHI_NADIR; i++) expmaps[i_energy].exp_map[i] = 0;
-            }
+            MPI_Send(&rank, 1, MPI_INT, 0, rank, MPI_COMM_WORLD);
         } while (true);
         free(r_sp);free(r_eq);free(r_p);
         free(t_eq_p);free(t_eq_sp);free(inv_t_eq_sp);
     }
-
-
+    // Gather Expmap
+    MPI_Barrier(MPI_COMM_WORLD);
+    if (rank == 0){
+        std::vector<EXPMAP> recv_expmaps = getZeroExposureMaps();
+        for (unsigned int i=1; i<size; i++){
+            MPI_Recv(recv_expmaps.data(), N_E_BINS, MPI_EXPMAP, MPI_ANY_SOURCE, MPI_ANY_TAG, MPI_COMM_WORLD, &status);
+            for (unsigned int i_energy=0; i_energy<N_E_BINS; i_energy++){
+                for (unsigned int i=0; i<N_BINS_THETA_NADIR*N_BINS_PHI_NADIR; i++) expmaps[i_energy].exp_map[i] += recv_expmaps[i_energy].exp_map[i];
+            }
+        }
+    } else {
+        MPI_Send(expmaps.data(), N_E_BINS, MPI_EXPMAP, 0, rank, MPI_COMM_WORLD);
+    }
+    // Write Expmap
     MPI_Barrier(MPI_COMM_WORLD);
     if (rank == 0){
         for (unsigned int i_energy=0; i_energy<N_E_BINS; i_energy++){
@@ -167,6 +167,7 @@ int main(int argc, char** argv){
     MPI_Finalize();
     return 0;
 }
+
 
 
 
