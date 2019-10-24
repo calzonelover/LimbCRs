@@ -8,6 +8,9 @@
 #define N_E_BINS 50
 #define IRF_NAME "P8R2_SOURCE_V6" // P8R2_SOURCE_V6 , P8R2_ULTRACLEANVETO_V6
 
+#define WEEK_BEGIN 164
+#define WEEK_END 164
+
 #define THETA_LAT_CUTOFF 70.0
 
 #define N_BINS_PHI_NADIR 20
@@ -51,6 +54,7 @@ typedef struct EFFECTIVE_AREA {
 // io
 std::string getSpecialFilename(int _week, std::string name);
 std::vector<FT2> readFT2CSV(std::string _filename);
+std::vector<FT2> getAllFT2fromCSV();
 void readEffCSV(std::string _filename, float energy_mid_bin, double *out_eff_m2, float *out_theta_nadirs);
 
 template <class T>

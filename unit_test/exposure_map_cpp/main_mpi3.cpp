@@ -19,13 +19,21 @@
  Elapses time 11.8531 s (expmap week 164 including 50 energy mid bins)
 
  // MPI
- Full res Master-Slave (slave=11) CPU time 784.306050 s
+ week 164 performance
+  * Normal res Master-Slave
+    - slave 1: CPU time 15.079796 s
+    - slave 2: CPU time 7.867394 s
+    - slave 4: CPU time 3.842406 s
+    - slave 6: CPU time 2.668725 s
+    - slave 8: CPU time 2.324213 s
+    - slave 10: CPU time 1.972297 s
+  * Full res Master-Slave
+    - (slave=11) CPU time 784.306050 s
 
  how to run
  >> mpic++ main_mpi.cpp -o out.o -std=c++11
  >> mpirun -np 2 out.o
 */
-
 
 int main(int argc, char** argv){
     // MPI
@@ -65,11 +73,8 @@ int main(int argc, char** argv){
         int numsent;
         int j, slave;
 
-        week = 164;
-        // loop week
+        std::vector<FT2> ft2_rows = getAllFT2fromCSV();
         numsent = 0;
-        std::string file_ft2 = getSpecialFilename(week, "ft2");
-        std::vector<FT2> ft2_rows = readFT2CSV(file_ft2);
 
         double start_t = MPI_Wtime();
         // wake slave up (first send)
@@ -256,6 +261,17 @@ void readEffCSV(std::string _filename, float energy_mid_bin, double *out_eff_m2,
         row_i++;
     }
     file.close();
+}
+
+std::vector<FT2> getAllFT2fromCSV(){
+    std::vector<FT2> ft2_rows;
+    for (unsigned int week = WEEK_BEGIN; week <= WEEK_END; week++){
+        std::string file_ft2 = getSpecialFilename(week, "ft2");
+        std::vector<FT2> _ft2_rows = readFT2CSV(file_ft2);
+        ft2_rows.insert(ft2_rows.end(), _ft2_rows.begin(), _ft2_rows.end());
+    }
+    std::cout << "#row of all FT2: " << ft2_rows.size() << std::endl;
+    return ft2_rows;
 }
 
 template <class T>
