@@ -8,3 +8,11 @@ https://fermi.gsfc.nasa.gov/ssc/data/analysis/documentation/Cicerone/Cicerone_Da
 
 * Effective area
 https://www.slac.stanford.edu/exp/glast/groups/canda/lat_Performance.htm
+
+# New Galaxy (Space) Cluster
+
+* Cluster Monitoring
+  http://space.sc.mahidol.ac.th/ganglia/?m=load_one&c=Galaxy-Cluster&h=&p=2&tab=m&vn=&hide-hf=false&hc=4&p=2
+
+* Submit the job
+  >> sbatch limbCRs.sh

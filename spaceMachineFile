@@ -1,0 +1,34 @@
+compute-a1 slots=4
+compute-a2 slots=4
+compute-a3 slots=4
+compute-a5 slots=4
+compute-a6 slots=4
+compute-a7 slots=4
+compute-a8 slots=4
+compute-a10 slots=4
+compute-a11 slots=4
+compute-a12 slots=4
+compute-a13 slots=4
+compute-a14 slots=4
+compute-a16 slots=4
+compute-a17 slots=4
+
+compute-b5 slots=4
+compute-b10 slots=4
+compute-b11 slots=4
+compute-b12 slots=4
+compute-b13 slots=4
+compute-b15 slots=4
+compute-b16 slots=4
+compute-b17 slots=4
+
+compute-c1 slots=12
+compute-c2 slots=12
+compute-c3 slots=12
+compute-c4 slots=12
+compute-c5 slots=12
+
+compute-d2 slots=4
+
+compute-e1 slots=20
+compute-e2 slots=20
