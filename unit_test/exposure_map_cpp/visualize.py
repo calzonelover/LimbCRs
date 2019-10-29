@@ -9,8 +9,8 @@ from mpl_toolkits.mplot3d import Axes3D
 from utility import transform
 import settings
 
-WEEK = 164
-E = 953
+WEEK = '164-166'
+E = 10
 path = os.path.join(
     os.getcwd(),
     os.path.join(
