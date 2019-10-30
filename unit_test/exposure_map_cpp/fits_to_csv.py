@@ -1,11 +1,12 @@
-import pyfits
+# import pyfits
+import astropy.io.fits as pyfits
 import pandas as pd
 import os
 
-WEEK_BEGIN = 164
-WEEK_END = 166
+WEEK_BEGIN = 9
+WEEK_END = 550
 
-path = os.path.join(
+path_write = os.path.join(
     os.getcwd(),
     os.path.join(
         "data",
@@ -13,10 +14,14 @@ path = os.path.join(
     )
 )
 
+path_read = "/work/bus/Data/Spacecraft"
+
+
 def main():
     WEEK = WEEK_BEGIN
     while WEEK <= WEEK_END:
-        f = pyfits.open(os.path.join(path, "lat_spacecraft_weekly_w{0:3d}_p202_v001.fits".format(WEEK)))
+        print("WEEK {}".format(WEEK))
+        f = pyfits.open(os.path.join(path_read, "lat_spacecraft_weekly_w{0:03d}_p202_v001.fits".format(WEEK)))
         rows = f[1].data
         selected_rows = list(map(lambda row: {
             'START': row['START'],
@@ -31,7 +36,7 @@ def main():
             'LIVETIME': row['LIVETIME'],
         }, rows))
         df = pd.DataFrame(selected_rows)
-        df.to_csv(os.path.join(path, "csv","ft2_w{0:3d}.csv".format(WEEK)))
+        df.to_csv(os.path.join(path_write, "csv","ft2_w{0:03d}.csv".format(WEEK)))
         WEEK += 1
 
 if __name__ == "__main__":

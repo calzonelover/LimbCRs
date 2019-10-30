@@ -2,7 +2,7 @@ compile:
 	mpic++ unit_test/exposure_map_cpp/main_mpi3.cpp -o unit_test/exposure_map_cpp/limb_exposure_mpi -std=c++11
 
 sync:
-	rsync -avu * jab@newgalaxy:/work/jab/LimbCRs
+	rsync -avu ../LimbCRs/ jab@newgalaxy:/work/jab/LimbCRs
 
 compile_and_sync: compile sync
 
