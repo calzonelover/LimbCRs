@@ -4,6 +4,8 @@ compile:
 sync:
 	rsync -avu * jab@newgalaxy:/work/jab/LimbCRs
 
+compile_and_sync: compile sync
+
 clean:
 	rm data/exposure_map/P8R2_SOURCE_V6/*
 	rm data/exposure_map/P8R2_ULTRACLEANVETO_V6/*
