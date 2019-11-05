@@ -30,6 +30,8 @@
   * Full res Master-Slave
     - (slave=11) CPU time 784.306050 s
 
+ Full week 10-550 takes around 5 hour with 150 slaves
+
  how to run
  >> mpic++ main_mpi.cpp -o out.o -std=c++11
  >> mpirun -np 2 out.o

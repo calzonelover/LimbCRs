@@ -1,6 +1,10 @@
 compile:
 	mpic++ unit_test/exposure_map_cpp/main_mpi3.cpp -o unit_test/exposure_map_cpp/limb_exposure_mpi -std=c++11
 
+rootenv:
+	module load anaconda/2.7
+	source /opt/ohpc/pub/apps/anaconda2/bin/activate fermi
+
 sync:
 	rsync -avu ../LimbCRs/ jab@newgalaxy:/work/jab/LimbCRs
 

@@ -46,7 +46,7 @@ def main():
     ax.set_theta_direction(-1)  # theta increasing clockwise
     plt.pcolormesh(transform.d2r(x), y, exp_map, cmap="jet", norm=matplotlib.colors.LogNorm())
     # plt.thetagrids([theta * 15 for theta in range(int(settings.PHI_NADIR_MAX)//15)])
-    plt.rgrids([theta * 30 for theta in range(int(settings.THETA_NADIR_MAX)//30)])
+    plt.rgrids([theta * 20 for theta in range(int(settings.THETA_NADIR_MAX)//20)])
     plt.grid(alpha=0.5, linestyle='--')
     a = plt.colorbar()
     a.set_label('Exposure ($m^2\ s$)')
