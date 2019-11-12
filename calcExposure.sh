@@ -3,7 +3,8 @@
 #SBATCH --job-name=ExpCalc  ### Job Name
 #SBATCH --output=logCalcExpMap.out
 #SBATCH --time=24:00:00 ### WallTime (hh:mm:ss) format "hours:minutes:seconds"or "days-hours",
-#SBATCH --ntasks=41 ### maximum is 192
+#SBATCH --ntasks=160 ### maximum is 192
+#SBATCH --mem=76800 ### Megabyte
 #SBATCH --account=jab ### Account used for job submission
 
 echo 'begin exposure calculation process'
