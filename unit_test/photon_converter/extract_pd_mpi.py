@@ -34,6 +34,8 @@ def main():
     print("Initialize process # {}".format(rank))
 
     if rank == 0:
+        if not os.path.exists(settings.PATH_EXTRACTED_DATA):
+            os.makedirs(settings.PATH_EXTRACTED_DATA)
         weeksent = settings.WEEK_BEGIN
         # first send
         for i_dest in range(1, size):
@@ -90,3 +92,5 @@ def main():
             df.to_csv(os.path.join(settings.PATH_EXTRACTED_DATA, 'photon', 'ft1_w%03d'%week_i))
             print('Finished week {} from slave {}'.format(week_i, rank))
             comm.send(rank, dest=0, tag=settings.TAG_INPROGRESS)
+            
+    MPI.Finalize()

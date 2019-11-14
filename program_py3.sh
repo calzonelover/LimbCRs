@@ -1,9 +1,10 @@
 #!/bin/bash
 
 #SBATCH --job-name=ExtractPhoton  ### Job Name
+#SBATCH --partition=long
 #SBATCH --output=logExtractPhoton.out
 #SBATCH --time=70:00:00 ### WallTime (hh:mm:ss) format "hours:minutes:seconds"or "days-hours",
-#SBATCH --ntasks=100
+#SBATCH --ntasks=90
 #SBATCH --account=jab ### Account used for job submission
 
 module load prun/1.3

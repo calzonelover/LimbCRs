@@ -6,7 +6,7 @@ rootenv:
 	source /opt/ohpc/pub/apps/anaconda2/bin/activate fermi
 
 sync:
-	rsync -avu ../LimbCRs/ jab@newgalaxy:/work/jab/LimbCRs
+	rsync -auv ../LimbCRs/ jab@newgalaxy:/work/jab/LimbCRs
 
 compile_and_sync: compile sync
 
