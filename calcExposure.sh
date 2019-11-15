@@ -1,9 +1,9 @@
 #!/usr/bin/env bash
 
-#SBATCH --job-name=ExpCalc  ### Job Name
-#SBATCH --output=logCalcExpMap.out
+#SBATCH --job-name=ExpCalcULTRA  ### Job Name
+#SBATCH --output=logCalcExpMapULTRA.out
 #SBATCH --time=24:00:00 ### WallTime (hh:mm:ss) format "hours:minutes:seconds"or "days-hours",
-#SBATCH --ntasks=110 ### maximum is 192
+#SBATCH --ntasks=55 ### maximum is 192
 #SBATCH --account=jab ### Account used for job submission
 
 echo 'begin exposure calculation process'

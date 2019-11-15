@@ -89,7 +89,7 @@ def main():
                         'rocking_angle': sp['ROCK_ANGLE'],
                     })
             df = pd.DataFrame(extracted_photons)
-            df.to_csv(os.path.join(settings.PATH_EXTRACTED_DATA, 'photon', 'ft1_w%03d'%week_i))
+            df.to_csv(os.path.join(settings.PATH_EXTRACTED_DATA, 'photon', 'ft1_w%03d.csv'%week_i))
             print('Finished week {} from slave {}'.format(week_i, rank))
             comm.send(rank, dest=0, tag=settings.TAG_INPROGRESS)
             
