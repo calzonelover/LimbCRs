@@ -2,7 +2,7 @@
 
 #SBATCH --job-name=ExpCalcULTRA  ### Job Name
 #SBATCH --output=logCalcExpMapULTRA.out
-#SBATCH --time=24:00:00 ### WallTime (hh:mm:ss) format "hours:minutes:seconds"or "days-hours",
+#SBATCH --time=24:00:00 ### WallTime (hh:mm:ss) format "hours:minutes:seconds" or "days-hours"
 #SBATCH --ntasks=55 ### maximum is 192
 #SBATCH --account=jab ### Account used for job submission
 

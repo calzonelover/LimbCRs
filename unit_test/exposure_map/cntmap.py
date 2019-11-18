@@ -2,7 +2,10 @@ import numpy as np
 import math
 import pyfits
 import os
-import matplotlib
+import platform
+if platform.system() == "Darwin":
+    import matplotlib
+    matplotlib.use('TkAgg')
 import matplotlib.pyplot as plt
 from mpl_toolkits.mplot3d import Axes3D
 
@@ -38,7 +41,10 @@ def main():
 
     f = pyfits.open(os.path.join(path, "lat_photon_weekly_w{0:3d}_p302_v001.fits").format(WEEK))
     rows = f[1].data
-
+    for row in rows:
+        if row['EVENT_CLASS'][-7]:
+            print(row['EVENT_CLASS'][-7], row['EVENT_CLASS'][-10])
+    exit()
     rows = list(filter(lambda x: x['THETA'] < settings.THETA_LAT_CUTOFF, rows))
     interested_photon_theta_nads = list(map(lambda  x: 180.0 - x['ZENITH_ANGLE'], rows))
     interested_photon_phi_nads = list(map(lambda  x: x['EARTH_AZIMUTH_ANGLE'], rows))
