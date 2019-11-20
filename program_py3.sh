@@ -4,7 +4,7 @@
 #SBATCH --partition=long
 #SBATCH --output=logExtractPhoton.out
 #SBATCH --time=70:00:00 ### WallTime (hh:mm:ss) format "hours:minutes:seconds"or "days-hours",
-#SBATCH --ntasks=90
+#SBATCH --ntasks=92
 #SBATCH --account=jab ### Account used for job submission
 
 module load prun/1.3
