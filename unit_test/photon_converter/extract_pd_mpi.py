@@ -72,7 +72,7 @@ def main():
                 nadir_shift = zenith_to_nadir(zenith_shift)
                 if (
                     energy_gev >= settings.E_START_GEV and energy_gev <= settings.E_STOP_GEV
-                    and photon['THETA'] < settings.THETA_LAT_CUTOFF and photon['EVENT_CLASS'][-EVENT_CLASS_BITS['P8R2_SOURCE_V6']]
+                    and photon['THETA'] < settings.THETA_LAT_CUTOFF and photon['EVENT_CLASS'][-settings.EVENT_CLASS_BITS['P8R2_SOURCE_V6']]
                 ):
                     extracted_photons.append({
                         'time': photon['TIME'],
@@ -86,8 +86,8 @@ def main():
                         'altitude_km': sp['RAD_GEO']/1000.0,
                         'phi_earth': photon['EARTH_AZIMUTH_ANGLE'],
                         'rocking_angle': sp['ROCK_ANGLE'],
-                        'P8R2_SOURCE_V6': photon['EVENT_CLASS'][-EVENT_CLASS_BITS['P8R2_SOURCE_V6']],
-                        'P8R2_ULTRACLEANVETO_V6': photon['EVENT_CLASS'][-EVENT_CLASS_BITS['P8R2_ULTRACLEANVETO_V6']],
+                        'P8R2_SOURCE_V6': photon['EVENT_CLASS'][-settings.EVENT_CLASS_BITS['P8R2_SOURCE_V6']],
+                        'P8R2_ULTRACLEANVETO_V6': photon['EVENT_CLASS'][-settings.EVENT_CLASS_BITS['P8R2_ULTRACLEANVETO_V6']],
                     })
             df = pd.DataFrame(extracted_photons)
             df.to_csv(os.path.join(settings.PATH_EXTRACTED_DATA, 'photon', 'ft1_w%03d.csv'%week_i))
