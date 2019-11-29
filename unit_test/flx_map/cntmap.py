@@ -25,4 +25,3 @@ def main():
         bins=(settings.N_BINS_PHI_NADIR, settings.N_BINS_THETA_NADIR),
         range=([settings.PHI_NADIR_MIN, settings.PHI_NADIR_MAX], [settings.THETA_NADIR_MIN, settings.THETA_NADIR_MAX]),        
     )
-    

@@ -14,3 +14,4 @@ module load openmpi3/3.1.3
 cd /work/jab/LimbCRs/unit_test/exposure_map_cpp/
 mpirun -x LD_LIBRARY_PATH -np $SLURM_NTASKS /work/jab/LimbCRs/unit_test/exposure_map_cpp/limb_exposure_mpi
 # mpirun -x LD_LIBRARY_PATH -machinefile /work/jab/LimbCRs/machinefile -np $SLURM_NTASKS /work/jab/LimbCRs/unit_test/exposure_map_cpp/limb_exposure_mpi
+
