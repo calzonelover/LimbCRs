@@ -17,8 +17,11 @@ typedef struct FT1 {
     float zenith;
 } FT1;
 
+std::vector<FT1> readPhotonCSV(int _week);
+void assignEnergyBin(float *_energy_mid_bins, float energy_start_gev, float energy_end_gev);
 
 // Variables
+// std::string cntmap_name, cntmap_title, flxmap_name, flxmap_title;
 std::vector<TH2F*> cnt_maps, flx_maps;
 float *energy_mid_bins;
 #endif

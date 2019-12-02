@@ -24,3 +24,7 @@ https://www.slac.stanford.edu/exp/glast/groups/canda/lat_Performance.htm
   ```bash
   module avail
   ```
+
+# CPP
+
+Guild https://hiltmon.com/blog/2013/07/03/a-simple-c-plus-plus-project-structure/

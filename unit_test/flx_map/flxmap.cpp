@@ -11,12 +11,9 @@
 // ROOT
 # include "TH2F.h"
 
-
 #include "../../settings.h"
 #include "flxmap.h"
 
-std::vector<FT1> readPhotonCSV(int _week);
-void assignEnergyBin(float *_energy_mid_bins, float energy_start_gev, float energy_end_gev);
 
 std::string parseIntOrder(int _week, int range=3){
     std::string week = std::to_string(_week);
@@ -32,17 +29,33 @@ std::string parseDecimal(T val, int order){
     return val_str.substr(0, val_str.find(".")+order+1);
 }
 
+void init2DHistogram(std::vector<TH2F*> cnt_maps, std::vector<TH2F*> flx_maps){
+    for (unsigned int i_energy_bin=0; i_energy_bin < N_E_BINS; i_energy_bin++){
+        auto cntmap_name = "cntmap" + parseIntOrder(i_energy_bin);
+        auto cntmap_title = "Count map " + parseDecimal(energy_mid_bins[i_energy_bin], 2) + " GeV";
+        // std::cout << cntmap_name << "\t" << cntmap_title << std::endl;
+        cnt_maps.push_back(new TH2F(
+            cntmap_name.c_str(), cntmap_title.c_str(),
+            N_BINS_PHI_NADIR, PHI_NADIR_MIN, PHI_NADIR_MAX,
+            N_BINS_THETA_NADIR, THETA_NADIR_MIN, THETA_NADIR_MAX
+        ));
+        auto flxmap_name = "flxmap" + parseIntOrder(i_energy_bin);
+        auto flxmap_title = "Flux map " + parseDecimal(energy_mid_bins[i_energy_bin], 2) + " GeV";
+        // std::cout << flxmap_name << "\t" << flxmap_title << std::endl;
+        flx_maps.push_back(new TH2F(
+            flxmap_name.c_str(), flxmap_title.c_str(),
+            N_BINS_PHI_NADIR, PHI_NADIR_MIN, PHI_NADIR_MAX,
+            N_BINS_THETA_NADIR, THETA_NADIR_MIN, THETA_NADIR_MAX
+        ));
+    }
+}
+
 int main(int argc, char** argv){
     energy_mid_bins = (float*)malloc(N_E_BINS*sizeof(float));
     assignEnergyBin(energy_mid_bins, E_START_GEV, E_STOP_GEV);
-    
-    for (unsigned int i_energy_bin=0; i_energy_bin < N_E_BINS; i_energy_bin++){
-        std::string cntmap_name = "cntmap" + parseIntOrder(i_energy_bin);
-        std::string cntmap_title = "Count map " + parseDecimal(energy_mid_bins[i_energy_bin], 3) + " GeV";
-        std::cout << cntmap_name << "\t" << cntmap_title << std::endl;
-        TH2F *cnt_map = new TH2F("cntmap","2D Gaussian peak",160,-4.,4.,160,-4.,4.);
-        cnt_maps.push_back(cnt_map);
-    }
+
+    init2DHistogram(cnt_maps, flx_maps);
+
 
     // for (unsigned int week=WEEK_BEGIN; week <= WEEK_END; week++){
     //     std::vector<FT1> ft1_rows = readPhotonCSV(week);
