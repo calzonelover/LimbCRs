@@ -86,8 +86,8 @@ def main():
                         'altitude_km': sp['RAD_GEO']/1000.0,
                         'phi_earth': photon['EARTH_AZIMUTH_ANGLE'],
                         'rocking_angle': sp['ROCK_ANGLE'],
-                        'P8R2_SOURCE_V6': photon['EVENT_CLASS'][-settings.EVENT_CLASS_BITS['P8R2_SOURCE_V6']],
-                        'P8R2_ULTRACLEANVETO_V6': photon['EVENT_CLASS'][-settings.EVENT_CLASS_BITS['P8R2_ULTRACLEANVETO_V6']],
+                        'P8R2_SOURCE_V6': 1 if photon['EVENT_CLASS'][-settings.EVENT_CLASS_BITS['P8R2_SOURCE_V6']] else 0,
+                        'P8R2_ULTRACLEANVETO_V6': 1 if photon['EVENT_CLASS'][-settings.EVENT_CLASS_BITS['P8R2_ULTRACLEANVETO_V6']] else 0,
                     })
             df = pd.DataFrame(extracted_photons)
             df.to_csv(os.path.join(settings.PATH_EXTRACTED_DATA, 'photon', 'ft1_w%03d.csv'%week_i))
