@@ -1,3 +1,9 @@
+LIBDIR := utility/cpp
+
+run:
+	g++ unit_test/flx_map/flxmap.cpp $(LIBDIR)/*.cpp -o flxmap `root-config --cflags --glibs` -std=c++11
+	./flxmap
+
 compile:
 	mpic++ unit_test/exposure_map_cpp/main_mpi3.cpp -o unit_test/exposure_map_cpp/limb_exposure_mpi -std=c++11
 
@@ -6,7 +12,8 @@ rootenv:
 	source /opt/ohpc/pub/apps/anaconda2/bin/activate fermi
 
 sync:
-	rsync -auv ../LimbCRs/ jab@newgalaxy:/work/jab/LimbCRs
+	rsync -av ../LimbCRs/ jab@newgalaxy:/work/jab/LimbCRs	
+# rsync -auv ../LimbCRs/ jab@newgalaxy:/work/jab/LimbCRs
 
 compile_and_sync: compile sync
 
