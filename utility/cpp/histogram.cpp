@@ -38,25 +38,29 @@ void Histogram::assignEnergyBin(float *_energy_mid_bins, float energy_start_gev 
     free(energy_edge_bins);
 }
 
-void Histogram::init2DHistogram(std::vector<TH2F*> cnt_maps, std::vector<TH2F*> flx_maps, float *energy_mid_bins){
+void Histogram::init2DHistogram(std::vector<TH2F*> _cnt_maps, std::vector<TH2F*> _flx_maps, float *_energy_mid_bins){
     for (unsigned int i_energy_bin=0; i_energy_bin < N_E_BINS; i_energy_bin++){
         auto cntmap_name = "cntmap" + Parser::parseIntOrder(i_energy_bin);
-        auto cntmap_title = "Count map " + Parser::parseDecimal(energy_mid_bins[i_energy_bin], 2) + " GeV";
+        auto cntmap_title = "Count map " + Parser::parseDecimal(_energy_mid_bins[i_energy_bin], 2) + " GeV";
         std::cout << cntmap_name << "\t" << cntmap_title << std::endl;
-        cnt_maps.push_back(new TH2F(
+        _cnt_maps.push_back(new TH2F(
             cntmap_name.c_str(), cntmap_title.c_str(),
             N_BINS_PHI_NADIR, PHI_NADIR_MIN, PHI_NADIR_MAX,
             N_BINS_THETA_NADIR, THETA_NADIR_MIN, THETA_NADIR_MAX
         ));
         auto flxmap_name = "flxmap" + Parser::parseIntOrder(i_energy_bin);
-        auto flxmap_title = "Flux map " + Parser::parseDecimal(energy_mid_bins[i_energy_bin], 2) + " GeV";
+        auto flxmap_title = "Flux map " + Parser::parseDecimal(_energy_mid_bins[i_energy_bin], 2) + " GeV";
         // std::cout << flxmap_name << "\t" << flxmap_title << std::endl;
-        flx_maps.push_back(new TH2F(
+        _flx_maps.push_back(new TH2F(
             flxmap_name.c_str(), flxmap_title.c_str(),
             N_BINS_PHI_NADIR, PHI_NADIR_MIN, PHI_NADIR_MAX,
             N_BINS_THETA_NADIR, THETA_NADIR_MIN, THETA_NADIR_MAX
         ));
     }
+}
+
+void Histogram::assignExposureMap(std::vector<TH2F*> _exp_maps){
+    
 }
 
 float* Histogram::get_energy_mid_bins(){
@@ -66,6 +70,7 @@ float* Histogram::get_energy_mid_bins(){
 std::vector<TH2F*> Histogram::get_cnt_maps(){
     return cnt_maps;
 }
+
 std::vector<TH2F*> Histogram::get_flx_maps(){
     return flx_maps;
 }
