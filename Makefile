@@ -1,8 +1,9 @@
 LIBDIR := utility/cpp
 
 # g++ unit_test/flx_map/flxmap.cpp $(LIBDIR)/*.cpp -o flxmap `root-config --cflags --glibs` -std=c++11
+# g++ unit_test/flx_map/readexpmap.cpp $(LIBDIR)/*.cpp -o flxmap `root-config --cflags --glibs` -std=c++11
 run:
-	g++ unit_test/flx_map/readexpmap.cpp $(LIBDIR)/*.cpp -o flxmap `root-config --cflags --glibs` -std=c++11
+	g++ unit_test/flx_map/flxmap.cpp $(LIBDIR)/*.cpp -o flxmap `root-config --cflags --glibs` -std=c++11
 	./flxmap
 
 compile:

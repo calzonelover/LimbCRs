@@ -68,10 +68,11 @@ std::vector<FT1> FileIO::readPhotonCSV(int _week, bool skipHeader){
 }
 
 
-std::vector<TH2F*> FileIO::readExposureMap(bool skipHeader){
+std::vector<TH2F*> FileIO::readExposureMap(){
     std::string line;
     auto energy_mid_bins = (float*)malloc(N_E_BINS*sizeof(float));
-    Histogram::assignEnergyBin(energy_mid_bins, E_START_GEV, E_STOP_GEV);
+    auto energy_edge_bins = (float*)malloc((N_E_BINS+1)*sizeof(float));
+    Histogram::assignEnergyBin(energy_mid_bins, energy_edge_bins, E_START_GEV, E_STOP_GEV);
 
     std::vector<TH2F*> exp_maps;
     for (unsigned int i_energy=0; i_energy<N_E_BINS; i_energy++){
@@ -90,8 +91,8 @@ std::vector<TH2F*> FileIO::readExposureMap(bool skipHeader){
             std::cout << "Program exit!" << std::endl;
             exit(0);
         }
-        for (unsigned int i=0; i < N_BINS_PHI_NADIR; i++){
-            for (unsigned int j=0; j < N_BINS_THETA_NADIR; j++){
+        for (unsigned int i=1; i <= N_BINS_PHI_NADIR; i++){
+            for (unsigned int j=1; j <= N_BINS_THETA_NADIR; j++){
                 if (getline(file, line,'\n')){
                     if (!file.eof()){
                         exp_maps[i_energy]->SetBinContent(i, j, std::stof(line));
