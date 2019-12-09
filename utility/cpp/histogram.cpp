@@ -19,14 +19,16 @@
 
 #include "histogram.h"
 
-Histogram::Histogram(){
+Histogram::Histogram(bool is_load){
     energy_mid_bins = (float*)malloc(N_E_BINS*sizeof(float));
     energy_edge_bins = (float*)malloc((N_E_BINS+1)*sizeof(float));
     Histogram::assignEnergyBin(energy_mid_bins, energy_edge_bins);
+    count_hist = new TH1F("count_hist", "Count", N_E_BINS, energy_edge_bins);
+    flux_hist = new TH1F("flux_hist", "Flux", N_E_BINS, energy_edge_bins);
+    Histogram::assignSolidAngleMap(solid_angle_map);
     Histogram::init2DHistogram(cnt_maps, flx_maps, energy_mid_bins);
     Histogram::assignExposureMap(exp_maps);
-    counts = new TH1F("count", "Count", N_E_BINS, energy_edge_bins);
-    fluxes = new TH1F("flux", "Flux", N_E_BINS, energy_edge_bins);
+    if (is_load) this->load();
 }
 
 void Histogram::assignEnergyBin(float *_energy_mid_bins, float *_energy_edge_bins, float energy_start_gev, float energy_end_gev){
@@ -40,6 +42,31 @@ void Histogram::assignEnergyBin(float *_energy_mid_bins, float *_energy_edge_bin
         e1d = pow(_energy_edge_bins[i], divider);
         ln = log(0.5f*(e2d - e1d)+ e1d);
         _energy_mid_bins[i] = exp(ln/(divider));
+    }
+}
+
+void Histogram::assignSolidAngleMap(TH2F *map){
+    map = new TH2F(
+        "solid_angle_map", "Solid Angle Map",
+        N_BINS_PHI_NADIR, PHI_NADIR_MIN, PHI_NADIR_MAX,
+        N_BINS_THETA_NADIR, THETA_NADIR_MIN, THETA_NADIR_MAX    
+    );
+    auto d_phi = (PHI_NADIR_MAX - PHI_NADIR_MIN)/N_BINS_PHI_NADIR;
+    auto d_theta = (THETA_NADIR_MAX - THETA_NADIR_MIN)/N_BINS_THETA_NADIR;
+    for (unsigned int i=1; i <= N_BINS_PHI_NADIR; i++){
+        for (unsigned int j=1; j <= N_BINS_THETA_NADIR; j++){
+            auto phi_nadir_min = i*d_phi;
+            auto phi_nadir_max = phi_nadir_min + d_phi;
+            auto theta_nadir_min = j*d_theta;
+            auto theta_nadir_max = theta_nadir_min + d_phi;
+            map->SetBinContent(
+                i, j,
+                Transform::getSolidAngle(
+                    theta_nadir_min, theta_nadir_max,
+                    phi_nadir_min, phi_nadir_max
+                )
+            );
+        }
     }
 }
 
@@ -75,12 +102,12 @@ float Histogram::sumOverRegion(TH2F *map, float theta_nad_min, float theta_nad_m
     auto sum = 0.0f;
     auto i_min = int(floor(PHI_NADIR_MIN/d_phi));
     auto i_max = (floor(PHI_NADIR_MAX/d_phi) > PHI_NADIR_MAX/d_phi) ? int(floor(PHI_NADIR_MAX/d_phi)) + 1 : int(floor(PHI_NADIR_MAX/d_phi));
-    auto j_min = int(floor(THETA_NADIR_MIN/d_theta);
+    auto j_min = int(floor(THETA_NADIR_MIN/d_theta));
     auto j_max = (floor(THETA_NADIR_MAX/d_theta) > THETA_NADIR_MAX/d_theta) ? int(floor(THETA_NADIR_MAX/d_theta)) + 1 : int(floor(THETA_NADIR_MAX/d_theta));
 
-    for (unsigned int i=i_min; i < i_max; i++){
-        for (unsigned int j=j_min; j < j_max; j++){
-            sum += map[i_energy_bin]->GetBinContent(i+1, j+1);
+    for (unsigned int i=i_min+1; i <= i_max; i++){
+        for (unsigned int j=j_min+1; j <= j_max; j++){
+            sum += map->GetBinContent(i, j);
         }
     }
     return sum;
@@ -101,23 +128,52 @@ int Histogram::findBin(float energy){
 void Histogram::fillPhoton(float energy, float theta_nad, float phi_nad){
     auto bin_index = findBin(energy);
     cnt_maps[bin_index]->Fill(phi_nad, theta_nad);
-    counts->Fill(energy);
+    count_hist->Fill(energy);
 }
 
 void Histogram::computeFlux1(){
     for (unsigned int i_energy_bin=0; i_energy_bin<N_E_BINS; i_energy_bin++){
-        auto cntmap = (TH2F*) cnt_maps[i_energy_bin]->Clone();
-        auto expmap = (TH2F*) exp_maps[i_energy_bin]->Clone();
-        cntmap->Divide(expmap);
-        flx_maps[i_energy_bin] = cntmap;
-        // For fluxes
-        auto expmap_val_i = Histogram::sumOverRegion(exp_maps[i_energy_bin]);
-        fluxes->SetBinContent(
+        flx_maps[i_energy_bin] = (TH2F*) cnt_maps[i_energy_bin]->Clone();
+        flx_maps[i_energy_bin]->Divide(exp_maps[i_energy_bin]);
+        // count hist
+        count_hist->SetBinError(i_energy_bin+1, sqrt(count_hist->GetBinContent(i_energy_bin+1)));
+        // For flux hist
+        auto expSolidMap = (TH2F*) exp_maps[i_energy_bin]->Clone();
+        expSolidMap->Multiply(solid_angle_map);
+        auto expSolidMap_val_i = Histogram::sumOverRegion(expSolidMap);
+        auto dE = energy_edge_bins[i_energy_bin+1] - energy_edge_bins[i_energy_bin];
+        flux_hist->SetBinContent(
             i_energy_bin+1,
-            counts->GetBinContent(i_energy_bin+1)/(expmap_val_i * (energy_edge_bins[i_energy_bin+1] - energy_edge_bins[i_energy_bin]))
+            count_hist->GetBinContent(i_energy_bin+1)/(expSolidMap_val_i * dE)
+        );
+        flux_hist->SetBinError(
+            i_energy_bin+1,
+            sqrt(count_hist->GetBinContent(i_energy_bin+1)) * flux_hist->GetBinContent(i_energy_bin+1)
         );
     }
 }
+
+void Histogram::computeFlux2(){
+    for (unsigned int i_energy_bin=0; i_energy_bin<N_E_BINS; i_energy_bin++){
+        flx_maps[i_energy_bin] = (TH2F*) cnt_maps[i_energy_bin]->Clone();
+        flx_maps[i_energy_bin]->Divide(exp_maps[i_energy_bin]);
+        // count hist
+        count_hist->SetBinError(i_energy_bin+1, sqrt(count_hist->GetBinContent(i_energy_bin+1)));
+        // For flux hist
+        auto flxmap_val_i = Histogram::sumOverRegion(flx_maps[i_energy_bin]);
+        auto solid_angle = Transform::getSolidAngle();
+        auto dE = energy_edge_bins[i_energy_bin+1] - energy_edge_bins[i_energy_bin];
+        flux_hist->SetBinContent(
+            i_energy_bin+1,
+            flxmap_val_i/(solid_angle * dE)
+        );
+        flux_hist->SetBinError(
+            i_energy_bin+1,
+            sqrt(count_hist->GetBinContent(i_energy_bin+1)) * flux_hist->GetBinContent(i_energy_bin+1)
+        );
+    }
+}
+
 
 void Histogram::save(){
     TFile out_file("data/root/extracted_data.root","RECREATE");
@@ -126,6 +182,8 @@ void Histogram::save(){
         exp_maps[i]->Write();
         flx_maps[i]->Write();
     }
+    count_hist->Write();
+    flux_hist->Write();
     out_file.Close();
 };
 
@@ -139,6 +197,8 @@ void Histogram::load(){
         auto flxmap_name = "flxmap" + Parser::parseIntOrder(i);
         read_file.GetObject(flxmap_name.c_str(), flx_maps[i]);      
     }
+    read_file.GetObject("count_hist", count_hist);
+    read_file.GetObject("flux_hist", flux_hist);
     read_file.Close();   
 };
 
