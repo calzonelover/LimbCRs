@@ -19,7 +19,7 @@
 #include "flxmap.h"
 
 int main(int argc, char** argv){
-        
+    
     auto histogram = new Histogram();
     auto bla = histogram->get_energy_mid_bins();
     for (unsigned int i=0; i<50;i++) std::cout << bla[i] << std::endl;

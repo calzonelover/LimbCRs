@@ -10,6 +10,7 @@
 
 #include "TH1F.h"
 #include "TH2F.h"
+#include "TFile.h"
 
 #include "../../settings.h"
 #include "../../utility/cpp/io.h"
@@ -22,7 +23,9 @@ Histogram::Histogram(){
     energy_edge_bins = (float*)malloc((N_E_BINS+1)*sizeof(float));
     Histogram::assignEnergyBin(energy_mid_bins, energy_edge_bins);
     Histogram::init2DHistogram(cnt_maps, flx_maps, energy_mid_bins);
-    Histogram::assignExposureMap(exp_maps);    
+    Histogram::assignExposureMap(exp_maps);
+    counts = new TH1F("count", "Count", N_E_BINS, energy_edge_bins);
+    fluxes = new TH1F("flux", "Flux", N_E_BINS, energy_edge_bins);
 }
 
 void Histogram::assignEnergyBin(float *_energy_mid_bins, float *_energy_edge_bins, float energy_start_gev, float energy_end_gev){
@@ -77,10 +80,61 @@ int Histogram::findBin(float energy){
 }
 
 void Histogram::fillPhoton(float energy, float theta_nad, float phi_nad){
-
+    auto bin_index = findBin(energy);
+    cnt_maps[bin_index]->Fill(phi_nad, theta_nad);
+    counts->Fill(energy);
 }
 
+void Histogram::computeFlux(){
+    auto d_phi = (PHI_NADIR_MAX - PHI_NADIR_MIN)/N_BINS_PHI_NADIR;
+    auto d_theta = (THETA_NADIR_MAX - THETA_NADIR_MIN)/N_BINS_THETA_NADIR;
+    for (unsigned int i_energy_bin=0; i_energy_bin<N_E_BINS; i_energy_bin++){
+        auto cntmap = (TH2F*) cnt_maps[i_energy_bin]->Clone();
+        auto expmap = (TH2F*) exp_maps[i_energy_bin]->Clone();
+        cntmap->Divide(expmap);
+        flx_maps[i_energy_bin] = cntmap;
+        // For fluxes
+        auto solid_angle_i = 0.0f;
+        auto i_min = PHI_NADIR_MIN/d_phi;
+        auto i_max = PHI_NADIR_MAX/d_phi;
+        auto j_min = THETA_NADIR_MIN/d_theta;
+        auto j_max = THETA_NADIR_MAX/d_theta;
+        for (unsigned int i=i_min; i < i_max; i++){
+            for (unsigned int j=j_min; j < j_max; j++){
+                solid_angle_i += exp_maps[i_energy_bin]->GetBinContent(i+1, j+1);
+            }
+        }
+        fluxes->SetBinContent(
+            i_energy_bin+1,
+            counts->GetBinContent(i_energy_bin+1)/(solid_angle_i * (energy_edge_bins[i+1] - energy_edge_bins[i]))
+        );
+    }
+    // calc fluxes
+    int(floor(energy_mid_bins[i_energy]))
+}
 
+void Histogram::save(){
+    TFile out_file("data/root/extracted_data.root","RECREATE");
+    for (unsigned int i=0; i<N_E_BINS; i++){
+        cnt_maps[i]->Write();
+        exp_maps[i]->Write();
+        flx_maps[i]->Write();
+    }
+    out_file.Close();
+};
+
+void Histogram::load(){
+    TFile read_file("data/root/extracted_data.root","READ");
+    for (unsigned int i=0; i<N_E_BINS; i++){
+        auto cntmap_name = "cntmap" + Parser::parseIntOrder(i);
+        read_file.GetObject(cntmap_name.c_str(), cnt_maps[i]);
+        auto expmap_name = "expmap" + Parser::parseIntOrder(i);
+        read_file.GetObject(expmap_name.c_str(), exp_maps[i]);
+        auto flxmap_name = "flxmap" + Parser::parseIntOrder(i);
+        read_file.GetObject(flxmap_name.c_str(), flx_maps[i]);      
+    }
+    read_file.Close();   
+};
 
 
 float* Histogram::get_energy_mid_bins(){
