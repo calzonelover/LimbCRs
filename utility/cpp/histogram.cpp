@@ -15,6 +15,7 @@
 #include "../../settings.h"
 #include "../../utility/cpp/io.h"
 #include "../../utility/cpp/parser.h"
+#include "../../utility/cpp/transform.h"
 
 #include "histogram.h"
 
@@ -67,6 +68,24 @@ void Histogram::assignExposureMap(std::vector<TH2F*> _exp_maps){
     _exp_maps = FileIO::readExposureMap();
 }
 
+float Histogram::sumOverRegion(TH2F *map, float theta_nad_min, float theta_nad_max, float phi_nad_min, float phi_nad_max){
+    auto d_phi = (PHI_NADIR_MAX - PHI_NADIR_MIN)/N_BINS_PHI_NADIR;
+    auto d_theta = (THETA_NADIR_MAX - THETA_NADIR_MIN)/N_BINS_THETA_NADIR;
+
+    auto sum = 0.0f;
+    auto i_min = int(floor(PHI_NADIR_MIN/d_phi));
+    auto i_max = (floor(PHI_NADIR_MAX/d_phi) > PHI_NADIR_MAX/d_phi) ? int(floor(PHI_NADIR_MAX/d_phi)) + 1 : int(floor(PHI_NADIR_MAX/d_phi));
+    auto j_min = int(floor(THETA_NADIR_MIN/d_theta);
+    auto j_max = (floor(THETA_NADIR_MAX/d_theta) > THETA_NADIR_MAX/d_theta) ? int(floor(THETA_NADIR_MAX/d_theta)) + 1 : int(floor(THETA_NADIR_MAX/d_theta));
+
+    for (unsigned int i=i_min; i < i_max; i++){
+        for (unsigned int j=j_min; j < j_max; j++){
+            sum += map[i_energy_bin]->GetBinContent(i+1, j+1);
+        }
+    }
+    return sum;
+}
+
 
 int Histogram::findBin(float energy){
     int matched_bin_i;
@@ -85,32 +104,19 @@ void Histogram::fillPhoton(float energy, float theta_nad, float phi_nad){
     counts->Fill(energy);
 }
 
-void Histogram::computeFlux(){
-    auto d_phi = (PHI_NADIR_MAX - PHI_NADIR_MIN)/N_BINS_PHI_NADIR;
-    auto d_theta = (THETA_NADIR_MAX - THETA_NADIR_MIN)/N_BINS_THETA_NADIR;
+void Histogram::computeFlux1(){
     for (unsigned int i_energy_bin=0; i_energy_bin<N_E_BINS; i_energy_bin++){
         auto cntmap = (TH2F*) cnt_maps[i_energy_bin]->Clone();
         auto expmap = (TH2F*) exp_maps[i_energy_bin]->Clone();
         cntmap->Divide(expmap);
         flx_maps[i_energy_bin] = cntmap;
         // For fluxes
-        auto solid_angle_i = 0.0f;
-        auto i_min = PHI_NADIR_MIN/d_phi;
-        auto i_max = PHI_NADIR_MAX/d_phi;
-        auto j_min = THETA_NADIR_MIN/d_theta;
-        auto j_max = THETA_NADIR_MAX/d_theta;
-        for (unsigned int i=i_min; i < i_max; i++){
-            for (unsigned int j=j_min; j < j_max; j++){
-                solid_angle_i += exp_maps[i_energy_bin]->GetBinContent(i+1, j+1);
-            }
-        }
+        auto expmap_val_i = Histogram::sumOverRegion(exp_maps[i_energy_bin]);
         fluxes->SetBinContent(
             i_energy_bin+1,
-            counts->GetBinContent(i_energy_bin+1)/(solid_angle_i * (energy_edge_bins[i+1] - energy_edge_bins[i]))
+            counts->GetBinContent(i_energy_bin+1)/(expmap_val_i * (energy_edge_bins[i_energy_bin+1] - energy_edge_bins[i_energy_bin]))
         );
     }
-    // calc fluxes
-    int(floor(energy_mid_bins[i_energy]))
 }
 
 void Histogram::save(){
