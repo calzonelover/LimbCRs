@@ -20,16 +20,19 @@
 
 int main(int argc, char** argv){
     
-    auto histogram = new Histogram();
+    auto histogram = new Histogram(false);
     auto bla = histogram->get_energy_mid_bins();
     for (unsigned int i=0; i<50;i++) std::cout << Parser::parseDecimal(bla[i], 3) << std::endl;
 
-    // for (unsigned int week=WEEK_BEGIN; week <= WEEK_END; week++){
-    //     std::vector<FT1> ft1_rows = FileIO::readPhotonCSV(week);
-    //     std::cout << "# of week: " << week << " FT1 = " << ft1_rows.size() << std::endl;
-    //     for (auto ft1_row : ft1_rows){
-    //         std::cout << ft1_row.P8R2_SOURCE_V6 << ", " << ft1_row.P8R2_ULTRACLEANVETO_V6 << ", " << ft1_row.energy_gev << std::endl;
-    //     }
-    // }
+    for (unsigned int week=WEEK_BEGIN; week <= WEEK_END; week++){
+        std::vector<FT1> ft1_rows = FileIO::readPhotonCSV(week);
+        std::cout << "# of week: " << week << " FT1 = " << ft1_rows.size() << std::endl;
+        for (auto ft1_row : ft1_rows){
+            histogram->fillPhoton(ft1_row.energy_gev, ft1_row.nadir, ft1_row.phi_earth);
+            // std::cout << ft1_row.P8R2_SOURCE_V6 << ", " << ft1_row.P8R2_ULTRACLEANVETO_V6 << ", " << ft1_row.energy_gev << std::endl;
+        }
+    }
+    histogram->computeFlux2();
+    histogram->save();
     return 0;
 }

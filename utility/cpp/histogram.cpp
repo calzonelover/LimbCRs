@@ -27,7 +27,7 @@ Histogram::Histogram(bool is_load){
     flux_hist = new TH1F("flux_hist", "Flux", N_E_BINS, energy_edge_bins);
     Histogram::assignSolidAngleMap(solid_angle_map);
     Histogram::init2DHistogram(cnt_maps, flx_maps, energy_mid_bins);
-    Histogram::assignExposureMap(exp_maps);
+    exp_maps = FileIO::readExposureMap();
     if (is_load) this->load();
 }
 
@@ -70,7 +70,7 @@ void Histogram::assignSolidAngleMap(TH2F *map){
     }
 }
 
-void Histogram::init2DHistogram(std::vector<TH2F*> _cnt_maps, std::vector<TH2F*> _flx_maps, float *_energy_mid_bins){
+void Histogram::init2DHistogram(std::vector<TH2F*> &_cnt_maps, std::vector<TH2F*> &_flx_maps, float *_energy_mid_bins){
     for (unsigned int i_energy_bin=0; i_energy_bin < N_E_BINS; i_energy_bin++){
         auto cntmap_name = "cntmap" + Parser::parseIntOrder(i_energy_bin);
         auto cntmap_title = "Count map " + Parser::parseDecimal(_energy_mid_bins[i_energy_bin], 2) + " GeV";
@@ -89,10 +89,6 @@ void Histogram::init2DHistogram(std::vector<TH2F*> _cnt_maps, std::vector<TH2F*>
             N_BINS_THETA_NADIR, THETA_NADIR_MIN, THETA_NADIR_MAX
         ));
     }
-}
-
-void Histogram::assignExposureMap(std::vector<TH2F*> _exp_maps){
-    _exp_maps = FileIO::readExposureMap();
 }
 
 float Histogram::sumOverRegion(TH2F *map, float theta_nad_min, float theta_nad_max, float phi_nad_min, float phi_nad_max){
