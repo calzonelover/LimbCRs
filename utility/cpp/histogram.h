@@ -2,6 +2,7 @@
 #define HISTOGRAM
 
 #include "../../settings.h"
+#include "../../utility/cpp/datatype.h"
 
 class Histogram {
     private:
@@ -21,7 +22,7 @@ class Histogram {
         );
 
         int findBin(float energy);
-        void fillPhoton(float energy, float theta_nad, float phi_nad);
+        void fillPhoton(FT1 photon);
         void computeFlux1(); // WIP
         void computeFlux2(); // WIP
 
@@ -34,6 +35,9 @@ class Histogram {
         std::vector<TH2F*> get_cnt_maps();
         std::vector<TH2F*> get_exp_maps();
         std::vector<TH2F*> get_flx_maps();
+
+        TH1F* get_cnt_hist();
+        TH1F* get_flx_hist();
 };
 
 #endif

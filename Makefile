@@ -1,10 +1,10 @@
 LIBDIR := utility/cpp
 
-# g++ unit_test/flx_map/flxmap.cpp $(LIBDIR)/*.cpp -o flxmap `root-config --cflags --glibs` -std=c++11
-# g++ unit_test/flx_map/readexpmap.cpp $(LIBDIR)/*.cpp -o flxmap `root-config --cflags --glibs` -std=c++11
+# g++ unit_test/flx_map/flxmap.cpp $(LIBDIR)/*.cpp -o program `root-config --cflags --glibs` -std=c++11
+# g++ unit_test/flx_map/readexpmap.cpp $(LIBDIR)/*.cpp -o program `root-config --cflags --glibs` -std=c++11
 run:
-	g++ unit_test/flx_map/flxmap.cpp $(LIBDIR)/*.cpp -o flxmap `root-config --cflags --glibs` -std=c++11
-	./flxmap
+	g++ unit_test/flx_map/readexpmap.cpp $(LIBDIR)/*.cpp -o program `root-config --cflags --glibs` -std=c++11
+	./program
 
 compile:
 	mpic++ unit_test/exposure_map_cpp/main_mpi3.cpp -o unit_test/exposure_map_cpp/limb_exposure_mpi -std=c++11

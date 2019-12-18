@@ -33,6 +33,6 @@ int main(int argc, char** argv){
         }
     }
     histogram->computeFlux2();
-    histogram->save();
+    histogram->save();   
     return 0;
 }

@@ -14,6 +14,13 @@ class Visualize{
         static int fixTheta;
         static int fixPhi;
 
+        static void plotHist(
+            TH1F *hist,
+            std::string hist_name, std::string hist_title,
+            std::string file_name, std::string plot_mode,
+            std::string y_label
+        );
+
         static void plotMapQuadrant(
             std::vector<TH2F*> maps, int *selected_indices,
             std::string map_name, std::string map_title,

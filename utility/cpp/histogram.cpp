@@ -13,6 +13,7 @@
 #include "TFile.h"
 
 #include "../../settings.h"
+#include "../../utility/cpp/datatype.h"
 #include "../../utility/cpp/io.h"
 #include "../../utility/cpp/parser.h"
 #include "../../utility/cpp/transform.h"
@@ -121,15 +122,27 @@ int Histogram::findBin(float energy){
     return matched_bin_i;
 }
 
-void Histogram::fillPhoton(float energy, float theta_nad, float phi_nad){
-    auto bin_index = findBin(energy);
-    cnt_maps[bin_index]->Fill(phi_nad, theta_nad);
-    count_hist->Fill(energy);
+void Histogram::fillPhoton(FT1 photon){
+    auto bin_index = findBin(photon.energy_gev);
+    cnt_maps[bin_index]->Fill(photon.phi_earth, photon.nadir);
+    if (
+        photon.P8R2_ULTRACLEANVETO_V6 && photon.energy_gev > E_START_GEV && photon.energy_gev < E_STOP_GEV
+        && photon.shifted_nadir > THETA_E_NAD_MIN && photon.shifted_nadir < THETA_E_NAD_MAX
+        && photon.theta_lat < THETA_LAT_CUTOFF
+    ){
+        count_hist->Fill(photon.energy_gev);
+    }
 }
 
 void Histogram::computeFlux1(){
     for (unsigned int i_energy_bin=0; i_energy_bin<N_E_BINS; i_energy_bin++){
         flx_maps[i_energy_bin] = (TH2F*) cnt_maps[i_energy_bin]->Clone();
+        
+        auto flxmap_name = "flxmap" + Parser::parseIntOrder(i_energy_bin);
+        auto flxmap_title = "Flux map " + Parser::parseDecimal(energy_mid_bins[i_energy_bin], 2) + " GeV";
+        flx_maps[i_energy_bin]->SetTitle(flxmap_title.c_str());
+        flx_maps[i_energy_bin]->SetName(flxmap_name.c_str());
+
         flx_maps[i_energy_bin]->Divide(exp_maps[i_energy_bin]);
         // count hist
         count_hist->SetBinError(i_energy_bin+1, sqrt(count_hist->GetBinContent(i_energy_bin+1)));
@@ -152,6 +165,12 @@ void Histogram::computeFlux1(){
 void Histogram::computeFlux2(){
     for (unsigned int i_energy_bin=0; i_energy_bin<N_E_BINS; i_energy_bin++){
         flx_maps[i_energy_bin] = (TH2F*) cnt_maps[i_energy_bin]->Clone();
+
+        auto flxmap_name = "flxmap" + Parser::parseIntOrder(i_energy_bin);
+        auto flxmap_title = "Flux map " + Parser::parseDecimal(energy_mid_bins[i_energy_bin], 2) + " GeV";
+        flx_maps[i_energy_bin]->SetTitle(flxmap_title.c_str());
+        flx_maps[i_energy_bin]->SetName(flxmap_name.c_str());
+
         flx_maps[i_energy_bin]->Divide(exp_maps[i_energy_bin]);
         // count hist
         count_hist->SetBinError(i_energy_bin+1, sqrt(count_hist->GetBinContent(i_energy_bin+1)));
@@ -184,18 +203,29 @@ void Histogram::save(){
 };
 
 void Histogram::load(){
-    TFile read_file("data/root/extracted_data.root","READ");
+    TFile* read_file = new TFile("data/root/extracted_data.root","READ");
+    if ( read_file->IsOpen() ) std::cout << "ROOT file opened successfully\n" << std::endl;
+    // TFile read_file("data/root/extracted_data.root","READ");
     for (unsigned int i=0; i<N_E_BINS; i++){
+        // auto cntmap_name = "cntmap" + Parser::parseIntOrder(i);
+        // cnt_maps[i] = (TH2F*) read_file.Get(cntmap_name.c_str());
+        // auto expmap_name = "expmap" + Parser::parseIntOrder(i);
+        // exp_maps[i] = (TH2F*) read_file.Get(expmap_name.c_str());
+        // auto flxmap_name = "flxmap" + Parser::parseIntOrder(i);
+        // flx_maps[i] = (TH2F*) read_file.Get(flxmap_name.c_str());
+
         auto cntmap_name = "cntmap" + Parser::parseIntOrder(i);
-        read_file.GetObject(cntmap_name.c_str(), cnt_maps[i]);
+        read_file->GetObject(cntmap_name.c_str(), cnt_maps[i]);
         auto expmap_name = "expmap" + Parser::parseIntOrder(i);
-        read_file.GetObject(expmap_name.c_str(), exp_maps[i]);
+        read_file->GetObject(expmap_name.c_str(), exp_maps[i]);
         auto flxmap_name = "flxmap" + Parser::parseIntOrder(i);
-        read_file.GetObject(flxmap_name.c_str(), flx_maps[i]);      
+        read_file->GetObject(flxmap_name.c_str(), flx_maps[i]);      
     }
-    read_file.GetObject("count_hist", count_hist);
-    read_file.GetObject("flux_hist", flux_hist);
-    read_file.Close();   
+    // count_hist = (TH1F*) read_file->Get("count_hist");
+    // flux_hist = (TH1F*) read_file->Get("flux_hist");
+    read_file->GetObject("count_hist", count_hist);
+    read_file->GetObject("flux_hist", flux_hist);
+    read_file->Close();   
 };
 
 
@@ -214,4 +244,12 @@ std::vector<TH2F*> Histogram::get_exp_maps(){
 }
 std::vector<TH2F*> Histogram::get_flx_maps(){
     return flx_maps;
+}
+
+TH1F* Histogram::get_cnt_hist(){
+    return count_hist;
+}
+
+TH1F* Histogram::get_flx_hist(){
+    return flux_hist;
 }

@@ -27,6 +27,21 @@ int Visualize::fixTheta = -90;
 int Visualize::fixPhi = -90;
 
 
+void Visualize::plotHist(
+    TH1F *hist,
+    std::string hist_name, std::string hist_title,
+    std::string file_name, std::string plot_mode,
+    std::string y_label
+    ){
+    char _hist_name[hist_name.size()+1], _hist_title[hist_title.size()+1];
+    char _file_name[file_name.size()+1], _plot_mode[plot_mode.size()+1];
+    char _y_label[y_label.size()+1];
+    strcpy(_hist_name, hist_name.c_str()); strcpy(_hist_title, hist_title.c_str()); 
+    strcpy(_file_name, file_name.c_str()); strcpy(_plot_mode, plot_mode.c_str()); 
+    strcpy(_y_label, y_label.c_str());
+    auto c = new TCanvas(_hist_name, _hist_name, 900, 900);
+}
+
 void Visualize::plotMapQuadrant(
         std::vector<TH2F*> maps, int *selected_indices,
         std::string map_name, std::string map_title,

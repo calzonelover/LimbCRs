@@ -5,8 +5,11 @@
 #define PHOTON_PATH "data/raw/ft1/"
 
 #define GAMMA 2.66
+
 #define E_START_GEV 10
 #define E_STOP_GEV 1000
+#define THETA_E_NAD_MIN 68.4
+#define THETA_E_NAD_MAX 70.0
 #define N_E_BINS 50
 #define IRF_NAME "P8R2_ULTRACLEANVETO_V6" // P8R2_SOURCE_V6 , P8R2_ULTRACLEANVETO_V6
 
@@ -15,6 +18,7 @@
 
 #define THETA_LAT_CUTOFF 70.0
 
+// Visualize
 #define N_BINS_PHI_NADIR 180
 #define PHI_NADIR_MIN 0.0
 #define PHI_NADIR_MAX 360.0
