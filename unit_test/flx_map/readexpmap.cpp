@@ -12,8 +12,10 @@
 #include "TColor.h"
 #include "TPad.h"
 #include "TStyle.h"
+#include "TF1.h"
 #include "TH1F.h"
 #include "TH2F.h"
+#include "TFile.h"
 #include "TCanvas.h"
 
 #include "../../utility/cpp/io.h"
@@ -26,11 +28,9 @@
 
 int main(int argc, char** argv){
     // Histogram (cntmap and flxmap)
-    auto histogram = new Histogram(false);
-    histogram->load();
-    // auto bla = histogram->get_energy_mid_bins();
-    // for (unsigned int i=0; i<50;i++) std::cout << Parser::parseDecimal(bla[i], 3) << std::endl;
-
+    TFile *read_file = new TFile("data/root/extracted_data.root","READ");
+    auto histogram = new Histogram();
+    histogram->load(read_file);
     // for (unsigned int week=WEEK_BEGIN; week <= WEEK_END; week++){
     //     std::vector<FT1> ft1_rows = FileIO::readPhotonCSV(week);
     //     std::cout << "# of week: " << week << " FT1 = " << ft1_rows.size() << std::endl;
@@ -40,23 +40,43 @@ int main(int argc, char** argv){
     //     }
     // }
     // histogram->computeFlux2();
-    // histogram->save();
+    // histogram->save();   
 
     auto cnt_hist = histogram->get_cnt_hist();
     auto c1 = new TCanvas("cnthist", "Count", 900, 700);
     c1->SetLogx();
     c1->SetLogy();
     c1->cd();
+    cnt_hist->SetStats(0);
     cnt_hist->Draw("E1");
     cnt_hist->GetXaxis()->SetTitle("E (GeV)");
     cnt_hist->GetYaxis()->SetTitle("N");
     c1->SaveAs("count_hist.png");
-
-    // auto flx_hist = histogram->get_flx_hist();
-    // auto c2 = new TCanvas("flxhist", "Differential Flux", 900, 700);
-    // c2->SetLogx();
-    // c2->SetLogt();
-    // flx_hist->Draw("E1");
+    // Flux
+    auto flx_hist = histogram->get_flx_hist();
+    TF1 *spl = new TF1("spl","[0]*x**[1]",8,1200);
+    spl->SetParameter(0.006f,-2.7f);
+    flx_hist->Fit(spl);
+    auto get_energy_mid_bins = histogram->get_energy_mid_bins();
+    for (unsigned int i=0; i<N_E_BINS; i++){
+        flx_hist->SetBinContent(
+            i+1,
+            pow(get_energy_mid_bins[i], 2.75f)*flx_hist->GetBinContent(i+1)
+        );
+        flx_hist->SetBinError(
+            i+1,
+            pow(get_energy_mid_bins[i], 2.75f)*flx_hist->GetBinError(i+1)
+        );
+    }
+    auto c2 = new TCanvas("flxhist", "Differential Flux", 900, 700);
+    c2->SetLogx();
+    c2->SetLogy();
+    c2->cd();
+    flx_hist->SetStats(0);
+    flx_hist->Draw("E1");
+    flx_hist->GetXaxis()->SetTitle("E (GeV)");
+    flx_hist->GetYaxis()->SetTitle("E^{2.75}Flux (m^{-2}sr^{-1}E^{-1})");
+    c2->SaveAs("flx_hist.png");
 
     /*
     // Expmaps
@@ -73,5 +93,6 @@ int main(int argc, char** argv){
         "cartesian_expmaps.png", "COLZ"
     );
     */
+    read_file->Close();
     return 0;
 }

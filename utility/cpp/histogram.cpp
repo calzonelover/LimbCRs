@@ -20,16 +20,17 @@
 
 #include "histogram.h"
 
-Histogram::Histogram(bool is_load){
+Histogram::Histogram(bool is_init){
     energy_mid_bins = (float*)malloc(N_E_BINS*sizeof(float));
     energy_edge_bins = (float*)malloc((N_E_BINS+1)*sizeof(float));
     Histogram::assignEnergyBin(energy_mid_bins, energy_edge_bins);
-    count_hist = new TH1F("count_hist", "Count", N_E_BINS, energy_edge_bins);
-    flux_hist = new TH1F("flux_hist", "Flux", N_E_BINS, energy_edge_bins);
     Histogram::assignSolidAngleMap(solid_angle_map);
-    Histogram::init2DHistogram(cnt_maps, flx_maps, energy_mid_bins);
-    exp_maps = FileIO::readExposureMap();
-    if (is_load) this->load();
+    if (is_init) {
+        count_hist = new TH1F("count_hist", "Count", N_E_BINS, energy_edge_bins);
+        flux_hist = new TH1F("flux_hist", "Flux", N_E_BINS, energy_edge_bins);
+        Histogram::init2DHistogram(cnt_maps, flx_maps, energy_mid_bins);
+        exp_maps = FileIO::readExposureMap();
+    }
 }
 
 void Histogram::assignEnergyBin(float *_energy_mid_bins, float *_energy_edge_bins, float energy_start_gev, float energy_end_gev){
@@ -157,7 +158,7 @@ void Histogram::computeFlux1(){
         );
         flux_hist->SetBinError(
             i_energy_bin+1,
-            sqrt(count_hist->GetBinContent(i_energy_bin+1)) * flux_hist->GetBinContent(i_energy_bin+1)
+            sqrt(count_hist->GetBinContent(i_energy_bin+1)) * (flux_hist->GetBinContent(i_energy_bin+1)/count_hist->GetBinContent(i_energy_bin+1))
         );
     }
 }
@@ -184,7 +185,7 @@ void Histogram::computeFlux2(){
         );
         flux_hist->SetBinError(
             i_energy_bin+1,
-            sqrt(count_hist->GetBinContent(i_energy_bin+1)) * flux_hist->GetBinContent(i_energy_bin+1)
+            sqrt(count_hist->GetBinContent(i_energy_bin+1)) * (flux_hist->GetBinContent(i_energy_bin+1)/count_hist->GetBinContent(i_energy_bin+1))
         );
     }
 }
@@ -202,30 +203,32 @@ void Histogram::save(){
     out_file.Close();
 };
 
-void Histogram::load(){
-    TFile* read_file = new TFile("data/root/extracted_data.root","READ");
+void Histogram::load(TFile *read_file){
     if ( read_file->IsOpen() ) std::cout << "ROOT file opened successfully\n" << std::endl;
-    // TFile read_file("data/root/extracted_data.root","READ");
     for (unsigned int i=0; i<N_E_BINS; i++){
-        // auto cntmap_name = "cntmap" + Parser::parseIntOrder(i);
-        // cnt_maps[i] = (TH2F*) read_file.Get(cntmap_name.c_str());
-        // auto expmap_name = "expmap" + Parser::parseIntOrder(i);
-        // exp_maps[i] = (TH2F*) read_file.Get(expmap_name.c_str());
-        // auto flxmap_name = "flxmap" + Parser::parseIntOrder(i);
-        // flx_maps[i] = (TH2F*) read_file.Get(flxmap_name.c_str());
-
         auto cntmap_name = "cntmap" + Parser::parseIntOrder(i);
-        read_file->GetObject(cntmap_name.c_str(), cnt_maps[i]);
+        delete cnt_maps[i];
+        cnt_maps[i] = (TH2F*) read_file->Get(cntmap_name.c_str());
         auto expmap_name = "expmap" + Parser::parseIntOrder(i);
-        read_file->GetObject(expmap_name.c_str(), exp_maps[i]);
+        delete exp_maps[i];
+        exp_maps[i] = (TH2F*) read_file->Get(expmap_name.c_str());
         auto flxmap_name = "flxmap" + Parser::parseIntOrder(i);
-        read_file->GetObject(flxmap_name.c_str(), flx_maps[i]);      
+        delete flx_maps[i];
+        flx_maps[i] = (TH2F*) read_file->Get(flxmap_name.c_str());
+
+        // auto cntmap_name = "cntmap" + Parser::parseIntOrder(i);
+        // read_file->GetObject(cntmap_name.c_str(), cnt_maps[i]);
+        // auto expmap_name = "expmap" + Parser::parseIntOrder(i);
+        // read_file->GetObject(expmap_name.c_str(), exp_maps[i]);
+        // auto flxmap_name = "flxmap" + Parser::parseIntOrder(i);
+        // read_file->GetObject(flxmap_name.c_str(), flx_maps[i]);      
     }
-    // count_hist = (TH1F*) read_file->Get("count_hist");
-    // flux_hist = (TH1F*) read_file->Get("flux_hist");
-    read_file->GetObject("count_hist", count_hist);
-    read_file->GetObject("flux_hist", flux_hist);
-    read_file->Close();   
+    delete count_hist; delete flux_hist;
+    count_hist = (TH1F*) read_file->Get("count_hist");
+    flux_hist = (TH1F*) read_file->Get("flux_hist");
+    // read_file->GetObject("count_hist", count_hist);
+    // read_file->GetObject("flux_hist", flux_hist);
+    // read_file->Close();
 };
 
 
@@ -247,9 +250,9 @@ std::vector<TH2F*> Histogram::get_flx_maps(){
 }
 
 TH1F* Histogram::get_cnt_hist(){
-    return count_hist;
+    return (TH1F*) count_hist->Clone();
 }
 
 TH1F* Histogram::get_flx_hist(){
-    return flux_hist;
+    return (TH1F*) flux_hist->Clone();
 }

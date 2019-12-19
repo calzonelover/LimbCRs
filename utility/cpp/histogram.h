@@ -1,6 +1,8 @@
 #ifndef HISTOGRAM
 #define HISTOGRAM
 
+#include "TFile.h"
+
 #include "../../settings.h"
 #include "../../utility/cpp/datatype.h"
 
@@ -11,7 +13,7 @@ class Histogram {
         TH1F *count_hist, *flux_hist; // save & load
         std::vector<TH2F*> cnt_maps, exp_maps, flx_maps; // save & load
     public:
-        Histogram(bool is_load);
+        Histogram(bool is_init=true);
         static void assignEnergyBin(float *_energy_mid_bins, float *_energy_edge_bins, float energy_start_gev = float(E_START_GEV), float energy_end_gev = float(E_STOP_GEV));
         static void assignSolidAngleMap(TH2F *map);        
         static void init2DHistogram(std::vector<TH2F*> &_cnt_maps, std::vector<TH2F*> &_flx_maps, float *_energy_mid_bins);
@@ -27,7 +29,7 @@ class Histogram {
         void computeFlux2(); // WIP
 
         void save();
-        void load();
+        void load(TFile *read_file);
 
         float* get_energy_mid_bins();
         float* get_energy_edge_bins();
