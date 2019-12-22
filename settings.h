@@ -26,7 +26,9 @@
 #define THETA_NADIR_MIN 0.0
 #define THETA_NADIR_MAX 80.0
 
+// Constant
 #define PI 3.14159265
+#define PROTON_MASS 0.938
 
 // MPI
 #define TAG_DONE 0

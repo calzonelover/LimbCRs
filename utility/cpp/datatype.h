@@ -5,6 +5,11 @@ enum ColorPalatte {
     kRainbow = 55,
 };
 
+enum ParticleType {
+    Proton,
+    Helium
+};
+
 typedef struct FT1 {
     bool P8R2_SOURCE_V6;
     bool P8R2_ULTRACLEANVETO_V6;

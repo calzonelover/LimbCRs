@@ -12,6 +12,7 @@
 #include "TColor.h"
 #include "TPad.h"
 #include "TStyle.h"
+#include "TMath.h"
 #include "TF1.h"
 #include "TH1F.h"
 #include "TH2F.h"
@@ -22,6 +23,7 @@
 #include "../../utility/cpp/parser.h"
 #include "../../utility/cpp/histogram.h"
 #include "../../utility/cpp/datatype.h"
+#include "../../utility/cpp/formula.h"
 #include "../../utility/cpp/visualize.h"
 #include "../../settings.h"
 #include "flxmap.h"
@@ -54,8 +56,9 @@ int main(int argc, char** argv){
     c1->SaveAs("count_hist.png");
     // Flux
     auto flx_hist = histogram->get_flx_hist();
-    TF1 *spl = new TF1("spl","[0]*x**[1]",8,1200);
-    spl->SetParameter(0.006f,-2.7f);
+    TF1 *spl = new TF1("SinglePowerLaw", Formula::spl, 10, 1000, 2);
+    spl->SetParameter(0, 3.0);
+    spl->SetParameter(1, 2.7);
     flx_hist->Fit(spl);
     auto get_energy_mid_bins = histogram->get_energy_mid_bins();
     for (unsigned int i=0; i<N_E_BINS; i++){
