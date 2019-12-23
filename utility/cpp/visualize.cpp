@@ -42,6 +42,37 @@ void Visualize::plotHist(
     auto c = new TCanvas(_hist_name, _hist_name, 900, 900);
 }
 
+
+void Visualize::plot2DHist(
+        TH2F* map,
+        std::string map_name, std::string map_title,
+        std::string file_name, std::string plot_mode,
+        std::string z_label, bool is_z_log
+    ){
+    char _map_name[map_name.size()+1], _map_title[map_title.size()+1];
+    char _file_name[file_name.size()+1], _plot_mode[plot_mode.size()+1];
+    char _z_label[z_label.size()+1];
+    strcpy(_map_name, map_name.c_str()); strcpy(_map_title, map_title.c_str()); 
+    strcpy(_file_name, file_name.c_str()); strcpy(_plot_mode, plot_mode.c_str()); 
+    strcpy(_z_label, z_label.c_str());
+
+    auto c = new TCanvas(_map_name, _map_name, 900, 900);
+    map->SetStats(0);
+    gPad->SetTheta(-90);
+    gPad->SetPhi(-90);
+    map->Draw("COLZ");
+    map->GetXaxis()->SetTitle("#phi (degree)");
+    map->GetYaxis()->SetTitle("#theta_{nadir} (degree)");
+    map->GetYaxis()->SetRangeUser(THETA_NADIR_MIN, THETA_NADIR_MAX);
+    map->GetZaxis()->SetLabelOffset(lbOS);
+    map->GetZaxis()->SetLabelSize(lbS);
+    map->GetZaxis()->SetTitleOffset(ttOS);
+    map->GetZaxis()->SetTitleSize(ttS);
+    map->GetZaxis()->SetTitle(_z_label);
+    if (is_z_log) c->SetLogz();
+    c->SaveAs(_file_name);
+}
+
 void Visualize::plotMapQuadrant(
         std::vector<TH2F*> maps, int *selected_indices,
         std::string map_name, std::string map_title,

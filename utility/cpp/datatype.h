@@ -5,6 +5,11 @@ enum ColorPalatte {
     kRainbow = 55,
 };
 
+enum SpectrumModel {
+    SPL,
+    BPL
+};
+
 enum ParticleType {
     Proton,
     Helium

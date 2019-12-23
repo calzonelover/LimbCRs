@@ -1,3 +1,11 @@
+#ifdef WINDOWS
+#include <direct.h>
+#define GetCurrentDir _getcwd
+#else
+#include <unistd.h>
+#define GetCurrentDir getcwd
+#endif
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <string>
@@ -16,6 +24,13 @@
 #include "../../utility/cpp/histogram.h"
 #include "datatype.h"
 #include "io.h"
+
+std::string FileIO::get_current_dir(){
+   char buff[FILENAME_MAX]; //create string buffer to hold path
+   GetCurrentDir( buff, FILENAME_MAX );
+   std::string current_working_dir(buff);
+   return current_working_dir;
+}
 
 std::vector<FT1> FileIO::readPhotonCSV(int _week, bool skipHeader){
     std::string week = std::to_string(_week);

@@ -21,6 +21,13 @@ class Visualize{
             std::string y_label
         );
 
+        static void plot2DHist(
+            TH2F* maps,
+            std::string map_name, std::string map_title,
+            std::string file_name, std::string plot_mode,
+            std::string z_label, bool is_z_log = true
+        );
+
         static void plotMapQuadrant(
             std::vector<TH2F*> maps, int *selected_indices,
             std::string map_name, std::string map_title,

@@ -71,6 +71,7 @@
         "locale": "cpp",
         "mutex": "cpp",
         "queue": "cpp",
-        "thread": "cpp"
+        "thread": "cpp",
+        "filesystem": "cpp"
     }
 }

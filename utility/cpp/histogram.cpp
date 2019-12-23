@@ -24,6 +24,11 @@ Histogram::Histogram(bool is_init){
     energy_mid_bins = (float*)malloc(N_E_BINS*sizeof(float));
     energy_edge_bins = (float*)malloc((N_E_BINS+1)*sizeof(float));
     Histogram::assignEnergyBin(energy_mid_bins, energy_edge_bins);
+    solid_angle_map = new TH2F(
+        "solid_angle_map", "Solid Angle Map",
+        N_BINS_PHI_NADIR, PHI_NADIR_MIN, PHI_NADIR_MAX,
+        N_BINS_THETA_NADIR, THETA_NADIR_MIN, THETA_NADIR_MAX    
+    );
     Histogram::assignSolidAngleMap(solid_angle_map);
     if (is_init) {
         count_hist = new TH1F("count_hist", "Count", N_E_BINS, energy_edge_bins);
@@ -48,19 +53,14 @@ void Histogram::assignEnergyBin(float *_energy_mid_bins, float *_energy_edge_bin
 }
 
 void Histogram::assignSolidAngleMap(TH2F *map){
-    map = new TH2F(
-        "solid_angle_map", "Solid Angle Map",
-        N_BINS_PHI_NADIR, PHI_NADIR_MIN, PHI_NADIR_MAX,
-        N_BINS_THETA_NADIR, THETA_NADIR_MIN, THETA_NADIR_MAX    
-    );
     auto d_phi = (PHI_NADIR_MAX - PHI_NADIR_MIN)/N_BINS_PHI_NADIR;
     auto d_theta = (THETA_NADIR_MAX - THETA_NADIR_MIN)/N_BINS_THETA_NADIR;
     for (unsigned int i=1; i <= N_BINS_PHI_NADIR; i++){
+        auto phi_nadir_min = PHI_NADIR_MIN + (i-1)*d_phi;
+        auto phi_nadir_max = phi_nadir_min + d_phi;
         for (unsigned int j=1; j <= N_BINS_THETA_NADIR; j++){
-            auto phi_nadir_min = i*d_phi;
-            auto phi_nadir_max = phi_nadir_min + d_phi;
-            auto theta_nadir_min = j*d_theta;
-            auto theta_nadir_max = theta_nadir_min + d_phi;
+            auto theta_nadir_min = THETA_NADIR_MIN + (j-1)*d_theta;
+            auto theta_nadir_max = theta_nadir_min + d_theta;
             map->SetBinContent(
                 i, j,
                 Transform::getSolidAngle(

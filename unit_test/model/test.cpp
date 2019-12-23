@@ -25,24 +25,19 @@
 #include "../../utility/cpp/datatype.h"
 #include "../../utility/cpp/formula.h"
 #include "../../utility/cpp/visualize.h"
+#include "../../utility/cpp/model.h"
 #include "../../settings.h"
-#include "flxmap.h"
+#include "test.h"
 
 int main(int argc, char** argv){
+    SpectrumModel spectrum_model = SPL;
+    Model::init(spectrum_model);
+    exit(0);
+
     // Histogram (cntmap and flxmap)
     TFile *read_file = new TFile("data/root/extracted_data.root","READ");
     auto histogram = new Histogram();
     histogram->load(read_file);
-    // for (unsigned int week=WEEK_BEGIN; week <= WEEK_END; week++){
-    //     std::vector<FT1> ft1_rows = FileIO::readPhotonCSV(week);
-    //     std::cout << "# of week: " << week << " FT1 = " << ft1_rows.size() << std::endl;
-    //     for (auto ft1_row : ft1_rows){
-    //         histogram->fillPhoton(ft1_row);
-    //         // std::cout << ft1_row.P8R2_SOURCE_V6 << ", " << ft1_row.P8R2_ULTRACLEANVETO_V6 << ", " << ft1_row.energy_gev << std::endl;
-    //     }
-    // }
-    // histogram->computeFlux2();
-    // histogram->save();   
 
     auto cnt_hist = histogram->get_cnt_hist();
     auto c1 = new TCanvas("cnthist", "Count", 900, 700);
@@ -83,21 +78,6 @@ int main(int argc, char** argv){
     flx_hist->GetYaxis()->SetTitle("#gamma-Ray Flux #times E^{2.75} (E^{1.75}m^{-2}s^{-1}sr^{-1})");
     c2->SaveAs("flx_hist.png");
 
-    /*
-    // Expmaps
-    auto expmaps = FileIO::readExposureMap();
-    int p[4] = {0, 15, 30, 49};
-    Visualize::plotMapQuadrant(
-        expmaps, p,
-        "expmaps", "Exposure Maps",
-        "polar_expmaps.png", "SURF2POLZ"
-    );
-    Visualize::plotMapQuadrant(
-        expmaps, p,
-        "expmaps", "Exposure Maps",
-        "cartesian_expmaps.png", "COLZ"
-    );
-    */
     read_file->Close();
     return 0;
 }
