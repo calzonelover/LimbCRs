@@ -103,6 +103,7 @@ float Histogram::sumOverRegion(TH2F *map, float theta_nad_min, float theta_nad_m
     auto j_min = int(floor(THETA_NADIR_MIN/d_theta));
     auto j_max = (floor(THETA_NADIR_MAX/d_theta) > THETA_NADIR_MAX/d_theta) ? int(floor(THETA_NADIR_MAX/d_theta)) + 1 : int(floor(THETA_NADIR_MAX/d_theta));
 
+    // sum = map->Integral(i_min, i_max, j_min, j_max);
     for (unsigned int i=i_min+1; i <= i_max; i++){
         for (unsigned int j=j_min+1; j <= j_max; j++){
             sum += map->GetBinContent(i, j);
