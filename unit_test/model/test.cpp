@@ -32,6 +32,7 @@
 int main(int argc, char** argv){
     SpectrumModel spectrum_model = SPL;
     Model::init(spectrum_model);
+    Model::computeGammaSpectrum(spectrum_model, 4, 2.7, 2.0, 300);
     exit(0);
 
     // Histogram (cntmap and flxmap)

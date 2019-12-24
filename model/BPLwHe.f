@@ -4,11 +4,12 @@
       double precision Eg,lEg,dLEg,Ep,lEp,dlEp,y,dummy,norm,gamma,gamma1
       double precision gamma2,Ebreak,mp,powerlaw,powerlaw1,powerlaw2,CHe
       double precision gammaHe,deltagammaHe,sHe,factorHe,frac,sigmafrac
-      double precision dNHdR,dNHedR,dNHedR1,dNHedR2,RH,RHe,RHe0,normAll
+      double precision dNHdR,dNHedR,dNHedR1,dNHedR2,RH,RHe,RHe0
       double precision RHbreak,powerlaw3,dNHdR1,dNHdR2
-      double precision par(5), c_a, c_b, c_c, c_d
+      double precision par(4), c_a, c_b, c_c, c_d
+      double precision divider, e2d, e1d, ln
       character(len=70) fn
-      character(len=20) :: arg
+      character(len=70) :: arg, out_file
 
       call spec_ini                !initialization
 
@@ -17,15 +18,17 @@
       sigmafrac=1.77               !fraction of crssection HeN/pN
 
       do i=1,iargc()
-       call getarg(i,arg)
-       read(arg,*) par(i)
+      call getarg(i,arg)
+      if (i==1) then
+            read(arg,*) out_file
+      else
+            read(arg,*) par(i-1)
+      endif 
       enddo
-      out_file=par(1)
-      norm=par(2)
-      gamma1=par(3)
-      gamma2=par(4)
-      Ebreak=par(5)
-      normAll=par(6)
+      norm=par(1)
+      gamma1=par(2)
+      gamma2=par(3)
+      Ebreak=par(4)
 ! my condition
       mp=0.938
       Nbinsg=50
@@ -42,7 +45,10 @@
       c_c = lEminp - c_d
 ! test multiple file
 !      write(fn,fmt='(i0,a)') k, '.dat'
-      open(2,file=out_file)
+      open(2, file="./model/simdata/"//out_file)
+      ! open(2,file=out_file)
+! parameter
+      GAMMA_PHO = 2.66
 ! Define powerlaw rigidity of Helium
       C=0.0948
       gammaHe=2.780
@@ -52,8 +58,18 @@
 ! start mycode
       dlEg=c_b*log(10.0)
       dlEp=c_d*log(10.0)
+      EgMin=10**lEming
+      EgMax=10**lEmaxg
       do i=1,Nbinsg
-       Eg=10.0**(c_a+c_b*i)
+      !  Eg=10.0**(c_a+c_b*i)
+      !  Eg=EgMin*((EgMax/EgMin)**(i/Nbinsg))
+       Eg_edge_min=EgMin*(EgMax/EgMin)**(dble(i-1)/dble(Nbinsg))
+       Eg_edge_max=EgMin*(EgMax/EgMin)**(dble(i)/dble(Nbinsg))
+       divider = dble(1.0 - GAMMA_PHO)
+       e1d = Eg_edge_min**divider
+       e2d = Eg_edge_max**divider
+       ln = log((e2d - e1d)/dble(2)+ e1d)
+       Eg = EXP(ln/divider)
        y=0
        do j=1,Nbinsp
         Ep=10.0**(c_c+c_d*j)
@@ -84,7 +100,7 @@
          y=y+(Ep/Eg)*powerlaw*fff*dlEp*factorHe
         endif
        enddo
-       write(2,*) Eg,y*normAll
+       write(2,*) Eg,y
       enddo
       close(2)
       end

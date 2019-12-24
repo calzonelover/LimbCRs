@@ -119,3 +119,32 @@ std::vector<TH2F*> FileIO::readExposureMap(){
     }
     return exp_maps;
 }
+
+
+void FileIO::readDataModel(std::string path, float *energy_mid_bins, float *gamma_ray_fluxes){
+    energy_mid_bins = (float*)malloc(N_E_BINS*sizeof(float));
+    auto energy_edge_bins = (float*)malloc((N_E_BINS+1)*sizeof(float));
+    gamma_ray_fluxes = (float*)malloc(N_E_BINS*sizeof(float));
+
+    Histogram::assignEnergyBin(energy_mid_bins, energy_edge_bins, E_START_GEV, E_STOP_GEV);
+    std::ifstream file(path);
+    if (!file.good()){
+        std::cout << "file " << path << " does not exist"  << std::endl;
+        std::cout << "Program exit!" << std::endl;
+        exit(0);
+    }
+    std::string line;
+    int row_i = 0;
+    while (getline(file, line,'\n')){
+        if (!file.eof()){
+            std::istringstream templine(line);
+            std::vector<float> row;
+            std::string data;
+            while (std::getline(templine, data, ',')){
+                row.push_back(atof(data.c_str()));
+            }
+            gamma_ray_fluxes[row_i] = row[1];
+        }
+        row_i++;
+    }
+}

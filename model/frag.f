@@ -154,7 +154,7 @@
 !      write(*,*) '!                                                   !'
 !      write(*,*) '!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!'
          
-      open(1,file='gamfrag.dat',status='old')
+      open(1,file='model/gamfrag.dat',status='old')
       read(1,*)data_gam
       close (1)
 !      write(*,*)'cross section tables gamma read'
