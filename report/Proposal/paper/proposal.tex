@@ -1,0 +1,99 @@
+\documentclass[12pt, a4paper]{article}
+\setlength{\oddsidemargin}{0.5cm}
+\setlength{\evensidemargin}{0.5cm}
+\setlength{\topmargin}{-1.6cm}
+\setlength{\leftmargin}{0.5cm}
+\setlength{\rightmargin}{0.5cm}
+\setlength{\textheight}{24.00cm} 
+\setlength{\textwidth}{15.00cm}
+\parindent 0pt
+\parskip 5pt
+\pagestyle{plain}
+\usepackage[table,xcdraw]{xcolor}
+\usepackage{tikz}
+\usepackage{amsmath}
+\def\checkmark{\tikz\fill[scale=0.4](0,.35) -- (.25,0) -- (1,.7) -- (.25,.15) -- cycle;}
+
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+
+\usepackage[square, numbers, comma, sort&compress]{natbib}
+
+% tikz and flowchart
+\usepackage{tikz}
+\usetikzlibrary{shapes.geometric, arrows}
+
+% define color
+\definecolor{olivegreen}{RGB}{34,139,34}
+\definecolor{darkorange}{RGB}{255,140,0}
+
+\setlength{\parindent}{4em}
+\setlength{\parskip}{1em}
+%\renewcommand{\baselinestretch}{2.0}
+\usepackage{indentfirst}
+
+\usepackage{bm}
+\newcommand{\uveci}{{\bm{\hat{\textnormal{\bfseries\i}}}}}
+\newcommand{\uvecj}{{\bm{\hat{\textnormal{\bfseries\j}}}}}
+\DeclareRobustCommand{\uvec}[1]{{% 
+  \ifcsname uvec#1\endcsname
+     \csname uvec#1\endcsname
+   \else
+    \bm{\hat{\mathbf{#1}}}%
+   \fi
+}}
+
+
+
+
+\title{THESIS PROPOSAL}
+\author{}
+\date{}
+
+\newcommand{\namelistlabel}[1]{\mbox{#1}\hfil}
+\newenvironment{namelist}[1]{%1
+\begin{list}{}
+    {
+        \let\makelabel\namelistlabel
+        \settowidth{\labelwidth}{#1}
+        \setlength{\leftmargin}{1.1\labelwidth}
+    }
+  }{%1
+\end{list}}
+
+\begin{document}
+\maketitle
+
+\begin{namelist}{xxxxxxxxxxxx}
+\item[{\bf Title:}]
+  Indirect measurement of proton cosmic-ray spectrum using gamma-ray data from Fermi Large Area Telescope
+\item[{\bf Student:}]
+	Patomporn Payoungkhamdee 6138171 SCPY/M
+\item[{\bf Supervisor:}]
+	Assistance Professor Warit Mitthumsiri
+\item[{\bf Degree:}]
+	Master's degree
+\item[{\bf Field of study:}]
+	Physics
+\item[{\bf Faculty of Science,  Mahidol University }]
+\end{namelist}
+
+\section{Introduction}
+\input{Chapters/Introduction}
+
+\section{Background knowledge}
+\input{Chapters/BackgroundKnowledge}
+
+% \newpage
+\section{Methodology and Scope}
+\input{Chapters/Methodology}
+%-Scope:J,E,v ions and electrons, dens ions and electron, B
+
+\section{Research planning}
+
+\bibliographystyle{apsrev}
+% \bibliographystyle{apsrev}
+\bibliography{Bibliography} 
+
+\end{document}
+

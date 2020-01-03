@@ -1,0 +1,25 @@
+\chapter{Derivation of interaction model}\label{derivationModel}
+
+Since we know the relation of $\gamma$-ray spectrum from incident proton spectrum collide with a nitrogen atom as
+
+\begin{equation}
+    \frac{dN_\gamma}{dE_\gamma} \propto \int^{E_{\text{max}}}_{E_\gamma} dE'\frac{dN_p}{dE'} \frac{d\sigma^{pN\rightarrow\gamma}(E',E_\gamma)}{dE_\gamma}
+\end{equation}
+
+Change to discrete form
+
+\begin{equation}
+    \frac{dN_\gamma}{dE_\gamma} \propto \sum_{E_\gamma}^{E_\text{max}} \frac{E_p}{E_\gamma}\Delta(\ln E')E_\gamma\frac{d\sigma^{pN\rightarrow\gamma}}{dE_\gamma}\frac{dN_p}{dE'}
+\end{equation}
+
+Add first term correction for Helium collision and define $f_{pp}\equiv E_\gamma(d\sigma^{ij\rightarrow\gamma}/dE_\gamma)$ which came from K\&O model
+
+\begin{equation}
+\begin{split}
+    \frac{dN_\gamma}{dE_\gamma} &\propto \sum_{E_\text{CR}=E_\gamma}^{E_\text{max}}\frac{E_\text{CR}}{E_\gamma}\Delta(\ln E_\text{CR})\left[ E_\gamma\frac{d\sigma^{pN\rightarrow\gamma}}{dE_\gamma}\left(\frac{dN_p}{dE_\text{CR}}\right) + E_\gamma\frac{d\sigma^{HeN\rightarrow\gamma}}{dE_\gamma}\left(\frac{dN_{He}}{dE_\text{CR}}\right) \right] \\
+    &\propto \sum_{E_\text{CR}=E_\gamma}^{E_\text{max}} \left[ \frac{E_\text{CR}}{E_\gamma}\Delta(\ln E_\text{CR}) \right]\left[ f_{pp}\frac{dN_H}{dE} \left\{ 1+ \frac{\sigma_{\text{HeN}}}{\sigma_\text{pN}}\left(\frac{dN_\text{H}}{dR} \right)^{-1}\frac{dN_\text{He}}{dR}\frac{dR_\text{He}}{dR_H}\right\}\right]
+\end{split}
+\end{equation}
+
+In our case, we use the fraction relation of crossection between different atom number with a limit of relativistics as \cite{WAtwater}, we have found $\sigma_{\text{HeN}}/\sigma_\text{pN} \approx 1.77$
+\par Lastly, term $dR_\text{He}/dR_\text{H} = 4$ because the relativistic energy mass relation fraction of rigidity between Helium that approximately heavier than proton 4 times.
