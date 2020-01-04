@@ -99,15 +99,32 @@ Since the spacecraft coordinate has already linked to the nadir's angle, the nex
 Geometrically, angular coordinate of LAT plane could be obtained from normalized component of the cartesian unit vector as in Fig \ref{fig:tf_lat_pol_car}.
 The exposure accumulation has been calculated in every single grid from the previous relation.
 
+The calculation of exposure map has to be done wisely one energy at a time
+due to the effective area of the spacecraft at each angle has various efficientcy depends on the incident energy of gamme-ray as in the Fig \ref{fig:lateff}.
+Under the condiiton of exposure-energy at a time, another factor that has to be consider carefully is the resolution of the exposure map.
+The higher resolution, the longer calculation time consumption which means we have to make $\theta_\text{N}$ more precise than $\phi_\text{N}$ because the limb region is more sensitive.
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.8\textwidth]{img/eff_energy_dist}
+    \caption{Effective area of \text{Fermi}-LAT}
+    \label{fig:lateff}
+\end{figure}
+
+For both reasons, the first version of calculation takes approximately a month or more to finish.
+However, there is a plenty of room to improve. Here is why parallel computation fit really well to this problems.
+To maximize all of the threading process in the cluster, master-slave technique has been applied to get rid of the idle thread to maximize our resource of computation.
+
 %--------------------------
 %     Interaction Model
 %--------------------------
 
 \subsection{Interaction model}
-Trail incident proton spectrum in rigidity following relation \\
+Incident proton spectrum in rigidity could be represent as \\
 \textbf{Single power law (SPL)}
 \begin{equation}
-\frac{dN}{dR} = R_0R^{-\gamma}
+    \frac{dN}{dR} = R_0R^{-\gamma}
+    \label{eq:spl}
 \end{equation}
 \textbf{Broken power law (BPL)}
 \begin{equation}
@@ -116,16 +133,16 @@ Trail incident proton spectrum in rigidity following relation \\
     R_0R^{-\gamma_1}\ :\ E < E_{\text{Break}}\\
     R_0[R(E_{\text{Break}})]^{\gamma_2-\gamma_1}R^{-\gamma_2}\ :\ E \ge E_{\text{Break}}
   \end{cases}
+  \label{eq:bpl}
 \end{equation}
-Note that power law spectrum in energy has shown in Appendix B.
 
-In this work, we use the scattering amplitude from hadronic collision \cite{K&Omodel} that could produce a photon particle that could be detected by \textit{Fermi}-LAT.
+In this work, we use the scattering amplitude from hadronic collision \cite{K&Omodel} that could produce a photon as a secondary product that could be detected by \textit{Fermi}-LAT.
 \begin{equation}
     \frac{dN_\gamma}{dE_\gamma} \propto \int^{E_{\text{max}}}_{E_\gamma} dE'\frac{dN_p}{dE'} \frac{d\sigma^{pp\rightarrow\gamma}(E',E_\gamma)}{dE_\gamma}
 \end{equation}
 \par The atmospheric composition already known well enough that mostly combined with nitrogen gas as well as oxygen molecules \cite{atmosCompos}. 
 In order to get scattering amplitude from proton-proton collision we treat a crossection of single hadronic collision with a fraction of nitrogen atom which is almost equal to oxygen atom \cite{WAtwater} at relativistic level of kinetic energy.
-\par In 2015, the direct measurement of Helium specrtum has been done by using AMS-02 in \cite{AMS-02Helium}. Improvement of model precision was included by taking into account incident of Helium cosmic ray particle as a first order correction and please note that we ignore other heavier atom. The derived equation relation has shown in Eq 5
+\par In 2015, the direct measurement of Helium specrtum has been done by using AMS-02 in \cite{AMS-02Helium}. Improvement of model precision was included by taking into account incident of Helium cosmic ray particle as a first order correction and please note that we ignore other heavier atom.
 
 \begin{equation}
     \frac{dN_{\gamma}}{dE} \propto \sum_{E_{\text{inc,i}}}\left[\frac{E_{\text{inc,i}}}{E_{\gamma\text{,i}}}\Delta(E_{\text{inc,i}}) \right]\left[ f_{pp}\textcolor{red}{\frac{dN_\text{H}}{dE_{\text{inc,i}}}}\left\{ 1+\textcolor{olivegreen}{\frac{\sigma_{\text{HeN}}}{\sigma{pN}}}\left(\textcolor{red}{\frac{dN_{\text{H}}}{dR}}\right)^{-1} \textcolor{blue}{\frac{dN_{\text{He}}}{dR}} \frac{dR_{\text{He}}}{dR_{\text{H}}}  \right\}\right]
@@ -133,11 +150,11 @@ In order to get scattering amplitude from proton-proton collision we treat a cro
 
 where
 \begin{itemize}
-    \item Red color terms is using for \textcolor{red}{incident proton spectrum} that has form like Eq 3.4
+    \item Red color terms is an \textcolor{red}{incident proton spectrum} as in Eq (\ref{eq:spl}, \ref{eq:bpl})
     \item \textcolor{blue}{Use helium spectrum from AMS-02 measurement (2015)}
     \item $f_{pp}\equiv E_\gamma(d\sigma^{ij\rightarrow\gamma}/dE_\gamma)$ is a table in K$\&$O model which behave like a scattering amplitude
     that depend on the energy of incident particle
-    \item Crossection \textcolor{olivegreen}{$\sigma_{\text{HeN}}/\sigma_{pN}$} at high energy ($>$ 10GeV) is quite stable ($\approx 1.6$)
+    \item Crossection \textcolor{olivegreen}{$\sigma_{\text{HeN}}/\sigma_{pN}$} at energy more than 10 GeV is approximately plateau ($\approx 1.6$)
 \end{itemize}
 
 
@@ -147,17 +164,19 @@ where
 
 \subsection{Optimization}
 
-\par \textbf{Poisson likelihood function} define as Eq 3.6
+\par \textbf{Poisson likelihood function} define as Eq \ref{eq:likelihood}
 \begin{equation}
     \mathcal{L} = \prod_{i=1}^{N} P_{\text{pois}}(n_{\text{i,model}}, n_{\text{i,measurement}})
+    \label{eq:likelihood}
 \end{equation}
-Since our spectrum order is in different decade, we redefined a likelihood as a log-likelihood function for numerically reason like Eq 3.7. In addition, 
+Since our spectrum order is in different order of magniture, then the better way to define an objective function is to redefine a likelihood as a log-likelihood function for numerically convenient like Eq \ref{eq:loglikelihood}. 
 \begin{equation}
     Sum = \sum_{i=1}^{N} -\log P_{\text{pois}}(n_{\text{i,model}}, n_{\text{i,measurement}})
+    \label{eq:loglikelihood}
 \end{equation}
 
 
-\par In order to get a best fit spectral indices, we do an optimization with a proper trial parameters for take gradient descent from Poisson loss function between model spectrum and flux from measurement as Figure 5
+\par In order to get a best fit spectral indices, we do an optimization with a proper trial parameters for take gradient descent from Poisson loss function between model spectrum and flux from measurement as Figure \ref{flow:optimize}
 
 
 % Define block styles
@@ -191,15 +210,17 @@ Since our spectrum order is in different decade, we redefined a likelihood as a 
         \path [line] (bestfit) -- node [anchor=north] {Yes} (return);
     \end{tikzpicture}
     \caption{Flow chart of optimization process}
+    \label{flow:optimize}
 \end{figure}
-
 
 %--------------------------
 %       Optimization
 %--------------------------
 
 \subsection{Monte Carlo Simulation}
-In this section, we perform a brute force method to find an error of any parameters (spectral indices and break point energy). For a \textbf{statistical error (random error)}, we rerandom a counts on each bin by poisson random generator and recalculate the flux after that optimize it as the Fig 5 do. The process of this algorithm has shown in Fig 6. We do this process as much as gaussian distribution curve looks obvious enough which our work done is roughly 2000 sampling.
+In this section, we perform a brute force method to find an error of any parameters (spectral indices and break point energy). For a \textbf{statistical error (random error)}, we rerandom a counts on each bin by poisson random generator and recalculate the flux after that optimize it as the Fig \ref{flow:optimize} do.
+The process of this algorithm has shown in Fig \ref{flow:montestat}.
+The amount of simulation process require an enough number of sampling to fill up the optimized parameters and see the shape of gaussian distribution curve looks obvious enough which our work done is roughly 2000 sampling.
 
 \begin{figure}[h]
     \centering
@@ -223,9 +244,10 @@ In this section, we perform a brute force method to find an error of any paramet
         \path [line] (fitgaus) -- (return);
     \end{tikzpicture}
     \caption{Flow chart of Monte Carlo simulation for statistical error}
+    \label{flow:montestat}
 \end{figure}
 
-\par For \textbf{total error}, we also take into account erro from instrument which is LAT that depends on energy. We exactly the same as the statistical error determination but one more thing that including to this algorithm is to pick three energy bin (10, 100, 1000 GeV) then rerandom flux in these three bin and apply a cubic spline interpolation to smooth the line for a statistical reason \cite{FermiDetail}. The deminstration of this program is shown as Fig 7.
+\par For \textbf{total error}, we also take into account erro from instrument which is LAT that depends on energy. We exactly the same as the statistical error determination but one more thing that including to this algorithm is to pick three energy bin (10, 100, 1000 GeV) then rerandom flux in these three bin and apply a cubic spline interpolation to smooth the line for a statistical reason \cite{FermiDetail}. The deminstration of this program is shown as Fig \ref{flow:montetotal}.
 
 
 \begin{figure}[h]
@@ -252,6 +274,7 @@ In this section, we perform a brute force method to find an error of any paramet
         \path [line] (fitgaus) -- (return);
     \end{tikzpicture}
     \caption{Flow chart of Monte Carlo simulation for total error}
+    \label{flow:montetotal}
 \end{figure}
 
 \subsection{Likelihood ratio test (LRT)}
@@ -265,7 +288,8 @@ where
     \item $x_\alpha$ is represent a variant from model and data
     \item $\theta_i$ is a degree of freedom (DOF)
 \end{itemize}
-The explicit declaration with an obvious method to implement has been proved in \cite{Huelsenbeck} as the Equation 3.9
+The explicit declaration with an obvious method to implement has been proved in \cite{Huelsenbeck} as the Eq \ref{eq:lrt}
 \begin{equation}
     \text{LRT} = -2\ln\left(\frac{\mathcal{L}_\text{null}}{\mathcal{L}_\text{alternative}}\right)
+    \label{eq:lrt}
 \end{equation}

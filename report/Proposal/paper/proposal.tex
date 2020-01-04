@@ -19,6 +19,9 @@
 
 \usepackage[square, numbers, comma, sort&compress]{natbib}
 
+\usepackage[table,xcdraw]{xcolor}
+
+\usepackage{subcaption} 
 % tikz and flowchart
 \usepackage{tikz}
 \usetikzlibrary{shapes.geometric, arrows}
@@ -87,13 +90,16 @@
 % \newpage
 \section{Methodology and Scope}
 \input{Chapters/Methodology}
-%-Scope:J,E,v ions and electrons, dens ions and electron, B
+
+\section{Preliminary Results}
+\input{Chapters/PreliminaryResults}
 
 \section{Research planning}
+\input{Chapters/ResearchPlanning}
 
+\newpage
 \bibliographystyle{apsrev}
-% \bibliographystyle{apsrev}
-\bibliography{Bibliography} 
+\bibliography{Bibliography}
 
 \end{document}
 
