@@ -1,0 +1,17 @@
+\beamer@sectionintoc {1}{Introduction}{3}{0}{1}
+\beamer@subsectionintoc {1}{1}{Background}{3}{0}{1}
+\beamer@subsectionintoc {1}{2}{Objectives}{5}{0}{1}
+\beamer@subsectionintoc {1}{3}{Schematics of limb $\gamma $-ray production}{6}{0}{1}
+\beamer@subsectionintoc {1}{4}{Instrument}{7}{0}{1}
+\beamer@sectionintoc {2}{Flux extraction}{9}{0}{2}
+\beamer@subsectionintoc {2}{1}{Dataset}{9}{0}{2}
+\beamer@subsectionintoc {2}{2}{Calculation}{10}{0}{2}
+\beamer@subsectionintoc {2}{3}{Exposure map}{11}{0}{2}
+\beamer@sectionintoc {3}{Analysis}{18}{0}{3}
+\beamer@subsectionintoc {3}{1}{Power law spectrum}{18}{0}{3}
+\beamer@subsectionintoc {3}{2}{Interaction model}{19}{0}{3}
+\beamer@subsectionintoc {3}{3}{Optimization}{20}{0}{3}
+\beamer@subsectionintoc {3}{4}{Statistical Simulation}{21}{0}{3}
+\beamer@sectionintoc {4}{Preliminary results}{24}{0}{4}
+\beamer@sectionintoc {5}{Summary}{29}{0}{5}
+\beamer@sectionintoc {7}{Reference}{30}{0}{6}

@@ -1,0 +1,846 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Beamer Presentation
+% LaTeX Template
+% Version 1.0 (10/11/12)
+%
+% This template has been downloaded from:
+% http://www.LaTeXTemplates.com
+%
+% License:
+% CC BY-NC-SA 3.0 (http://creativecommons.org/licenses/by-nc-sa/3.0/)
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%----------------------------------------------------------------------------------------
+%	PACKAGES AND THEMES
+%----------------------------------------------------------------------------------------
+\documentclass{beamer}
+
+\mode<presentation> {
+
+% The Beamer class comes with a number of default slide themes
+% which change the colors and layouts of slides. Below this is a list
+% of all the themes, uncomment each in turn to see what they look like.
+
+% \usetheme{default}
+%\usetheme{AnnArbor}
+%\usetheme{Antibes}
+%\usetheme{Bergen}
+%\usetheme{Berkeley}
+% \usetheme{Berlin}
+%\usetheme{Boadilla}
+% \usetheme{CambridgeUS}
+%\usetheme{Copenhagen}
+\usetheme{Darmstadt}
+%\usetheme{Dresden}
+% \usetheme{Frankfurt}
+%\usetheme{Goettingen}
+%\usetheme{Hannover}
+%\usetheme{Ilmenau}
+%\usetheme{JuanLesPins}
+%\usetheme{Luebeck}
+% \usetheme{Madrid}
+%\usetheme{Malmoe}
+%\usetheme{Marburg}
+%\usetheme{Montpellier}
+%\usetheme{PaloAlto}
+%\usetheme{Pittsburgh}
+%\usetheme{Rochester}
+%\usetheme{Singapore}
+%\usetheme{Szeged}
+%\usetheme{Warsaw}
+
+% As well as themes, the Beamer class has a number of color themes
+% for any slide theme. Uncomment each of these in turn to see how it
+% changes the colors of your current slide theme.
+
+%\usecolortheme{albatross}
+%\usecolortheme{beaver}
+%\usecolortheme{beetle}
+%\usecolortheme{crane}
+%\usecolortheme{dolphin}
+%\usecolortheme{dove}
+%\usecolortheme{fly}
+%\usecolortheme{lily}
+%\usecolortheme{orchid}
+%\usecolortheme{rose}
+%\usecolortheme{seagull}
+%\usecolortheme{seahorse}
+%\usecolortheme{whale}
+%\usecolortheme{wolverine}
+
+%\setbeamertemplate{footline} % To remove the footer line in all slides uncomment this line
+%\setbeamertemplate{footline}[page number] % To replace the footer line in all slides with a simple slide count uncomment this line
+
+%\setbeamertemplate{navigation symbols}{} % To remove the navigation symbols from the bottom of all slides uncomment this line
+}
+
+% tikz and flowchart
+\usepackage{tikz}
+\usetikzlibrary{shapes.geometric, arrows}
+
+\usepackage{transparent}
+\usepackage{overpic}
+\usepackage{subfig}
+\usepackage{graphicx} % Allows including images
+\usepackage{booktabs} % Allows the use of \toprule, \midrule and \bottomrule in tables
+\definecolor{olivegreen}{RGB}{34,139,34}
+\definecolor{darkorange}{RGB}{255,140,0}
+%----------------------------------------------------------------------------------------
+%	TITLE PAGE
+%----------------------------------------------------------------------------------------
+
+\title[Proposal $\gamma$-ray Earth's Limb analysis]{Indirect measurement of cosmic-ray proton spectrum using Earth's $\gamma$-ray data from \textit{Fermi} Large Area Telescope} % The short title appears at the bottom of every slide, the full title is only on the title page
+% \logo{\includegraphics[height=0.75cm]{santa}}
+\author[P. Payoungkhamdee]{
+  Patomporn Payoungkhamdee \\
+  under supervision of \\ 
+  Asst. Prof. Warit Mitthumsiri \\
+} % Your name
+
+\institute[MU] % Your institution as it will appear on the bottom of every slide, may be shorthand to save space
+{
+Mahidol University \\ % Your institution for the title page
+\medskip
+\textit{patomporn.pay@gmail.com} % Your email address
+}
+\date{6 January 2020} % Date, can be changed to a custom date
+
+\newcommand{\nologo}{\setbeamertemplate{logo}{}}
+
+\begin{document}
+
+{\nologo
+\begin{frame}
+\titlepage % Print the title page as the first slide
+\end{frame}
+}
+
+\begin{frame}
+\frametitle{Overview} % Table of contents slide, comment this block out to remove it
+\tableofcontents % Throughout your presentation, if you choose to use \section{} and \subsection{} commands, these will automatically be printed on this slide as an overview of your presentation
+\end{frame}
+
+%----------------------------------------------------------------------------------------
+%	PRESENTATION SLIDES
+%----------------------------------------------------------------------------------------
+
+
+%------------------------------------------------
+%    1 ) Background
+%------------------------------------------------
+\section{Introduction}
+% \section{Background}
+\subsection{Background}
+%---- 1.1 ) What is CRs ---
+\begin{frame}
+\frametitle{What are cosmic rays}
+  \begin{columns}
+      \column{0.5\textwidth}
+
+      \begin{figure}
+      \includegraphics[height=0.7\textheight, width=0.9\textwidth]{CRFeature}
+      \caption{Cosmic ray feature : retrieved from  universe-review.ca }
+      \end{figure}
+
+      \column{0.5\textwidth}
+      \begin{itemize}
+      \item{A high-energey particles that travelling through space}
+      \\ 
+      \item{\textbf{Criteria :} When we call flux it means differential flux}
+      \\ 
+      \item{\textbf{Feature :} CRs spectrum in rigidity follow power law }
+      \item{Discontinuity in spectrum came from superposition of different acceleration mechanism}
+      \end{itemize}
+  \end{columns}
+\end{frame}
+%---- Intro objective (PAMELA & AMS) ---
+\begin{frame}
+\frametitle{Motivation}
+In 2015, the AMS collaboration claims that there is a broken in cosmic ray proton spectrum around 336 GV.
+\begin{figure}
+  \includegraphics[width=0.6\textwidth]{proton_spectrum}
+  \caption{Cosmic rays proton flux : retrieved from M. Aguilar et al. (2015)}
+\end{figure}
+\end{frame}
+
+%------------------------------------------------
+%      2 ) Objectives
+%------------------------------------------------
+\subsection{Objectives}
+% \section{Objectives} % Sections can be created in order to organize your presentation into discrete blocks, all sections and subsections are automatically printed in the table of contents as an overview of the talk
+
+%---- our point ---
+\begin{frame}
+\frametitle{Objective}
+\begin{itemize}
+  \item Want to \textcolor{blue}{measure cosmic ray proton spectrum in range GV} by using
+  $\gamma$-ray data from \textit{Fermi} Large Area Telescope (LAT) through Kachelrie$\beta$ and Ostapchenko model
+  \item Some intruments claim that cosmic ray proton spectrum has discontinuity around 200-350 GV
+  , then if our result agree with other intruments. Space \textcolor{blue}{might have another acceleration mechanism that people did not know very well.}
+\end{itemize}
+\end{frame}
+
+%------     Production schematics --------------
+\subsection{Schematics of limb $\gamma$-ray production}
+\begin{frame}
+\frametitle{Schematics of limb $\gamma$-ray production}
+\centering
+\begin{figure}[h!]
+\includegraphics[width = 0.8\textwidth]{lat_production_schematic}
+\end{figure}
+\end{frame}
+
+
+%------------------------------------------------
+%      Instrument
+%------------------------------------------------
+\subsection{Instrument}
+
+%------------   Apparatus --------------------
+\begin{frame}
+\frametitle{\textit{Fermi} Large Area Telescope}
+\begin{columns}
+  \column{0.5\textwidth}
+
+  \centering
+  \begin{figure}[h!]
+  \includegraphics[width = \textwidth]{img/LATStructure}
+  \end{figure}
+
+  \column{0.5\textwidth}
+  \begin{itemize}
+  \item 18 layers of silicon strip tracker on a horizontal planes
+  \item Each calorimeter (CAL) contains CsI(Tl) cristal scintillator
+  \item Anti coincidence detector frontend device
+  \item Data acquisition (DAQ) module to digitize a signal
+  \end{itemize}
+\end{columns}
+\end{frame}
+
+%------------ Event Reconstruction --------------------
+\begin{frame}
+  \frametitle{Event Reconstruction}
+  \begin{columns}
+    \column{0.5\textwidth}
+  
+    \centering
+    \begin{figure}[h!]
+    \includegraphics[width = \textwidth]{img/LATMethodology}
+    \end{figure}
+  
+    \column{0.5\textwidth}
+    \begin{itemize}
+    \item Incident photon hit conversion foils and produce a pair of leptons
+    \item Lepton pair be detected by scintillator crystal
+    \item Process a track and deposit energy in CAL to reconstruction an event
+    \end{itemize}
+  \end{columns}
+\end{frame}
+
+%------------------------------------------------
+%    3 ) Flux extraction
+%------------------------------------------------
+\section{Flux extraction}
+%------------------------------------------------
+%    3.2 ) Data set
+%------------------------------------------------
+\subsection{Dataset}
+
+\begin{frame}
+\frametitle{Data selection}
+\begin{itemize}
+  \item P8R2\_ULTRACLEANVETO\_V6 data from 07/08/2008 to 16/10/2017 ($\sim$ 9 years) %Use P8R2\_ULTRACLEANVETO\_V6 data which collect only photon
+  \item Collect photon energy range from 10 GeV up to 1 TeV
+  \item $\theta_{\text{NADIR}}$ $\in$ 68.4$^\circ$  - 70$^\circ$ (Earth's limb)
+  \item Use $\theta_{\text{LAT}} < 70^\circ$
+\end{itemize}
+\end{frame}
+%------------------------------------------------
+%    3.3 ) Flux calculation
+%------------------------------------------------
+\subsection{Calculation}
+%--- How to calculate flux ---
+\begin{frame}
+\frametitle{Calculation method}
+\begin{enumerate}
+  \item Make 2D histogram as much as energy bin that we want
+  \item Select photon data and fill in the 2D histogram
+  \item Calculate exposure maps which incldue effective area
+  and time that LAT view can looking at Earth's limb
+  \\ \textbf{Flux} = $\frac{dF}{dE} = \frac{\int_{\text{Limb region}(\text{Count map}/\text{Exposure map})}}{\Delta\Omega\Delta E }$
+  \item Divide every single grid of couple histogram (count map and exposure map)
+  \item Sum over limb region of this map then divided by solidangle and energy bin width
+  \item Now we got $\gamma$-ray flux
+\end{enumerate}
+\end{frame}
+
+
+%-- Flow chart ---%
+  % Define block styles
+  \tikzstyle{block} = [rectangle, draw, fill=blue!10, 
+  text width=5em, text centered, rounded corners, minimum height=2em]
+  \tikzstyle{line} = [draw,thick, -latex']
+\subsection{Exposure map}
+\begin{frame}\frametitle{Coordinate Transformations}
+  
+  \begin{figure}[!h]
+    \centering
+    \begin{tikzpicture}[node distance = 6em, auto]
+        \node [block, fill=black!10] (sp) {Orbit of  Spacecraft};
+        \node [block, below of = sp] (eq) {Equatorial};
+        \node [block, below of = eq] (p) {Detector Plane Boresight};
+        
+        \draw[thick, <->] (eq) to node {$T_{\text{eq}, \text{p}}(\delta^\text{x}_\text{p}, \alpha^\text{x}_\text{p}, \delta^\text{z}_\text{p}, \alpha^\text{z}_\text{p}$)} (p);
+        \draw[thick, <->] (eq) to node {$T_{\text{eq}, \text{sp}}(\delta_\text{sp}, \alpha_\text{sp})$} (sp);
+    \end{tikzpicture}
+    \caption{Three reference frames}
+  \end{figure}
+\end{frame}
+%----- SP-EQ -----------
+\begin{frame}\frametitle{Coordinate Transformations}
+    \begin{figure}[h!]
+      \centering
+      \includegraphics[width=0.5\textwidth]{img/fig_coordinate/coord_eq_sp.pdf}
+      \caption{Coordinate transform between equatorial and spacecraft}
+    \end{figure}
+\end{frame}
+\begin{frame}\frametitle{Coordinate Transformations (SP-EQ)}
+  Write the unit vector of orbiting spacecraft on a basis of equatorial coordinate
+  \begin{equation}
+    \begin{split}
+    \hat{x}_\text{sp} &= \cos\delta_\text{sp}\cos\alpha_\text{sp}\hat{x}_\text{eq} + \cos\delta_\text{sp}\sin\alpha_\text{sp}\hat{y}_\text{eq} + \sin\delta_\text{sp}\hat{z}_\text{eq}\\
+    \hat{z}_\text{sp} &= - \sin\delta_\text{sp}\hat{y}_\text{eq} + \cos\delta_\text{sp}\hat{z}_\text{eq} \\
+    \hat{y}_\text{sp} &= \hat{z}_\text{sp} \times \hat{x}_\text{sp}
+    \end{split}
+    \label{eq:tf_eq_sp}
+  \end{equation}
+  Transformation matrix could be extracted from the relation
+  \begin{equation}
+    \hat{r}_\text{sp} \equiv T_{\text{eq}\rightarrow\text{sp}} (\delta_\text{sp}, \alpha_\text{sp}) \hat{r}_\text{eq}
+  \end{equation}
+\end{frame}
+%----- P-EQ -----------
+\begin{frame}\frametitle{Coordinate transformations (P-EQ)}
+Unit vector of detector plane on a basis of equatorial coordinate
+\begin{equation}
+  \begin{split}
+  \hat{x}_\text{p} &= \cos\delta^\text{x}_\text{p}\cos\alpha^\text{x}_\text{p}\hat{x}_\text{eq} + \cos\delta^\text{x}_\text{p}\sin\alpha^\text{x}_\text{p}\hat{y}_\text{eq} + \sin\delta^\text{x}_\text{sp}\hat{z}_\text{eq}\\
+  \hat{z}_\text{p} &= \cos\delta^\text{z}_\text{p}\cos\alpha^\text{z}_\text{p}\hat{x}_\text{eq} + \cos\delta^\text{z}_\text{p}\sin\alpha^\text{z}_\text{p}\hat{y}_\text{eq} + \sin\delta^\text{z}_\text{sp}\hat{z}_\text{eq}\\
+  \hat{y}_\text{p} &= \hat{z}_\text{p} \times \hat{x}_\text{p}
+  \end{split}
+  \label{eq:tf_eq_p}
+\end{equation}
+Then applying the following relation to get transformation matrix
+\begin{equation}
+  \hat{r}_\text{p} \equiv T_{\text{eq}\rightarrow\text{p}} (\delta^\text{x}_\text{p}, \alpha^\text{x}_\text{p}, \delta^\text{z}_\text{p}, \alpha^\text{z}_\text{p}) \hat{r}_\text{eq}
+\end{equation}
+\end{frame}
+%----- Nadir --------------
+\begin{frame}\frametitle{Coordinate transformations from nadir angle}
+  \begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.5\textwidth]{img/fig_coordinate/coord_eq_p.pdf}
+    \caption{Coordinate transform between LAT-plane boresight and spacecraft}
+  \end{figure}
+\end{frame}
+\begin{frame}\frametitle{Coordinate transformations (nadir angle)}
+  Let consider each grid in nadir's solid angle map
+  \begin{equation}
+    \hat{r}^\text{o}_\text{sp} (\theta_\text{N}, \phi_\text{N}) \equiv -\cos\theta_\text{N}\hat{x}_\text{sp} + \sin\theta_\text{N}\cos\phi_\text{N}\hat{z}_\text{sp} + \sin\theta_\text{N}\sin\phi_\text{N}\hat{y}_\text{sp}
+    \label{eq:def_r0}
+\end{equation}
+Convert it back to the plane of detector
+\begin{equation}
+    \hat{r}^\text{o}_\text{p} (\theta_\text{N}, \phi_\text{N}) = T_{\text{eq}\rightarrow\text{p}} (\delta^\text{x}_\text{p}, \alpha^\text{x}_\text{p}, \delta^\text{z}_\text{p}, \alpha^\text{z}_\text{p}) \left[T_{\text{eq}\rightarrow\text{sp}} (\delta_\text{sp}, \alpha_\text{sp})\right]^{-1} \hat{r}^\text{o}_\text{sp} (\theta_\text{N}, \phi_\text{N})
+    \label{eq:def_r0_to_rp}
+\end{equation}
+\begin{figure}[h!]
+  \centering
+  \includegraphics[width=0.35\textwidth]{img/fig_coordinate/coord_plane.pdf}
+  \caption{Detector's boresight in cartesian and polar coordinate}
+  \label{fig:tf_lat_pol_car}
+\end{figure}
+\end{frame}
+%----- Effective Area --------------
+\begin{frame}\frametitle{Effective Area}
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.8\textwidth]{img/eff_energy_dist}
+    \caption{Effective area of \text{Fermi}-LAT}
+    \label{fig:lateff}
+\end{figure}
+\end{frame}
+
+
+% %--- got spectrum ---
+% \begin{frame}
+% \frametitle{$\gamma$-ray spectrum from measurement}
+
+% %\begin{figure}[h!]
+% %\includegraphics[width = 0.7\textwidth]{FluxfromExposure}
+% %\end{figure}
+
+% \begin{figure}[h!]
+% \begin{tikzpicture}
+% \node (0,0) {\includegraphics[width=0.7\textwidth]{FluxfromExposure}};
+% \node [opacity=0.2] (0,0) {\rotatebox{45}{\scalebox{2.5}{\textcolor{red}{preliminary}}}};
+% \node [opacity=1.0] at (2.4,-2.40) {\tiny E (GeV)};
+% \end{tikzpicture}
+% \end{figure}
+% Notice that error bar came from statistics error and the red band already take into account
+% instrument error
+% \end{frame}
+
+%------------------------------------------------
+%    4 ) Analysis
+%------------------------------------------------
+\section{Analysis}
+
+% ------- poewr law in rigidity -------------
+\subsection{Power law spectrum}
+\begin{frame}
+  \frametitle{Power law (in rigidity)}
+  Typically, cosmic ray spectrum follow power law in rigidity as \\
+  \textbf{Single power law (SPL)}
+  \begin{equation}
+  \frac{dN}{dR} = R_0R^{-\gamma}
+  \end{equation}
+  \textbf{Broken power law (BPL)}
+  \begin{equation}
+  \frac{dN}{dR}=
+    \begin{cases}
+      R_0R^{-\gamma_1}\ :\ E < E_{\text{Break}}\\
+      R_0[R(E_{\text{Break}})]^{\gamma_2-\gamma_1}R^{-\gamma_2}\ :\ E \ge E_{\text{Break}}
+    \end{cases}
+  \end{equation}
+  % Note for someone who not familiar with rigidity : it just defined by $R\equiv P/q$ when $P, q$ is a momentum and charge of particle
+  \end{frame}
+%------------------------------------------------
+%    4.1 ) K&O model
+%------------------------------------------------
+\subsection[Interaction model]{Interaction model}
+\begin{frame}
+\frametitle{Kachelrie$\beta$ and Ostapchenko model}
+Is the model which can compute spectrum of $\gamma$-ray from a known incident proton
+\begin{equation}
+  \small
+  \frac{dN_{\gamma}}{dE} \propto \sum_{E_{\text{inc,i}}}\left[\frac{E_{\text{inc,i}}}{E_{\gamma\text{,i}}}\Delta(E_{\text{inc,i}}) \right]\left[ f_{pp}\textcolor{red}{\frac{dN_\text{H}}{dE_{\text{inc,i}}}}\left\{ 1+\textcolor{olivegreen}{\frac{\sigma_{\text{HeN}}}{\sigma{pN}}}\left(\textcolor{red}{\frac{dN_{\text{H}}}{dR}}\right)^{-1} \textcolor{blue}{\frac{dN_{\text{He}}}{dR}} \frac{dR_{\text{He}}}{dR_{\text{H}}}  \right\}\right]
+\end{equation}
+\begin{itemize}
+  \item Red color terms is using for \textcolor{red}{incident proton spectrum}
+  \item \textcolor{blue}{Use helium spectrum from AMS-02 measurement (2015)}
+  \item $f_{pp}\equiv E_\gamma(d\sigma^{pp\rightarrow\gamma}/dE_\gamma)$ is a table in K$\&$O model which behave like a scattering amplitude
+  that depend on the energy of incident particle
+  \item Crossection \textcolor{olivegreen}{$\sigma_{\text{HeN}}/\sigma_{pN}$} at high energy ($>$ 10GeV) is almost remain constant ($\approx 1.6$)
+\end{itemize}
+
+\end{frame}
+%------------------------------------------------
+%    4.1 Optimization
+%------------------------------------------------
+\subsection{Optimization}
+\begin{frame}
+\frametitle{Poisson likelihood function}
+On the previous slide, we want to find the incident proton. \\
+Let define some loss function to compare model and measurement
+\begin{equation}
+  \mathcal{L} = \prod_{i=1}^{N} P_{\text{pois}}(n_{\text{i,model}}, n_{\text{i,measurement}})
+\end{equation}
+
+For numerically convenient, redefined into logarithmic form
+\begin{equation}
+  \log\mathcal{L} \equiv \sum_{i=1}^{N} -\log P_{\text{pois}}(n_{\text{i,model}}, n_{\text{i,measurement}})
+\end{equation}
+This part is the hard work of computer to find best incident cosmic ray proton that match the
+spectrum from measurement.
+
+\end{frame}
+
+\subsection{Statistical Simulation}
+\begin{frame}\frametitle{Monte Carlo Simulation (Statistical Error)}
+  \begin{figure}[h!]
+    \includegraphics[width=0.7\textheight]{montestat}
+    \end{figure}
+\end{frame}
+
+\begin{frame}\frametitle{Monte Carlo Simulation (Total Error)}
+  \begin{figure}[h!]
+    \includegraphics[width=0.7\textheight]{montetot}
+    \end{figure}
+\end{frame}
+
+%-- Flow chart ---%
+  % Define block styles
+  \tikzstyle{decision} = [diamond, draw, fill=red!10, 
+  text width=2em, text badly centered, node distance=2.5cm, inner sep=0pt]
+  \tikzstyle{block} = [rectangle, draw, fill=blue!10, 
+  text width=5em, text centered, rounded corners, minimum height=2em]
+  \tikzstyle{longblock} = [rectangle, draw, fill=blue!10, 
+  text width=10em, text centered, rounded corners, minimum height=4em]
+  \tikzstyle{line} = [draw,thick, -latex']
+  \tikzstyle{cloud} = [draw, ellipse,fill=red!20, node distance=3cm,
+  minimum height=4em]
+
+\begin{frame}\frametitle{Algorithm}
+
+\begin{figure}[!h]
+\centering
+\begin{tikzpicture}[node distance = 6em, auto]
+    \node [block, fill=black!10] (powerlaw) {powerlaw spectrum of proton in rigidity};
+    \node [block, right of = powerlaw, node distance = 12em] (model) {$\gamma$-ray spectrum from model};
+    \node [block, right of = model] (measurement) {$\gamma$-ray spectrum from measurement};
+    \node [block, below left of = measurement, node distance = 8em] (pois) {Poisson likelihood function};
+    \node [block, below of = powerlaw] (varyPar) {Apply gradient to parameters $\gamma$, $R_0$};
+    \node [decision, below of = varyPar, fill = blue!10] (bestfit) {Best fit?};
+    \node [block, right of = bestfit, node distance = 10em, fill = red!10] (return) {Return best fit parameters};
+
+    \path [line] (powerlaw) -- node [anchor=south] {K\&O model} (model);
+    \path [line] (model) -- (pois);
+    \path [line] (measurement) -- (pois);
+    \path [line] (pois) -- (bestfit);
+    \path [line] (bestfit) -- node [anchor=east] {No} (varyPar);
+    \path [line] (varyPar) -- (powerlaw);
+    \path [line] (bestfit) -- node [anchor=north] {Yes} (return);
+\end{tikzpicture}
+\caption{Flow chart of optimization process}
+\end{figure}
+
+\end{frame}
+
+%------------------------------------------------
+%    4.3 ) Results
+%------------------------------------------------
+\section{Preliminary results}
+
+\subsection{}
+% --- cntmap & photon dist -------
+\begin{frame}\frametitle{Count map and distribution}
+\begin{figure}
+    \centering
+    \begin{minipage}[b]{0.49\textwidth}
+        \centering
+        \begin{tikzpicture}
+        \node (0,0) {\includegraphics[width=\textwidth]{img/cntmap_polar}};
+        \node [opacity=0.2] (0,0) {\rotatebox{45}{\scalebox{2.5}{\textcolor{red}{preliminary}}}};
+        \end{tikzpicture}
+    \end{minipage}
+    \begin{minipage}[b]{0.49\textwidth}
+        \centering
+        \begin{tikzpicture}
+        \node (0,0) {\includegraphics[width=\textwidth]{img/phi_nad_dist}};
+        \node [opacity=0.2] (0,0) {\rotatebox{45}{\scalebox{2.5}{\textcolor{red}{preliminary}}}};
+        \end{tikzpicture}
+    \end{minipage}
+    \caption{An example distribution of $\gamma$-ray from a single week}
+    \label{fig:exphotondist}
+\end{figure}
+\end{frame}
+
+% --- photon dist -------
+\begin{frame}\frametitle{Count map and distribution}
+  \begin{figure}
+      \centering
+        \begin{tikzpicture}
+        \node (0,0) {\includegraphics[width=0.8\textwidth]{img/count_hist}};
+        \node [opacity=0.2] (0,0) {\rotatebox{45}{\scalebox{2.5}{\textcolor{red}{preliminary}}}};
+        \end{tikzpicture}
+  \end{figure}
+\end{frame}
+
+% --- expmap -------
+\begin{frame}\frametitle{Exposure maps}
+  \begin{figure}
+      \centering
+        \begin{tikzpicture}
+        \node (0,0) {\includegraphics[width=0.7\textwidth]{img/cartesian_expmaps}};
+        \node [opacity=0.2] (0,0) {\rotatebox{45}{\scalebox{2.5}{\textcolor{red}{preliminary}}}};
+        \end{tikzpicture}
+  \end{figure}
+\end{frame}
+\begin{frame}\frametitle{Exposure maps}
+  \begin{figure}
+      \centering
+        \begin{tikzpicture}
+        \node (0,0) {\includegraphics[width=0.7\textwidth]{img/polar_expmaps}};
+        \node [opacity=0.2] (0,0) {\rotatebox{45}{\scalebox{2.5}{\textcolor{red}{preliminary}}}};
+        \end{tikzpicture}
+  \end{figure}
+\end{frame}
+
+% --- expmap -------
+\begin{frame}\frametitle{$\gamma$-ray spectrum}
+  \begin{figure}
+      \centering
+        \begin{tikzpicture}
+        \node (0,0) {\includegraphics[width=0.7\textwidth]{img/flx_hist_2}};
+        \node [opacity=0.2] (0,0) {\rotatebox{45}{\scalebox{2.5}{\textcolor{red}{preliminary}}}};
+        \end{tikzpicture}
+  \end{figure}
+  Please note that the error bar is statictical error and systematic error does not include in this figure.
+\end{frame}
+
+%------------------------------------------------
+%    4.4 ) Monte carlo Simulation
+%------------------------------------------------
+% \subsection{Monte Carlo simlation}
+% %----- How to deal with this ?
+% \begin{frame}
+% \frametitle{Error determination}
+% \textbf{Statictical error (Random error)}
+% \begin{enumerate}
+%   \item Get back to raw count and
+%   \textcolor{blue}{random new count in each energy bin by Poisson random function}
+%   \item Recalculate proton spectrum
+%   \item Optimize it and store the parameter that we got
+%   \item do it over thoundsand time and fill in histogram to interpret error by saying sigma of gaussian function
+% \end{enumerate}
+% \textbf{Total error (take into account instrument)}
+% \begin{enumerate}
+%   \item Get back to raw count and
+%   \textcolor{blue}{random new count in each energy bin by Poisson random function}
+%   \item \textcolor{blue}{Random value we got again by systematic error (Apparatus)}
+%   \item Recalculate proton spectrum
+%   \item Optimize it and store the parameter that we got
+%   \item do it over thoundsand time and fill in histogram to interpret error by saying sigma of gaussian function
+% \end{enumerate}
+% \end{frame}
+
+% %----- SPL ------
+% \begin{frame}
+% \frametitle{Single power law (SPL)}
+
+% \begin{figure}[h!]
+% \begin{tikzpicture}
+% \node (0,0) {\includegraphics[width=0.8\textwidth]{SPL_Sim}};
+% \node [opacity=0.2] (0,0) {\rotatebox{45}{\scalebox{3.0}{\textcolor{red}{preliminary}}}};
+% \end{tikzpicture}
+% \end{figure}
+
+% \end{frame}
+% %------ BPL ------
+% \begin{frame}
+% \frametitle{Broken power law (BPL)}
+
+% %\begin{figure}[h!]
+% %\includegraphics[width = \textwidth]{BPL_Sim}
+% %\end{figure}
+
+% \begin{figure}[h!]
+% \begin{tikzpicture}
+% \node (0,0) {\includegraphics[width=\textwidth]{BPL_Sim}};
+% \node [opacity=0.2] (0,0) {\rotatebox{25}{\scalebox{3.5}{\textcolor{red}{preliminary}}}};
+% \end{tikzpicture}
+% \end{figure}
+
+% \end{frame}
+
+%------------------------------------------------
+%   Conclusion
+%------------------------------------------------
+\section{Summary}
+\begin{frame}
+\frametitle{Outlook}
+\begin{itemize}
+\item Determine the significant level of energy breaking in cosmic ray proton
+\item Put weight on the previous study that the brightenss of $\gamma$-ray from Earth's high atmosphere could be use to perform an indirect measurement
+\end{itemize}
+\end{frame}
+
+
+%------------------------------------------------
+
+
+%------------------------------------------------
+\section{} % just empty section for not showing header on slide
+
+%------------------------------------------------
+%    Reference
+%------------------------------------------------
+\section{Reference}
+\begin{frame}
+\frametitle{References}
+[1] O. Adriani et al., Science 332, 69 (2011)
+[2] M. Ackermann et al. (Fermi LAT Collaboration), Phys. Rev. Lett. 112, 151103 \newline
+[3] Kachelriess $\&$ Ostapchenko, Phys. Rev. D 86 \newline
+[4] M. Aguilar et al. (AMS Collaboration), Phys. Rev. Lett. 115, 211101 \newline
+[5] M. Aguilar et al. (AMS Collaboration), Phys. Rev. Lett. 114, 171103 \newline
+[6] L. Lyons, Statistics for nuclear and particle physicists
+\end{frame}
+%------------------------------------------------
+%    Acknowledgement
+%------------------------------------------------
+\section{}
+\begin{frame}\frametitle{Acknowledgement}
+  \begin{itemize}
+    \item Dr. Warit Mitthumsiri \\ Mahidol University, Thailand
+    \item Dr. Francesca Spada \\ University of Pisa, Italy
+    \item People in the Space Physics laboratory at Mahidol University and the Fermi lab at the University of Pisa
+    \item Development and Promotion of Science and Technology Talents Project (DPST)
+    \item Partially supported by the Thailand Research Fund Award RTA5980003
+  \end{itemize}
+\end{frame}
+
+%------------------------------------------------
+%    Back up slide
+%------------------------------------------------
+
+\begin{frame}
+\Huge{\centerline{Backup slide}}
+\end{frame}
+
+% % ------- poewr law in rigidity -------------
+% \begin{frame}
+% \frametitle{Power law (in rigidity)}
+% Typically, cosmic ray spectrum follow power law in rigidity as \\
+% \textbf{Single power law (SPL)}
+% \begin{equation}
+% \frac{dN}{dR} = R_0R^{-\gamma}
+% \end{equation}
+% \textbf{Broken power law (BPL)}
+% \begin{equation}
+% \frac{dN}{dR}=
+%   \begin{cases}
+%     R_0R^{-\gamma_1}\ :\ E < E_{\text{Break}}\\
+%     R_0[R(E_{\text{Break}})]^{\gamma_2-\gamma_1}R^{-\gamma_2}\ :\ E \ge E_{\text{Break}}
+%   \end{cases}
+% \end{equation}
+% Note for someone who not famoliar with rigidity : it just defined by $R\equiv P/q$ when $P, q$ is a momentum and charge of particle
+% \end{frame}
+% ------- power law in Energy -------------
+\begin{frame}
+\frametitle{Power law in energy}
+In our case, we use power in energy then we need to convert by relativistic energy-mass relation \\
+\textbf{Single power law (SPL)}
+\begin{equation}
+\frac{dN}{dE} = N_0[E_k(E_k+2m_p)]^{-\gamma/2} \left(\frac{E_k+m_p}{\sqrt{E_k(E_k+2m_p)}}\right)
+\end{equation}
+\textbf{Broken power law (BPL)}
+\begin{equation}
+\frac{dN}{dE}=
+  \begin{cases}
+    N_0[E_k(E_k+2m_p)]^{-\gamma_1/2} \left(\frac{E_k+m_p}{\sqrt{E_k(E_k+2m_p)}}\right)\ :\ E < E_{\text{Break}}\\
+    N_0[E_b(E_b+2m_p)]^{(\gamma_2-\gamma_1)/2}[E_k(E_k+2m_p)]^{-\gamma_2/2} \left(\frac{E_k+m_p}{\sqrt{E_k(E_k+2m_p)}}\right)\\ :\ E \ge E_{\text{Break}}
+  \end{cases}
+\end{equation}
+\end{frame}
+%----------------------------------
+% -----  Error determination --------
+%----------------------------------
+%----- How to deal with this ?
+\begin{frame}
+  \frametitle{Error determination}
+  \textbf{Statictical error (Random error)}
+  \begin{enumerate}
+    \item Get back to raw count and
+    \textcolor{blue}{random new count in each energy bin by Poisson random function}
+    \item Recalculate proton spectrum
+    \item Optimize it and store the parameter that we got
+    \item do it over thoundsand time and fill in histogram to interpret error by saying sigma of gaussian function
+  \end{enumerate}
+  \textbf{Total error (take into account instrument)}
+  \begin{enumerate}
+    \item Get back to raw count and
+    \textcolor{blue}{random new count in each energy bin by Poisson random function}
+    \item \textcolor{blue}{Random value we got again by systematic error (Apparatus)}
+    \item Recalculate proton spectrum
+    \item Optimize it and store the parameter that we got
+    \item do it over thoundsand time and fill in histogram to interpret error by saying sigma of gaussian function
+  \end{enumerate}
+  \end{frame}
+
+%--------------------------------
+%      Earlier result
+%--------------------------------
+  \begin{frame}
+    \Huge{\centerline{Result from 7 years of data}}
+  \end{frame}    
+
+  %----- SPL ------
+  \begin{frame}
+  \frametitle{Single power law (SPL)}
+  
+  \begin{figure}[h!]
+  \begin{tikzpicture}
+  \node (0,0) {\includegraphics[width=0.8\textwidth]{SPL_Sim}};
+  \node [opacity=0.2] (0,0) {\rotatebox{45}{\scalebox{3.0}{\textcolor{red}{preliminary}}}};
+  \end{tikzpicture}
+  \end{figure}
+  
+  \end{frame}
+  %------ BPL ------
+  \begin{frame}
+  \frametitle{Broken power law (BPL)}
+  
+  %\begin{figure}[h!]
+  %\includegraphics[width = \textwidth]{BPL_Sim}
+  %\end{figure}
+  
+  \begin{figure}[h!]
+  \begin{tikzpicture}
+  \node (0,0) {\includegraphics[width=\textwidth]{BPL_Sim}};
+  \node [opacity=0.2] (0,0) {\rotatebox{25}{\scalebox{3.5}{\textcolor{red}{preliminary}}}};
+  \end{tikzpicture}
+  \end{figure}
+  
+  \end{frame}
+
+%----------------------------------
+% ---------  calculation map --------
+%----------------------------------
+%--- cntmap ---
+\begin{frame}
+\frametitle{Count map}
+
+%\begin{figure}[h!]
+%\includegraphics[width = 0.9\textwidth]{cntmap}
+%\caption{Bla1}
+%\end{figure}
+
+\begin{figure}[h!]
+\begin{tikzpicture}
+\node (0,0) {\includegraphics[width=0.9\textwidth]{cntmap}};
+\node [opacity=0.2] (0,0) {\rotatebox{45}{\scalebox{3.5}{\textcolor{red}{preliminary}}}};
+\end{tikzpicture}
+\end{figure}
+
+\end{frame}
+%--- expmap ---
+\begin{frame}
+\frametitle{Exposure map}
+
+%\begin{figure}[h!]
+%\includegraphics[width = 0.9\textwidth]{expmap}
+%\caption{Bla1}
+%\end{figure}
+
+\begin{figure}[h!]
+\begin{tikzpicture}
+\node (0,0) {\includegraphics[width=0.9\textwidth]{expmap}};
+\node [opacity=0.2] (0,0) {\rotatebox{45}{\scalebox{3.5}{\textcolor{red}{preliminary}}}};
+\end{tikzpicture}
+\end{figure}
+
+\end{frame}
+%--- flxmap ---
+\begin{frame}
+\frametitle{Flux map}
+
+%\begin{figure}[h!]
+%\includegraphics[width = 0.9\textwidth]{flxmap}
+%\caption{Bla1}
+%\end{figure}
+
+\begin{figure}[h!]
+\begin{tikzpicture}
+\node (0,0) {\includegraphics[width=0.9\textwidth]{flxmap}};
+\node [opacity=0.2] (0,0) {\rotatebox{45}{\scalebox{3.5}{\textcolor{red}{preliminary}}}};
+\end{tikzpicture}
+\end{figure}
+\end{frame}
+
+% \end{frame}
+
+%----------------------------------------------------------------------------------------
+
+\end{document}
