@@ -14,7 +14,7 @@ Note that the reasons that we use ULTRACLEANVETO type of event reconstruction ar
     \item Reprocess photon data by taking into account
         \begin{itemize}
             \item Treat photon energy bias 3.7\% that be affected the energy range above 10 GeV
-            \item Adjust limb angle due to LAT altitude shift due to detection of $\theta_{\text{Limb}}$ was tilt relatively to altitude of the spacecraft when orbit around asymmetric spherical Earth 
+            \item Adjust $\theta_\text{N}$ due to LAT altitude shift due to detection of $\theta_{\text{Limb}}$ was tilt relatively to altitude of the spacecraft when orbit around asymmetric spherical Earth 
         \end{itemize}
     \item Construct 2D histogram in Earth's angular coordinate ($\theta_{\text{ZENITH}}$ and $\phi_{\text{EARTH}}$)
     \item Fill photon data in different energy range
@@ -49,7 +49,7 @@ Note that the reasons that we use ULTRACLEANVETO type of event reconstruction ar
     \label{eq:tf_eq_sp}
 \end{equation}
 
-The transform matrix between equatorial coordinate and spacecraft coordinate could be represent as a relation in Eq \ref{eq:tf_eq_sp}
+The transform matrix between equatorial coordinate and spacecraft coordinate could be represented as a relation in Eq \ref{eq:tf_eq_sp}
 
 \begin{equation}
     \hat{r}_\text{sp} \equiv T_{\text{eq}\rightarrow\text{sp}} (\delta_\text{sp}, \alpha_\text{sp}) \hat{r}_\text{eq}
@@ -72,7 +72,7 @@ According to Eq \ref{eq:tf_eq_p}, the transformation matrix between LAT-boresigh
 \begin{figure}[h!]
     \centering
     \includegraphics[width=0.5\textwidth]{img/fig_coordinate/coord_eq_p.pdf}
-    \caption{Coordinate transform between LAT-plane boresight and spacecraft}
+    \caption{Coordinate transform between spacecraft and nadir angle}
 \end{figure}
 
 Importantly, the current status of lat field of view need to be consider in order to fill in the exposure map with the Earth’s polar coordinate from satellite point of view as 
@@ -120,7 +120,7 @@ To maximize all of the threading process in the cluster, master-slave technique 
 %--------------------------
 
 \subsection{Interaction model}
-Incident proton spectrum in rigidity could be represent as \\
+Incident proton spectrum in rigidity be represented as \\
 \textbf{Single power law (SPL)}
 \begin{equation}
     \frac{dN}{dR} = R_0R^{-\gamma}

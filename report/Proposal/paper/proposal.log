@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017) (preloaded format=pdflatex 2017.12.27)  5 JAN 2020 20:05
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017) (preloaded format=pdflatex 2017.12.27)  6 JAN 2020 00:21
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -761,7 +761,12 @@ Package pdftex.def Info: img/LATStructure.jpg used on input line 40.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[3 </Users/jab/Desktop/LimbCRs/report/proposal/paper/img/Swordy.png>] <img/LATMethodology.png, id=38, 554.07pt x 454.69875pt>
+[3 </Users/jab/Desktop/LimbCRs/report/proposal/paper/img/Swordy.png>]
+Overfull \hbox (2.26126pt too wide) in paragraph at lines 51--53
+[]\OT1/cmr/m/n/12 ACD tile con-tains wave-length shift-ing fiber by pho-to-mul-ti-plier tubes (PMT)
+ []
+
+<img/LATMethodology.png, id=38, 554.07pt x 454.69875pt>
 File: img/LATMethodology.png Graphic file (type png)
  <use img/LATMethodology.png>
 Package pdftex.def Info: img/LATMethodology.png used on input line 63.
@@ -948,13 +953,13 @@ Underfull \hbox (badness 10000) in paragraph at lines 180--184
 Here is how much of TeX's memory you used:
  15750 strings out of 492995
  310031 string characters out of 6132703
- 365752 words of memory out of 5000000
+ 365750 words of memory out of 5000000
  18963 multiletter control sequences out of 15000+600000
  15724 words of font info for 55 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  55i,17n,60p,598b,728s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmbxti10.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb>
-Output written on /Users/jab/Desktop/LimbCRs/report/proposal/paper/proposal.pdf (19 pages, 838990 bytes).
+Output written on /Users/jab/Desktop/LimbCRs/report/proposal/paper/proposal.pdf (19 pages, 839022 bytes).
 PDF statistics:
  172 PDF objects out of 1000 (max. 8388607)
  108 compressed objects within 2 object streams

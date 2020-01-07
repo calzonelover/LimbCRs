@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017) (preloaded format=pdflatex 2017.12.27)  5 JAN 2020 19:58
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017) (preloaded format=pdflatex 2017.12.27)  6 JAN 2020 00:05
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -844,13 +844,9 @@ LaTeX Font Warning: Font shape `OT1/cmss/m/n' in size <4> not available
 
 [1{/usr/local/texlive/2017/texmf-var/fonts/map/pdftex/updmap/pdftex.map}
 
-] (/Users/jab/Desktop/LimbCRs/report/proposal/slide/slide_progress.toc)
-Overfull \vbox (7.31584pt too high) detected at line 122
- []
+] (/Users/jab/Desktop/LimbCRs/report/proposal/slide/slide_progress.toc) [2
 
-[2
-
-] <CRFeature.jpg, id=298, 193.6836pt x 197.538pt>
+] <CRFeature.jpg, id=292, 193.6836pt x 197.538pt>
 File: CRFeature.jpg Graphic file (type jpg)
  <use CRFeature.jpg>
 Package pdftex.def Info: CRFeature.jpg used on input line 156.
@@ -861,46 +857,33 @@ Overfull \vbox (4.73003pt too high) detected at line 156
 
 [3
 
- </Users/jab/Desktop/LimbCRs/report/proposal/slide/CRFeature.jpg>] <proton_spectrum.png, id=358, 968.61874pt x 673.51625pt>
+ </Users/jab/Desktop/LimbCRs/report/proposal/slide/CRFeature.jpg>] <proton_spectrum.png, id=352, 968.61874pt x 673.51625pt>
 File: proton_spectrum.png Graphic file (type png)
  <use proton_spectrum.png>
 Package pdftex.def Info: proton_spectrum.png used on input line 165.
 (pdftex.def)             Requested size: 184.3758pt x 128.19551pt.
  [4
 
- </Users/jab/Desktop/LimbCRs/report/proposal/slide/proton_spectrum.png>] [5
-
-]
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 185.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\gamma' on input line 185.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 185.
-
-<lat_production_schematic.pdf, id=477, 512.1496pt x 398.3386pt>
+ </Users/jab/Desktop/LimbCRs/report/proposal/slide/proton_spectrum.png>] <lat_production_schematic.pdf, id=412, 512.1496pt x 398.3386pt>
 File: lat_production_schematic.pdf Graphic file (type pdf)
  <use lat_production_schematic.pdf>
-Package pdftex.def Info: lat_production_schematic.pdf used on input line 192.
+Package pdftex.def Info: lat_production_schematic.pdf used on input line 174.
 (pdftex.def)             Requested size: 245.83282pt x 191.20035pt.
- [6
+ [5
 
- </Users/jab/Desktop/LimbCRs/report/proposal/slide/lat_production_schematic.pdf>] <img/LATStructure.jpg, id=549, 184.5294pt x 171.5208pt>
+ </Users/jab/Desktop/LimbCRs/report/proposal/slide/lat_production_schematic.pdf>] [6
+
+] <img/LATStructure.jpg, id=543, 184.5294pt x 171.5208pt>
 File: img/LATStructure.jpg Graphic file (type jpg)
  <use img/LATStructure.jpg>
-Package pdftex.def Info: img/LATStructure.jpg used on input line 219.
+Package pdftex.def Info: img/LATStructure.jpg used on input line 218.
 (pdftex.def)             Requested size: 153.64493pt x 142.82285pt.
  [7
 
- </Users/jab/Desktop/LimbCRs/report/proposal/slide/img/LATStructure.jpg>] <img/LATMethodology.png, id=608, 554.07pt x 454.69875pt>
+ </Users/jab/Desktop/LimbCRs/report/proposal/slide/img/LATStructure.jpg>] <img/LATMethodology.png, id=602, 554.07pt x 454.69875pt>
 File: img/LATMethodology.png Graphic file (type png)
  <use img/LATMethodology.png>
-Package pdftex.def Info: img/LATMethodology.png used on input line 239.
+Package pdftex.def Info: img/LATMethodology.png used on input line 238.
 (pdftex.def)             Requested size: 153.64493pt x 126.08673pt.
  [8
 
@@ -910,10 +893,10 @@ Package pdftex.def Info: img/LATMethodology.png used on input line 239.
 
 ] [11
 
-] <img/fig_coordinate/coord_eq_sp.pdf, id=847, 113.81102pt x 113.81102pt>
+] <img/fig_coordinate/coord_eq_sp.pdf, id=844, 113.81102pt x 113.81102pt>
 File: img/fig_coordinate/coord_eq_sp.pdf Graphic file (type pdf)
  <use img/fig_coordinate/coord_eq_sp.pdf>
-Package pdftex.def Info: img/fig_coordinate/coord_eq_sp.pdf used on input line 307.
+Package pdftex.def Info: img/fig_coordinate/coord_eq_sp.pdf used on input line 308.
 (pdftex.def)             Requested size: 153.64493pt x 153.66254pt.
  [12
 
@@ -921,31 +904,31 @@ Package pdftex.def Info: img/fig_coordinate/coord_eq_sp.pdf used on input line 3
 
 ] [14
 
-] <img/fig_coordinate/coord_eq_p.pdf, id=1029, 113.81102pt x 113.81102pt>
+] <img/fig_coordinate/coord_eq_p.pdf, id=1026, 113.81102pt x 113.81102pt>
 File: img/fig_coordinate/coord_eq_p.pdf Graphic file (type pdf)
  <use img/fig_coordinate/coord_eq_p.pdf>
-Package pdftex.def Info: img/fig_coordinate/coord_eq_p.pdf used on input line 346.
+Package pdftex.def Info: img/fig_coordinate/coord_eq_p.pdf used on input line 347.
 (pdftex.def)             Requested size: 153.64493pt x 153.66254pt.
  [15
 
- </Users/jab/Desktop/LimbCRs/report/proposal/slide/img/fig_coordinate/coord_eq_p.pdf>] <img/fig_coordinate/coord_plane.pdf, id=1094, 113.81102pt x 113.81102pt>
+ </Users/jab/Desktop/LimbCRs/report/proposal/slide/img/fig_coordinate/coord_eq_p.pdf>] <img/fig_coordinate/coord_plane.pdf, id=1091, 113.81102pt x 113.81102pt>
 File: img/fig_coordinate/coord_plane.pdf Graphic file (type pdf)
  <use img/fig_coordinate/coord_plane.pdf>
-Package pdftex.def Info: img/fig_coordinate/coord_plane.pdf used on input line 364.
+Package pdftex.def Info: img/fig_coordinate/coord_plane.pdf used on input line 365.
 (pdftex.def)             Requested size: 107.55333pt x 107.55891pt.
 
-Overfull \vbox (13.88718pt too high) detected at line 364
+Overfull \vbox (13.88718pt too high) detected at line 365
  []
 
 [16
 
- </Users/jab/Desktop/LimbCRs/report/proposal/slide/img/fig_coordinate/coord_plane.pdf>] <img/eff_energy_dist.png, id=1158, 578.16pt x 433.62pt>
+ </Users/jab/Desktop/LimbCRs/report/proposal/slide/img/fig_coordinate/coord_plane.pdf>] <img/eff_energy_dist.png, id=1155, 578.16pt x 433.62pt>
 File: img/eff_energy_dist.png Graphic file (type png)
  <use img/eff_energy_dist.png>
-Package pdftex.def Info: img/eff_energy_dist.png used on input line 373.
+Package pdftex.def Info: img/eff_energy_dist.png used on input line 374.
 (pdftex.def)             Requested size: 245.83282pt x 184.36876pt.
 
-Overfull \vbox (4.9595pt too high) detected at line 373
+Overfull \vbox (4.9595pt too high) detected at line 374
  []
 
 [17
@@ -954,133 +937,133 @@ Overfull \vbox (4.9595pt too high) detected at line 373
 
 ]
 
-LaTeX Font Warning: Command \small invalid in math mode on input line 438.
+LaTeX Font Warning: Command \small invalid in math mode on input line 439.
 
 
-Overfull \hbox (26.33974pt too wide) detected at line 438
+Overfull \hbox (26.33974pt too wide) detected at line 439
 [] \OMS/cmsy/m/n/10 / [] [] []
  []
 
-LaTeX Font Info:    Calculating math sizes for size <> on input line 438.
+LaTeX Font Info:    Calculating math sizes for size <> on input line 439.
 
 LaTeX Font Warning: Font shape `OT1/cmss/m/n' in size <> not available
-(Font)              size <5> substituted on input line 438.
+(Font)              size <5> substituted on input line 439.
 
 
 LaTeX Font Warning: Font shape `OT1/cmss/m/n' in size <0.7> not available
-(Font)              size <5> substituted on input line 438.
+(Font)              size <5> substituted on input line 439.
 
 
 LaTeX Font Warning: Font shape `OT1/cmss/m/n' in size <0.5> not available
-(Font)              size <5> substituted on input line 438.
+(Font)              size <5> substituted on input line 439.
 
 
 LaTeX Font Warning: Font shape `OML/cmm/m/it' in size <> not available
-(Font)              size <5> substituted on input line 438.
+(Font)              size <5> substituted on input line 439.
 
 
 LaTeX Font Warning: Font shape `OML/cmm/m/it' in size <0.7> not available
-(Font)              size <5> substituted on input line 438.
+(Font)              size <5> substituted on input line 439.
 
 
 LaTeX Font Warning: Font shape `OML/cmm/m/it' in size <0.5> not available
-(Font)              size <5> substituted on input line 438.
+(Font)              size <5> substituted on input line 439.
 
 
 LaTeX Font Warning: Font shape `OMS/cmsy/m/n' in size <> not available
-(Font)              size <5> substituted on input line 438.
+(Font)              size <5> substituted on input line 439.
 
 
 LaTeX Font Warning: Font shape `OMS/cmsy/m/n' in size <0.7> not available
-(Font)              size <5> substituted on input line 438.
+(Font)              size <5> substituted on input line 439.
 
 
 LaTeX Font Warning: Font shape `OMS/cmsy/m/n' in size <0.5> not available
-(Font)              size <5> substituted on input line 438.
+(Font)              size <5> substituted on input line 439.
 
 [19
 
 ] [20
 
-] <montestat.png, id=1395, 741.77126pt x 691.58376pt>
+] <montestat.png, id=1392, 741.77126pt x 691.58376pt>
 File: montestat.png Graphic file (type png)
  <use montestat.png>
-Package pdftex.def Info: montestat.png used on input line 465.
+Package pdftex.def Info: montestat.png used on input line 466.
 (pdftex.def)             Requested size: 171.1353pt x 159.55688pt.
  [21
 
- </Users/jab/Desktop/LimbCRs/report/proposal/slide/montestat.png>] <montetot.png, id=1454, 579.16376pt x 711.65875pt>
+ </Users/jab/Desktop/LimbCRs/report/proposal/slide/montestat.png>] <montetot.png, id=1451, 579.16376pt x 711.65875pt>
 File: montetot.png Graphic file (type png)
  <use montetot.png>
-Package pdftex.def Info: montetot.png used on input line 471.
+Package pdftex.def Info: montetot.png used on input line 472.
 (pdftex.def)             Requested size: 171.1353pt x 210.285pt.
 
-Overfull \vbox (4.87575pt too high) detected at line 471
+Overfull \vbox (4.87575pt too high) detected at line 472
  []
 
 [22
 
  </Users/jab/Desktop/LimbCRs/report/proposal/slide/montetot.png>]
-Overfull \vbox (8.85533pt too high) detected at line 509
+Overfull \vbox (8.85533pt too high) detected at line 510
  []
 
 [23
 
-] <img/cntmap_polar.png, id=1572, 462.528pt x 346.896pt>
+] <img/cntmap_polar.png, id=1569, 462.528pt x 346.896pt>
 File: img/cntmap_polar.png Graphic file (type png)
  <use img/cntmap_polar.png>
-Package pdftex.def Info: img/cntmap_polar.png used on input line 538.
+Package pdftex.def Info: img/cntmap_polar.png used on input line 539.
 (pdftex.def)             Requested size: 150.57372pt x 112.9304pt.
 
-Overfull \hbox (7.29921pt too wide) in paragraph at lines 538--538
+Overfull \hbox (7.29921pt too wide) in paragraph at lines 539--539
  [][] 
  []
 
-<img/phi_nad_dist.png, id=1573, 462.528pt x 346.896pt>
+<img/phi_nad_dist.png, id=1570, 462.528pt x 346.896pt>
 File: img/phi_nad_dist.png Graphic file (type png)
  <use img/phi_nad_dist.png>
-Package pdftex.def Info: img/phi_nad_dist.png used on input line 538.
+Package pdftex.def Info: img/phi_nad_dist.png used on input line 539.
 (pdftex.def)             Requested size: 150.57372pt x 112.9304pt.
 
-Overfull \hbox (7.29921pt too wide) in paragraph at lines 538--538
+Overfull \hbox (7.29921pt too wide) in paragraph at lines 539--539
  [][] 
  []
 
 [24
 
- </Users/jab/Desktop/LimbCRs/report/proposal/slide/img/cntmap_polar.png> </Users/jab/Desktop/LimbCRs/report/proposal/slide/img/phi_nad_dist.png>] <img/count_hist.png, id=1635, 899.36pt x 674.52pt>
+ </Users/jab/Desktop/LimbCRs/report/proposal/slide/img/cntmap_polar.png> </Users/jab/Desktop/LimbCRs/report/proposal/slide/img/phi_nad_dist.png>] <img/count_hist.png, id=1632, 899.36pt x 674.52pt>
 File: img/count_hist.png Graphic file (type png)
  <use img/count_hist.png>
-Package pdftex.def Info: img/count_hist.png used on input line 549.
+Package pdftex.def Info: img/count_hist.png used on input line 550.
 (pdftex.def)             Requested size: 245.83282pt x 184.37685pt.
  [25
 
- </Users/jab/Desktop/LimbCRs/report/proposal/slide/img/count_hist.png>] <img/cartesian_expmaps.png, id=1695, 899.36pt x 875.27pt>
+ </Users/jab/Desktop/LimbCRs/report/proposal/slide/img/count_hist.png>] <img/cartesian_expmaps.png, id=1692, 899.36pt x 875.27pt>
 File: img/cartesian_expmaps.png Graphic file (type png)
  <use img/cartesian_expmaps.png>
-Package pdftex.def Info: img/cartesian_expmaps.png used on input line 560.
+Package pdftex.def Info: img/cartesian_expmaps.png used on input line 561.
 (pdftex.def)             Requested size: 215.10196pt x 209.33453pt.
 
-Overfull \vbox (11.2245pt too high) detected at line 560
+Overfull \vbox (11.2245pt too high) detected at line 561
  []
 
 [26
 
- </Users/jab/Desktop/LimbCRs/report/proposal/slide/img/cartesian_expmaps.png>] <img/polar_expmaps.png, id=1753, 899.36pt x 875.27pt>
+ </Users/jab/Desktop/LimbCRs/report/proposal/slide/img/cartesian_expmaps.png>] <img/polar_expmaps.png, id=1750, 899.36pt x 875.27pt>
 File: img/polar_expmaps.png Graphic file (type png)
  <use img/polar_expmaps.png>
-Package pdftex.def Info: img/polar_expmaps.png used on input line 569.
+Package pdftex.def Info: img/polar_expmaps.png used on input line 570.
 (pdftex.def)             Requested size: 215.10196pt x 209.33453pt.
 
-Overfull \vbox (11.2245pt too high) detected at line 569
+Overfull \vbox (11.2245pt too high) detected at line 570
  []
 
 [27
 
- </Users/jab/Desktop/LimbCRs/report/proposal/slide/img/polar_expmaps.png>] <img/flx_hist_2.png, id=1812, 899.36pt x 674.52pt>
+ </Users/jab/Desktop/LimbCRs/report/proposal/slide/img/polar_expmaps.png>] <img/flx_hist_2.png, id=1809, 899.36pt x 674.52pt>
 File: img/flx_hist_2.png Graphic file (type png)
  <use img/flx_hist_2.png>
-Package pdftex.def Info: img/flx_hist_2.png used on input line 581.
+Package pdftex.def Info: img/flx_hist_2.png used on input line 582.
 (pdftex.def)             Requested size: 215.10196pt x 161.32202pt.
  [28
 
@@ -1093,7 +1076,7 @@ Package pdftex.def Info: img/flx_hist_2.png used on input line 581.
 ] [32
 
 ]
-Overfull \hbox (38.87137pt too wide) detected at line 726
+Overfull \hbox (38.87137pt too wide) detected at line 727
 [] \OT1/cmss/m/n/10.95 = []
  []
 
@@ -1103,54 +1086,54 @@ Overfull \hbox (38.87137pt too wide) detected at line 726
 
 ] [35
 
-] <SPL_Sim.pdf, id=2276, 569.12625pt x 328.22626pt>
+] <SPL_Sim.pdf, id=2273, 569.12625pt x 328.22626pt>
 File: SPL_Sim.pdf Graphic file (type pdf)
  <use SPL_Sim.pdf>
-Package pdftex.def Info: SPL_Sim.pdf used on input line 770.
+Package pdftex.def Info: SPL_Sim.pdf used on input line 771.
 (pdftex.def)             Requested size: 245.83282pt x 141.77559pt.
  [36
 
- </Users/jab/Desktop/LimbCRs/report/proposal/slide/SPL_Sim.pdf, page is rotated 90 degrees>] <BPL_Sim.pdf, id=2378, 569.12625pt x 225.84375pt>
+ </Users/jab/Desktop/LimbCRs/report/proposal/slide/SPL_Sim.pdf, page is rotated 90 degrees>] <BPL_Sim.pdf, id=2375, 569.12625pt x 225.84375pt>
 File: BPL_Sim.pdf Graphic file (type pdf)
  <use BPL_Sim.pdf>
-Package pdftex.def Info: BPL_Sim.pdf used on input line 786.
+Package pdftex.def Info: BPL_Sim.pdf used on input line 787.
 (pdftex.def)             Requested size: 307.28987pt x 121.9469pt.
 
-Overfull \hbox (7.29921pt too wide) in paragraph at lines 786--786
+Overfull \hbox (7.29921pt too wide) in paragraph at lines 787--787
  [] 
  []
 
 [37
 
- </Users/jab/Desktop/LimbCRs/report/proposal/slide/BPL_Sim.pdf, page is rotated 90 degrees>] <cntmap.png, id=2481, 800.9925pt x 577.15625pt>
+ </Users/jab/Desktop/LimbCRs/report/proposal/slide/BPL_Sim.pdf, page is rotated 90 degrees>] <cntmap.png, id=2478, 800.9925pt x 577.15625pt>
 File: cntmap.png Graphic file (type png)
  <use cntmap.png>
-Package pdftex.def Info: cntmap.png used on input line 807.
+Package pdftex.def Info: cntmap.png used on input line 808.
 (pdftex.def)             Requested size: 276.559pt x 199.27763pt.
 
-Overfull \vbox (1.16759pt too high) detected at line 807
+Overfull \vbox (1.16759pt too high) detected at line 808
  []
 
 [38
 
- </Users/jab/Desktop/LimbCRs/report/proposal/slide/cntmap.png>] <expmap.png, id=2539, 800.9925pt x 577.15625pt>
+ </Users/jab/Desktop/LimbCRs/report/proposal/slide/cntmap.png>] <expmap.png, id=2536, 800.9925pt x 577.15625pt>
 File: expmap.png Graphic file (type png)
  <use expmap.png>
-Package pdftex.def Info: expmap.png used on input line 824.
+Package pdftex.def Info: expmap.png used on input line 825.
 (pdftex.def)             Requested size: 276.559pt x 199.27763pt.
 
-Overfull \vbox (1.16759pt too high) detected at line 824
+Overfull \vbox (1.16759pt too high) detected at line 825
  []
 
 [39
 
- </Users/jab/Desktop/LimbCRs/report/proposal/slide/expmap.png>] <flxmap.png, id=2597, 800.9925pt x 577.15625pt>
+ </Users/jab/Desktop/LimbCRs/report/proposal/slide/expmap.png>] <flxmap.png, id=2594, 800.9925pt x 577.15625pt>
 File: flxmap.png Graphic file (type png)
  <use flxmap.png>
-Package pdftex.def Info: flxmap.png used on input line 840.
+Package pdftex.def Info: flxmap.png used on input line 841.
 (pdftex.def)             Requested size: 276.559pt x 199.27763pt.
 
-Overfull \vbox (1.16759pt too high) detected at line 840
+Overfull \vbox (1.16759pt too high) detected at line 841
  []
 
 [40
@@ -1165,13 +1148,13 @@ Overfull \vbox (1.16759pt too high) detected at line 840
 \tf@snm=\write8
 \openout8 = `slide_progress.snm'.
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 846.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 846.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 847.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 847.
  (/Users/jab/Desktop/LimbCRs/report/proposal/slide/slide_progress.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 846.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 846.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 847.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 847.
 Package rerunfilecheck Info: File `slide_progress.out' has not changed.
-(rerunfilecheck)             Checksum: 35D3F67AFE816031A0FEA9571E2359D3;996.
+(rerunfilecheck)             Checksum: E03038C8A652685E4C2E7EA0850FE309;912.
 
 
 LaTeX Font Warning: Size substitutions with differences
@@ -1179,18 +1162,18 @@ LaTeX Font Warning: Size substitutions with differences
 
  ) 
 Here is how much of TeX's memory you used:
- 22941 strings out of 492995
- 457967 string characters out of 6132703
- 547986 words of memory out of 5000000
- 25860 multiletter control sequences out of 15000+600000
+ 22967 strings out of 492995
+ 458855 string characters out of 6132703
+ 547905 words of memory out of 5000000
+ 25887 multiletter control sequences out of 15000+600000
  20320 words of font info for 74 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  56i,20n,62p,829b,814s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmex8.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmss10.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmss12.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmss17.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmss8.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmssbx10.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmssi10.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmssi12.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmssi8.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb>
-Output written on /Users/jab/Desktop/LimbCRs/report/proposal/slide/slide_progress.pdf (40 pages, 2183819 bytes).
+Output written on /Users/jab/Desktop/LimbCRs/report/proposal/slide/slide_progress.pdf (40 pages, 2183615 bytes).
 PDF statistics:
- 2741 PDF objects out of 2984 (max. 8388607)
- 2522 compressed objects within 26 object streams
- 108 named destinations out of 1000 (max. 500000)
- 337 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 2738 PDF objects out of 2984 (max. 8388607)
+ 2518 compressed objects within 26 object streams
+ 107 named destinations out of 1000 (max. 500000)
+ 335 words of extra memory for PDF output out of 10000 (max. 10000000)
 

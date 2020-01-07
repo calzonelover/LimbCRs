@@ -164,6 +164,15 @@ In 2015, the AMS collaboration claims that there is a broken in cosmic ray proto
 \end{figure}
 \end{frame}
 
+%------     Production schematics --------------
+\begin{frame}
+\frametitle{Schematics of limb $\gamma$-ray production}
+\centering
+\begin{figure}[h!]
+\includegraphics[width = 0.8\textwidth]{lat_production_schematic}
+\end{figure}
+\end{frame}
+
 %------------------------------------------------
 %      2 ) Objectives
 %------------------------------------------------
@@ -179,16 +188,6 @@ In 2015, the AMS collaboration claims that there is a broken in cosmic ray proto
   \item Some intruments claim that cosmic ray proton spectrum has discontinuity around 200-350 GV
   , then if our result agree with other intruments. Space \textcolor{blue}{might have another acceleration mechanism that people did not know very well.}
 \end{itemize}
-\end{frame}
-
-%------     Production schematics --------------
-\subsection{Schematics of limb $\gamma$-ray production}
-\begin{frame}
-\frametitle{Schematics of limb $\gamma$-ray production}
-\centering
-\begin{figure}[h!]
-\includegraphics[width = 0.8\textwidth]{lat_production_schematic}
-\end{figure}
 \end{frame}
 
 
@@ -210,9 +209,9 @@ In 2015, the AMS collaboration claims that there is a broken in cosmic ray proto
 
   \column{0.5\textwidth}
   \begin{itemize}
-  \item 18 layers of silicon strip tracker on a horizontal planes
-  \item Each calorimeter (CAL) contains CsI(Tl) cristal scintillator
-  \item Anti coincidence detector frontend device
+  \item 18 layers of silicon strip tracker on a horizontal plane
+  \item Each calorimeter (CAL) contains CsI(Tl) crystal scintillator
+  \item Anti coincidence detector (ACD) frontend device
   \item Data acquisition (DAQ) module to digitize a signal
   \end{itemize}
 \end{columns}
@@ -231,8 +230,8 @@ In 2015, the AMS collaboration claims that there is a broken in cosmic ray proto
   
     \column{0.5\textwidth}
     \begin{itemize}
-    \item Incident photon hit conversion foils and produce a pair of leptons
-    \item Lepton pair be detected by scintillator crystal
+    \item An incident photon hits the conversion foil and produce a pair of leptons
+    \item Leptons pair be detected by scintillator crystals
     \item Process a track and deposit energy in CAL to reconstruction an event
     \end{itemize}
   \end{columns}
@@ -266,12 +265,14 @@ In 2015, the AMS collaboration claims that there is a broken in cosmic ray proto
 \begin{enumerate}
   \item Make 2D histogram as much as energy bin that we want
   \item Select photon data and fill in the 2D histogram
-  \item Calculate exposure maps which incldue effective area
-  and time that LAT view can looking at Earth's limb
-  \\ \textbf{Flux} = $\frac{dF}{dE} = \frac{\int_{\text{Limb region}(\text{Count map}/\text{Exposure map})}}{\Delta\Omega\Delta E }$
-  \item Divide every single grid of couple histogram (count map and exposure map)
-  \item Sum over limb region of this map then divided by solidangle and energy bin width
-  \item Now we got $\gamma$-ray flux
+  \begin{itemize}
+    \item Treat photon energy bias 3.7\% that be affected the energy range above 10 GeV
+    \item Adjust $\theta_\text{N}$ due to LAT altitude shift
+  \end{itemize}
+  \item Calculate exposure maps which include effective area
+  and time that LAT field of view saw
+  \item Element-wise divide count map with exposure map
+  \item \textbf{Flux} $\equiv \frac{\int_{\text{Limb region}(\text{Count map}/\text{Exposure map})}}{\Delta\Omega\Delta E }$
 \end{enumerate}
 \end{frame}
 
@@ -306,7 +307,7 @@ In 2015, the AMS collaboration claims that there is a broken in cosmic ray proto
     \end{figure}
 \end{frame}
 \begin{frame}\frametitle{Coordinate Transformations (SP-EQ)}
-  Write the unit vector of orbiting spacecraft on a basis of equatorial coordinate
+  Write a unit vector of orbiting spacecraft on the basis of equatorial coordinate
   \begin{equation}
     \begin{split}
     \hat{x}_\text{sp} &= \cos\delta_\text{sp}\cos\alpha_\text{sp}\hat{x}_\text{eq} + \cos\delta_\text{sp}\sin\alpha_\text{sp}\hat{y}_\text{eq} + \sin\delta_\text{sp}\hat{z}_\text{eq}\\
@@ -341,11 +342,11 @@ Then applying the following relation to get transformation matrix
   \begin{figure}[h!]
     \centering
     \includegraphics[width=0.5\textwidth]{img/fig_coordinate/coord_eq_p.pdf}
-    \caption{Coordinate transform between LAT-plane boresight and spacecraft}
+    \caption{Coordinate transform between spacecraft and nadir angle}
   \end{figure}
 \end{frame}
 \begin{frame}\frametitle{Coordinate transformations (nadir angle)}
-  Let consider each grid in nadir's solid angle map
+  Consider each grid in nadir's solid angle map on basis of spacecraft
   \begin{equation}
     \hat{r}^\text{o}_\text{sp} (\theta_\text{N}, \phi_\text{N}) \equiv -\cos\theta_\text{N}\hat{x}_\text{sp} + \sin\theta_\text{N}\cos\phi_\text{N}\hat{z}_\text{sp} + \sin\theta_\text{N}\sin\phi_\text{N}\hat{y}_\text{sp}
     \label{eq:def_r0}
@@ -532,7 +533,7 @@ spectrum from measurement.
         \node [opacity=0.2] (0,0) {\rotatebox{45}{\scalebox{2.5}{\textcolor{red}{preliminary}}}};
         \end{tikzpicture}
     \end{minipage}
-    \caption{An example distribution of $\gamma$-ray from a single week}
+    \caption{Example distributions of $\gamma$-ray from a single week}
     \label{fig:exphotondist}
 \end{figure}
 \end{frame}
@@ -642,7 +643,7 @@ spectrum from measurement.
 \begin{frame}
 \frametitle{Outlook}
 \begin{itemize}
-\item Determine the significant level of energy breaking in cosmic ray proton
+\item Find a breaking point of cosmic ray proton spectrum and determine level of confidence
 \item Put weight on the previous study that the brightenss of $\gamma$-ray from Earth's high atmosphere could be use to perform an indirect measurement
 \end{itemize}
 \end{frame}

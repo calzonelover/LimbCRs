@@ -1,14 +1,14 @@
 # Fdb version 3
-["bibtex proposal"] 1578229282 "proposal.aux" "proposal.bbl" "proposal" 1578229555
+["bibtex proposal"] 1578242349 "proposal.aux" "proposal.bbl" "proposal" 1578244896
   "./apsrev.bst" 1578203891 44155 dc7233506a001aedcd59cfd90f9fe8d7 ""
   "Bibliography.bib" 1578203891 31919 51b11932f819a49d6ea4d4f7e1430992 ""
-  "proposal.aux" 1578229554 6413 f8aa852a98bbd2ef768a447697e40ddb ""
+  "proposal.aux" 1578244896 6405 feb8d153ed36f8612fd5d1279f04c068 ""
   (generated)
   "proposal.blg"
   "proposal.bbl"
-["pdflatex"] 1578229550 "/Users/jab/Desktop/LimbCRs/report/proposal/paper/proposal.tex" "/Users/jab/Desktop/LimbCRs/report/proposal/paper/proposal.pdf" "proposal" 1578229555
-  "/Users/jab/Desktop/LimbCRs/report/proposal/paper/proposal.aux" 1578229554 6413 f8aa852a98bbd2ef768a447697e40ddb ""
-  "/Users/jab/Desktop/LimbCRs/report/proposal/paper/proposal.tex" 1578229279 2807 4e7721f5ac5250dd9b21e8e688aee017 ""
+["pdflatex"] 1578244892 "/Users/jab/Desktop/LimbCRs/report/proposal/paper/proposal.tex" "/Users/jab/Desktop/LimbCRs/report/proposal/paper/proposal.pdf" "proposal" 1578244896
+  "/Users/jab/Desktop/LimbCRs/report/proposal/paper/proposal.aux" 1578244896 6405 feb8d153ed36f8612fd5d1279f04c068 ""
+  "/Users/jab/Desktop/LimbCRs/report/proposal/paper/proposal.tex" 1578242713 2821 922e88ef3300841cce364d0abeb64d9d ""
   "/usr/local/texlive/2017/texmf-dist/fonts/map/fontname/texfonts.map" 1480098670 3287 e6b82fe08f5336d4d5ebc73fb1152e87 ""
   "/usr/local/texlive/2017/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmbsy6.tfm" 1480098698 1124 14ccf5552bc7f77ca02a8a402bea8bfb ""
   "/usr/local/texlive/2017/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmbsy7.tfm" 1480098698 1120 7f9f170e8aa57527ad6c49feafd45d54 ""
@@ -167,9 +167,9 @@
   "/usr/local/texlive/2017/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1495593472 2350277 a699055bee05bf8a40b0504752487295 ""
   "/usr/local/texlive/2017/texmf-var/web2c/pdftex/pdflatex.fmt" 1514341937 4129593 d5f3dd8f08b14f248a6777dc66593b9f ""
   "/usr/local/texlive/2017/texmf.cnf" 1495593465 577 2b71d4d888f9e5560b2e99985915a9fa ""
-  "Chapters/BackgroundKnowledge.tex" 1578220744 4523 6c7999a1fe26e1dea180519334ed1d4d ""
-  "Chapters/Introduction.tex" 1578211518 1162 45cb69b301553c7559f24ce3d953f706 ""
-  "Chapters/Methodology.tex" 1578204412 17518 82bcefac983b280e0cf88f12f0a77796 ""
+  "Chapters/BackgroundKnowledge.tex" 1578244891 4482 4359dfd72550af783e2ef490422e207d ""
+  "Chapters/Introduction.tex" 1578244360 1181 706ce4044e2d215e920d6527ebe7c629 ""
+  "Chapters/Methodology.tex" 1578244151 17515 80d89463419df54762ee3a5b7cecf3f9 ""
   "Chapters/PreliminaryResults.tex" 1578229549 2089 acb49c893294342eb73b1ebf36a88c93 ""
   "Chapters/ResearchPlanning.tex" 1578229264 1373 f4e0588d8eed16745951b2bdefe5edb8 ""
   "img/LATMethodology.png" 1578203891 20930 bec43e64dd97d1ead5664ccdf46b7f7a ""
@@ -186,12 +186,12 @@
   "img/gamma_production_schematic.pdf" 1578203892 99952 b1898e4f821e68946679c6300e42035a ""
   "img/phi_nad_dist.png" 1578203892 19754 867711bfdfba24477e755c19f4924986 ""
   "img/polar_expmaps.png" 1578203892 58016 5f5add8d04eb410d849dc11e05cc0a79 ""
-  "proposal.aux" 1578229554 6413 f8aa852a98bbd2ef768a447697e40ddb ""
-  "proposal.bbl" 1578229282 10496 717edea6e681749920b6ff21d663540a "bibtex proposal"
-  "proposal.tex" 1578229279 2807 4e7721f5ac5250dd9b21e8e688aee017 ""
+  "proposal.aux" 1578244896 6405 feb8d153ed36f8612fd5d1279f04c068 ""
+  "proposal.bbl" 1578242349 10496 717edea6e681749920b6ff21d663540a "bibtex proposal"
+  "proposal.tex" 1578242713 2821 922e88ef3300841cce364d0abeb64d9d ""
   (generated)
-  "proposal.pdf"
-  "/Users/jab/Desktop/LimbCRs/report/proposal/paper/proposal.log"
   "proposal.log"
   "/Users/jab/Desktop/LimbCRs/report/proposal/paper/proposal.pdf"
   "proposal.aux"
+  "/Users/jab/Desktop/LimbCRs/report/proposal/paper/proposal.log"
+  "proposal.pdf"
