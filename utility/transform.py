@@ -9,7 +9,8 @@ def r2d(r):
 
 def get_T_eq_sp(de_sp, ra_sp):
     x_p = [math.cos(de_sp)*math.cos(ra_sp), math.cos(de_sp)*math.sin(ra_sp), math.sin(de_sp)]
-    z_p = [0.0, -math.sin(de_sp), math.cos(de_sp)]
+    # z_p = [0.0, -math.sin(de_sp), math.cos(de_sp)]
+    z_p = [-math.sin(de_sp)*math.cos(ra_sp), -math.sin(de_sp)*math.sin(ra_sp), math.cos(de_sp)]
     y_p = np.cross(z_p, x_p)
     return np.array([x_p, y_p, z_p])
 
