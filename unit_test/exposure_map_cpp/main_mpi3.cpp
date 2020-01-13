@@ -303,7 +303,7 @@ void get_T_eq_sp(float de_sp, float ra_sp, float *t_eq_sp){
     float *z_p = (float*)malloc(3*sizeof(float));
     x_p[0] = cos(de_sp)*cos(ra_sp); x_p[1] = cos(de_sp)*sin(ra_sp); x_p[2] = sin(de_sp);
     // z_p[0] = 0.0f; z_p[1] = -sin(de_sp); z_p[2] = cos(de_sp);
-    x_p[0] = -sin(de_sp)*cos(ra_sp); x_p[1] = -sin(de_sp)*sin(ra_sp); x_p[2] = cos(de_sp);
+    z_p[0] = -sin(de_sp)*cos(ra_sp); z_p[1] = -sin(de_sp)*sin(ra_sp); z_p[2] = cos(de_sp);
     crossProduct(z_p, x_p, y_p);
     for (unsigned int i=0; i<9; i++){
       if (i < 3) t_eq_sp[i] = x_p[i%3];

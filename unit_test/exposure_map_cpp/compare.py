@@ -26,11 +26,14 @@ path_old = os.path.join(
     os.getcwd(),
     'old_work',
     'ExpMap_P8R2_ULTRACLEANVETO_V6_w010-w399.root'
-) 
+)
 
 def main():
     # new
-    new_expmap_np = np.genfromtxt(os.path.join(path_new, settings.IRF_NAME,'expmap_E%d.csv'%E), dtype = float, delimiter = ',')[:,0].reshape(settings.N_BINS_PHI_NADIR, settings.N_BINS_THETA_NADIR)
+    new_expmap_np = np.genfromtxt(
+        os.path.join(path_new, settings.IRF_NAME,'expmap_E%d.csv'%E),
+        dtype = float, delimiter = ','
+    )[:,0].reshape(settings.N_BINS_PHI_NADIR, settings.N_BINS_THETA_NADIR)
     print(new_expmap_np.shape)
     new_expmap = rt.TH2F(
         'new_expmap','new_expmap',

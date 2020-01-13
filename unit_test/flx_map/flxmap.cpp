@@ -19,8 +19,7 @@
 #include "flxmap.h"
 
 int main(int argc, char** argv){
-    
-    auto histogram = new Histogram(false);
+    auto histogram = new Histogram(true);
     auto bla = histogram->get_energy_mid_bins();
     for (unsigned int i=0; i<50;i++) std::cout << Parser::parseDecimal(bla[i], 3) << std::endl;
 
@@ -33,6 +32,6 @@ int main(int argc, char** argv){
         }
     }
     histogram->computeFlux2();
-    histogram->save();   
+    histogram->save();
     return 0;
 }

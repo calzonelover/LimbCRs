@@ -29,6 +29,7 @@
 #include "flxmap.h"
 
 int main(int argc, char** argv){
+    /*
     // Histogram (cntmap and flxmap)
     TFile *read_file = new TFile("data/root/extracted_data.root","READ");
     auto histogram = new Histogram();
@@ -83,7 +84,8 @@ int main(int argc, char** argv){
     flx_hist->GetYaxis()->SetTitle("#gamma-Ray Flux #times E^{2.75} (E^{1.75}m^{-2}s^{-1}sr^{-1})");
     c2->SaveAs("flx_hist.png");
 
-    /*
+    */
+
     // Expmaps
     auto expmaps = FileIO::readExposureMap();
     int p[4] = {0, 15, 30, 49};
@@ -97,7 +99,6 @@ int main(int argc, char** argv){
         "expmaps", "Exposure Maps",
         "cartesian_expmaps.png", "COLZ"
     );
-    */
-    read_file->Close();
+    // read_file->Close();
     return 0;
 }
