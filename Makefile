@@ -4,7 +4,7 @@ LIBDIR := utility/cpp
 # g++ unit_test/flx_map/readexpmap.cpp $(LIBDIR)/*.cpp -o program `root-config --cflags --glibs` -std=c++11
 # g++ unit_test/model/test.cpp $(LIBDIR)/*.cpp -o program `root-config --cflags --glibs` -std=c++11
 run:
-	g++ unit_test/flx_map/flxmap.cpp $(LIBDIR)/*.cpp -o program `root-config --cflags --glibs` -std=c++11
+	g++ unit_test/flx_map/readexpmap.cpp $(LIBDIR)/*.cpp -o program `root-config --cflags --glibs` -std=c++11
 	./program
 
 compile:
@@ -23,3 +23,5 @@ compile_and_sync: compile sync
 clean:
 	rm data/exposure_map/P8R2_SOURCE_V6/*
 	rm data/exposure_map/P8R2_ULTRACLEANVETO_V6/*
+	rm *.png
+	rm data/root/extracted_data.root

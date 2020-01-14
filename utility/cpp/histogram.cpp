@@ -126,13 +126,12 @@ int Histogram::findBin(float energy){
 
 void Histogram::fillPhoton(FT1 photon){
     auto bin_index = findBin(photon.energy_gev);
-    cnt_maps[bin_index]->Fill(photon.phi_earth, photon.nadir);
     if (
         photon.P8R2_ULTRACLEANVETO_V6 && photon.energy_gev > E_START_GEV && photon.energy_gev < E_STOP_GEV
-        && photon.shifted_nadir > THETA_E_NAD_MIN && photon.shifted_nadir < THETA_E_NAD_MAX
         && photon.theta_lat < THETA_LAT_CUTOFF
     ){
-        count_hist->Fill(photon.energy_gev);
+        cnt_maps[bin_index]->Fill(photon.phi_earth, photon.shifted_nadir);
+        // cnt_maps[bin_index]->Fill(photon.phi_earth, photon.nadir);
     }
 }
 
@@ -147,7 +146,13 @@ void Histogram::computeFlux1(){
 
         flx_maps[i_energy_bin]->Divide(exp_maps[i_energy_bin]);
         // count hist
-        count_hist->SetBinError(i_energy_bin+1, sqrt(count_hist->GetBinContent(i_energy_bin+1)));
+        auto n_photon_limb = Histogram::sumOverRegion(cnt_maps[i_energy_bin]);
+        auto n_photon_bg = Histogram::sumOverRegion(
+            cnt_maps[i_energy_bin],
+            THETA_NAD_BG_MIN, THETA_NAD_BG_MAX, PHI_NADIR_MIN, PHI_NADIR_MAX
+        );
+        count_hist->SetBinContent(i_energy_bin+1, n_photon_limb);
+        count_hist->SetBinError(i_energy_bin+1, sqrt(n_photon_limb));
         // For flux hist
         auto expSolidMap = (TH2F*) exp_maps[i_energy_bin]->Clone();
         expSolidMap->Multiply(solid_angle_map);
@@ -155,11 +160,11 @@ void Histogram::computeFlux1(){
         auto dE = energy_edge_bins[i_energy_bin+1] - energy_edge_bins[i_energy_bin];
         flux_hist->SetBinContent(
             i_energy_bin+1,
-            count_hist->GetBinContent(i_energy_bin+1)/(expSolidMap_val_i * dE)
+            (n_photon_limb - n_photon_bg)/(expSolidMap_val_i * dE)
         );
         flux_hist->SetBinError(
             i_energy_bin+1,
-            sqrt(count_hist->GetBinContent(i_energy_bin+1)) * (flux_hist->GetBinContent(i_energy_bin+1)/count_hist->GetBinContent(i_energy_bin+1))
+            count_hist->GetBinError(i_energy_bin+1) * (flux_hist->GetBinContent(i_energy_bin+1)/count_hist->GetBinContent(i_energy_bin+1))
         );
     }
 }
@@ -175,18 +180,25 @@ void Histogram::computeFlux2(){
 
         flx_maps[i_energy_bin]->Divide(exp_maps[i_energy_bin]);
         // count hist
-        count_hist->SetBinError(i_energy_bin+1, sqrt(count_hist->GetBinContent(i_energy_bin+1)));
+        auto n_photon_limb = Histogram::sumOverRegion(cnt_maps[i_energy_bin]);
+        auto n_photon_bg = Histogram::sumOverRegion(
+            cnt_maps[i_energy_bin],
+            THETA_NAD_BG_MIN, THETA_NAD_BG_MAX, PHI_NADIR_MIN, PHI_NADIR_MAX
+        );
+        auto frac_photon_limb = n_photon_limb / (n_photon_limb + n_photon_bg);
+        count_hist->SetBinContent(i_energy_bin+1, n_photon_limb);
+        count_hist->SetBinError(i_energy_bin+1, sqrt(n_photon_limb));
         // For flux hist
         auto flxmap_val_i = Histogram::sumOverRegion(flx_maps[i_energy_bin]);
         auto solid_angle = Transform::getSolidAngle();
         auto dE = energy_edge_bins[i_energy_bin+1] - energy_edge_bins[i_energy_bin];
         flux_hist->SetBinContent(
             i_energy_bin+1,
-            flxmap_val_i/(solid_angle * dE)
+            (flxmap_val_i * frac_photon_limb)/(solid_angle * dE)
         );
         flux_hist->SetBinError(
             i_energy_bin+1,
-            sqrt(count_hist->GetBinContent(i_energy_bin+1)) * (flux_hist->GetBinContent(i_energy_bin+1)/count_hist->GetBinContent(i_energy_bin+1))
+            count_hist->GetBinError(i_energy_bin+1) * (flux_hist->GetBinContent(i_energy_bin+1)/count_hist->GetBinContent(i_energy_bin+1))
         );
     }
 }

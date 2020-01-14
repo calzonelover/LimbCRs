@@ -14,6 +14,7 @@
 #include "TStyle.h"
 #include "TMath.h"
 #include "TF1.h"
+#include "TH1D.h"
 #include "TH1F.h"
 #include "TH2F.h"
 #include "TFile.h"
@@ -29,7 +30,6 @@
 #include "flxmap.h"
 
 int main(int argc, char** argv){
-    /*
     // Histogram (cntmap and flxmap)
     TFile *read_file = new TFile("data/root/extracted_data.root","READ");
     auto histogram = new Histogram();
@@ -55,6 +55,38 @@ int main(int argc, char** argv){
     cnt_hist->GetXaxis()->SetTitle("Energy (GeV)");
     cnt_hist->GetYaxis()->SetTitle("N");
     c1->SaveAs("count_hist.png");
+    // Count
+    auto cntmaps = histogram->get_cnt_maps();
+    int p[4] = {0, 15, 30, 49};
+    // Visualize::plotMapQuadrant(
+    //     cntmaps, p,
+    //     "cntmaps", "Count Maps",
+    //     "polar_cntmaps.png", "SURF2POLZ"
+    // );
+    // Visualize::plotMapQuadrant(
+    //     cntmaps, p,
+    //     "cntmaps", "Count Maps",
+    //     "cartesian_cntmaps.png", "COLZ"
+    // );
+    // proj
+    for (auto i : p){
+        std::cout << "proj Cntmap at index " << i << std::endl;
+        auto cntmap = (TH2F*)cnt_maps[i]->Clone();
+        TH1D* cnt_proj = cntmap->ProjectionX();
+    }
+
+    // flux
+    auto flxmaps = histogram->get_flx_maps();
+    Visualize::plotMapQuadrant(
+        flxmaps, p,
+        "flxmaps", "Flux Maps",
+        "polar_flxmaps.png", "SURF2POLZ"
+    );
+    Visualize::plotMapQuadrant(
+        flxmaps, p,
+        "flxmaps", "Flux Maps",
+        "cartesian_flxmaps.png", "COLZ"
+    );    
 
     TF1 *spl = new TF1("SinglePowerLaw", Formula::spl, 10, 1000, 2);
     spl->SetParameter(0, 5.0);
@@ -83,9 +115,9 @@ int main(int argc, char** argv){
     flx_hist->GetXaxis()->SetTitle("E (GeV)");
     flx_hist->GetYaxis()->SetTitle("#gamma-Ray Flux #times E^{2.75} (E^{1.75}m^{-2}s^{-1}sr^{-1})");
     c2->SaveAs("flx_hist.png");
-
-    */
-
+    read_file->Close();
+    
+    /*
     // Expmaps
     auto expmaps = FileIO::readExposureMap();
     int p[4] = {0, 15, 30, 49};
@@ -99,6 +131,6 @@ int main(int argc, char** argv){
         "expmaps", "Exposure Maps",
         "cartesian_expmaps.png", "COLZ"
     );
-    // read_file->Close();
+    */
     return 0;
 }
