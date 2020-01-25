@@ -51,3 +51,14 @@ void Model::computeGammaSpectrum(
     std::cout << script << std::endl;
     system(script);
 }
+
+std::string Model::generateRandomString(int length)
+{
+  const char* charmap = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+  const size_t charmapLength = strlen(charmap);
+  auto generator = [&](){ return charmap[rand()%charmapLength]; };
+  string result;
+  result.reserve(length);
+  generate_n(back_inserter(result), length, generator);
+  return result;
+}
