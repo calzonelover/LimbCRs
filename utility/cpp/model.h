@@ -4,14 +4,16 @@
 #include "./datatype.h"
 
 class Model {
+    private:
+        std::string ticket_key;
+        std::string generateRandomString(size_t length);
     public:
-        void init(SpectrumModel spectrum_model);
-        static void computeGammaSpectrum(
-            SpectrumModel spectrum_model,
+        Model(SpectrumModel spectrum_model);
+        ~Model();
+        void computeGammaSpectrum(
             float norm, float gamma1,
             float gamma2, float energy_break
         );
-        static std::string generate(int length);
 };
 
 #endif

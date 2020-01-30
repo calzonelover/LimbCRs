@@ -11,7 +11,8 @@
 #include "./model.h"
 #include "./io.h"
 
-void Model::init(SpectrumModel spectrum_model){
+Model::Model(SpectrumModel spectrum_model){
+    ticket_key = generateRandomString(6);    
     std::string model_name;
     if (spectrum_model == SPL){
         model_name = "SPLwHe";
@@ -22,28 +23,24 @@ void Model::init(SpectrumModel spectrum_model){
         exit(0); 
     }
     char script[100];
-    sprintf(script, "gfortran model/%s.f ./model/frag.f -o model/%s.out", model_name.c_str(), model_name.c_str());
+    sprintf(script, "gfortran model/%s.f ./model/frag.f -o model/%s.out", model_name.c_str(), ticket_key.c_str());
+    system(script);
+}
+
+Model::~Model(){
+    char script[100];
+    sprintf(script, "rm model/%s.out", ticket_key.c_str());
     system(script);
 }
 
 void Model::computeGammaSpectrum(
-        SpectrumModel spectrum_model,
         float norm, float gamma1,
         float gamma2, float energy_break
     ){
-    std::string model_name;
-    if (spectrum_model == SPL){
-        model_name = "SPLwHe";
-    } else if (spectrum_model == BPL){
-        model_name = "BPLwHe";
-    } else {
-        std::cout << "About to call function" << std::endl;
-        exit(0); 
-    }
     char script[100];
     sprintf(
         script, "./model/%s.out %s.csv %f %f %f %f",
-        model_name.c_str(), "bla",
+        ticket_key.c_str(), "bla",
         norm,
         gamma1, gamma2,
         energy_break
@@ -52,12 +49,11 @@ void Model::computeGammaSpectrum(
     system(script);
 }
 
-std::string Model::generateRandomString(int length)
-{
-  const char* charmap = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+std::string Model::generateRandomString(size_t length){
+  const char* charmap = "ascdefghijklmnopqrstupwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ012345678";
   const size_t charmapLength = strlen(charmap);
   auto generator = [&](){ return charmap[rand()%charmapLength]; };
-  string result;
+  std::string result;
   result.reserve(length);
   generate_n(back_inserter(result), length, generator);
   return result;

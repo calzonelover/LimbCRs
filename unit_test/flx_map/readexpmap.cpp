@@ -34,16 +34,6 @@ int main(int argc, char** argv){
     TFile *read_file = new TFile("data/root/extracted_data.root","READ");
     auto histogram = new Histogram();
     histogram->load(read_file);
-    // for (unsigned int week=WEEK_BEGIN; week <= WEEK_END; week++){
-    //     std::vector<FT1> ft1_rows = FileIO::readPhotonCSV(week);
-    //     std::cout << "# of week: " << week << " FT1 = " << ft1_rows.size() << std::endl;
-    //     for (auto ft1_row : ft1_rows){
-    //         histogram->fillPhoton(ft1_row);
-    //         // std::cout << ft1_row.P8R2_SOURCE_V6 << ", " << ft1_row.P8R2_ULTRACLEANVETO_V6 << ", " << ft1_row.energy_gev << std::endl;
-    //     }
-    // }
-    // histogram->computeFlux2();
-    // histogram->save();   
 
     auto cnt_hist = histogram->get_cnt_hist();
     auto c1 = new TCanvas("cnthist", "Count", 900, 700);
@@ -58,22 +48,16 @@ int main(int argc, char** argv){
     // Count
     auto cntmaps = histogram->get_cnt_maps();
     int p[4] = {0, 15, 30, 49};
-    // Visualize::plotMapQuadrant(
-    //     cntmaps, p,
-    //     "cntmaps", "Count Maps",
-    //     "polar_cntmaps.png", "SURF2POLZ"
-    // );
-    // Visualize::plotMapQuadrant(
-    //     cntmaps, p,
-    //     "cntmaps", "Count Maps",
-    //     "cartesian_cntmaps.png", "COLZ"
-    // );
-    // proj
-    for (auto i : p){
-        std::cout << "proj Cntmap at index " << i << std::endl;
-        auto cntmap = (TH2F*)cnt_maps[i]->Clone();
-        TH1D* cnt_proj = cntmap->ProjectionX();
-    }
+    Visualize::plotMapQuadrant(
+        cntmaps, p,
+        "cntmaps", "Count Maps",
+        "polar_cntmaps.png", "SURF2POLZ"
+    );
+    Visualize::plotMapQuadrant(
+        cntmaps, p,
+        "cntmaps", "Count Maps",
+        "cartesian_cntmaps.png", "COLZ"
+    );
 
     // flux
     auto flxmaps = histogram->get_flx_maps();
@@ -117,10 +101,9 @@ int main(int argc, char** argv){
     c2->SaveAs("flx_hist.png");
     read_file->Close();
     
-    /*
     // Expmaps
     auto expmaps = FileIO::readExposureMap();
-    int p[4] = {0, 15, 30, 49};
+    // int p[4] = {0, 15, 30, 49};
     Visualize::plotMapQuadrant(
         expmaps, p,
         "expmaps", "Exposure Maps",
@@ -131,6 +114,5 @@ int main(int argc, char** argv){
         "expmaps", "Exposure Maps",
         "cartesian_expmaps.png", "COLZ"
     );
-    */
     return 0;
 }
