@@ -26,9 +26,13 @@ int main(int argc, char** argv){
     for (unsigned int week=WEEK_BEGIN; week <= WEEK_END; week++){
         std::vector<FT1> ft1_rows = FileIO::readPhotonCSV(week);
         std::cout << "# of week: " << week << " FT1 = " << ft1_rows.size() << std::endl;
-        for (auto ft1_row : ft1_rows){
-            histogram->fillPhoton(ft1_row);
-            // std::cout << ft1_row.P8R2_SOURCE_V6 << ", " << ft1_row.P8R2_ULTRACLEANVETO_V6 << ", " << ft1_row.energy_gev << std::endl;
+        for (auto photon : ft1_rows){
+            if (
+                photon.P8R2_ULTRACLEANVETO_V6 && photon.energy_gev > E_START_GEV && photon.energy_gev < E_STOP_GEV
+                && photon.theta_lat <= THETA_LAT_CUTOFF
+            ){
+                histogram->fillPhoton(photon);
+            }
         }
     }
     histogram->computeFlux2();
