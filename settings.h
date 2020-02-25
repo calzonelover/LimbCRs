@@ -18,7 +18,7 @@
 #define IRF_NAME "P8R2_ULTRACLEANVETO_V6" // P8R2_SOURCE_V6 , P8R2_ULTRACLEANVETO_V6
 
 #define WEEK_BEGIN 10
-#define WEEK_END 399 // 399 old work, 540 new work
+#define WEEK_END 540 // 399 old work, 540 new work
 
 #define THETA_LAT_CUTOFF 70.0
 

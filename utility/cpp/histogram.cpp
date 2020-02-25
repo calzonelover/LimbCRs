@@ -116,19 +116,21 @@ float Histogram::sumOverRegion(TH2F *map, float phi_nad_min, float phi_nad_max, 
 }
 
 
-int Histogram::findBin(float energy, float *_energy_edge_bins){
+int Histogram::findBin(float energy, float *energy_edge_bins){
     int matched_bin_i;
     for (unsigned int i=0; i<N_E_BINS; i++){
-        if (energy > _energy_edge_bins[i] &&  energy < _energy_edge_bins[i+1]){
+        // std::cout << "i: " << i << ", [" << energy_edge_bins[i] << ", " << energy_edge_bins[i+1] << " ]" << std::endl;
+        if (energy > energy_edge_bins[i] &&  energy <= energy_edge_bins[i+1]){
             matched_bin_i = i;
             break;
         }
     }
+    // std::cout << "Energy i bin: " << matched_bin_i << ", Energy GeV: " << energy << std::endl;
     return matched_bin_i;
 }
 
 void Histogram::fillPhoton(FT1 photon){
-    auto bin_index = findBin(photon.energy_gev, energy_edge_bins);
+    auto bin_index = Histogram::findBin(photon.energy_gev, energy_edge_bins);
     cnt_maps[bin_index]->Fill(photon.phi_earth, photon.shifted_nadir);
     // cnt_maps[bin_index]->Fill(photon.phi_earth, photon.nadir);
 }

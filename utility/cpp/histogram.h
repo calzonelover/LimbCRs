@@ -23,7 +23,7 @@ class Histogram {
             float phi_nad_min = PHI_NADIR_MIN, float phi_nad_max = PHI_NADIR_MAX
         );
 
-        int findBin(float energy);
+        static int findBin(float energy, float *_energy_edge_bins);
         void fillPhoton(FT1 photon);
         void computeFlux1(); // WIP
         void computeFlux2(); // WIP
