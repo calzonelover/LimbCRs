@@ -20,8 +20,8 @@ float Transform::radToDeg(float angle_rad){
 }
 
 float Transform::getSolidAngle(
-        float theta_nad_min, float theta_nad_max,
-        float phi_nad_min, float phi_nad_max
+        float phi_nad_min, float phi_nad_max,
+        float theta_nad_min, float theta_nad_max
     ){
     auto out = (cos(degToRad(theta_nad_min)) - cos(degToRad(theta_nad_max))) * degToRad(phi_nad_max - phi_nad_min);
     return out;

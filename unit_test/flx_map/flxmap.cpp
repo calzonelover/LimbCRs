@@ -29,7 +29,7 @@ int main(int argc, char** argv){
         for (auto photon : ft1_rows){
             if (
                 photon.P8R2_ULTRACLEANVETO_V6 && photon.energy_gev > E_START_GEV && photon.energy_gev < E_STOP_GEV
-                && photon.theta_lat <= THETA_LAT_CUTOFF
+                && photon.theta_lat < THETA_LAT_CUTOFF
             ){
                 histogram->fillPhoton(photon);
             }

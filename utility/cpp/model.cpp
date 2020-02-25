@@ -49,6 +49,10 @@ void Model::computeGammaSpectrum(
     system(script);
 }
 
+// std::vector<float> Model::readResult(){
+//     std::string _filename = "model/" + ticket_key + ".csv";
+// }
+
 std::string Model::generateRandomString(size_t length){
   const char* charmap = "ascdefghijklmnopqrstupwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ012345678";
   const size_t charmapLength = strlen(charmap);

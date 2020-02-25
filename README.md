@@ -1,5 +1,8 @@
 # Limb's CR
 
+- 540 #row of all FT2: 9012755
+- 
+
 ## Todo
 
 - Compare 2 methods flux calculation
@@ -9,7 +12,7 @@
 - ?? Shall we change fraction of p/He in rigidity to be a free parameter and compare to AMS-02 rather than using it
 - Recalculate flux
 - Connect the gfortran model with c++ kernel to fit experimental data
-- Finding the sigma from 
+- Finding the sigma from LRT 
 - Performing Monte Carlo Simulation
 
 ## Resources

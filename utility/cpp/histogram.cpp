@@ -63,9 +63,12 @@ void Histogram::assignSolidAngleMap(TH2F *map){
             auto theta_nadir_max = theta_nadir_min + d_theta;
             map->SetBinContent(
                 i, j,
+                // sin(Transform::degToRad(0.5f*(theta_nadir_min + theta_nadir_max)))
+                // * abs(Transform::degToRad(theta_nadir_max - theta_nadir_min))
+                // * abs(Transform::degToRad(phi_nadir_max - phi_nadir_min))
                 Transform::getSolidAngle(
-                    theta_nadir_min, theta_nadir_max,
-                    phi_nadir_min, phi_nadir_max
+                    phi_nadir_min, phi_nadir_max,
+                    theta_nadir_min, theta_nadir_max
                 )
             );
         }
@@ -93,15 +96,15 @@ void Histogram::init2DHistogram(std::vector<TH2F*> &_cnt_maps, std::vector<TH2F*
     }
 }
 
-float Histogram::sumOverRegion(TH2F *map, float theta_nad_min, float theta_nad_max, float phi_nad_min, float phi_nad_max){
+float Histogram::sumOverRegion(TH2F *map, float phi_nad_min, float phi_nad_max, float theta_nad_min, float theta_nad_max){
     auto d_phi = (PHI_NADIR_MAX - PHI_NADIR_MIN)/N_BINS_PHI_NADIR;
     auto d_theta = (THETA_NADIR_MAX - THETA_NADIR_MIN)/N_BINS_THETA_NADIR;
 
     auto sum = 0.0f;
     auto i_min = int(floor(phi_nad_min/d_phi));
-    auto i_max = (floor(phi_nad_max/d_phi) > phi_nad_max/d_phi) ? int(floor(phi_nad_max/d_phi)) + 1 : int(floor(phi_nad_max/d_phi));
+    auto i_max = (phi_nad_max/d_phi > floor(phi_nad_max/d_phi)) ? int(floor(phi_nad_max/d_phi)) + 1 : int(floor(phi_nad_max/d_phi));
     auto j_min = int(floor(theta_nad_min/d_theta));
-    auto j_max = (floor(theta_nad_max/d_theta) > theta_nad_max/d_theta) ? int(floor(theta_nad_max/d_theta)) + 1 : int(floor(theta_nad_max/d_theta));
+    auto j_max = (theta_nad_max/d_theta > floor(theta_nad_max/d_theta)) ? int(floor(theta_nad_max/d_theta)) + 1 : int(floor(theta_nad_max/d_theta));
 
     // sum = map->Integral(i_min, i_max, j_min, j_max);
     for (unsigned int i=i_min+1; i <= i_max; i++){
@@ -113,10 +116,10 @@ float Histogram::sumOverRegion(TH2F *map, float theta_nad_min, float theta_nad_m
 }
 
 
-int Histogram::findBin(float energy){
+int Histogram::findBin(float energy, float *_energy_edge_bins){
     int matched_bin_i;
     for (unsigned int i=0; i<N_E_BINS; i++){
-        if (energy > energy_edge_bins[i] &&  energy < energy_edge_bins[i+1]){
+        if (energy > _energy_edge_bins[i] &&  energy < _energy_edge_bins[i+1]){
             matched_bin_i = i;
             break;
         }
@@ -125,7 +128,7 @@ int Histogram::findBin(float energy){
 }
 
 void Histogram::fillPhoton(FT1 photon){
-    auto bin_index = findBin(photon.energy_gev);
+    auto bin_index = findBin(photon.energy_gev, energy_edge_bins);
     cnt_maps[bin_index]->Fill(photon.phi_earth, photon.shifted_nadir);
     // cnt_maps[bin_index]->Fill(photon.phi_earth, photon.nadir);
 }
@@ -133,21 +136,19 @@ void Histogram::fillPhoton(FT1 photon){
 void Histogram::computeFlux1(){
     for (unsigned int i_energy_bin=0; i_energy_bin<N_E_BINS; i_energy_bin++){
         flx_maps[i_energy_bin] = (TH2F*) cnt_maps[i_energy_bin]->Clone();
-        
         auto flxmap_name = "flxmap" + Parser::parseIntOrder(i_energy_bin);
         auto flxmap_title = "Flux map " + Parser::parseDecimal(energy_mid_bins[i_energy_bin], 2) + " GeV";
         flx_maps[i_energy_bin]->SetTitle(flxmap_title.c_str());
         flx_maps[i_energy_bin]->SetName(flxmap_name.c_str());
-
         flx_maps[i_energy_bin]->Divide(exp_maps[i_energy_bin]);
         // count hist
         auto n_photon_limb = Histogram::sumOverRegion(
             cnt_maps[i_energy_bin],
-            THETA_E_NAD_MIN, THETA_E_NAD_MAX, PHI_NADIR_MIN, PHI_NADIR_MAX    
+            PHI_NADIR_MIN, PHI_NADIR_MAX, THETA_E_NAD_MIN, THETA_E_NAD_MAX 
         );
         auto n_photon_bg = Histogram::sumOverRegion(
             cnt_maps[i_energy_bin],
-            THETA_NAD_BG_MIN, THETA_NAD_BG_MAX, PHI_NADIR_MIN, PHI_NADIR_MAX
+            PHI_NADIR_MIN, PHI_NADIR_MAX, THETA_NAD_BG_MIN, THETA_NAD_BG_MAX
         );
         count_hist->SetBinContent(i_energy_bin+1, n_photon_limb);
         count_hist->SetBinError(i_energy_bin+1, sqrt(n_photon_limb));
@@ -156,16 +157,16 @@ void Histogram::computeFlux1(){
         expSolidMap->Multiply(solid_angle_map);
         auto expSolidMap_val_i = Histogram::sumOverRegion(
             expSolidMap,
-            THETA_E_NAD_MIN, THETA_E_NAD_MAX, PHI_NADIR_MIN, PHI_NADIR_MAX
+            PHI_NADIR_MIN, PHI_NADIR_MAX, THETA_E_NAD_MIN, THETA_E_NAD_MAX
         );
         auto expSolidMap_bg_val_i = Histogram::sumOverRegion(
             expSolidMap,
-            THETA_NAD_BG_MIN, THETA_NAD_BG_MAX, PHI_NADIR_MIN, PHI_NADIR_MAX
+            PHI_NADIR_MIN, PHI_NADIR_MAX, THETA_NAD_BG_MIN, THETA_NAD_BG_MAX
         );        
         auto dE = energy_edge_bins[i_energy_bin+1] - energy_edge_bins[i_energy_bin];
         flux_hist->SetBinContent(
             i_energy_bin+1,
-            (n_photon_limb)/(expSolidMap_val_i * dE)
+            (n_photon_limb)/(expSolidMap_val_i * dE) - n_photon_bg/(expSolidMap_bg_val_i*dE)
         );
         flux_hist->SetBinError(
             i_energy_bin+1,
@@ -176,16 +177,20 @@ void Histogram::computeFlux1(){
 
 void Histogram::computeFlux2(){
     auto solid_angle_limb = Transform::getSolidAngle(
-        THETA_E_NAD_MIN, THETA_E_NAD_MAX,
-        PHI_NADIR_MIN, PHI_NADIR_MAX
+        PHI_NADIR_MIN, PHI_NADIR_MAX,
+        THETA_E_NAD_MIN, THETA_E_NAD_MAX
     );
+    auto solid_angle_limb2 = Histogram::sumOverRegion(
+        solid_angle_map,
+        PHI_NADIR_MIN, PHI_NADIR_MAX, THETA_E_NAD_MIN, THETA_E_NAD_MAX
+    );
+    std::cout << "Omega_1: " << solid_angle_limb << " , Omega_2: " << solid_angle_limb2 << std::endl;
     auto solid_angle_bg = Transform::getSolidAngle(
-        THETA_NAD_BG_MIN, THETA_NAD_BG_MAX,
-        PHI_NADIR_MIN, PHI_NADIR_MAX
+        PHI_NADIR_MIN, PHI_NADIR_MAX,
+        THETA_NAD_BG_MIN, THETA_NAD_BG_MAX
     );
     for (unsigned int i_energy_bin=0; i_energy_bin<N_E_BINS; i_energy_bin++){
         flx_maps[i_energy_bin] = (TH2F*) cnt_maps[i_energy_bin]->Clone();
-
         auto flxmap_name = "flxmap" + Parser::parseIntOrder(i_energy_bin);
         auto flxmap_title = "Flux map " + Parser::parseDecimal(energy_mid_bins[i_energy_bin], 2) + " GeV";
         flx_maps[i_energy_bin]->SetTitle(flxmap_title.c_str());
@@ -195,30 +200,24 @@ void Histogram::computeFlux2(){
         // count hist
         auto n_photon_limb = Histogram::sumOverRegion(
             cnt_maps[i_energy_bin],
-            THETA_E_NAD_MIN, THETA_E_NAD_MAX, PHI_NADIR_MIN, PHI_NADIR_MAX
+            PHI_NADIR_MIN, PHI_NADIR_MAX, THETA_E_NAD_MIN, THETA_E_NAD_MAX
         );
-        auto n_photon_bg = Histogram::sumOverRegion(
-            cnt_maps[i_energy_bin],
-            THETA_NAD_BG_MIN, THETA_NAD_BG_MAX, PHI_NADIR_MIN, PHI_NADIR_MAX
-        );
-        // std::cout << "n_limb: " << n_photon_limb << ", n_bg: " << n_photon_bg << ", frac: " << frac_photon_limb << std::endl;
         count_hist->SetBinContent(i_energy_bin+1, n_photon_limb);
         count_hist->SetBinError(i_energy_bin+1, sqrt(n_photon_limb));
         // For flux hist
         auto flxmap_val_i = Histogram::sumOverRegion(
             flx_maps[i_energy_bin],
-            THETA_E_NAD_MIN, THETA_E_NAD_MAX, PHI_NADIR_MIN, PHI_NADIR_MAX
+            PHI_NADIR_MIN, PHI_NADIR_MAX, THETA_E_NAD_MIN, THETA_E_NAD_MAX
         );
         auto flxmap_vai_bg_i = Histogram::sumOverRegion(
             flx_maps[i_energy_bin],
-            THETA_NAD_BG_MIN, THETA_NAD_BG_MAX, PHI_NADIR_MIN, PHI_NADIR_MAX
+            PHI_NADIR_MIN, PHI_NADIR_MAX, THETA_NAD_BG_MIN, THETA_NAD_BG_MAX
         );
         std::cout << "flx: " << flxmap_val_i << ", flx_bg: " << flxmap_vai_bg_i  * (solid_angle_limb/solid_angle_bg) << std::endl;
         auto dE = energy_edge_bins[i_energy_bin+1] - energy_edge_bins[i_energy_bin];
         flux_hist->SetBinContent(
             i_energy_bin+1,
-            flxmap_val_i/(solid_angle_limb * dE)
-            // flxmap_val_i/(solid_angle_limb * dE) - flxmap_vai_bg_i/(solid_angle_bg * dE)*(solid_angle_limb/solid_angle_bg)
+            flxmap_val_i/(solid_angle_limb * dE) - flxmap_vai_bg_i/(solid_angle_bg * dE)*(solid_angle_limb/solid_angle_bg)
         );
         flux_hist->SetBinError(
             i_energy_bin+1,

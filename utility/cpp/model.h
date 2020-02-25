@@ -14,6 +14,7 @@ class Model {
             float norm, float gamma1,
             float gamma2, float energy_break
         );
+        // std::vector<float> readResult();
 };
 
 #endif

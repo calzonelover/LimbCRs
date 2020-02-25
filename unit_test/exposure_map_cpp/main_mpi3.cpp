@@ -137,7 +137,7 @@ int main(int argc, char** argv){
                     theta_p = float(PI)/2.0f - atan(r_p[2]/rho);
                     phi_p = r_p[1] < 0.0f ? acos(r_p[0]/rho) : 2.0f*float(PI) - acos(r_p[0]/rho);
                     if (r2d(theta_p) < float(THETA_LAT_CUTOFF)){
-                        for (unsigned int i_energy=0; i_energy<N_E_BINS; i_energy++){
+                        for (unsigned int i_energy=0; i_energy < N_E_BINS; i_energy++){
                             expmaps[i_energy].exp_map[i_phi_nad + i_theta_nad * N_BINS_PHI_NADIR] += 
                                 double(ft2_row.LIVETIME * effs[i_energy].eff_m2[int(floor(r2d(theta_p)))]);
                         }
@@ -272,6 +272,7 @@ std::vector<FT2> getAllFT2fromCSV(){
         std::vector<FT2> _ft2_rows = readFT2CSV(file_ft2);
         ft2_rows.insert(ft2_rows.end(), _ft2_rows.begin(), _ft2_rows.end());
     }
+    std::cout << "Begin week: " << WEEK_BEGIN << ", end week: " << WEEK_END << std::endl;
     std::cout << "#row of all FT2: " << ft2_rows.size() << std::endl;
     return ft2_rows;
 }
