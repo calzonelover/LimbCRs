@@ -89,6 +89,21 @@ int main(int argc, char** argv){
             pow(get_energy_mid_bins[i], 2.75f)*flx_hist->GetBinError(i+1)
         );
     }
+    // error band
+    TH1F *err_band_flx_hist = (TH1F*) flx_hist->Clone();
+    float _sys_err;
+    for (unsigned int i=0; i<N_E_BINS; i++){
+        if (get_energy_mid_bins[i] < 100.0 ){
+            _sys_err = 0.05;
+        } else if (get_energy_mid_bins[i] >= 100.0 ){
+            _sys_err = 0.05 + 0.1 * (log10(1000*get_energy_mid_bins[i]) - 5.0);
+        }
+        err_band_flx_hist->SetBinError(
+            i+1,
+            _sys_err * flx_hist->GetBinContent(i+1) + flx_hist->GetBinError(i+1)
+        );
+    }
+
     auto c2 = new TCanvas("flxhist", "Gamma-ray Flux", 900, 700);
     c2->SetLogx();
     c2->SetLogy();
@@ -96,8 +111,15 @@ int main(int argc, char** argv){
     flx_hist->SetStats(0);
     flx_hist->SetTitle("#gamma-Ray Spectrum");
     flx_hist->Draw("E1");
+    flx_hist->SetMarkerStyle(20);
+    flx_hist->SetMarkerColor(2);
+    flx_hist->SetLineColor(2);
     flx_hist->GetXaxis()->SetTitle("E (GeV)");
     flx_hist->GetYaxis()->SetTitle("#gamma-Ray Flux #times E^{2.75} (E^{1.75}m^{-2}s^{-1}sr^{-1})");
+
+    err_band_flx_hist->SetFillColor(2);
+    err_band_flx_hist->SetFillColorAlpha(2,0.3);
+    err_band_flx_hist->Draw("E3same");  
     c2->SaveAs("flx_hist.png");
     read_file->Close();
     

@@ -1,12 +1,13 @@
 ! systematic condition
       implicit double precision (a-h,o-z)
       integer reac
+      double precision normall
       double precision Eg,lEg,dLEg,Ep,lEp,dlEp,y,dummy,norm,gamma,gamma1
       double precision gamma2,Ebreak,mp,powerlaw,powerlaw1,powerlaw2,CHe
       double precision gammaHe,deltagammaHe,sHe,factorHe,frac,sigmafrac
       double precision dNHdR,dNHedR,dNHedR1,dNHedR2,RH,RHe,RHe0
       double precision RHbreak,powerlaw3,dNHdR1,dNHdR2
-      double precision par(4), c_a, c_b, c_c, c_d
+      double precision par(5), c_a, c_b, c_c, c_d
       double precision divider, e2d, e1d, ln
       character(len=70) fn
       character(len=70) :: arg, out_file
@@ -25,10 +26,11 @@
             read(arg,*) par(i-1)
       endif 
       enddo
-      norm=par(1)
-      gamma1=par(2)
-      gamma2=par(3)
-      Ebreak=par(4)
+      normall=par(1)
+      norm=par(2)
+      gamma1=par(3)
+      gamma2=par(4)
+      Ebreak=par(5)
 ! my condition
       mp=0.938
       Nbinsg=50
@@ -100,7 +102,7 @@
          y=y+(Ep/Eg)*powerlaw*fff*dlEp*factorHe
         endif
        enddo
-       write(2,*) Eg,y
+       write(2,*) Eg,normall*y
       enddo
       close(2)
       end

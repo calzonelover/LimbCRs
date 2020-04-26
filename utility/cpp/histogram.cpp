@@ -13,10 +13,10 @@
 #include "TFile.h"
 
 #include "../../settings.h"
-#include "../../utility/cpp/datatype.h"
-#include "../../utility/cpp/io.h"
-#include "../../utility/cpp/parser.h"
-#include "../../utility/cpp/transform.h"
+#include "./datatype.h"
+#include "./io.h"
+#include "./parser.h"
+#include "./transform.h"
 
 #include "histogram.h"
 
@@ -205,6 +205,7 @@ void Histogram::computeFlux2(){
             PHI_NADIR_MIN, PHI_NADIR_MAX, THETA_E_NAD_MIN, THETA_E_NAD_MAX
         );
         count_hist->SetBinContent(i_energy_bin+1, n_photon_limb);
+        std::cout << "Count bin " << i_energy_bin+1 << " : " << n_photon_limb << std::endl;
         count_hist->SetBinError(i_energy_bin+1, sqrt(n_photon_limb));
         // For flux hist
         auto flxmap_val_i = Histogram::sumOverRegion(

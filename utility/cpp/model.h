@@ -3,6 +3,10 @@
 
 #include "./datatype.h"
 
+#include "TH1F.h"
+#include "TGraph.h"
+#include "TF1.h"
+
 class Model {
     private:
         std::string ticket_key;
@@ -10,11 +14,9 @@ class Model {
     public:
         Model(SpectrumModel spectrum_model);
         ~Model();
-        void computeGammaSpectrum(
-            float norm, float gamma1,
-            float gamma2, float energy_break
-        );
-        // std::vector<float> readResult();
+        void computeGammaSpectrum(std::vector<float> _params);
+        TGraph* readResult();
+        TGraph* readResult(float multiple_x_degree);
 };
 
 #endif

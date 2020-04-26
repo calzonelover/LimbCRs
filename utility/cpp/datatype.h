@@ -15,6 +15,11 @@ enum ParticleType {
     Helium
 };
 
+enum OptimizeAlg {
+    Simulated_annealing,
+    Particle_swarm 
+};
+
 typedef struct FT1 {
     bool P8R2_SOURCE_V6;
     bool P8R2_ULTRACLEANVETO_V6;
@@ -30,5 +35,10 @@ typedef struct FT1 {
     float time;
     float zenith;
 } FT1;
+
+typedef struct Flux {
+    float *energy_geb;
+    float *flux;
+} Flux;
 
 #endif
