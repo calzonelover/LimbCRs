@@ -13,11 +13,18 @@ The widely accepted explanation of why CR spectrum follows a power-law function 
 % law function in rigidity is the acceleration mechanisms in space was dominated in
 % Lorenzian interaction which has a characeteristic spectral index.
 
-\par The values of CR spectral indices vary for different ranges of energies, depending on the types of sources which can accelerate CRs to a certain energy range as shown in Figure \ref{fig:cr_famous_spectrum} \cite{Swordy2001}.
+\par The values of CR spectral indices vary for different ranges of energies, depending on the types of sources which can accelerate CRs to a certain energy range as shown in Figure \ref{fig:cr_overview_spectrum} and Figure \ref{fig:cr_famous_spectrum} \cite{Swordy2001}.
+
+\begin{figure}[h!]
+  \centering
+  \includegraphics[width=0.6\textwidth]{img/cr_feature_ref_university-review_ca}
+  \caption{characeteristic of CRs spectrum: Image taken from universe-review.ca}
+  \label{fig:cr_overview_spectrum}
+\end{figure}
 \begin{figure}[h!]
     \centering
     \includegraphics[width=0.6\textwidth]{img/Swordy}
-    \caption{Main features of cosmic rays spectrum: Image taken from \citet{Swordy2001}}
+    \caption{Observation of CRs spectrum: Image taken from \citet{Swordy2001}}
     \label{fig:cr_famous_spectrum}
 \end{figure}
 
@@ -33,7 +40,7 @@ It also attaches the Gamma-ray Burst Monitor (GBM) to study gamma-ray bursts. Fe
 
 
 \subsubsection*{Instrument}
-LAT consists of 16 layers of tracker (TKR) modules, 16 calorimeters (CAL) and a partition ACD. 
+LAT consists of 16 layers of tracker (TKR) modules, 16 calorimeters (CAL) and a partition Anti-Coincidence Detector (ACD). 
 
 \begin{figure}[h!]
   \centering
@@ -48,9 +55,8 @@ The initial lepton pair could be determined from the record of conversion point 
 \par Each CAL module contains 1536 CsI(Tl) crystal with a 96 crystal align in eight different orthogonal layers.
 Dual PIN photodiodes also attach in each crystal which provides a great resolution in energy.
 
-\par ACD tile contains wavelength shifting fiber by photomultiplier tubes (PMT) for redundancy. 
-The tiles also are piled up in one direction.
-
+\par ACD tile contains wavelength shifting fiber by photomultiplier tubes (PMT) for avoding majoirity of incoming charged particles
+to prevent a veto signal in calorimeters which cause an inefficient of the instrument. 
 
 \subsubsection*{Event reconstruction}
 The methodology of detection is to track a lepton pair product from an incident photon that collides with the conversion foil and lepton products be traced by the second inner layer of TKR.

@@ -11,19 +11,25 @@ Note that the reasons that we use ULTRACLEANVETO type of event reconstruction ar
 
 \subsection{Flux extraction}
 \begin{enumerate}
-    \item Reprocess photon data by taking into account
-        \begin{itemize}
-            \item Treat photon energy bias 3.7\% that be affected the energy range above 10 GeV
-            \item Adjust $\theta_\text{N}$ due to LAT altitude shift due to detection of $\theta_{\text{Limb}}$ was tilt relatively to altitude of the spacecraft when orbit around asymmetric spherical Earth 
-        \end{itemize}
-    \item Construct 2D histogram in Earth's angular coordinate ($\theta_{\text{ZENITH}}$ and $\phi_{\text{EARTH}}$)
-    \item Fill photon data in different energy range
-    \item Calculate exposure maps which include effctive area and time that LAT field of view can glimpse area of interest
-    \item Divide every single grid count map by exposure map
-    \item Sum over limb region of this map then divided by solidangle and energy bin width, then fill data in $\gamma$-ray energy spectrum as the formula 3.1
+    \item Make 2D histograms with 25 bins per decade of energy
+    \item Select photon data and fill in the 2D histograms
+    \item Calculate exposure maps which include the effective area and livetime of the LAT as it observed the Earth
     \begin{equation}
-        \text{Flux}\equiv\frac{dF}{dE} = \frac{\int_{\text{Limb region}} (\text{Count map}/\text{Exposure map})}{\Delta\Omega\Delta E}
+      \textbf{Flux} \equiv \frac{dN_\gamma}{dE} = \frac{\int_{\text{Limb region}}(\text{Count map}/\text{Exposure map})}{\Delta\Omega\Delta E }
     \end{equation}
+    % \item Reprocess photon data by taking into account
+    %     \begin{itemize}
+    %         \item Treat photon energy bias 3.7\% that be affected the energy range above 10 GeV
+    %         \item Adjust $\theta_\text{N}$ due to LAT altitude shift due to detection of $\theta_{\text{Limb}}$ was tilt relatively to altitude of the spacecraft when orbit around asymmetric spherical Earth 
+    %     \end{itemize}
+    % \item Construct 2D histogram in Earth's angular coordinate ($\theta_{\text{ZENITH}}$ and $\phi_{\text{EARTH}}$)
+    % \item Fill photon data in different energy range
+    % \item Calculate exposure maps which include effctive area and time that LAT field of view can glimpse area of interest
+    % \item Divide every single grid count map by exposure map
+    % \item Sum over limb region of this map then divided by solidangle and energy bin width, then fill data in $\gamma$-ray energy spectrum as the formula 3.1
+    % \begin{equation}
+    %     \text{Flux}\equiv\frac{dF}{dE} = \frac{\int_{\text{Limb region}} (\text{Count map}/\text{Exposure map})}{\Delta\Omega\Delta E}
+    % \end{equation}
     \item Taking consider background subtraction from a average uniform background photon distribution by treating bin by bin 
 \end{enumerate}
 
@@ -37,13 +43,13 @@ Note that the reasons that we use ULTRACLEANVETO type of event reconstruction ar
 \begin{figure}[h!]
     \centering
     \includegraphics[width=0.5\textwidth]{img/fig_coordinate/coord_eq_sp.pdf}
-    \caption{Coordinate transform between equatorial and spacecraft}
+    \caption{Coordinate transform between celestial and spacecraft}
 \end{figure}
 
 \begin{equation}
     \begin{split}
     \hat{x}_\text{sp} &= \cos\delta_\text{sp}\cos\alpha_\text{sp}\hat{x}_\text{eq} + \cos\delta_\text{sp}\sin\alpha_\text{sp}\hat{y}_\text{eq} + \sin\delta_\text{sp}\hat{z}_\text{eq}\\
-    \hat{z}_\text{sp} &= - \sin\delta_\text{sp}\hat{y}_\text{eq} + \cos\delta_\text{sp}\hat{z}_\text{eq} \\
+    \hat{z}_\text{sp} &= - \sin\delta_\text{sp}\cos\alpha_\text{sp}\hat{x}_\text{eq} - \sin\delta_\text{sp}\sin\alpha_\text{sp}\hat{y}_\text{eq} + \cos\delta_\text{sp}\hat{z}_\text{eq} \\
     \hat{y}_\text{sp} &= \hat{z}_\text{sp} \times \hat{x}_\text{sp}
     \end{split}
     \label{eq:tf_eq_sp}
@@ -145,7 +151,7 @@ In order to get scattering amplitude from proton-proton collision we treat a cro
 \par In 2015, the direct measurement of Helium specrtum has been done by using AMS-02 in \cite{AMS-02Helium}. Improvement of model precision was included by taking into account incident of Helium cosmic ray particle as a first order correction and please note that we ignore other heavier atom.
 
 \begin{equation}
-    \frac{dN_{\gamma}}{dE} \propto \sum_{E_{\text{inc,i}}}\left[\frac{E_{\text{inc,i}}}{E_{\gamma\text{,i}}}\Delta(E_{\text{inc,i}}) \right]\left[ f_{pp}\textcolor{red}{\frac{dN_\text{H}}{dE_{\text{inc,i}}}}\left\{ 1+\textcolor{olivegreen}{\frac{\sigma_{\text{HeN}}}{\sigma{pN}}}\left(\textcolor{red}{\frac{dN_{\text{H}}}{dR}}\right)^{-1} \textcolor{blue}{\frac{dN_{\text{He}}}{dR}} \frac{dR_{\text{He}}}{dR_{\text{H}}}  \right\}\right]
+    \frac{dN_{\gamma}}{dE_\gamma}(E_\gamma) \propto \sum_{E_{\text{inc,i}}}\left[\frac{E_{\text{inc,i}}}{E_{\gamma}}\Delta(E_{\text{inc,i}}) \right]\left[ f_{pp}\textcolor{red}{\frac{dN_\text{H}}{dE_{\text{inc}}}(E_{\text{inc,i}})}\left\{ 1+\textcolor{olivegreen}{\frac{\sigma_{\text{HeN}}}{\sigma{pN}}}\left(\textcolor{red}{\frac{dN_{\text{H}}}{dR}}\right)^{-1} \textcolor{blue}{\frac{dN_{\text{He}}}{dR}} \frac{dR_{\text{He}}}{dR_{\text{H}}}  \right\}\right]
 \end{equation}
 
 where

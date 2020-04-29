@@ -1,0 +1,49 @@
+This is BibTeX, Version 0.99d (TeX Live 2015/Debian)
+Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
+The top-level auxiliary file: JPCSLaTeXGuidelines.aux
+The style file: iopart-num.bst
+Database file #1: iopart-num.bib
+Reallocated wiz_functions (elt_size=4) to 6000 items from 3000.
+Warning--empty booktitle in HESS
+You've used 1 entry,
+            3012 wiz_defined-function locations,
+            606 strings with 4276 characters,
+and the built_in function-call counts, 472 in all, are:
+= -- 33
+> -- 4
+< -- 0
++ -- 2
+- -- 1
+* -- 26
+:= -- 49
+add.period$ -- 0
+call.type$ -- 1
+change.case$ -- 0
+chr.to.int$ -- 0
+cite$ -- 2
+duplicate$ -- 54
+empty$ -- 58
+format.name$ -- 1
+if$ -- 103
+int.to.chr$ -- 0
+int.to.str$ -- 1
+missing$ -- 10
+newline$ -- 13
+num.names$ -- 1
+pop$ -- 30
+preamble$ -- 1
+purify$ -- 0
+quote$ -- 0
+skip$ -- 10
+stack$ -- 0
+substring$ -- 36
+swap$ -- 14
+text.length$ -- 0
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 0
+warning$ -- 1
+while$ -- 3
+width$ -- 2
+write$ -- 16
+(There was 1 warning)
