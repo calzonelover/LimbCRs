@@ -1,0 +1,101 @@
+\providecommand{\newblock}{}
+\begin{thebibliography}{1}
+\expandafter\ifx\csname url\endcsname\relax
+  \def\url#1{{\tt #1}}\fi
+\expandafter\ifx\csname urlprefix\endcsname\relax\def\urlprefix{URL }\fi
+\providecommand{\eprint}[2][]{\url{#2}}
+% Bibliography created with iopart-num v2.0
+% /biblio/bibtex/contrib/iopart-num
+
+\bibitem{HESS}
+Hess V~F 1936  (The Nobel Foundation)
+
+\bibitem{Pacini}
+Pacini D 1912 {\em Il Nuovo Cimento\/} {\bf 3} 93
+  \urlprefix\url{https://doi.org/10.1007/BF02957440}
+
+\bibitem{Clay}
+Clay J 1927 {\em Proceedings of the Section of Sciences, Koninklijke Akademie
+  van Wetenschappen te Amsterdam\/} {\bf 30} 1115--1127
+
+\bibitem{Warit2009}
+Abdo A~A, Ackermann M, Ajello M, Atwood W~B, Baldini L, Ballet J, Barbiellini
+  G, Bastieri D, Baughman B~M, Bechtol K, Bellazzini R, Berenji B, Bloom E~D,
+  Bonamente E, Borgland A~W, Bouvier A, Bregeon J, Brez A, Brigida M, Bruel P,
+  Buehler R, Burnett T~H, Buson S, Caliandro G~A, Cameron R~A, Caraveo P~A,
+  Casandjian J~M, Cecchi C, \ifmmode~\mbox{\c{C}}\else \c{C}\fi{}elik O,
+  Charles E, Chekhtman A, Chiang J, Ciprini S, Claus R, Cohen-Tanugi J, Conrad
+  J, de~Palma F, Digel S~W, do~Couto~e Silva E, Drell P~S, Dubois R, Dumora D,
+  Farnier C, Favuzzi C, Fegan S~J, Focke W~B, Fortin P, Frailis M, Fukazawa Y,
+  Funk S, Fusco P, Gargano F, Gehrels N, Germani S, Giebels B, Giglietto N,
+  Giordano F, Glanzman T, Godfrey G, Grenier I~A, Grondin M~H, Grove J~E,
+  Guillemot L, Guiriec S, Hays E, Horan D, Hughes R~E, J\'ohannesson G, Johnson
+  A~S, Johnson T~J, Johnson W~N, Kamae T, Katagiri H, Kataoka J, Kawai N, Kerr
+  M, Kn\"odlseder J, Kuss M, Lande J, Latronico L, Lemoine-Goumard M, Longo F,
+  Loparco F, Lott B, Lovellette M~N, Lubrano P, Makeev A, Mazziotta M~N,
+  McEnery J~E, Meurer C, Michelson P~F, Mitthumsiri W, Mizuno T, Monte C,
+  Monzani M~E, Morselli A, Moskalenko I~V, Murgia S, Nolan P~L, Norris J~P,
+  Nuss E, Ohsugi T, Okumura A, Omodei N, Orlando E, Ormes J~F, Paneque D,
+  Panetta J~H, Parent D, Pelassa V, Pepe M, Pesce-Rollins M, Piron F, Porter
+  T~A, Rain\`o S, Rando R, Razzano M, Reimer A, Reimer O, Reposeur T, Rochester
+  L~S, Rodriguez A~Y, Roth M, Sadrozinski H~F~W, Sander A, Saz~Parkinson P~M,
+  Sgr\`o C, Share G~H, Siskind E~J, Smith D~A, Smith P~D, Spandre G, Spinelli
+  P, Strickman M~S, Suson D~J, Takahashi H, Tanaka T, Thayer J~B, Thayer J~G,
+  Thompson D~J, Tibaldo L, Torres D~F, Tosti G, Tramacere A, Uchiyama Y, Usher
+  T~L, Vasileiou V, Vilchez N, Vitale V, Waite A~P, Wang P, Winer B~L, Wood
+  K~S, Ylinen T and Ziegler M (Fermi-LAT Collaboration) 2009 {\em Phys. Rev.
+  D\/} {\bf 80}(12) 122004
+  \urlprefix\url{https://link.aps.org/doi/10.1103/PhysRevD.80.122004}
+
+\bibitem{PAMELA}
+Adriani O, Barbarino G~C, Bazilevskaya G~A, Bellotti R, Boezio M, Bogomolov
+  E~A, Bongi M, Bonvicini V, Borisov S, Bottai S, Bruno A, Cafagna F, Campana
+  D, Carbone R, Carlson P, Casolino M, Castellini G, Pascale M~P~D, Santis C~D,
+  Simone N~D, Felice V~D, Formato V, Galper A~M, Grishantseva L, Karelin A~V,
+  Koldashov S~V, Koldobskiy S, Krutkov S~Y, Kvashnin A~N, Leonov A, Malakhov V,
+  Marcelli L, Mayorov A~G, Menn W, Mikhailov V~V, Mocchiutti E, Monaco A, Mori
+  N, Nikonov N, Osteria G, Palma F, Papini P, Pearce M, Picozza P, Pizzolotto
+  C, Ricci M, Ricciarini S~B, Rossetto L, Sarkar R, Simon M, Sparvoli R,
+  Spillantini P, Stozhkov Y~I, Vacchi A, Vannuccini E, Vasilyev G, Voronov S~A,
+  Yurkin Y~T, Wu J, Zampa G, Zampa N, Zverev V~G, Potgieter M~S and Vos E~E
+  2013 {\em The Astrophysical Journal\/} {\bf 765} 91
+  \urlprefix\url{http://stacks.iop.org/0004-637X/765/i=2/a=91}
+
+\bibitem{AMS-02}
+Aguilar M (AMS Collaboration) 2015 {\em Phys. Rev. Lett.\/} {\bf 114}(17)
+  171103
+  \urlprefix\url{https://link.aps.org/doi/10.1103/PhysRevLett.114.171103}
+
+\bibitem{previouswork}
+Ackermann M, Ajello M, Albert A, Allafort A, Baldini L, Barbiellini G, Bastieri
+  D, Bechtol K, Bellazzini R, Blandford R~D, Bloom E~D, Bonamente E, Bottacini
+  E, Bouvier A, Brandt T~J, Brigida M, Bruel P, Buehler R, Buson S, Caliandro
+  G~A, Cameron R~A, Caraveo P~A, Cecchi C, Charles E, Chaves R~C~G, Chekhtman
+  A, Chiang J, Chiaro G, Ciprini S, Claus R, Cohen-Tanugi J, Conrad J, Cutini
+  S, Dalton M, D'Ammando F, de~Angelis A, de~Palma F, Dermer C~D, Digel S~W,
+  Di~Venere L, do~Couto~e Silva E, Drell P~S, Drlica-Wagner A, Favuzzi C, Fegan
+  S~J, Ferrara E~C, Focke W~B, Franckowiak A, Fukazawa Y, Funk S, Fusco P,
+  Gargano F, Gasparrini D, Germani S, Giglietto N, Giordano F, Giroletti M,
+  Glanzman T, Godfrey G, Gomez-Vargas G~A, Grenier I~A, Grove J~E, Guiriec S,
+  Gustafsson M, Hadasch D, Hanabata Y, Harding A~K, Hayashida M, Hayashi K,
+  Hewitt J~W, Horan D, Hou X, Hughes R~E, Inoue Y, Jackson M~S, Jogler T,
+  J\'ohannesson G, Johnson A~S, Kamae T, Kawano T, Kn\"odlseder J, Kuss M,
+  Lande J, Larsson S, Latronico L, Longo F, Loparco F, Lovellette M~N, Lubrano
+  P, Mayer M, Mazziotta M~N, McEnery J~E, Mehault J, Michelson P~F, Mitthumsiri
+  W, Mizuno T, Moiseev A~A, Monte C, Monzani M~E, Morselli A, Moskalenko I~V,
+  Murgia S, Nemmen R, Nuss E, Ohsugi T, Okumura A, Orienti M, Orlando E, Ormes
+  J~F, Paneque D, Panetta J~H, Perkins J~S, Pesce-Rollins M, Piron F, Pivato G,
+  Porter T~A, Rain\`o S, Rando R, Razzano M, Razzaque S, Reimer A, Reimer O,
+  Ritz S, Roth M, Schaal M, Schulz A, Sgr\`o C, Siskind E~J, Spandre G,
+  Spinelli P, Strong A~W, Takahashi H, Takeuchi Y, Thayer J~G, Thayer J~B,
+  Thompson D~J, Tibaldo L, Tinivella M, Torres D~F, Tosti G, Troja E, Tronconi
+  V, Usher T~L, Vandenbroucke J, Vasileiou V, Vianello G, Vitale V, Werner M,
+  Winer B~L, Wood K~S, Wood M and Yang Z (Fermi LAT Collaboration) 2014 {\em
+  Phys. Rev. Lett.\/} {\bf 112}(15) 151103
+  \urlprefix\url{https://link.aps.org/doi/10.1103/PhysRevLett.112.151103}
+
+\bibitem{K&Omodel}
+Kachelrie\ss{} M and Ostapchenko S 2012 {\em Phys. Rev. D\/} {\bf 86}(4) 043004
+  \urlprefix\url{https://link.aps.org/doi/10.1103/PhysRevD.86.043004}
+
+\end{thebibliography}
