@@ -34,18 +34,40 @@ That is the reason why paralleling processing with Master-Slave technique is app
 
 
 \subsection{Interaction model}
+Incident CRs is modeled by a single power law (SPL) which contain one
+spectral indice and broken power law (BPL) where there is two spectral
+indices with a given breaking energy.
 
-Incident proton spectrum in rigidity s
+The model for a scattering amplitude from hadronic collision \cite{K&Omodel}
+that could produce a photon as a secondary product which could be
+detected by \textit{Fermi}-LAT as equation \ref{eq:interaction_model}.
 
-In this work, we use the scattering amplitude from hadronic collision \cite{K&Omodel} that could produce a photon as a secondary product that could be detected by \textit{Fermi}-LAT.
 \begin{equation}
-    \frac{dN_{\gamma}}{dE_\gamma}(E_\gamma)
-    \propto \sum_{E_{\textrm{inc,i}}}
-    % \left[\frac{E_{\text{inc,i}}}{E_{\gamma}}\Delta(E_{\textrm{inc,i}}) \right]
-    % \left[ f_{pp}\textcolor{red}{\frac{dN_\textrm{H}}{dE_{\textrm{inc}}}(E_{\textrm{inc,i}})}\left\{ 1+\textcolor{olivegreen}{\frac{\sigma_{\textrm{HeN}}}{\sigma{pN}}}\left(\textcolor{red}{\frac{dN_{\textrm{H}}}{dR}}\right)^{-1} \textcolor{blue}{\frac{dN_{\text{He}}}{dR}} \frac{dR_{\textrm{He}}}{dR_{\textrm{H}}}  \right\}\right]
+    \frac{dN_\gamma}{dE_\gamma}\propto \int^{E_{\text{max}}}_{E_\gamma} dE'\frac{dN_p}{dE'} \frac{d\sigma^{pp\rightarrow\gamma}(E',E_\gamma)}{dE_\gamma}
+    \label{eq:interaction_model}
+\end{equation}
+
+For the real use case, the interaction of an alphaparticle with the air
+has a significant contribution to the secondary photon.
+A modification of He-air interaction could be
+applied by using a fraction of cross-section from a given atomic number
+\cite{WAtwater}. The helium spectrum in rigidity is taken from the real
+measurement \cite{AMS-02Helium}. Then the input of the modified model
+is left only a proton spectrum.
+
+\begin{equation}
+    \frac{dN_{\gamma}}{dE_\gamma}(E_\gamma) \propto \sum_{E_{\text{inc,i}}}\left[\frac{E_{\text{inc,i}}}{E_{\gamma}}\Delta(E_{\text{inc,i}}) \right]\left[ f_{pp}\frac{dN_\text{H}}{dE_{\text{inc}}}(E_{\text{inc,i}})\left\{ 1+\frac{\sigma_{\text{HeN}}}{\sigma{pN}}\left(\frac{dN_{\text{H}}}{dR}\right)^{-1} \frac{dN_{\text{He}}}{dR} \frac{dR_{\text{He}}}{dR_{\text{H}}}  \right\}\right]
 \end{equation}
 
 
 \subsection{Optimization}
+Optimizing a problem with multiple parameters might cause a local minimum
+which will cause an early stopping of the optimization proces before 
+reaching to the global minimum. In this work, a simple gradient optimization
+with a set of different initial values yield a various output which implicitly
+imply that there are local minimum exists in this problem. 
+To get rid of the local minimum, particle swarm optimization (PSO) is applied
+to find the best fit parameters \cite{pso_optimize}.
+
 
 
