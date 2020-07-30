@@ -11,6 +11,7 @@
 // ROOT
 #include "TColor.h"
 #include "TPad.h"
+#include "TLatex.h"
 #include "TStyle.h"
 #include "TMath.h"
 #include "TF1.h"
@@ -32,12 +33,19 @@
 
 int main(int argc, char** argv){
     /// settings
-    // PS
+    // PS result 1
+    // std::vector<float> optimized_params_spl{
+    //     0.0108668 , 2.82851 , 2.70266 , 2.65207 , 342.546
+    // };
+    // std::vector<float> optimized_params_bpl{
+    //     0.0108818 , 1.98848 , 2.86015 , 2.63161 , 333.115
+    // };
+    // PS result 2
     std::vector<float> optimized_params_spl{
-        0.0108668 , 2.82851 , 2.70266 , 2.65207 , 342.546
+        0.0108814 , 1.49949 , 2.77781 , 2.60628 , 333.024
     };
     std::vector<float> optimized_params_bpl{
-        0.0108818 , 1.98848 , 2.86015 , 2.63161 , 333.115
+        0.0108781 , 3.22765 , 2.87563 , 2.68191 , 332.495
     };
     // SA
     // std::vector<float> optimized_params_spl{
@@ -94,8 +102,10 @@ int main(int argc, char** argv){
     c->SetLogx();
     c->SetLogy();
     flx_hist->SetStats(0);
-    flx_hist->GetYaxis()->SetTitle("E^{2.75}Flux (GeV^{1.75}m^{-2}s^{-1}sr^{-1})");
-    flx_hist->GetXaxis()->SetTitle("E (GeV)");
+    // flx_hist->GetYaxis()->SetTitle("#gamma-ray Flux #times E^{2.75} (GeV^{1.75}m^{-2}s^{-1}sr^{-1})");
+    flx_hist->GetYaxis()->SetTitle("");
+    // flx_hist->GetXaxis()->SetTitle("E (GeV)");
+    flx_hist->GetXaxis()->SetTitle("");
     flx_hist->GetXaxis()->SetTitleOffset(1.2);
     flx_hist->SetTitle("Measurement");
     flx_hist->Draw("E1");
@@ -121,13 +131,43 @@ int main(int argc, char** argv){
     gBPL->SetTitle("BPL model of CR proton");
     gBPL->Draw("same");
 
-    c->BuildLegend(0.2, 0.2, 0.5, 0.4);
+    c->BuildLegend(0.2, 0.2, 0.6, 0.42);
     flx_hist->SetTitle("");
     err_band_flx_hist->Draw("E3same");  
 
     flx_hist->Draw("E1same");
     gSPL->Draw("same");
     gBPL->Draw("same");
+
+    flx_hist->GetYaxis()->SetLabelFont(43); // Absolute font size in pixel (precision 3)
+    flx_hist->GetYaxis()->SetLabelSize(25);
+    flx_hist->GetXaxis()->SetLabelFont(43); // Absolute font size in pixel (precision 3)
+    flx_hist->GetXaxis()->SetLabelSize(25);
+
+    c->cd();
+	TPad *pad1 = new TPad("pad1", "pad1", 0.0, 0.0, 0.055, 1.0);
+	pad1->Range(0,0,1,1);
+	pad1->SetBottomMargin(0);
+	pad1->SetGridx();
+	pad1->Draw();
+	pad1->cd();
+    TLatex *tt = new TLatex();
+	tt->SetTextAlign(12);
+	tt->SetTextSize(0.5);
+	tt->SetTextAngle(90);
+	tt->DrawLatex(0.5,0.35,"#gamma-ray Flux #times E^{2.75} (GeV^{1.75}m^{-2}s^{-1}sr^{-1})");
+	c->cd();
+	TPad *pad2 = new TPad("pad2", "pad2", 0.7, 0.0, 1.0, 0.045);
+	pad2->Range(0,0,1,1);
+	pad2->SetBottomMargin(0);
+	pad2->SetGridx();
+	pad2->Draw();
+	pad2->cd();
+	TLatex *tt2 = new TLatex();
+	tt2->SetTextAlign(32);
+	tt2->SetTextSize(0.8);
+	tt2->SetTextAngle(0);
+	tt2->DrawLatex(0.5,0.5,"E (GeV)");
 
     // flx_hist->SetTitle("Flux Model from Simulated Annealing");
     c->SaveAs("fitted_result.pdf");

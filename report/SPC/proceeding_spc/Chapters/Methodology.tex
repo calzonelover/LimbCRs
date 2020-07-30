@@ -1,73 +1,133 @@
 \subsection{Data selection and $\gamma$-ray flux extraction}
-Photon data with the latest reconstruction version (P8R2 ULTRACLEANVETO V6) of the telescope where the
-observation duration takes around 9 years (starts from 7 August 2008 to 16 October 2017).
-The energy range of photon is selected from 10 GeV
-to 1 TeV. The upper zone of earth's limb region could be determine by
-nadir angle from 68.4 to 70.0 where the coordinate figure has demonstrated in figure
-\ref{gamma_production_schematic}.
 
-\begin{figure}[h!]
-    \centering
-    \includegraphics[width=0.6\textwidth]{img/gamma_production_schematic}
-    \caption{Schematic of $\gamma$-ray production}
-    \label{gamma_production_schematic}
+We use $\sim9$ years (7 Aug 2008 - 16 Oct 2017) of the latest version
+(P8R2 ULTRACLEANVETO V6) of the LAT's photon data between 10 GeV to 1 TeV.
+We observe $\gamma$ rays from the Earth's thin upper atmosphere by selecting the
+nadir angle ($\theta_{\rm NADIR}$) from $68.4^\circ$ to $70.0^\circ$ \cite{previouswork} as
+demonstrated in Figure~\ref{gamma_production_schematic}. The incidence angle cut,
+$\theta_{\rm LAT}<70^\circ$, is also applied.
+
+
+% \begin{figure}[h!]
+%     \centering
+%     \includegraphics[width=0.5\textwidth]{img/gamma_production_schematic}
+%     \caption{Schematic of $\gamma$-ray production}
+%     \label{gamma_production_schematic}
+% \end{figure}
+
+% \begin{wrapfigure}{r}{0.5\textwidth}
+%     \begin{center}
+%         \includegraphics[width=0.5\textwidth]{img/gamma_production_schematic}
+%     \end{center}
+%     \caption{Schematic of $\gamma$-ray production}
+%     \label{gamma_production_schematic}
+% \end{wrapfigure}
+
+\begin{figure}[h]
+    \begin{minipage}{0.45\textwidth}
+        \includegraphics[width=\textwidth]{img/cr_knee_ankle}
+        \caption{All-particle CR spectrum taken from \cite{Swordy2001}.}
+        % \caption{The all particle spectrum of cosmic rays, image taken from }
+        \label{cr_knee_ankle}
+    \end{minipage}\hspace{2pc}
+    \begin{minipage}{0.55\textwidth}
+        \includegraphics[width=\textwidth]{img/gamma_production_schematic}
+        \caption{Schematic of high-energy Earth's $\gamma$-ray production}
+        \label{gamma_production_schematic}
+    \end{minipage} 
 \end{figure}
 
-The observed flux is defined as differential flux where the governing equation
-for the calculation is represented as equation (\ref{flux_definition})
+% The observed flux is defined as differential flux where the governing equation
+% for the calculation is represented as equation (\ref{flux_definition})
+The observed flux for a given energy bin is calculated using
 \begin{equation}
     \textbf{Flux} \equiv \frac{dN_\gamma}{dE} = \frac{\int_{\textrm{Limb region}}(\textrm{Count map}/\textrm{Exposure map})}{\Delta\Omega\Delta E }
-    \label{flux_definition}
+    .\label{flux_definition}
 \end{equation}
-Where count map is filled up with selected $\gamma$-ray and exposure map represent 
-the exposure time as well as effective area of spacecraft where the angle of incident
-CR has taken into account.
-Procedure of computation is begin with the requirement of 25 bins of histogram of
-the $\gamma$-ray flux which contain a various median of energy in each bin.
-Consequently, the number of count map and exposure map will be exactly the same as
-the energy bins. The calculation of exposure map is done by using log file of the
-spacecraft combine with the responsiveness of the spacecraft which has to be consider
-in every step time while spacecraft is online. In addition, every step time of spacecraft
-require the coordinate transformation which cause a huge amount of computing process.
-That is the reason why paralleling processing with Master-Slave technique is applied in this work.
 
+% Where count map is filled up with selected $\gamma$-ray and 
+Here the count map is filled with numbers of photons, the exposure map represents 
+the exposure time as well as the effective area of spacecraft 
+which is a function of energy and $\theta_{\rm LAT}$, $\Delta E$ is the energy bin width,
+and $\Delta\Omega$ is the solid angle of the thin-target Earth's limb region.
+% Procedure of computation is begin with the requirement of 25 bins of histogram of
+% the $\gamma$-ray flux which contain a various median of energy in each bin.
+We perform the analysis with 25 bins of energy, equally spaced in logarithmic scale.
+% Consequently, the number of count map and exposure map will be exactly the same as
+% the energy bins. The calculation of exposure map is done by using log file of the
+% spacecraft combine with the responsiveness of the spacecraft which has to be consider
+% in every step time while spacecraft is online. 
+For a given energy bin, the exposure map is calculated using the spacecraft's position
+and orientation recorded in 30-second time steps, each of which involves a complex
+coordinate transformation to create a map in the zenith-azimuth system.
+Such computationally intensive task requires parallel
+processing with Master-Slave technique that we have developed.
+% which cause a huge amount of computing process.
+% That is the reason why paralleling processing with Master-Slave technique is
+% applied in this work.
 
 
 \subsection{Interaction model}
-Incident CRs is modeled by a single power law (SPL) which contain one
-spectral indice and broken power law (BPL) where there is two spectral
-indices with a given breaking energy.
+In this work, we test 2 models of CR protons: single-power law (SPL) model
+containing one spectral index, and broken-power law (SPL) model containing two
+spectral indices with a break energy.
 
-The model for a scattering amplitude from hadronic collision \cite{K&Omodel}
-that could produce a photon as a secondary product which could be
-detected by \textit{Fermi}-LAT as equation \ref{eq:interaction_model}.
+% The model for a scattering amplitude from hadronic collision \cite{K&Omodel}
+% that could produce a photon as a secondary product which could be
+% detected by \textit{Fermi}-LAT as equation \ref{eq:interaction_model}.
+According to \cite{K&Omodel}, the secondary photon spectrum from proton-proton
+collisions could be summarized by
 
 \begin{equation}
     \frac{dN_\gamma}{dE_\gamma}\propto \int^{E_{\text{max}}}_{E_\gamma} dE'\frac{dN_p}{dE'} \frac{d\sigma^{pp\rightarrow\gamma}(E',E_\gamma)}{dE_\gamma}
-    \label{eq:interaction_model}
+    ,\label{eq:interaction_model}
 \end{equation}
 
-For the real use case, the interaction of an alphaparticle with the air
-has a significant contribution to the secondary photon.
-A modification of He-air interaction could be
-applied by using a fraction of cross-section from a given atomic number
-\cite{WAtwater}. The helium spectrum in rigidity is taken from the real
-measurement \cite{AMS-02Helium}. Then the input of the modified model
-is left only a proton spectrum.
+where here $dN_\gamma/dE_\gamma$ is the measured Earth's limb $\gamma$-ray spectrum,
+$dN_p/dE'$ is the CR proton model, and $\sigma^{pp\rightarrow\gamma}$ is the interaction
+cross section.
+We take into account the contribution from CR He particles to the production of secondary
+photons by using the cross section ratio ($\sigma_{\rm HeN}/\sigma_{p\rm N}$) from
+\cite{WAtwater} and the He spectrum measurement by \cite{AMS-02Helium}. This modifies
+Eq.~(\ref{eq:interaction_model}) to
+% For the real use case, the interaction of an alphaparticle with the air
+% has a significant contribution to the secondary photon.
+% A modification of He-air interaction could be
+% applied by using a fraction of cross-section from a given atomic number
+% \cite{WAtwater}. The helium spectrum in rigidity is taken from the real
+% measurement \cite{AMS-02Helium}. Then the input of the modified model
+% is left only a proton spectrum.
 
 \begin{equation}
-    \frac{dN_{\gamma}}{dE_\gamma}(E_\gamma) \propto \sum_{E_{\text{inc,i}}}\left[\frac{E_{\text{inc,i}}}{E_{\gamma}}\Delta(E_{\text{inc,i}}) \right]\left[ f_{pp}\frac{dN_\text{H}}{dE_{\text{inc}}}(E_{\text{inc,i}})\left\{ 1+\frac{\sigma_{\text{HeN}}}{\sigma{pN}}\left(\frac{dN_{\text{H}}}{dR}\right)^{-1} \frac{dN_{\text{He}}}{dR} \frac{dR_{\text{He}}}{dR_{\text{H}}}  \right\}\right]
+    \frac{dN_{\gamma}}{dE_\gamma}(E_\gamma) \propto
+    \sum_{E'_i}\left[\frac{E'_i}{E_{\gamma}}\Delta(\ln E'_i) \right]
+    \left[ 
+        f_{pp}\frac{dN_p}{dE'_i}
+        \left\{
+            1+\frac{\sigma_{\text{HeN}}}{\sigma{p\rm N}}\left(\frac{dN_p}{dR}\right)^{-1} \frac{dN_{\text{He}}}{dR} \frac{dR_{\text{He}}}{dR_p} 
+        \right\}
+    \right]
+    ,\label{eq:derived_model}
 \end{equation}
 
+where $f_{pp} \equiv E_\gamma(d\sigma^{ij\rightarrow\gamma}/dE_\gamma)$
+is the interaction cross section table in \cite{K&Omodel}.
 
 \subsection{Optimization}
-Optimizing a problem with multiple parameters might cause a local minimum
-which will cause an early stopping of the optimization proces before 
-reaching to the global minimum. In this work, a simple gradient optimization
-with a set of different initial values yield a various output which implicitly
-imply that there are local minimum exists in this problem. 
-To get rid of the local minimum, particle swarm optimization (PSO) is applied
-to find the best fit parameters \cite{pso_optimize}.
+
+We use the SPL and BPL models for $dN_p/dE'$ in Eq.~(\ref{eq:derived_model}) and vary their parameters
+(normalization, spectral indices, break energy) so that the resulting $dN_\gamma/dE_\gamma$
+from the model fits to the measured Earth's limb $\gamma$-ray spectrum with maximum
+likelihood. We employ the particle swarm optimization (PSO) \cite{pso_optimize} as our fitting algorithm
+because PSO is efficient at avoiding local maxima and reaching the global maximum in
+this multi-parameter problem.
+% Optimizing a problem with multiple parameters might cause a local minimum
+% which will cause an early stopping of the optimization proces before 
+% reaching to the global minimum. In this work, a simple gradient optimization
+% with a set of different initial values yield a various output which implicitly
+% imply that there are local minimum exists in this problem. 
+% To get rid of the local minimum, particle swarm optimization (PSO) is applied
+% to find the best fit parameters \cite{pso_optimize}.
 
 
 

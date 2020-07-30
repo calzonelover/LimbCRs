@@ -94,7 +94,7 @@
 % \logo{\includegraphics[height=0.75cm]{santa}}
 \author[P. Payoungkhamdee]{
   Patomporn Payoungkhamdee$^{\dagger}$ \\
-  Asst. Prof. Warit Mitthumsiri$^{\dagger}$, Prof. David Ruffolo$^{\dagger}$
+  % Asst. Prof. Warit Mitthumsiri$^{\dagger}$, Prof. David Ruffolo$^{\dagger}$
 } % Your name
 \institute[MU] % Your institution as it will appear on the bottom of every slide, may be shorthand to save space
 {
@@ -340,7 +340,7 @@ This model can compute the $\gamma$-ray spectrum from a broad and smooth power-l
 % Is the model which can compute spectrum of $\gamma$-ray from a known incident proton
 \begin{equation}
   % \small
-  \frac{dN_{\gamma}}{dE} \propto \sum_{E_{\text{inc,i}}}\left[\frac{E_{\text{inc,i}}}{E_{\gamma\text{,i}}}\Delta(E_{\text{inc,i}}) \right]\left[ f_{pp}\textcolor{red}{\frac{dN_\text{H}}{dE_{\text{inc,i}}}}\left\{ 1+\textcolor{olivegreen}{\frac{\sigma_{\text{HeN}}}{\sigma{pN}}}\left(\textcolor{red}{\frac{dN_{\text{H}}}{dR}}\right)^{-1} \textcolor{blue}{\frac{dN_{\text{He}}}{dR}} \frac{dR_{\text{He}}}{dR_{\text{H}}}  \right\}\right]
+  \frac{dN_{\gamma}}{dE_{\gamma}} \propto\sum_{E'_i}\left[\frac{E'_i}{E_{\gamma}}\Delta(\ln E'_i) \right]\left[ f_{pp}\textcolor{red}{\frac{dN_p}{dE'_i}}\left\{ 1+\textcolor{olivegreen}{\frac{\sigma_{\text{HeN}}}{\sigma{pN}}}\left(\textcolor{red}{\frac{dN_p}{dR}}\right)^{-1} \textcolor{blue}{\frac{dN_{\text{He}}}{dR}} \frac{dR_{\text{He}}}{dR_p}  \right\}\right]
 \end{equation}
 \begin{itemize}
   \item Red color terms are for \textcolor{red}{incident proton spectrum}
@@ -495,7 +495,7 @@ The iteration process would stop when standard deviation of fitness over any par
   \node [opacity=0.2] (0,0) {\rotatebox{45}{\scalebox{2.5}{\textcolor{red}{preliminary}}}};
   \end{tikzpicture}
   \end{figure}
-\tiny The normalization of this work is fitted PAMELA data  
+\tiny The normalization of this work is fitted AMS-02 data  
 \end{frame}
 %------------------------------------------------
 %    4.4 ) Monte carlo Simulation
@@ -603,7 +603,7 @@ The iteration process would stop when standard deviation of fitness over any par
 \section{}
 \begin{frame}\frametitle{Acknowledgement}
   \begin{itemize}
-    % \item Dr. Warit Mitthumsiri \\ Mahidol University, Thailand
+    \item Asst. Prof. Warit Mitthumsiri, Prof. David Ruffolo \\ Mahidol University, Thailand
     \item Dr. Francesca Spada \\ University of Pisa, Italy
     \item People in the Space Physics Laboratory at Mahidol University and the \textit{Fermi}-LAT research group at the University of Pisa
     \item Development and Promotion of Science and Technology Talents Project (DPST)

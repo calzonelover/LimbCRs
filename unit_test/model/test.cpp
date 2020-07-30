@@ -38,8 +38,8 @@ int main(int argc, char** argv){
     auto histogram = new Histogram();
     histogram->load(read_file);
 
-    // auto out = Optimizer::optimize(SPL, histogram, Particle_swarm);
-    auto out = Optimizer::optimize(SPL, histogram, Simulated_annealing);
+    auto out = Optimizer::optimize(SPL, histogram, Particle_swarm);
+    // auto out = Optimizer::optimize(SPL, histogram, Simulated_annealing);
     
 
     read_file->Close();

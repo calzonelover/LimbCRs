@@ -25,8 +25,8 @@
 /// Initial params
 #define INI_TOTAL_NORM 0.01
 #define INI_NORM_PL 2.2
-#define INI_GAMMA1 2.7 // SPL
-// #define INI_GAMMA1 2.84 // BPL
+// #define INI_GAMMA1 2.7 // SPL
+#define INI_GAMMA1 2.84 // BPL
 #define INI_GAMMA2 2.60
 #define INI_E_BREAK 340.0
 // range of params
@@ -35,10 +35,10 @@
 #define INI_NORM_PL_MIN 1.0
 #define INI_NORM_PL_MAX 5.0
 // SPL
-#define INI_GAMMA1_MIN 2.6
-#define INI_GAMMA1_MAX 2.8
+#define INI_GAMMA1_MIN 2.5
+#define INI_GAMMA1_MAX 2.9
 // BPL
-// #define INI_GAMMA1_MIN 2.7
+// #define INI_GAMMA1_MIN 2.6
 // #define INI_GAMMA1_MAX 3.0
 
 #define INI_GAMMA2_MIN 2.6

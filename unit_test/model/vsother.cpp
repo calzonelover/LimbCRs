@@ -175,13 +175,14 @@ int main(int argc, char** argv){
     c->cd(1)->SetLogy();
     ams_flux->Draw("E1");
     pamela_flux->Draw("E1same");
+    pamela_flux->GetXaxis()->SetRangeUser(min_x_plot, max_x_plot);
     spl->Draw("same");
     ams_flux->GetXaxis()->SetRangeUser(min_x_plot, max_x_plot);
     ams_flux->GetYaxis()->SetRangeUser(7000.0, 25000);
     ams_flux->GetYaxis()->SetLabelFont(43); // Absolute font size in pixel (precision 3)
-    ams_flux->GetYaxis()->SetLabelSize(20);
+    ams_flux->GetYaxis()->SetLabelSize(25);
     ams_flux->GetXaxis()->SetLabelFont(43); // Absolute font size in pixel (precision 3)
-    ams_flux->GetXaxis()->SetLabelSize(20);
+    ams_flux->GetXaxis()->SetLabelSize(25);
 
     c->cd(2);
     bpl->SetTitle("This work");
@@ -194,7 +195,7 @@ int main(int argc, char** argv){
     ams_flux->Draw("E1");
     pamela_flux->Draw("E1same");
     bpl->Draw("same");
-    c->cd(2)->BuildLegend(0.2, 0.2, 0.4, 0.4);
+    c->cd(2)->BuildLegend(0.2, 0.2, 0.5, 0.45);
     ams_flux->SetTitle("");
 
 	c->cd(1);
@@ -224,7 +225,7 @@ int main(int argc, char** argv){
 
 
     c->cd();
-	TPad *pad1 = new TPad("pad1", "pad1", 0.0, 0.0, 0.05, 1.0);
+	TPad *pad1 = new TPad("pad1", "pad1", 0.0, 0.0, 0.04, 1.0);
 	pad1->Range(0,0,1,1);
 	pad1->SetBottomMargin(0);
 	pad1->SetGridx();

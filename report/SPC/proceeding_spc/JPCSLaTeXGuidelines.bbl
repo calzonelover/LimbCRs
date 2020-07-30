@@ -12,146 +12,50 @@ Hess V~F 1936  (The Nobel Foundation)
 
 \bibitem{Pacini}
 Pacini D 1912 {\em Il Nuovo Cimento\/} {\bf 3} 93
-  \urlprefix\url{https://doi.org/10.1007/BF02957440}
 
 \bibitem{Clay}
 Clay J 1927 {\em Proceedings of the Section of Sciences, Koninklijke Akademie
   van Wetenschappen te Amsterdam\/} {\bf 30} 1115--1127
 
 \bibitem{Warit2009}
-Abdo A~A, Ackermann M, Ajello M, Atwood W~B, Baldini L, Ballet J, Barbiellini
-  G, Bastieri D, Baughman B~M, Bechtol K, Bellazzini R, Berenji B, Bloom E~D,
-  Bonamente E, Borgland A~W, Bouvier A, Bregeon J, Brez A, Brigida M, Bruel P,
-  Buehler R, Burnett T~H, Buson S, Caliandro G~A, Cameron R~A, Caraveo P~A,
-  Casandjian J~M, Cecchi C, \ifmmode~\mbox{\c{C}}\else \c{C}\fi{}elik O,
-  Charles E, Chekhtman A, Chiang J, Ciprini S, Claus R, Cohen-Tanugi J, Conrad
-  J, de~Palma F, Digel S~W, do~Couto~e Silva E, Drell P~S, Dubois R, Dumora D,
-  Farnier C, Favuzzi C, Fegan S~J, Focke W~B, Fortin P, Frailis M, Fukazawa Y,
-  Funk S, Fusco P, Gargano F, Gehrels N, Germani S, Giebels B, Giglietto N,
-  Giordano F, Glanzman T, Godfrey G, Grenier I~A, Grondin M~H, Grove J~E,
-  Guillemot L, Guiriec S, Hays E, Horan D, Hughes R~E, J\'ohannesson G, Johnson
-  A~S, Johnson T~J, Johnson W~N, Kamae T, Katagiri H, Kataoka J, Kawai N, Kerr
-  M, Kn\"odlseder J, Kuss M, Lande J, Latronico L, Lemoine-Goumard M, Longo F,
-  Loparco F, Lott B, Lovellette M~N, Lubrano P, Makeev A, Mazziotta M~N,
-  McEnery J~E, Meurer C, Michelson P~F, Mitthumsiri W, Mizuno T, Monte C,
-  Monzani M~E, Morselli A, Moskalenko I~V, Murgia S, Nolan P~L, Norris J~P,
-  Nuss E, Ohsugi T, Okumura A, Omodei N, Orlando E, Ormes J~F, Paneque D,
-  Panetta J~H, Parent D, Pelassa V, Pepe M, Pesce-Rollins M, Piron F, Porter
-  T~A, Rain\`o S, Rando R, Razzano M, Reimer A, Reimer O, Reposeur T, Rochester
-  L~S, Rodriguez A~Y, Roth M, Sadrozinski H~F~W, Sander A, Saz~Parkinson P~M,
-  Sgr\`o C, Share G~H, Siskind E~J, Smith D~A, Smith P~D, Spandre G, Spinelli
-  P, Strickman M~S, Suson D~J, Takahashi H, Tanaka T, Thayer J~B, Thayer J~G,
-  Thompson D~J, Tibaldo L, Torres D~F, Tosti G, Tramacere A, Uchiyama Y, Usher
-  T~L, Vasileiou V, Vilchez N, Vitale V, Waite A~P, Wang P, Winer B~L, Wood
-  K~S, Ylinen T and Ziegler M (Fermi-LAT Collaboration) 2009 {\em Phys. Rev.
-  D\/} {\bf 80}(12) 122004
-  \urlprefix\url{https://link.aps.org/doi/10.1103/PhysRevD.80.122004}
+Abdo A~A (Fermi-LAT Collaboration) 2009 {\em Phys. Rev. D\/} {\bf 80}(12)
+  122004
+
+\bibitem{Allan1962}
+Allan H~R 1962 {\em Proceedings of the Physical Society\/} {\bf 79} 1170--1182
+
+\bibitem{Haungs2003}
+Haungs A 2003 {\em Reports on Progress in Physics\/} {\bf 66} 1145--1206
+
+\bibitem{ABBASI2005271}
+Abbasi R 2005 {\em Physics Letters B\/} {\bf 619} 271 -- 280 ISSN 0370-2693
 
 \bibitem{PAMELA}
-Adriani O, Barbarino G~C, Bazilevskaya G~A, Bellotti R, Boezio M, Bogomolov
-  E~A, Bongi M, Bonvicini V, Borisov S, Bottai S, Bruno A, Cafagna F, Campana
-  D, Carbone R, Carlson P, Casolino M, Castellini G, Pascale M~P~D, Santis C~D,
-  Simone N~D, Felice V~D, Formato V, Galper A~M, Grishantseva L, Karelin A~V,
-  Koldashov S~V, Koldobskiy S, Krutkov S~Y, Kvashnin A~N, Leonov A, Malakhov V,
-  Marcelli L, Mayorov A~G, Menn W, Mikhailov V~V, Mocchiutti E, Monaco A, Mori
-  N, Nikonov N, Osteria G, Palma F, Papini P, Pearce M, Picozza P, Pizzolotto
-  C, Ricci M, Ricciarini S~B, Rossetto L, Sarkar R, Simon M, Sparvoli R,
-  Spillantini P, Stozhkov Y~I, Vacchi A, Vannuccini E, Vasilyev G, Voronov S~A,
-  Yurkin Y~T, Wu J, Zampa G, Zampa N, Zverev V~G, Potgieter M~S and Vos E~E
-  2013 {\em The Astrophysical Journal\/} {\bf 765} 91
-  \urlprefix\url{http://stacks.iop.org/0004-637X/765/i=2/a=91}
+Adriani O 2013 {\em The Astrophysical Journal\/} {\bf 765} 91
 
 \bibitem{AMS-02}
 Aguilar M (AMS Collaboration) 2015 {\em Phys. Rev. Lett.\/} {\bf 114}(17)
   171103
-  \urlprefix\url{https://link.aps.org/doi/10.1103/PhysRevLett.114.171103}
 
 \bibitem{previouswork}
-Ackermann M, Ajello M, Albert A, Allafort A, Baldini L, Barbiellini G, Bastieri
-  D, Bechtol K, Bellazzini R, Blandford R~D, Bloom E~D, Bonamente E, Bottacini
-  E, Bouvier A, Brandt T~J, Brigida M, Bruel P, Buehler R, Buson S, Caliandro
-  G~A, Cameron R~A, Caraveo P~A, Cecchi C, Charles E, Chaves R~C~G, Chekhtman
-  A, Chiang J, Chiaro G, Ciprini S, Claus R, Cohen-Tanugi J, Conrad J, Cutini
-  S, Dalton M, D'Ammando F, de~Angelis A, de~Palma F, Dermer C~D, Digel S~W,
-  Di~Venere L, do~Couto~e Silva E, Drell P~S, Drlica-Wagner A, Favuzzi C, Fegan
-  S~J, Ferrara E~C, Focke W~B, Franckowiak A, Fukazawa Y, Funk S, Fusco P,
-  Gargano F, Gasparrini D, Germani S, Giglietto N, Giordano F, Giroletti M,
-  Glanzman T, Godfrey G, Gomez-Vargas G~A, Grenier I~A, Grove J~E, Guiriec S,
-  Gustafsson M, Hadasch D, Hanabata Y, Harding A~K, Hayashida M, Hayashi K,
-  Hewitt J~W, Horan D, Hou X, Hughes R~E, Inoue Y, Jackson M~S, Jogler T,
-  J\'ohannesson G, Johnson A~S, Kamae T, Kawano T, Kn\"odlseder J, Kuss M,
-  Lande J, Larsson S, Latronico L, Longo F, Loparco F, Lovellette M~N, Lubrano
-  P, Mayer M, Mazziotta M~N, McEnery J~E, Mehault J, Michelson P~F, Mitthumsiri
-  W, Mizuno T, Moiseev A~A, Monte C, Monzani M~E, Morselli A, Moskalenko I~V,
-  Murgia S, Nemmen R, Nuss E, Ohsugi T, Okumura A, Orienti M, Orlando E, Ormes
-  J~F, Paneque D, Panetta J~H, Perkins J~S, Pesce-Rollins M, Piron F, Pivato G,
-  Porter T~A, Rain\`o S, Rando R, Razzano M, Razzaque S, Reimer A, Reimer O,
-  Ritz S, Roth M, Schaal M, Schulz A, Sgr\`o C, Siskind E~J, Spandre G,
-  Spinelli P, Strong A~W, Takahashi H, Takeuchi Y, Thayer J~G, Thayer J~B,
-  Thompson D~J, Tibaldo L, Tinivella M, Torres D~F, Tosti G, Troja E, Tronconi
-  V, Usher T~L, Vandenbroucke J, Vasileiou V, Vianello G, Vitale V, Werner M,
-  Winer B~L, Wood K~S, Wood M and Yang Z (Fermi LAT Collaboration) 2014 {\em
-  Phys. Rev. Lett.\/} {\bf 112}(15) 151103
-  \urlprefix\url{https://link.aps.org/doi/10.1103/PhysRevLett.112.151103}
+Ackermann M (Fermi LAT Collaboration) 2014 {\em Phys. Rev. Lett.\/} {\bf
+  112}(15) 151103
+
+\bibitem{Swordy2001}
+Swordy S 2001 {\em Space Science Reviews\/} {\bf 99} 85--94 ISSN 1572-9672
 
 \bibitem{K&Omodel}
 Kachelrie\ss{} M and Ostapchenko S 2012 {\em Phys. Rev. D\/} {\bf 86}(4) 043004
-  \urlprefix\url{https://link.aps.org/doi/10.1103/PhysRevD.86.043004}
 
 \bibitem{WAtwater}
-Atwater T~W and Freier P~S 1986 {\em Phys. Rev. Lett.\/} {\bf 56}(13)
-  1350--1353
-  \urlprefix\url{https://link.aps.org/doi/10.1103/PhysRevLett.56.1350}
+Atwater T~W 1986 {\em Phys. Rev. Lett.\/} {\bf 56}(13) 1350--1353
 
 \bibitem{AMS-02Helium}
-Aguilar M, Aisa D, Alpat B, Alvino A, Ambrosi G, Andeen K, Arruda L, Attig N,
-  Azzarello P, Bachlechner A, Barao F, Barrau A, Barrin L, Bartoloni A, Basara
-  L, Battarbee M, Battiston R, Bazo J, Becker U, Behlmann M, Beischer B,
-  Berdugo J, Bertucci B, Bindi V, Bizzaglia S, Bizzarri M, Boella G, de~Boer W,
-  Bollweg K, Bonnivard V, Borgia B, Borsini S, Boschini M~J, Bourquin M, Burger
-  J, Cadoux F, Cai X~D, Capell M, Caroff S, Casaus J, Castellini G, Cernuda I,
-  Cerreta D, Cervelli F, Chae M~J, Chang Y~H, Chen A~I, Chen G~M, Chen H, Chen
-  H~S, Cheng L, Chou H~Y, Choumilov E, Choutko V, Chung C~H, Clark C, Clavero
-  R, Coignet G, Consolandi C, Contin A, Corti C, Gil E~C, Coste B, Creus W,
-  Crispoltoni M, Cui Z, Dai Y~M, Delgado C, Della~Torre S, Demirk\"oz M~B,
-  Derome L, Di~Falco S, Di~Masso L, Dimiccoli F, D\'{\i}az C, von Doetinchem P,
-  Donnini F, Duranti M, D'Urso D, Egorov A, Eline A, Eppling F~J, Eronen T, Fan
-  Y~Y, Farnesini L, Feng J, Fiandrini E, Fiasson A, Finch E, Fisher P, Formato
-  V, Galaktionov Y, Gallucci G, Garc\'{\i}a B, Garc\'{\i}a-L\'opez R, Gargiulo
-  C, Gast H, Gebauer I, Gervasi M, Ghelfi A, Giovacchini F, Goglov P, Gong J,
-  Goy C, Grabski V, Grandi D, Graziani M, Guandalini C, Guerri I, Guo K~H, Haas
-  D, Habiby M, Haino S, Han K~C, He Z~H, Heil M, Hoffman J, Hsieh T~H, Huang
-  Z~C, Huh C, Incagli M, Ionica M, Jang W~Y, Jinchi H, Kanishev K, Kim G~N, Kim
-  K~S, Kirn T, Korkmaz M~A, Kossakowski R, Kounina O, Kounine A, Koutsenko V,
-  Krafczyk M~S, La~Vacca G, Laudi E, Laurenti G, Lazzizzera I, Lebedev A, Lee
-  H~T, Lee S~C, Leluc C, Li H~L, Li J~Q, Li J~Q, Li Q, Li Q, Li T~X, Li W, Li
-  Y, Li Z~H, Li Z~Y, Lim S, Lin C~H, Lipari P, Lippert T, Liu D, Liu H, Liu H,
-  Lolli M, Lomtadze T, Lu M~J, Lu S~Q, Lu Y~S, Luebelsmeyer K, Luo F, Luo J~Z,
-  Lv S~S, Majka R, Ma\~n\'a C, Mar\'{\i}n J, Martin T, Mart\'{\i}nez G, Masi N,
-  Maurin D, Menchaca-Rocha A, Meng Q, Mo D~C, Morescalchi L, Mott P, M\"uller
-  M, Nelson T, Ni J~Q, Nikonov N, Nozzoli F, Nunes P, Obermeier A, Oliva A,
-  Orcinha M, Palmonari F, Palomares C, Paniccia M, Papi A, Pauluzzi M,
-  Pedreschi E, Pensotti S, Pereira R, Picot-Clemente N, Pilo F, Piluso A,
-  Pizzolotto C, Plyaskin V, Pohl M, Poireau V, Putze A, Quadrani L, Qi X~M, Qin
-  X, Qu Z~Y, R\"aih\"a T, Rancoita P~G, Rapin D, Ricol J~S, Rodr\'{\i}guez I,
-  Rosier-Lees S, Rozhkov A, Rozza D, Sagdeev R, Sandweiss J, Saouter P, Schael
-  S, Schmidt S~M, von Dratzig A~S, Schwering G, Scolieri G, Seo E~S, Shan B~S,
-  Shan Y~H, Shi J~Y, Shi X~Y, Shi Y~M, Siedenburg T, Son D, Song J~W, Spada F,
-  Spinella F, Sun W, Sun W~H, Tacconi M, Tang C~P, Tang X~W, Tang Z~C, Tao L,
-  Tescaro D, Ting S~C~C, Ting S~M, Tomassetti N, Torsti J,
-  T\"urko\ifmmode~\breve{g}\else \u{g}\fi{}lu C, Urban T, Vagelli V, Valente E,
-  Vannini C, Valtonen E, Vaurynovich S, Vecchi M, Velasco M, Vialle J~P, Vitale
-  V, Vitillo S, Wang L~Q, Wang N~H, Wang Q~L, Wang R~S, Wang X, Wang Z~X, Weng
-  Z~L, Whitman K, Wienkenh\"over J, Willenbrock M, Wu H, Wu X, Xia X, Xie M,
-  Xie S, Xiong R~Q, Xu N~S, Xu W, Yan Q, Yang J, Yang M, Yang Y, Ye Q~H, Yi H,
-  Yu Y~J, Yu Z~Q, Zeissler S, Zhang C, Zhang J~H, Zhang M~T, Zhang S~D, Zhang
-  S~W, Zhang X~B, Zhang Z, Zheng Z~M, Zhuang H~L, Zhukov V, Zichichi A,
-  Zimmermann N and Zuccon P (AMS Collaboration) 2015 {\em Phys. Rev. Lett.\/}
-  {\bf 115}(21) 211101
-  \urlprefix\url{https://link.aps.org/doi/10.1103/PhysRevLett.115.211101}
+Aguilar M (AMS Collaboration) 2015 {\em Phys. Rev. Lett.\/} {\bf 115}(21)
+  211101
 
 \bibitem{pso_optimize}
-{Kennedy} J and {Eberhart} R 1995 {\em Proceedings of ICNN'95 - International
-  Conference on Neural Networks\/} vol~4 pp 1942--1948 vol.4
+{Kennedy} J 1995 {\em Proceedings of ICNN'95 - International Conference on
+  Neural Networks\/} vol~4 pp 1942--1948 vol.4
 
 \end{thebibliography}

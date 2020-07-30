@@ -11,6 +11,8 @@ run:
 	./program
 	# g++ unit_test/model/vsother.cpp $(LIBDIR)/*.cpp -o program `root-config --cflags --glibs` -std=c++11
 	# ./program
+	# g++ unit_test/flx_map/flxmap.cpp $(LIBDIR)/*.cpp -o program `root-config --cflags --glibs` -std=c++11
+	# ./program
 	# g++ unit_test/flx_map/readexpmap.cpp $(LIBDIR)/*.cpp -o program `root-config --cflags --glibs` -std=c++11
 	# ./program
 

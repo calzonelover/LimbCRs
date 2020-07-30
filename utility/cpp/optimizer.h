@@ -14,7 +14,7 @@
 #define SA_N_ACCEPTED_MAX 30
 
 // Particle Swarm Algorithm (PS)
-#define PS_N_PARTICLES 40
+#define PS_N_PARTICLES 50
 #define PS_OMEGA 0.2
 #define PS_C_LOCAL 0.2
 #define PS_C_GLOBAL 0.3

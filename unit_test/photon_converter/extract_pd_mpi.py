@@ -53,6 +53,7 @@ def main():
     else:
         while True:
             week_i = comm.recv(source=0, tag=MPI.ANY_TAG, status=status)
+            print("Receive week: ", week_i)
             if status.tag == settings.TAG_DONE:
                 break
             # process FT1 and FT2 file to write photon weekly

@@ -1,0 +1,205 @@
+\begin{thebibliography}{19}
+\expandafter\ifx\csname natexlab\endcsname\relax\def\natexlab#1{#1}\fi
+\expandafter\ifx\csname bibnamefont\endcsname\relax
+  \def\bibnamefont#1{#1}\fi
+\expandafter\ifx\csname bibfnamefont\endcsname\relax
+  \def\bibfnamefont#1{#1}\fi
+\expandafter\ifx\csname citenamefont\endcsname\relax
+  \def\citenamefont#1{#1}\fi
+\expandafter\ifx\csname url\endcsname\relax
+  \def\url#1{\texttt{#1}}\fi
+\expandafter\ifx\csname urlprefix\endcsname\relax\def\urlprefix{URL }\fi
+\providecommand{\bibinfo}[2]{#2}
+\providecommand{\eprint}[2][]{\url{#2}}
+
+\bibitem[{\citenamefont{Hess}(1936)}]{HESS}
+\bibinfo{author}{\bibfnamefont{V.~F.} \bibnamefont{Hess}}
+  (\bibinfo{publisher}{The Nobel Foundation}, \bibinfo{year}{1936}).
+
+\bibitem[{\citenamefont{Pacini}(1912)}]{Pacini}
+\bibinfo{author}{\bibfnamefont{D.}~\bibnamefont{Pacini}}, \bibinfo{journal}{Il
+  Nuovo Cimento} \textbf{\bibinfo{volume}{3}}, \bibinfo{pages}{93}
+  (\bibinfo{year}{1912}), \urlprefix\url{https://doi.org/10.1007/BF02957440}.
+
+\bibitem[{\citenamefont{Clay}(1927)}]{Clay}
+\bibinfo{author}{\bibfnamefont{J.}~\bibnamefont{Clay}},
+  \bibinfo{journal}{Proceedings of the Section of Sciences, Koninklijke
+  Akademie van Wetenschappen te Amsterdam} \textbf{\bibinfo{volume}{30}},
+  \bibinfo{pages}{1115} (\bibinfo{year}{1927}).
+
+\bibitem[{\citenamefont{Adriani et~al.}(2013)\citenamefont{Adriani, Barbarino,
+  Bazilevskaya, Bellotti, Boezio, Bogomolov, Bongi, Bonvicini, Borisov, Bottai
+  et~al.}}]{PAMELA}
+\bibinfo{author}{\bibfnamefont{O.}~\bibnamefont{Adriani}},
+  \bibinfo{author}{\bibfnamefont{G.~C.} \bibnamefont{Barbarino}},
+  \bibinfo{author}{\bibfnamefont{G.~A.} \bibnamefont{Bazilevskaya}},
+  \bibinfo{author}{\bibfnamefont{R.}~\bibnamefont{Bellotti}},
+  \bibinfo{author}{\bibfnamefont{M.}~\bibnamefont{Boezio}},
+  \bibinfo{author}{\bibfnamefont{E.~A.} \bibnamefont{Bogomolov}},
+  \bibinfo{author}{\bibfnamefont{M.}~\bibnamefont{Bongi}},
+  \bibinfo{author}{\bibfnamefont{V.}~\bibnamefont{Bonvicini}},
+  \bibinfo{author}{\bibfnamefont{S.}~\bibnamefont{Borisov}},
+  \bibinfo{author}{\bibfnamefont{S.}~\bibnamefont{Bottai}},
+  \bibnamefont{et~al.}, \bibinfo{journal}{The Astrophysical Journal}
+  \textbf{\bibinfo{volume}{765}}, \bibinfo{pages}{91} (\bibinfo{year}{2013}),
+  \urlprefix\url{http://stacks.iop.org/0004-637X/765/i=2/a=91}.
+
+\bibitem[{\citenamefont{Aguilar}(2015)}]{AMS-02}
+\bibinfo{author}{\bibfnamefont{M.}~\bibnamefont{Aguilar}}
+  (\bibinfo{collaboration}{AMS Collaboration}), \bibinfo{journal}{Phys. Rev.
+  Lett.} \textbf{\bibinfo{volume}{114}}, \bibinfo{pages}{171103}
+  (\bibinfo{year}{2015}),
+  \urlprefix\url{https://link.aps.org/doi/10.1103/PhysRevLett.114.171103}.
+
+\bibitem[{\citenamefont{Swordy}(2001)}]{Swordy2001}
+\bibinfo{author}{\bibfnamefont{S.}~\bibnamefont{Swordy}},
+  \bibinfo{journal}{Space Science Reviews} \textbf{\bibinfo{volume}{99}},
+  \bibinfo{pages}{85} (\bibinfo{year}{2001}), ISSN \bibinfo{issn}{1572-9672},
+  \urlprefix\url{https://doi.org/10.1023/A:1013828611730}.
+
+\bibitem[{\citenamefont{Abdo et~al.}(2009)\citenamefont{Abdo, Ackermann,
+  Ajello, Atwood, Baldini, Ballet, Barbiellini, Bastieri, Baughman, Bechtol
+  et~al.}}]{Warit2009}
+\bibinfo{author}{\bibfnamefont{A.~A.} \bibnamefont{Abdo}},
+  \bibinfo{author}{\bibfnamefont{M.}~\bibnamefont{Ackermann}},
+  \bibinfo{author}{\bibfnamefont{M.}~\bibnamefont{Ajello}},
+  \bibinfo{author}{\bibfnamefont{W.~B.} \bibnamefont{Atwood}},
+  \bibinfo{author}{\bibfnamefont{L.}~\bibnamefont{Baldini}},
+  \bibinfo{author}{\bibfnamefont{J.}~\bibnamefont{Ballet}},
+  \bibinfo{author}{\bibfnamefont{G.}~\bibnamefont{Barbiellini}},
+  \bibinfo{author}{\bibfnamefont{D.}~\bibnamefont{Bastieri}},
+  \bibinfo{author}{\bibfnamefont{B.~M.} \bibnamefont{Baughman}},
+  \bibinfo{author}{\bibfnamefont{K.}~\bibnamefont{Bechtol}},
+  \bibnamefont{et~al.} (\bibinfo{collaboration}{Fermi-LAT Collaboration}),
+  \bibinfo{journal}{Phys. Rev. D} \textbf{\bibinfo{volume}{80}},
+  \bibinfo{pages}{122004} (\bibinfo{year}{2009}),
+  \urlprefix\url{https://link.aps.org/doi/10.1103/PhysRevD.80.122004}.
+
+\bibitem[{\citenamefont{Ackermann
+  et~al.}(2012{\natexlab{a}})\citenamefont{Ackermann, Ajello, Albert, Allafort,
+  Atwood, Axelsson, Baldini, Ballet, Barbiellini, Bastieri
+  et~al.}}]{FermiPass7}
+\bibinfo{author}{\bibfnamefont{M.}~\bibnamefont{Ackermann}},
+  \bibinfo{author}{\bibfnamefont{M.}~\bibnamefont{Ajello}},
+  \bibinfo{author}{\bibfnamefont{A.}~\bibnamefont{Albert}},
+  \bibinfo{author}{\bibfnamefont{A.}~\bibnamefont{Allafort}},
+  \bibinfo{author}{\bibfnamefont{W.~B.} \bibnamefont{Atwood}},
+  \bibinfo{author}{\bibfnamefont{M.}~\bibnamefont{Axelsson}},
+  \bibinfo{author}{\bibfnamefont{L.}~\bibnamefont{Baldini}},
+  \bibinfo{author}{\bibfnamefont{J.}~\bibnamefont{Ballet}},
+  \bibinfo{author}{\bibfnamefont{G.}~\bibnamefont{Barbiellini}},
+  \bibinfo{author}{\bibfnamefont{D.}~\bibnamefont{Bastieri}},
+  \bibnamefont{et~al.}, \bibinfo{journal}{The Astrophysical Journal Supplement
+  Series} \textbf{\bibinfo{volume}{203}}, \bibinfo{pages}{4}
+  (\bibinfo{year}{2012}{\natexlab{a}}),
+  \urlprefix\url{http://stacks.iop.org/0067-0049/203/i=1/a=4}.
+
+\bibitem[{\citenamefont{Ackermann et~al.}(2014)\citenamefont{Ackermann, Ajello,
+  Albert, Allafort, Baldini, Barbiellini, Bastieri, Bechtol, Bellazzini,
+  Blandford et~al.}}]{previouswork}
+\bibinfo{author}{\bibfnamefont{M.}~\bibnamefont{Ackermann}},
+  \bibinfo{author}{\bibfnamefont{M.}~\bibnamefont{Ajello}},
+  \bibinfo{author}{\bibfnamefont{A.}~\bibnamefont{Albert}},
+  \bibinfo{author}{\bibfnamefont{A.}~\bibnamefont{Allafort}},
+  \bibinfo{author}{\bibfnamefont{L.}~\bibnamefont{Baldini}},
+  \bibinfo{author}{\bibfnamefont{G.}~\bibnamefont{Barbiellini}},
+  \bibinfo{author}{\bibfnamefont{D.}~\bibnamefont{Bastieri}},
+  \bibinfo{author}{\bibfnamefont{K.}~\bibnamefont{Bechtol}},
+  \bibinfo{author}{\bibfnamefont{R.}~\bibnamefont{Bellazzini}},
+  \bibinfo{author}{\bibfnamefont{R.~D.} \bibnamefont{Blandford}},
+  \bibnamefont{et~al.} (\bibinfo{collaboration}{Fermi LAT Collaboration}),
+  \bibinfo{journal}{Phys. Rev. Lett.} \textbf{\bibinfo{volume}{112}},
+  \bibinfo{pages}{151103} (\bibinfo{year}{2014}),
+  \urlprefix\url{https://link.aps.org/doi/10.1103/PhysRevLett.112.151103}.
+
+\bibitem[{Fer()}]{FermiStructure}
+\emph{\bibinfo{title}{Overview of the lat}}, \bibinfo{note}{(accessed:
+  07.06.2018)},
+  \urlprefix\url{https://fermi.gsfc.nasa.gov/ssc/data/analysis/documentation/Cicerone/Cicerone_Introduction/LAT_overview.html}.
+
+\bibitem[{\citenamefont{Ackermann
+  et~al.}(2012{\natexlab{b}})\citenamefont{Ackermann, Ajello, Albert, Allafort,
+  Atwood, Axelsson, Baldini, Ballet, Barbiellini, Bastieri
+  et~al.}}]{FermiDetail}
+\bibinfo{author}{\bibfnamefont{M.}~\bibnamefont{Ackermann}},
+  \bibinfo{author}{\bibfnamefont{M.}~\bibnamefont{Ajello}},
+  \bibinfo{author}{\bibfnamefont{A.}~\bibnamefont{Albert}},
+  \bibinfo{author}{\bibfnamefont{A.}~\bibnamefont{Allafort}},
+  \bibinfo{author}{\bibfnamefont{W.~B.} \bibnamefont{Atwood}},
+  \bibinfo{author}{\bibfnamefont{M.}~\bibnamefont{Axelsson}},
+  \bibinfo{author}{\bibfnamefont{L.}~\bibnamefont{Baldini}},
+  \bibinfo{author}{\bibfnamefont{J.}~\bibnamefont{Ballet}},
+  \bibinfo{author}{\bibfnamefont{G.}~\bibnamefont{Barbiellini}},
+  \bibinfo{author}{\bibfnamefont{D.}~\bibnamefont{Bastieri}},
+  \bibnamefont{et~al.}, \bibinfo{journal}{The Astrophysical Journal Supplement
+  Series} \textbf{\bibinfo{volume}{203}}, \bibinfo{pages}{4}
+  (\bibinfo{year}{2012}{\natexlab{b}}),
+  \urlprefix\url{http://stacks.iop.org/0067-0049/203/i=1/a=4}.
+
+\bibitem[{\citenamefont{Atwood et~al.}(2013)}]{Atwood:2013rka}
+\bibinfo{author}{\bibfnamefont{W.}~\bibnamefont{Atwood}} \bibnamefont{et~al.}
+  (\bibinfo{collaboration}{Fermi-LAT}) (\bibinfo{year}{2013}),
+  \eprint{1303.3514},
+  \urlprefix\url{http://inspirehep.net/record/1223837/files/arXiv:1303.3514.pdf}.
+
+\bibitem[{\citenamefont{Kachelrie\ss{} and Ostapchenko}(2012)}]{K&Omodel}
+\bibinfo{author}{\bibfnamefont{M.}~\bibnamefont{Kachelrie\ss{}}}
+  \bibnamefont{and}
+  \bibinfo{author}{\bibfnamefont{S.}~\bibnamefont{Ostapchenko}},
+  \bibinfo{journal}{Phys. Rev. D} \textbf{\bibinfo{volume}{86}},
+  \bibinfo{pages}{043004} (\bibinfo{year}{2012}),
+  \urlprefix\url{https://link.aps.org/doi/10.1103/PhysRevD.86.043004}.
+
+\bibitem[{\citenamefont{Wallace and Hobbs}(2006)}]{atmosCompos}
+\bibinfo{author}{\bibfnamefont{J.~M.} \bibnamefont{Wallace}} \bibnamefont{and}
+  \bibinfo{author}{\bibfnamefont{P.~V.} \bibnamefont{Hobbs}},
+  \emph{\bibinfo{title}{Atmospheric}} (\bibinfo{publisher}{Science},
+  \bibinfo{year}{2006}).
+
+\bibitem[{\citenamefont{Atwater and Freier}(1986)}]{WAtwater}
+\bibinfo{author}{\bibfnamefont{T.~W.} \bibnamefont{Atwater}} \bibnamefont{and}
+  \bibinfo{author}{\bibfnamefont{P.~S.} \bibnamefont{Freier}},
+  \bibinfo{journal}{Phys. Rev. Lett.} \textbf{\bibinfo{volume}{56}},
+  \bibinfo{pages}{1350} (\bibinfo{year}{1986}),
+  \urlprefix\url{https://link.aps.org/doi/10.1103/PhysRevLett.56.1350}.
+
+\bibitem[{\citenamefont{Aguilar et~al.}(2015)\citenamefont{Aguilar, Aisa,
+  Alpat, Alvino, Ambrosi, Andeen, Arruda, Attig, Azzarello, Bachlechner
+  et~al.}}]{AMS-02Helium}
+\bibinfo{author}{\bibfnamefont{M.}~\bibnamefont{Aguilar}},
+  \bibinfo{author}{\bibfnamefont{D.}~\bibnamefont{Aisa}},
+  \bibinfo{author}{\bibfnamefont{B.}~\bibnamefont{Alpat}},
+  \bibinfo{author}{\bibfnamefont{A.}~\bibnamefont{Alvino}},
+  \bibinfo{author}{\bibfnamefont{G.}~\bibnamefont{Ambrosi}},
+  \bibinfo{author}{\bibfnamefont{K.}~\bibnamefont{Andeen}},
+  \bibinfo{author}{\bibfnamefont{L.}~\bibnamefont{Arruda}},
+  \bibinfo{author}{\bibfnamefont{N.}~\bibnamefont{Attig}},
+  \bibinfo{author}{\bibfnamefont{P.}~\bibnamefont{Azzarello}},
+  \bibinfo{author}{\bibfnamefont{A.}~\bibnamefont{Bachlechner}},
+  \bibnamefont{et~al.} (\bibinfo{collaboration}{AMS Collaboration}),
+  \bibinfo{journal}{Phys. Rev. Lett.} \textbf{\bibinfo{volume}{115}},
+  \bibinfo{pages}{211101} (\bibinfo{year}{2015}),
+  \urlprefix\url{https://link.aps.org/doi/10.1103/PhysRevLett.115.211101}.
+
+\bibitem[{\citenamefont{Wilks}(1938)}]{Wilks1938}
+\bibinfo{author}{\bibfnamefont{S.~S.} \bibnamefont{Wilks}},
+  \bibinfo{journal}{Ann. Math. Statist.} \textbf{\bibinfo{volume}{9}},
+  \bibinfo{pages}{60} (\bibinfo{year}{1938}),
+  \urlprefix\url{https://doi.org/10.1214/aoms/1177732360}.
+
+\bibitem[{\citenamefont{Huelsenbeck and Crandall}(1997)}]{Huelsenbeck}
+\bibinfo{author}{\bibfnamefont{J.~P.} \bibnamefont{Huelsenbeck}}
+  \bibnamefont{and} \bibinfo{author}{\bibfnamefont{K.~A.}
+  \bibnamefont{Crandall}}, \bibinfo{journal}{Annual Review of Ecology and
+  Systematics} \textbf{\bibinfo{volume}{28}}, \bibinfo{pages}{437}
+  (\bibinfo{year}{1997}),
+  \eprint{https://doi.org/10.1146/annurev.ecolsys.28.1.437},
+  \urlprefix\url{https://doi.org/10.1146/annurev.ecolsys.28.1.437}.
+
+\bibitem[{\citenamefont{M.J.~Berger}()}]{XCOMNIST}
+\bibinfo{author}{\bibfnamefont{J.~H.} \bibnamefont{M.J.~Berger}},
+  \emph{\bibinfo{title}{Xcom: Photon cross sections database}},
+  \bibinfo{note}{(accessed: 07.06.2018)},
+  \urlprefix\url{https://www.nist.gov/pml/xcom-photon-cross-sections-database}.
+
+\end{thebibliography}

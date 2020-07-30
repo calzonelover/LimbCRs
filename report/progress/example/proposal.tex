@@ -1,0 +1,312 @@
+\documentclass[12pt, a4paper]{article}
+\setlength{\oddsidemargin}{0.5cm}
+\setlength{\evensidemargin}{0.5cm}
+\setlength{\topmargin}{-1.6cm}
+\setlength{\leftmargin}{0.5cm}
+\setlength{\rightmargin}{0.5cm}
+\setlength{\textheight}{24.00cm} 
+\setlength{\textwidth}{15.00cm}
+\parindent 0pt
+\parskip 5pt
+\pagestyle{plain}
+\usepackage[table,xcdraw]{xcolor}
+\usepackage{tikz}
+\usepackage{amsmath}
+\def\checkmark{\tikz\fill[scale=0.4](0,.35) -- (.25,0) -- (1,.7) -- (.25,.15) -- cycle;}
+
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+ 
+\setlength{\parindent}{4em}
+\setlength{\parskip}{1em}
+%\renewcommand{\baselinestretch}{2.0}
+\usepackage{indentfirst}
+
+\usepackage{bm}
+\newcommand{\uveci}{{\bm{\hat{\textnormal{\bfseries\i}}}}}
+\newcommand{\uvecj}{{\bm{\hat{\textnormal{\bfseries\j}}}}}
+\DeclareRobustCommand{\uvec}[1]{{%
+  \ifcsname uvec#1\endcsname
+     \csname uvec#1\endcsname
+   \else
+    \bm{\hat{\mathbf{#1}}}%
+   \fi
+}}
+
+
+
+
+\title{THESIS PROPOSAL}
+\author{}
+\date{}
+
+\newcommand{\namelistlabel}[1]{\mbox{#1}\hfil}
+\newenvironment{namelist}[1]{%1
+\begin{list}{}
+    {
+        \let\makelabel\namelistlabel
+        \settowidth{\labelwidth}{#1}
+        \setlength{\leftmargin}{1.1\labelwidth}
+    }
+  }{%1
+\end{list}}
+
+\begin{document}
+\maketitle
+
+\begin{namelist}{xxxxxxxxxxxx}
+\item[{\bf Title:}]
+	Magnetic Reconnection at the Leading Edge of an Interplanetary Coronal Mass Ejection: A Data-Driven Simulation Study
+\item[{\bf Student:}]
+	Pakkapawn Prapan 6037933 SCPY/M
+\item[{\bf Supervisor:}]
+	Professor David Ruffolo
+\item[{\bf Degree:}]
+	Master's degree
+\item[{\bf Field of study:}]
+	Physics
+\item[{\bf Faculty of}]
+	\bf Science \qquad \bf Mahidol University 
+\end{namelist}
+
+\section{Introduction}
+Magnetic Reconnection is a magnetic field rearrangement in a microscopic scale to make the system achieve the lower energy state through transferring the energy that is stored in the magnetic field lines into a kinetic energy of the plasma.\par The reconnection is well known to be the cause of several space weather phenomena near Earth such as auroras, which originate through reconnection at the Earth's magnetosphere. Reconnection also provide the energy for solar storms at the surface of the Sun. Such solar activity  causes space weather phenomena at Earth.\par Apart from the reconnection near Earth and the surface of the Sun, there is some  interesting observational evidence of magnetic reconnection that was observed at the interplanetary region between the Sun and the Earth's magnetosphere by $Chian$ and $Mu$$\tilde{n}$$oz$ (2011). On 2005 January 21, four $Cluster$ spacecraft detected asymmetric reconnection at the leading edge of an interplanetary coronal mass ejection (ICME), a massive release of plasma and attached magnetic field lines from the solar corona which can also drive a geomagnetic storm that can cause several types of space weather phenomena. For this event their work shows characteristics of asymmetric reconnection, which is a type of the reconnection with a current sheet separating plasma with different magnetic field strength and density. \par
+\begin{figure}[hbtp]
+\centering
+\includegraphics[scale=0.25]{"../Seminar/Pics/5a".png}
+\caption{This graph shows a plateau feature in the exhaust (outflow) from asymmetric reconnection when plotting the component of magnetic field in the L-direction (Direction along magnetic filed lines)[$Chain$ and $Mu$$\tilde{n}$$oz$ 2011]. }
+\end{figure}
+\newpage
+In this project we study asymmetric reconnection in the same event as $Chian$ and $Mu$$\tilde{n}$$oz$ (2011). We will perform a data-driven simulation using a Particle In Cell (PIC) model, which treats both ions and electron as a particle. The result from the simulation will be used to compare with observational data. Finally, in this study we also have an opportunity to study mixing behavior between two plasma populations that were initially separated.\par
+
+% A Magnetic Reconnection is a magnetic field rearrangement to make the system achieve the lower energy state through transferring the energy that is stored in the magnetic field lines into a kinetic energy of the plasma. Because the magnetic field lines break on microscopic scales,a scale that relatively small compare to a plasma gyroradius either ions or electrons, we choose to use a data-driven simulation in a plasma-particle perspective for studying a magnetic reconnection properties in this scale. Moreover,one of the interesting structures when the magnetic reconnection occur is a current sheet, a feature that appear to be at the boundary layer between the two magnetic field lines with the different direction which confine an electrical current to the surface between them. The bifurcated current sheet at the leading edge of an interplanetary coronal mass ejection(ICME)[Chain and Munoz, 2011 :  The observational evidence for a bifurcated current sheet at an interplanetary coronal mass ejection.],a massive release of plasma and attached magnetic field line from the solar corona,is a structure of interest in this study, by studying the mixing of two plasma populations in an outflow region,the region that the plasma flow out of the reconnection region(diffusion region)also the same region of the reconnected magnetic field lines.
+
+\section{Objectives} 
+\begin{itemize}
+\item Learning more about asymmetric reconnection at the leading edge of an interplanetary coronal mass ejection through a data-driven simulation.
+\item Study mixing of the two plasma populations in a reconnection outflow region.
+\end{itemize}
+
+ 
+\section{Background knowledge}
+	\subsection*{Magnetic reconnection}
+		An ideal properties of a plasma is quasi-neutrality, when plasma have a zero total charge. Plasma is a perfect conductor that means a plasma conductivity is nearly infinity or a plasma have no electrical resistivity. And the condition that we are interested in is called a frozen-in condition.
+		\subsubsection*{Frozen-in condition}
+			The ideal magnetohydrodynamic plasma model, which is the plasmas and magnetic behave like fluid, have a frozen-in condition every where. \par
+			Under the frozen-in condition, the electric filed is zero in the plasma frame so the particles can only sense the magnetic field that drives particles to gyrate around the magnetic field line that make it like the particles are frozen in to the magnetic elements. However, if we transform into the lab frame to become a plasma observer and an element of plasma moves with the velocity $\mathbf{u}$, we will be able to observed the electric filed of the plasma element that occur by the frame transformation.
+			\begin{align*}
+				\vec{\mathbf{E}}_{\text{lab}}&=-\frac{\vec{\mathbf{u}}}{c}\times\vec{\mathbf{B}}_{\text{lab}}
+			\end{align*}
+			We can also show that,
+			\begin{align*}
+				\vec{\mathbf{E}}_{\text{lab}}&=\vec{\mathbf{B}}_{\text{lab}}\times\frac{\vec{\mathbf{u}}}{c}\\
+				\vec{\mathbf{E}}_{\text{lab}}\times\vec{\mathbf{B}}_{\text{lab}}&=\left( \vec{\mathbf{B}}_{\text{lab}}\times\frac{\vec{\mathbf{u}}}{c}\right) \times\vec{\mathbf{B}}_{\text{lab}}\\
+				&=-\vec{\mathbf{B}}_{\text{lab}}\times\left( \vec{\mathbf{B}}_{\text{lab}}\times\frac{\vec{\mathbf{u}}}{c}\right)\\
+				&=-\vec{\mathbf{B}}_{\text{lab}}\left( \frac{\vec{\mathbf{u}}}{c}\cdot \vec{\mathbf{B}}_{\text{lab}} \right)+\frac{\vec{\mathbf{u}}}{c}\left( \vec{\mathbf{B}}_{\text{lab}}\cdot\vec{\mathbf{B}}_{\text{lab}} \right)\\
+				&=-\text{B}^{2}\uvec{B}_{\text{lab}}\left( \frac{\vec{\mathbf{u}}}{c}\cdot \uvec{B}_{\text{lab}} \right)+\frac{\vec{\mathbf{u}}}{c}\text{B}^2
+			\end{align*}
+	\par We can consider $\vec{\text{u}}$ in to two component. Firstly, we consider a plasma bulk velocity in the same direction with a magnetic field ($\vec{\text{u}}_\parallel$). Secondly, we consider a magnetic field perpendicular velocity ($\vec{\text{u}}_\perp$). However, a $\vec{\mathbf{E}}\times\vec{\mathbf{B}_{\text{lab}}}$ need to be perpendicular to $\vec{\mathbf{B}}_{\text{lab}}$ , so only $\vec{\text{u}}_\perp$ is considered.
+			\begin{align*}
+				\vec{\mathbf{E}}_{\text{lab}}\times\vec{\mathbf{B}}_{\text{lab}}&=\frac{\vec{\mathbf{u}}_\perp}{c}\text{B}^2\\
+				 \frac{c\left(\vec{\mathbf{E}}_{\text{lab}}\times\vec{\mathbf{B}}_{\text{lab}} \right)}{\text{B}^{2}}&=\vec{\mathbf{u}}_\perp
+			\end{align*}
+			\par
+			This means a plasma under frozen-in condition have a perpendicular velocity that drove only by an $\vec{\mathbf{E}}\times\vec{\mathbf{B}}$ drift.\par
+			Moreover, the conservation of magnetic flux due to this properties of a Maxwell's equation
+			$\vec{\nabla}\cdot\vec{\mathbf{B}}_{\text{lab}}=0$ have an importance roll in the studying of the magnetic reconnection. With the frozen-in condition the two magnetic flux tubes can not merge due to the condition that the magnetic flux within each tube before and after merging can not change. Under these conditions magnetic reconnection can not occur.
+			\begin{figure}[hbtp]
+			\centering
+			\includegraphics[scale=0.5]{"New folder/BEFORE".png}\\
+			\includegraphics[scale=0.5]{"New folder/AFTER NoF".png}\\
+			\includegraphics[scale=0.5]{"New folder/AFTER WtF".png}
+			\caption{All this is assuming the frozen-in condition show two magnetic fluxs are merging in 2 dimensional.a)Two flux tubes before merging. A first tube contain 3 magnetic units with into-the-page direction and 1 magnetic unit with out-of-the-page direction. When a second tube contain 3 magnetic units with out-of-the-page direction and 1 magnetic unit with into-the-page direction. b) Two flux tubes are merging. The first tube gains 1 magnetic unit with into-the-page direction. When the second tube gains 1 magnetic unit with out-of-the-page direction. c) When two magnetic flux tubes are under frozen-in condition, two flux tubes can not merge in order to conserves the amount of magnetic unit then two tubes can only press each other.}
+			\end{figure}
+			\newpage
+		\subsubsection*{Current sheets}
+		Due to the conservation of magnetic flux with the frozen-in condition for the ideal plasma, two magnetic flux tubes are not able to meet, merge, break, and reconnect. Therefore, the space between the two flux tubes with the different direction will create the into-the-page current ($\vec{\mathbf{J}}=\vec{\nabla}\times\vec{\mathbf{B}}$), which we call current sheet.
+		\begin{figure}[hbtp]
+		\centering
+		\includegraphics[scale=0.5]{"New folder/Current sheet".png}
+		\caption{Current sheet}
+		\end{figure}	
+From these properties we need to break a frozen-in condition in some region, which is called a magnetic diffusion region, for allowing the magnetic field line to break and reconnect again in order to study a magnetic reconnection.
+		Then one way to determine a type of reconnection is how the frozen-in condition was broken. These following sections we will considering in two types of magnetic reconnection; collisional reconnection and collisionless reconnection.
+		
+		
+		\subsubsection*{Collisional reconnection}
+		The collisional reconnection occur when the plasma fluid in some region is not a perfect conductor anymore. This region is called “diffusion region" or  “reconnection region" means the magnetic field lines can be diffused inside this region. In this region ,there is an additional electric field from the collision of a plasma that make the MHD plasma gain the electrical resistivity. This type of reconnection is called Sweet-Parker reconnection.
+		\begin{align*}
+		\vec{\mathbf{E}}&=-\frac{\vec{\mathbf{u}}}{c}\times\vec{\mathbf{B}}+\eta\vec{\mathbf{J}}
+		\end{align*}
+		\begin{figure}[hbtp]
+		\centering
+		\includegraphics[scale=0.5]{"Sweet-Parker Reconnection(collisional)".png}
+		\caption{Sweet-Parker Reconnection}
+		\end{figure}\par
+		The collisional reconnection have a slow reconnection rate due to the large diffusion region.
+		\par
+		However, the collisional reconnection not usually occur in the space plasma environment due to a low density plasma environment that can make the collision rate very small. In this project we interest to study the reconnection in the interplanetary plasma environment, so the type of reconnection that we interest is collisionless reconnection.
+		\subsubsection*{Collisionless reconnection}
+		Same as collitional reconnection, the frozen-in condition need to be broken in order to have a collisionless reconnection. However, the plasma fluid is still a perfect conductor that means the electric field can not generate from the resisitivity. Therefore, another mechanism is needed for generating electric field.\par
+	The region under frozen-in condition in the environment that no collision, the plasmas move under $\vec{\mathbf{E}}\times\vec{\mathbf{B}}$ drift and plasmas are also attached to the magnetic field. However, when the plasmas move inside the hall region that frozen-in do not works, the plasma won't drift with $\vec{\mathbf{E}}\times\vec{\mathbf{B}}$ anymore.\par
+		\begin{figure}[hbtp]
+		\centering
+		\includegraphics[scale=0.5]{"../Seminar/Pics/MRE/Collisionless Reconnection".png}
+		\caption{This picture shows a particle trajectory under the frozen-in condition when it moves out side the hall region(Yellow region) and the trajectory in side the region when the frozen-in condition is broken.}
+		\end{figure}
+		\begin{align*}
+			\vec{\mathbf{E}}&=-\frac{\vec{\mathbf{u}}}{c}\times\vec{\mathbf{B}}+\frac{1}{nec}\left(\vec{\mathbf{J}}\times\vec{\mathbf{B}}\right)
+		\end{align*}\par
+		In this equation shows that an electric field in the lab frame now do not contain only a transformation frame electric field but also have a Hall term that generates another electric field which  breaks frozen-in condition because in the plasma frame an electric field is not zero anymore.\par
+		\begin{figure}[hbtp]
+		\centering
+		\includegraphics[scale=0.5]{"../Seminar/Pics/MRE/Hall Reconnection(collisionless) (2)".png}
+		\caption{Hall reconnection}
+		\end{figure}		
+		
+		\newpage
+		
+		
+			
+		
+		
+	\subsubsection*{Asymmetric reconnection}
+		Now we have an idea what the magnetic reconnection is, we will move next to an analysis step.\par In this study we will focus on an asymmetric inflow (asymmetric reconnection), which there are unequal incoming and out going mass, momentum, and energy fluxes through the reconnection region. Because in reality, such as reconnection under a turbulent condition, the reconnection loses all of its symmetry. 
+	
+		\begin{figure}[hbtp]
+		\centering
+		\includegraphics[scale=0.25]{"../Seminar/Pics/MRE/ASYM".png}
+		\caption{Asymmetric reconnection}
+		\end{figure}
+		
+		\newpage
+	In this study we will an reconnection at the leading edge of an interplanetary coronal mass ejection which we believe to be an asymmetric reconnection.
+	\subsection*{Interplanetary coronal mass ejection}
+		%\subsubsection*{Corona}
+		\subsubsection*{Coronal mass ejection}
+		A corona mass ejection(CME) is a massive release of plasma and attached magnetic field from the solar corona, which is a low density plasma (when comparing with other parts of the Sun.) that surrounds the Sun. The CME usually present during a solar prominence eruption and also following solar flares. This solar events mostly originate from active regions on the Sun's surface, such as grouping of sunspots.
+		\begin{figure}[hbtp]
+		\centering
+		\includegraphics[scale=1]{"../Seminar/Pics/96915-004-E99CC450".jpg}
+		\caption{Corona mass ejection observed with coronagraph in white light.}
+		\end{figure}
+		\newpage
+		\subsubsection*{Interplanetary coronal mass ejection}
+		Interplanetary coronal mass ejection(ICME) is one of the large-scale interplanetary structures. ICMEs originate from closed field region at the Sun's surface that it is called coronal mass ejection(CME). CMEs drive shocks from close to the Sun then expand into the interplanetary medium, the shock become weaker when go further from the Sun. ICMEs are the interplanetary enlargement of CMEs. CMEs can be observed in white light with coronagraph. However, ICMEs can not be successfully observed the same way as CMEs. They are preferable to identified using plasma, magnetic and energetic particle signature, for example.
+		\begin{figure}[h!]
+		\centering
+		\includegraphics[scale=0.5]{"../Seminar/Pics/Schematic-of-an-interplanetary-coronal-mass-ejection-driving-a-shock-ahead-of-it-and-the".png}
+		\caption{ICMEs are identified using plasma and magnetic properties.}
+		\end{figure}
+		
+		
+		\newpage
+	
+	\subsection*{$Chian$ and $Mu$$\tilde{n}$$oz$ 2011}
+		\subsubsection*{Interplanetary coronal mass ejection on $21^{st}$ January 2005}
+		On $\text{20}^{th}$ January 2005 at 0654 UT, a huge coronal mass ejection erupt toward Earth that releases flare in X7-class that we can detect solar energetic particles immediately at the spacecrafts after the explosion. This CME is from sun spot number 720 that big enough to see at the Earth. This CME arrived at the $Cluster$ spacecraft on $\text{21}^{st}$ January 2005.
+		\begin{figure}[hbtp]
+		\centering
+		\includegraphics[scale=1]{"New folder/2005_01_20_06_54_00_EIT_171__LASCO_C2".png}
+		\caption{The coronal mass ejection at 3 o'clock location in visible light on $20^{th}$ January 2005 at 6.54 am observed by SOHO.}
+		\end{figure}
+		\newpage
+		\subsubsection*{Result and Discussion}
+		The results from their work show the evidence of the magnetic reconnection observe by four $Cluster$ spacecraft at the leading edge of a ICME along with a bifurcated current sheet in both multi-spacecraft and single-spacecraft technique.
+		\begin{figure}[h!]
+		\centering
+		\includegraphics[scale=0.25]{"../Seminar/Pics/512157main_cluster-orig_full_1".jpg}
+		\caption{Four $Cluster$ spacecrafts.}
+		\end{figure}
+		
+		\begin{figure}[h!]
+		\centering
+		\includegraphics[scale=0.25]{"../Seminar/Pics/1b".png}
+		\caption{This graph shows two magnetic discontinuity that refer to the current sheets structure at the leading edge of an ICME}
+		\end{figure}
+		\newpage
+		\begin{figure}[h!]
+		\centering
+		\includegraphics[scale=0.25]{"../Seminar/Pics/3".png}
+		\caption{This graph shows magnetic reconnection at the leading edge of an ICME together with the current sheet SB1 and SB2. When $\vert \mathbf{B}\vert$ (nT) is the modulus of magnetic field, $\vert \mathbf{V}\vert$ (km $\text{s}^{-1}$) is the modulus of observed plasma velocity (black) and the plasma velocity(orange) from the magnetic reconnection theory, and $\vert \mathbf{J}\vert$ is the modulus of the current density compute by multi-spacecraft technique. }
+		\end{figure}
+		\begin{figure}[h!]
+		\centering
+		\includegraphics[scale=1]{"New folder/Observed direction".png}
+		\caption{This picture shows LMN coordinate system, L is a direction of the field lines, M is out-of-the-plane direction also the the current flow direction, and N is the perpendicular direction to L and M.}
+		\end{figure}		
+		\begin{figure}[h!]
+		\centering
+		\includegraphics[scale=0.25]{"../Seminar/Pics/4".png}
+		\caption{These graph show the component of $\mathbf{B}$ and $\textbf{V}$ measured by $Cluster-1$ in the LMN coordinate. Both show observational evidence of bifurcated current sheet SB1 and SB2, with a plateau at the middle of each current sheet in $B_L$, and correlated/anti-correlated $V_L$ and $B_L$.}
+		\end{figure}
+		\begin{figure}[h!]
+		\centering
+		\includegraphics[scale=0.25]{"../Seminar/Pics/5a".png}
+		\caption{This graph shows a plateau structure that refer to a bifercated current sheet for a single spacecraft technique.($Cluster-3$)}
+		\end{figure}
+		\begin{figure}[h!]
+		\centering
+		\includegraphics[scale=0.25]{"../Seminar/Pics/5b".png}
+		\caption{This graph shows $J_M$ calculate from $B_L$ showing double peaks at both edges of the bifurcated current sheet SB1.}
+		\end{figure}
+		
+\newpage
+\section{Methodology and Scope}
+\subsection*{Methodology}
+\subsubsection*{ An introduction to Particle In Cell Model}
+A Particle-in-cell model is a model that we will use to study a reconnection. This model will consider the plasma as an individual particle. This model will separated into two part. \par Firstly, there is an equation of motion for a plasma view point through the normalized relativistic form of Newton's second law equation.\par Secondly, There is an time evolution for the electromagnetic feature through the normalized relativistic form of Maxwell's equation.\par In this model both plasma and electromagnetic elements will change with time. And the model will govern all of the parameters through this following diagram.
+\begin{figure}[h!]
+\centering
+\includegraphics[scale=0.5]{"New folder/PIC".png}
+\caption{This diagram shows how plasmas and electromagnetic features behave under  a Particle-In-Cell model. When the two different color circles represent two type of particles, every grid points contain the value of electric and magnetic field, and four nearest grid points (Yellow dash box) represent 1 cell }
+\end{figure}
+\newpage
+\subsection*{ A data-driven simulation}
+In this project we choose to use a PIC model, so the next part is doing a simulation. A data-driven simulation is a simulation for comparing the model with the observation data by using initial variables for the simulation from the real event. From this study we will set the initial parameters to be the environment at the leading edge of an ICME on $\text{21}^{st}$ January, 2005.
+
+\subsection*{Scope}
+\begin{itemize}
+\item Current density(J)
+\item Electric field
+\item Density of ions and electrons
+\item Velocity of ions and electrons
+\item Magnetic field
+\end{itemize}
+%-Scope:J,E,v ions and electrons, dens ions and electron, B
+
+\section{Research planning}
+\begin{table}[h]
+\begin{tabular}{|c|c|c|c|c|c|}
+\hline
+ & Dec-Feb 	& Mar-Apr 	& May 	& Jun-Jul 	& Aug  \\ \hline
+ Coding and Simulating a model	&{\cellcolor{teal}}&  			&  		&			&  \\ \hline
+ Data analysis					&{\cellcolor{teal}}&{\cellcolor{teal}}&  		&		&  \\ \hline
+ Conference						& 			&         	&{\cellcolor{teal}}&  			&  \\ \hline
+ Writing thesis					&{\cellcolor{teal}}&{\cellcolor{teal}}&{\cellcolor{teal}}&{\cellcolor{teal}}&	\\ \hline
+ Thesis defense					&			&			&		&			&{\cellcolor{teal}}\\ \hline
+\end{tabular}
+\end{table}
+\section{Summary and Outlook}
+\begin{itemize}
+\item Comparing simulation result with observable evidence.
+\item At the leading edge of an interplanetary coronal mass ejection can have magnetic reconnection.
+\end{itemize}
+
+\begin{thebibliography}{9}
+%Abraham C.-L. Chian and Pablo R.Muñoz. “Detection of current sheets and magnetic reconnections at %the turbulent leading edge of an interplanetary coronal mass ejection.” Astrophysics Journal %Letters 733: L34 (5pp), 2011 June 1.
+%        MalakitK.2012.PhD.Thesis, “A symmetric magnetic reconnection: A particle-in-cell study”
+
+\bibitem{Chian} Abraham C.-L. Chian and Pablo R.Mu$\tilde{n}$oz. {\em “Detection of current sheets and magnetic reconnections at the turbulent leading edge of an interplanetary coronal mass ejection." }\/ Astrophysics Journal Letters 733: L34 (5pp), 2011 June 1.
+\bibitem{Malakit} Malakit, K. {\em “Asymmetric magnetic reconnection: A particle-in-cell study.” }\/ PhD.Thesis, 2012.
+\bibitem{SpaceWeather} Space Weather, {\em “ What's up in space$--$21 Jan 2005.” }\/\\ http://spaceweather.com/archive.php?view=1\&day=12\&month=09\&year=2017
+\bibitem{NAT} Gopalswamy, N. {\em “ Properties of Interplanetary Coronal Mass Ejection."}\/ Space Science Review (2006) 124: 145. https://doi.org/10.1007/s11214-006-9102-1
+%Gopalswamy, N. Space Sci Rev (2006) 124: 145. https://doi.org/10.1007/s11214-006-9102-1
+
+%or Logical, {\em Notices of the Amer. Maths. Soc.},\/ Vol. 34,
+%1987, pp. 621-624.
+\end{thebibliography}
+
+
+\end{document}
+

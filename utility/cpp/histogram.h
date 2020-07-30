@@ -19,8 +19,8 @@ class Histogram {
         static void init2DHistogram(std::vector<TH2F*> &_cnt_maps, std::vector<TH2F*> &_flx_maps, float *_energy_mid_bins);
         static float sumOverRegion(
             TH2F *map,
-            float theta_nad_min = THETA_NADIR_MIN, float theta_nad_max = THETA_NADIR_MAX,
-            float phi_nad_min = PHI_NADIR_MIN, float phi_nad_max = PHI_NADIR_MAX
+            float phi_nad_min = PHI_NADIR_MIN, float phi_nad_max = PHI_NADIR_MAX,
+            float theta_nad_min = THETA_E_NAD_MIN, float theta_nad_max = THETA_E_NAD_MAX
         );
 
         static int findBin(float energy, float *_energy_edge_bins);

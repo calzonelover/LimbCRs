@@ -1,49 +1,49 @@
-This is BibTeX, Version 0.99d (TeX Live 2015/Debian)
-Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
+This is BibTeX, Version 0.99d (TeX Live 2019)
+Capacity: max_strings=100000, hash_size=100000, hash_prime=85009
 The top-level auxiliary file: JPCSLaTeXGuidelines.aux
 The style file: iopart-num.bst
-Database file #1: iopart-num.bib
+Database file #1: iopart-num_short.bib
 Reallocated wiz_functions (elt_size=4) to 6000 items from 3000.
 Warning--empty booktitle in HESS
-You've used 11 entries,
+You've used 15 entries,
             3012 wiz_defined-function locations,
-            703 strings with 17378 characters,
-and the built_in function-call counts, 98688 in all, are:
-= -- 13068
-> -- 2072
+            732 strings with 6557 characters,
+and the built_in function-call counts, 9080 in all, are:
+= -- 867
+> -- 89
 < -- 2
-+ -- 719
-- -- 699
-* -- 7970
-:= -- 9706
++ -- 70
+- -- 42
+* -- 525
+:= -- 1125
 add.period$ -- 0
-call.type$ -- 11
+call.type$ -- 15
 change.case$ -- 0
 chr.to.int$ -- 0
-cite$ -- 12
-duplicate$ -- 8191
-empty$ -- 8259
-format.name$ -- 688
-if$ -- 23476
+cite$ -- 16
+duplicate$ -- 851
+empty$ -- 961
+format.name$ -- 17
+if$ -- 2009
 int.to.chr$ -- 0
-int.to.str$ -- 11
-missing$ -- 772
-newline$ -- 43
-num.names$ -- 11
-pop$ -- 885
+int.to.str$ -- 15
+missing$ -- 139
+newline$ -- 55
+num.names$ -- 15
+pop$ -- 290
 preamble$ -- 1
 purify$ -- 0
 quote$ -- 0
-skip$ -- 121
+skip$ -- 159
 stack$ -- 0
-substring$ -- 19477
-swap$ -- 1595
+substring$ -- 1179
+swap$ -- 331
 text.length$ -- 2
 text.prefix$ -- 0
 top$ -- 0
 type$ -- 0
 warning$ -- 1
-while$ -- 778
-width$ -- 13
-write$ -- 105
+while$ -- 156
+width$ -- 17
+write$ -- 131
 (There was 1 warning)
