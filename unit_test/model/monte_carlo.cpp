@@ -68,36 +68,8 @@ int main(int argc, char** argv){
     TGraph *gBPL = bpl_model->readResult(2.75f);
     delete bpl_model;
 
-    // visualize
-    auto c = new TCanvas("model_obs_spl", "model_obs_spl", 900, 700);
-
-    c->SetLogx();
-    c->SetLogy();
-    flx_hist->SetStats(0);
-    flx_hist->GetYaxis()->SetTitle("E^{2.75}Flux (GeV^{1.75}m^{-2}s^{-1}sr^{-1})");
-    flx_hist->GetXaxis()->SetTitle("E (GeV)");
-    flx_hist->SetTitle("Measurement");
-    flx_hist->Draw("E1");
-
-    gSPL->SetLineWidth(2);
-    gSPL->SetLineStyle(2);
-    gSPL->SetFillColor(0);
-    gSPL->SetLineColor(4);
-    gSPL->SetTitle("Model incident proton SPL");
-    gSPL->Draw("same");
-
-    gBPL->SetLineWidth(3);
-    gBPL->SetLineStyle(5);
-    gBPL->SetFillColor(0);
-    gBPL->SetLineColor(8);
-    gBPL->SetTitle("Model incident proton BPL");
-    gBPL->Draw("same");
-
-    c->BuildLegend();
-
-    flx_hist->SetTitle("Flux Model from Simulated Annealing");
-    // flx_hist->SetTitle("Flux Model from Particle Swarm algorithm");
-    c->SaveAs("fitted_result.pdf");
+    // Loop over random sampling
+    
 
     read_file->Close();
     return 0;

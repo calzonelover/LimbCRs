@@ -101,8 +101,13 @@ def main():
         photon = photon[filtering]
         filtering = photon.field('TIME') < END_SECOND_NEW_COUNT
         photon = photon[filtering]
+        filtering = photon.field('ZENITH_ANGLE') < 180.0 - settings.THETA_NADIR_CUT_MIN
+        photon = photon[filtering]
+        filtering = photon.field('ZENITH_ANGLE') > 180.0 - settings.THETA_NADIR_CUT_MAX
+        photon = photon[filtering]
+
         for p in photon:
-            print(p)
+            # print(p)
             new_hist.Fill(p["ENERGY"]/1000.0)
             is_filled = True
         if is_filled:
@@ -119,11 +124,14 @@ def main():
     count_hist.SetTitle('Previous work count map')
     count_hist.GetYaxis().SetTitle('dN/dE')
     count_hist.GetXaxis().SetTitle('E (GeV)')
+    count_hist.SetStats(0)
     count_hist.Draw()
     new_hist.Draw("same")
+    new_hist.SetLineColor(rt.kRed)
 
     C.SetLogx()
     C.SetLogy()
+    C.BuildLegend()
     C.SaveAs("compare_old_count.pdf")
     raw_input()
 
