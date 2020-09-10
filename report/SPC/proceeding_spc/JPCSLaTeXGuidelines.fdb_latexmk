@@ -1,14 +1,14 @@
 # Fdb version 3
-["bibtex JPCSLaTeXGuidelines"] 1598101242 "JPCSLaTeXGuidelines.aux" "JPCSLaTeXGuidelines.bbl" "JPCSLaTeXGuidelines" 1598277672
+["bibtex JPCSLaTeXGuidelines"] 1598785123 "JPCSLaTeXGuidelines.aux" "JPCSLaTeXGuidelines.bbl" "JPCSLaTeXGuidelines" 1598790971
   "./iopart-num.bst" 1589518327 34731 b50da6959a0e81fa7bc5adbc91ed7b73 ""
-  "JPCSLaTeXGuidelines.aux" 1598277670 1762 0987f34e784038176f423da6bbae5baf "pdflatex"
+  "JPCSLaTeXGuidelines.aux" 1598790970 1762 95a5452331622f98f17665be67656ca8 "pdflatex"
   "iopart-num_short.bib" 1589542860 20089 4e1582676b1f436b1adf96906a99f4aa ""
   (generated)
   "JPCSLaTeXGuidelines.blg"
   "JPCSLaTeXGuidelines.bbl"
-["pdflatex"] 1598277669 "/Users/patomp/Desktop/MasterThesis/LimbCRs/report/SPC/proceeding_spc/JPCSLaTeXGuidelines.tex" "/Users/patomp/Desktop/MasterThesis/LimbCRs/report/SPC/proceeding_spc/JPCSLaTeXGuidelines.pdf" "JPCSLaTeXGuidelines" 1598277672
-  "/Users/patomp/Desktop/MasterThesis/LimbCRs/report/SPC/proceeding_spc/JPCSLaTeXGuidelines.aux" 1598277670 1762 0987f34e784038176f423da6bbae5baf ""
-  "/Users/patomp/Desktop/MasterThesis/LimbCRs/report/SPC/proceeding_spc/JPCSLaTeXGuidelines.tex" 1589531101 26459 c7a3b6f72367042999ef42ab064e6ab8 ""
+["pdflatex"] 1598790969 "/Users/patomp/Desktop/MasterThesis/LimbCRs/report/SPC/proceeding_spc/JPCSLaTeXGuidelines.tex" "/Users/patomp/Desktop/MasterThesis/LimbCRs/report/SPC/proceeding_spc/JPCSLaTeXGuidelines.pdf" "JPCSLaTeXGuidelines" 1598790971
+  "/Users/patomp/Desktop/MasterThesis/LimbCRs/report/SPC/proceeding_spc/JPCSLaTeXGuidelines.aux" 1598790970 1762 95a5452331622f98f17665be67656ca8 ""
+  "/Users/patomp/Desktop/MasterThesis/LimbCRs/report/SPC/proceeding_spc/JPCSLaTeXGuidelines.tex" 1598786702 26863 3a72e151eaa0451b14c08b36d66e8438 ""
   "/usr/local/texlive/2019/texmf-dist/fonts/map/fontname/texfonts.map" 1511824771 3332 103109f5612ad95229751940c61aada0 ""
   "/usr/local/texlive/2019/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm" 1246382020 1004 54797486969f23fa377b128694d548df ""
   "/usr/local/texlive/2019/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex8.tfm" 1246382020 988 bdf658c3bfc2d96d3c8b02cfc1c94c20 ""
@@ -91,13 +91,13 @@
   "/usr/local/texlive/2019/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1557342064 3277517 23507ed665b4dd9046f0f2a94bbef2be ""
   "/usr/local/texlive/2019/texmf-var/web2c/pdftex/pdflatex.fmt" 1582793825 4259636 46521dc296097355d2ee4ac4528915b6 ""
   "/usr/local/texlive/2019/texmf.cnf" 1557341546 577 d150fef99ac436ad1156e86b0892f6ef ""
-  "Chapters/Introduction.tex" 1589553413 2989 8678193fbf55793d86e4b8482e241139 ""
-  "Chapters/Methodology.tex" 1598100881 8207 c9639b2eebdc8fd4449c9f37b0c2ceb7 ""
-  "Chapters/Preliminary_Results.tex" 1598101156 2790 f8f987959fd36ae14f0b7530454463c5 ""
-  "Chapters/discussion_future_work.tex" 1598101240 1544 28537ddb7dec0815e1215cb4d3852a82 ""
-  "JPCSLaTeXGuidelines.aux" 1598277670 1762 0987f34e784038176f423da6bbae5baf "pdflatex"
-  "JPCSLaTeXGuidelines.bbl" 1598101242 1750 6dd8d26d5df8d07bbe1c12d35e170ad5 "bibtex JPCSLaTeXGuidelines"
-  "JPCSLaTeXGuidelines.tex" 1589531101 26459 c7a3b6f72367042999ef42ab064e6ab8 ""
+  "Chapters/Introduction.tex" 1598787023 2989 1b6fbf4976d7570bd33a047c1e90f790 ""
+  "Chapters/Methodology.tex" 1598790969 8217 f83b4ba38745924d7b7ee2c7523142a3 ""
+  "Chapters/Preliminary_Results.tex" 1598787108 2790 d8c3485094b56e322e97f8a322a16b15 ""
+  "Chapters/discussion_future_work.tex" 1598787149 1199 7456fa3dcd3d0fda95311e5865eec5d4 ""
+  "JPCSLaTeXGuidelines.aux" 1598790970 1762 95a5452331622f98f17665be67656ca8 "pdflatex"
+  "JPCSLaTeXGuidelines.bbl" 1598785124 1750 6dd8d26d5df8d07bbe1c12d35e170ad5 "bibtex JPCSLaTeXGuidelines"
+  "JPCSLaTeXGuidelines.tex" 1598786702 26863 3a72e151eaa0451b14c08b36d66e8438 ""
   "img/CRs_overview.pdf" 1598277622 50728 2b9ab0f72804e644658128a1dea626ce ""
   "img/ProtonSpectrumModelMeasurement.pdf" 1589550918 27331 84a85dcd06a01bad94d1d80b26a9c53a ""
   "img/fitted_result.pdf" 1589556139 20309 657784cd9e19672dca75b931e099fdd9 ""
@@ -105,8 +105,8 @@
   "jpconf.cls" 1588175694 35662 d0605ab1a2da0a561ae7bdd4b7c5c058 ""
   "jpconf11.clo" 1588175694 5275 3a7486c77011f8f7aaa64e0b0dba5338 ""
   (generated)
+  "JPCSLaTeXGuidelines.aux"
+  "/Users/patomp/Desktop/MasterThesis/LimbCRs/report/SPC/proceeding_spc/JPCSLaTeXGuidelines.pdf"
   "JPCSLaTeXGuidelines.pdf"
   "JPCSLaTeXGuidelines.log"
   "/Users/patomp/Desktop/MasterThesis/LimbCRs/report/SPC/proceeding_spc/JPCSLaTeXGuidelines.log"
-  "/Users/patomp/Desktop/MasterThesis/LimbCRs/report/SPC/proceeding_spc/JPCSLaTeXGuidelines.pdf"
-  "JPCSLaTeXGuidelines.aux"
