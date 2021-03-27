@@ -1,0 +1,1578 @@
+\documentclass{muthesis}
+%\draft
+%\notitlepage
+\usepackage{graphicx}
+\usepackage{lscape}
+\newcommand{\beq}{\begin{equation}}
+\newcommand{\eeq}{\end{equation}}
+\newcommand{\bfig}{\begin{figure}}
+\newcommand{\efig}{\end{figure}}
+\newcommand{\bfa}{\left\{\begin{array}}
+\newcommand{\efa}{\end{array}\right.}
+\renewcommand{\floatpagefraction}{.98}
+\renewcommand{\dblfloatpagefraction}{.98}
+\renewcommand\floatpagefraction{.99}
+\renewcommand\topfraction{.99}
+\renewcommand\bottomfraction{.99}
+\renewcommand\textfraction{.01}
+\setlength{\floatsep}{1cm}
+\setcounter{totalnumber}{50}
+\setcounter{topnumber}{50}
+\setcounter{bottomnumber}{50}
+\setcounter{secnumdepth}{4}
+\setcounter{tocdepth}{4}
+\renewcommand{\arraystretch}{1.5}
+
+% information for front page
+
+\title{Solar Neutron Statistical Concepts}
+\candidate{Chanoknan Banglieng} \degree{M.Sc.} \subject{Physics}
+\submissionyear{2006}
+\isbn{974-04-7453-5}
+\candidatetitle{Miss\ }
+
+% information for page i (advisors)
+
+\majoradvisor{David Ruffolo}
+\majoradvisortitle{Assoc.\ Prof.\ }
+\majoradvisorletters{Ph.D.}
+\majoradvisorsubject{Physics}
+\coadvisor{Somsak Dangtip}
+\coadvisortitle{Lect.\ }
+\coadvisorletters{Ph.D.}
+\coadvisorsubject{Applied Nuclear Physics}
+%\coadvisorstatus{Major advisor}
+\coadvisorII{Pichet Kittara}
+\coadvisorIItitle{Lect.\ }
+\coadvisorIIletters{Ph.D.}
+\coadvisorIIsubject{Physics}
+%\graduatestudiesdean{Prof.\ Liangchai Limlomwongse, Ph.D.}
+%\GSDstatus{Acting}
+\programchair{Asst.\ Prof.\ Wannapong Triampo}
+\programchairqual{Ph.D.\ (Biophysics)} \faculty{Science}
+
+% information for page ii (exam committee)
+
+\submissiondate{31st May 2006}
+\memberIII{Lect.\ Thiranee Khumlumlert}
+\memberIIIqual{Ph.D.\ (Physics)}
+\facultydean{Prof.~Amaret Bhumiratana}
+\FDqual{Ph.D.\ (Microbiology)}
+%\FDstatus{Microbiology}
+
+
+% information for page iv (ABSTRACT)
+
+\candidatenumber{4636301 SCPY/M}
+%\longsubject
+\keywords{solar neutrons/cosmic rays/neutron monitor}
+%\keywordsII{neutron monitor}
+
+% information for page v (THAI ABSTRACT)
+
+\thaisubject{ฟิสิกส์}
+ \thaicandidate{ชนกนันท์ บางเลี้ยง}
+\thaititle{สังกัปสถิติของนิวตรอนจากดวงอาทิตย์}
+ \thaimajoradvisor{เดวิด รูฟโฟโล}
+\thaicoadvisor{สมศักดิ์ แดงติ๊บ}
+\thaicoadvisorII{พิเชษฐ กิจธารา}
+
+% information for Biography
+
+\dateofbirth{29th June 1979}
+\placeofbirth{Bangkok, Thailand}
+\firstdegree{Bachelor of Science}
+%\longfirstdegree
+\firstdegreemajor{Electronics Physics}
+\firstdegreeinstitution{Thammasat University}
+\firstdegreeyears{2001} \years{} \homeaddress{33/634 Latphao Road}
+\homeaddressLnII{Bangkok 10230 Thailand}
+\email{noknan29@yahoo.com}
+
+\begin{document}
+
+\maketitle
+
+\acknowledgements{\hspace{20pt} This work would not have been
+complete without a lot of help and kindness from the people in the
+Space Physics and Energetic Particles (SEP) Group. Firstly I would like to extend
+all my eternal thanks and respect to Associate Professor David
+Ruffolo, my advisor, who has been providing me and great deal of
+help and suggestions. I am always very grateful. This thesis
+might not have succeeded without help from Prof. Harm Moraal,
+Northwest University, South Africa for providing data of the Tsumeb
+neutron monitor.
+
+I would like to give my gratitude to my thesis committee, Dr.\
+Somsak Dangtip, Dr.\ Pichet Kittara, and Dr.\ Thiranee Khumlumlert,
+for their kind suggestions.
+
+I would like to also thanks Asst.\ Prof.\ Michael Allen for the Latex
+template of this thesis. Much help during the work was provided by
+Alejandro S\'aiz, Mr.\ Nimit Kimpraphan, Mr.\ Paisan Tooprakai, Dr.\
+Piyanate Chuychai, and Miss Achara Seripienlert. I appreciate this
+very much. Thanks to everyone in SEP group for their all kindness.
+
+Finally, I would like to thank my parents, family, and friends for
+ love and encouragement. }
+
+\abstract{Solar neutrons are produced from high energy processes in
+solar flares. The phenomena associated with solar neutrons include
+soft X-ray emission, hard X-ray emission and $\gamma$-ray emission.
+The solar neutrons can be observed by ground-based detectors. When
+cosmic rays collide with the Earth's atmosphere to produce a shower
+or cascade of secondary particles, ground-based neutron monitors can
+detect the secondary neutrons from the shower. The increased count
+rate of a neutron monitor due to solar neutrons occurs over such a
+short time duration that the fluctuations of  background galactic
+cosmic rays might produce a signal like this.
+
+Statistical methods are needed to decide whether or not an increased
+count rate in a neutron monitor is a signal from solar neutrons. This
+statistical test features an automated determination of an optimum
+background interval with the background determined both before and
+after the signal period. The statistical method used to evaluate the
+detection of solar neutrons at the 95\% confidence level at the
+Tsumeb neutron monitor station in southern Africa has not found
+false alarms during October, 2003. The signal found from this
+station on October 28, 2003 is generally recognized as a true signal.
+However, if the results from the statistical method were to have
+false positives, that might occur from the increase in count rate
+from statistical fluctuations, solar energetic ions, or Forbush
+decrease recoveries, which we aim to eliminate with our statistical
+test.}
+
+\thaiabstract{นิวตรอนพลังงานสูงจากดวงอาทิตย์ ซึ่งเกิดจากกระบวนการพลังงานสูงในการประทุที่ผิวดวงอาทิตย์
+ปรากฏการณ์ที่เกี่ยวข้องกับการเกิดนิวตรอนนี้ประกอบด้วย การปลดปล่อยรังสีเอ็กซ์ทั้งที่มีพลังงานต่ำ และพลังงานสูง
+และการปลดปล่อยรังสีแกมมา นิวตรอนจากดวงอาทิตย์นั้นสามารถสังเกตได้ด้วยเครื่องวัดบนพื้นโลก
+เมื่อรังสีคอสมิคชนกับชั้นบรรยากาศของโลก จะเกิดฝนอนุภาคทุติยภูมิ ที่สามารถตรวจวัดได้ด้วยสถานีตรวจวัดนิวตรอนบนพื้นโลก
+การเพิ่มขึ้นของอัตราการนับของเครื่องวัดนิวตรอน เนื่องจากนิวตรอนจากดวงอาทิตย์จะเกิดขึ้นในระยะเวลาสั้นๆ
+แต่ในขณะเดียวกันสัญญาณเช่นนี้ก็อาจเกิดจากการกวัดไกวของอัตราพื้นหลังของรังสีคอสมิคจากกาแล็กซีได้
+
+วิธีการเชิงสถิติ สามารถตัดสินได้ว่าการเพิ่มของอัตราการนับในเครื่องตรวจวัดนิวตรอน เป็นสัญญาณของนิวตรอนจากดวงอาทิตย์หรือไม่
+การทดสอบทางสถิติของเราจะหาช่วงรังสีพื้นหลังที่ดีที่สุดโดยอัตโนมัติ ทั้งก่อนและหลังสัญญาณ
+วิธีการเชิงสถิติซึ่งใช้เพื่อการประเมินการตรวจพบนิวตรอนจากดวงอาทิตย์ ที่ระดับความเชื่อมั่นร้อยละ 95 ที่สถานีตรวจวัดนิวตรอนซึเมบ
+ในแอฟริกาทางใต้ ไม่พบการเตือนที่ผิดพลาด ในช่วงเดือนตุลาคมปี พ.ศ. 2546 สัญญาณที่พบจากสถานีแห่งนี้เมื่อวันที่ 28 ตุลาคม พ.ศ. 2546 นั้นเป็นที่ยอมรับว่าเป็นสัญญาณที่แท้จริง
+อย่างไรก็ตาม ถ้าหากว่าผลจากวิธีทางสถิติมีการเตือนที่ผิดพลาด อาจเกิดจากการเพิ่มของอัตราการนับ จากการกวัดไกวทางสถิติ
+จากไอออนพลังงานสูงจากดวงอาทิตย์ หรือ จากการกลับคืนจากการลดลงของรังสีคอสมิคแบบฟอร์บุช
+โดยเรามีความมุ่งหมายที่จะกำจัดความผิดพลาดเหล่านี้ออกด้วยการทดสอบทางสถิติของเรา}
+
+\linespacing{1.2}
+
+\tableofcontents
+
+\listoftables
+
+\listoffigures
+
+\linespacing{1.5}
+
+\chapter{Introduction}
+\hspace{40pt} The Earth's atmosphere is continually hit by high
+energy particles from outer space called cosmic rays. Most of the
+cosmic rays are protons, i.e., hydrogen ions. An importance source
+of cosmic rays in the solar system is solar storms.
+
+\section{Solar storms}
+\hspace{40pt} Solar storms include solar flares and coronal mass
+ejections, CMEs. These are explosions at the surface of the Sun
+where the magnetic energy that has built up in the solar atmosphere
+is suddenly released. The energetic particles from the Sun, due to
+solar storms, are called \emph{Solar Energetic Particles} or SEP for
+short.
+
+Solar flares are observed by using filters to isolate the light
+emitted by hydrogen atoms in the red region of the solar spectrum
+(the H$\alpha$ spectral line). Coordinated worldwide observations
+continuously monitor the Sun by using optical telescopes with
+H$\alpha$ filters, capturing images of the Sun every few seconds.
+
+Solar flares appear as a sudden brightening, lasting from a few
+minutes to an hour, usually in active regions with strong, complex
+magnetic fields. The H$\alpha$ observations describe the shape,
+size, location and intensity of solar flares in the chromosphere.
+This leads to one flare classification based on their extent and
+brightness in H$\alpha$ (Table \ref{table:1}). Their size is
+referred to as their importance and is expressed as their area in
+units of $10^{-6}$ of the Sun's disk area. Their intensity is
+measured by brilliance in visible radiation and labeled as F
+(faint), N (normal) or B (brilliant).
+
+There are two types of solar flares, impulsive and gradual flares.
+The impulsive flares release soft X-rays over a short time duration
+and emit solar energetic particles (SEP) to interplanetary space.
+
+The gradual flares also emit mass in a CME, which drives a shock
+that can accelerate particles to high energy. CMEs are detected
+during routine visible light observations of the corona (blocking
+light from the solar disk) from spacecraft such the Solar and
+Heliospheric Observatory, or SOHO.
+
+\begin{table}[!h]
+  \centering
+  \caption{Hydrogen-alpha classification of solar flares}
+  \label{table:1}
+\begin{tabular}{|c|c|c|c|}
+  \hline
+  Importance & Flare area & Flare area & Flare brilliance \\
+  & (square degrees) & ($10^{12}$ square meters) &  \\ \hline
+  S (sub flare) & Less than 2 & Less than 300 & F, N, or B \\
+  1 & 2.1 to 5.1 & 300 to 750 & F, N, or B \\
+  2 & 5.2 to 12.4 & 750 to 1850 & F, N, or B \\
+  3 & 12.5 to 24.7 & 1850 to 3650 & F, N, or B \\
+  4 & $>$ 24.7 & $>$ 3650 & F, N, or B \\
+  \hline
+ \end{tabular}
+\\
+\phantom H F=faint; N=normal; B=bright.
+\end{table}
+
+Solar energetic particles can be observed by ground based detectors
+such neutron monitors. This detector monitors the intensity of
+cosmic rays over time. In some cases there is an abrupt increase in the
+count rate after a solar flare event.
+
+\section{Neutron monitor network}
+\hspace{40pt} When energetic cosmic rays collide with the Earth's
+atmosphere, they produce nuclear cascades of secondary cosmic ray
+particles including protons, neutrons, charged and neutral pions,
+electrons, muons and photons (Figure \ref{fig:cascade}). These
+particles can be observed by ground-based detectors such as muon
+detectors, neutron telescopes, and neutron monitors. By monitoring
+cosmic rays, we notice increases or decreases of intensity of cosmic
+rays at ground level. The changes occur for various reasons that
+effect our lives and technology. High energy charged particles from
+solar storms can destroy electronic devices of satellites. The
+number of ions in the ionosphere increase when had a solar storm
+that effect to radio communication. Therefore, interactions between
+charged particles and atmospheric ions of nitrogen and oxygen
+produce colorful light called aurora at the northern and southern
+polar regions.
+
+A neutron monitor is a type of equipment to detect neutrons from
+secondary cosmic rays in the Earth's atmosphere. These particles
+fall in the energy range of a few hundred MeV up to about one GeV.
+The neutron monitor was initially developed by Simpson. There are
+two designs of neutron monitors. The first is called the IGY
+(International Geophysical Year in 1956/1957) design and later the
+larger NM64 monitor was designed by Carmichael in 1964.
+
+\begin{figure}[!h]
+\begin{center}
+\includegraphics[scale=0.8]{cascade.eps}
+\end{center}
+\caption{The nuclear cascade in the Earth's atmosphere when the
+cosmic ray collide with the air molecule.}\label{fig:cascade}
+\end{figure}
+
+The main components of a neutron monitor are proportional counter
+tubes filled with $^{10}$BF$_{3}$ gas, lead, and paraffin or
+polyethylene in the IGY or NM64 design, respectively. The paraffin
+or polyethylene is used as a reflector to reflect away low energy
+neutrons from the environment and also as a moderator to slow down
+the high energy neutrons, so they are more readily detected in the
+proportional counters. The lead is used as a neutron producer. An
+energetic atmospheric neutron undergoes nuclear interactions in the
+lead that produce $\sim 5$ daughter neutrons that increase the count
+rate. Finally, in a proportional counter, a neutron is captured by a
+$^{10}$B nucleus by the reaction, $^{10}$B + $n$ $\rightarrow$
+$^{7}$Li + $\alpha$, and the cross-section of the reaction follows a
+$1/v$ dependence, where $v$ is the neutron velocity. The detection
+is made in terms of the charged alpha particles and lithium nuclei,
+which deposit energy and are detected in the counter. High voltage
+(2.8 kV) is supplied to the counter, which allows detection of a
+pulse with a time width of 20 $\mu$s.
+
+Nowadays there are several neutron monitor stations located at many
+places around the world, but each station has differences in
+geomagnetic cutoff rigidity and altitude. The cutoff rigidity is the
+minimum momentum per charge for which charged cosmic rays can reach
+the atmosphere above that station. Because the atmospheric secondary
+neutrons are absorbed by the Earth's atmosphere, their intensity is
+determined by the atmospheric depth. This is the distance multiplied by
+the density, integrated over the height of the atmosphere, in units
+of g cm$^{-2}$. A neutron monitor station located at high altitude
+has a higher count rate than a station at lower altitude.
+
+Almost every count seen in a neutron monitor is due to galactic
+cosmic rays. This type of cosmic rays comes from sources outside our
+solar system. Normally, the number of galactic cosmic rays (GCRs) is almost constant, but
+when the Sun has a solar storm such as a solar flare or CME, we
+occasionally find increases in count rate due to charged SEP at
+polar monitors that have a low cutoff rigidity. Such events are
+called ground level enhancements (GLEs). Actually, solar neutrons
+are rarely detected, and most events of solar neutrons were observed
+by equatorial monitors. Here, we develop a statistical test for
+checking whether the signal seen in a neutron monitor is caused by
+solar neutrons or not.
+
+\section{Motivation}
+\hspace{40pt} A posteriori statistics are statistics that defined
+after an event is observed. Such statistics are suspected to involve
+substantial human bias, so we aim to develop a priori statistics,
+which are statistics that are defined before an event is observed,
+in advance of the installation of the Princess Sirindhorn Neutron
+Monitor at Doi Inthanon in Thailand. This is the first time that a
+priori statistics are devised for evaluating solar neutron events.
+Solar neutrons are rarely detected and typically give a weak signal,
+so a statistical method is important for deciding whether or not the
+increase in neutron monitors due to solar neutrons. It is important
+to study solar neutrons so that we can learn more about nuclear
+interactions at the Sun.
+
+The Princess Sirindhorn Neutron Moniter (PSNM) is planned to be
+located at Doi Inthanon in Thailand, which has an altitude of 2565
+meters above sea level and would have the highest vertical cutoff
+rigidity, 16.8 GV, of any neutron monitor in the world \cite{PSNM}.
+
+\section{Objectives of study}
+\hspace{40pt}
+The purpose of this research is to find an a priori
+procedure for evaluating whether solar neutrons have been detected,
+providing either an upper limit on the solar neutron count rate, an
+estimate of the solar neutron count rate, or a solar neutron time profile
+either for a general time or a specific solar event time.
+
+\chapter{Phenomena Associated with Solar Neutron Events}
+\hspace{40pt}
+When solar neutrons are observed, there are some
+phenomena related to the production of solar neutrons that are
+usually found along with before the observation of the solar
+neutrons.
+
+\section{Solar neutron flares}
+\hspace{40pt} Solar flares have mechanisms, which are not fully
+understood, to accelerate particles to high energy. The physical
+interactions of these particles in the solar atmosphere (e.g., the
+photosphere) produce some of the $\gamma$-rays and all of the
+neutrons. Neutrons can be produced with energies extending from
+about 1 MeV to several GeV \cite{Chupp1987}.
+
+The solar neutrons are mostly produced by $p$-$p$, $p$-$\alpha$,
+$\alpha$-$p$ and $\alpha$-$\alpha$ reactions \cite{Murphy1987}. The
+cross-section for the inelastic $p$-$p$ interaction for neutron
+production has an effective threshold of about 300 MeV in the fixed
+frame. The $p$-$p$ interactions are the most important for the
+production of the highest energy neutrons; however, more total
+neutrons are produced by proton interactions on helium. The
+threshold for neutron production is lower for the $p$-$\alpha$
+interactions, less than 100 MeV, and the $\alpha$-$\alpha$ inelastic
+threshold is about 9.5 MeV/nucleon.
+
+Although neutron production in the solar atmosphere comes from a
+large variety of processes, the highest energy neutrons are from $p$-$p$
+interactions at GeV energies. These high energy neutrons are most likely
+to survive neutron decay and can be detected by ground-based detectors at the Earth.
+
+\section{Soft X-ray emission}
+\hspace{40pt}
+The solar flares are very hot, so they emit
+X-ray radiation. The intensity of X-rays increases
+when a solar flare occurs. Because X-rays are absorbed in the
+Earth's atmosphere, then X-ray flares must be observed by monitoring
+satellites in space. The peak soft X-ray fluxes for solar flares as
+observed by \emph{the Geostationary Operational Environmental
+Satellites}, or GOES for short, are used to classify solar flare
+intensity (see Table \ref{table:2}). These soft X-rays are at low
+energy ($\leq$ 10 keV) and have wavelengths between 0.1 to 0.8 nm.
+
+During solar flares that have high temperatures, the soft X-rays are
+released by the bremsstrahlung process of free electrons that move
+at high speed near the ions. When the electrons move near a proton
+they are deflected, so they emit electromagnetic radiation in the
+process (Figure \ref{fig:brem}).
+
+\begin{figure}
+\begin{center}
+\includegraphics[scale=0.8]{brem.eps}
+\end{center}
+\caption{Bremsstrahlung process when an electron moves near a
+proton} \label{fig:brem}
+\end{figure}
+
+The time profile of soft X-rays is taken to indicate the time of
+occurrence of the flare. For the solar neutron events, every event
+for which solar neutrons were reliably observed had the solar flare
+classified in the maximum class, i.e, they were X class flares.
+
+\begin{table}
+  \centering
+  \caption{Soft X-ray classification of solar flares, based on fluxes at the Earth}
+  \label{table:2}
+  \begin{tabular}{|c|c|}
+    \hline
+    \textbf{Importance} & \textbf{Peak flux at 0.1 to 0.8 nm} \\
+    & (W m$^{-2}$) \\ \hline
+    A & $10^{-8}$ to $10^{-7}$ \\
+    B & $10^{-7}$ to $10^{-6}$ \\
+    C & $10^{-6}$ to $10^{-5}$ \\
+    M & $10^{-5}$ to $10^{-4}$ \\
+    X & $\geq 10^{-4}$ \\
+    \hline
+  \end{tabular}
+\end{table}
+
+\section{Hard X-ray emission}
+\hspace{40pt}
+Hard X-rays are the highest energy X-rays, typically
+greater than 30 keV, and can be observed by spacecraft. Hard X-rays
+originate from bremsstrahlung processes of relativistic electrons.
+Hard X-rays are emitted during the impulsive onset of a solar flare,
+while the soft X-rays gradually build up in strength and peak a few
+minutes after the impulsive emission. This is called the Neupert
+effect and arises because non-thermal hard X-rays indicate energy
+input, whereas thermal soft X-rays indicate the time of primary
+energy content, related to the time integral of the energy input.
+
+Thus the time profile of the hard X-rays emission indicates the time
+of primary energy release in the flare.
+
+\section{Gamma-ray emission}
+\hspace{40pt}
+High energy interactions of particles in solar flares
+are associated with $\gamma$-ray emission. Protons and heavier ions
+are accelerated to high energy during solar flares, and precipitate
+down into the chromosphere and photosphere where they produce
+nuclear reactions and generate $\gamma$-rays. Nuclear interactions
+in flares emit $\gamma$-rays over a variety of energies from 0.4 to
+7 MeV. The annihilation of positrons from both charged pion and
+radioactive beta decay leads to the 0.511 MeV $\gamma$-ray line.
+Nuclear de-excitation lines produce $\gamma$-ray energies from about
+4 to 7 MeV. Interactions of a proton or $\alpha$ particle with a
+heavy nucleus in the dense solar atmosphere result in break-up into
+lighter fragments that are left in excited states that de-excite to
+emit $\gamma$-ray lines.
+
+Slow neutrons produced in solar flares can be captured by a
+photospheric proton to form deuterium, which emits a characteristic
+$\gamma$-ray line with energy 2.223 MeV. The appearance of neutron
+capture line emission is delayed, typically by one hundred seconds,
+from the time of flare acceleration since the neutrons must slow
+down before they are captured by a proton. The time profile of this
+$\gamma$-ray line is the best to indicate time that neutron are
+produced because $\gamma$-rays travel with a definite velocity,
+i.e., the speed of light.
+
+\section{Types of observations of solar neutrons}
+\hspace{40pt} This research propose a test to find solar neutrons
+detected by ground-based neutron monitors. There are also other ways
+to observe solar neutrons that can confirm or refute the detection
+at ground level.
+
+The first way to observe solar neutrons was the observation directly
+by a spacecraft detector, usually a $\gamma$-ray detector. For the
+21 June 1980 solar flare event, the Gamma Ray Spectrometer (GRS) on
+the \emph{Solar Maximum Mission}(SMM) satellite observed a transient
+flux of solar neutrons at the Earth with a greater than 13 $\sigma$
+statistical significance \cite{Chupp1982}.
+
+We can also observe solar neutrons by means of decay protons and
+electrons. A free neutron decays according to $n \rightarrow p + e^-
++ \nu_e$. Observations of protons from the decay of solar neutrons
+were reported by Evenson et al.\ 1983 from the 9 June 1982 solar
+flare event. From the geometry of the event the magnetic field line
+from the flare site did not connect with the Earth. Instead, the
+ISEE 3 spacecraft observed a prompt flux of 25-45 MeV protons from
+neutron decay along the magnetic field connecting with the Earth.
+
+In addition, the observation of neutrons from decay electrons was
+reported by Dr\" oge et al.\ 1996 \cite{Droge}. For the solar flare
+event on 21 June 1980, the decay electrons arrived at the spacecraft
+shortly before the electrons from the flare and could be
+distinguished from the latter by their distinctive energy spectrum.
+
+\section{Summary}
+\hspace{40pt}
+Observations of solar neutrons can be associated with
+phenomena related to the occurrence of solar neutrons, including
+solar neutron flares with soft X-ray, hard X-ray, and $\gamma$-ray
+emissions. A solar neutron flare has high energy processes to
+produce high energy neutrons, and the soft X-ray and hard X-ray time
+profiles can indicate the time of the solar flare event. The time
+profiles of $\gamma$-ray emissions can be used to estimate the time
+when the ions and solar neutrons were produced and the neutron
+capture $\gamma$-ray line time profile is the best way to estimate
+the time of production of solar neutrons.
+
+\chapter[Literature Review]{Literature Review on Ground-Based Detection of Solar Neutrons}
+\hspace{40pt}
+High energy particles and ions from the Sun and outer
+space include protons, neutrons, electrons and gamma rays. When
+these high energy particles arrive to the Earth and collide with the
+Earth's atmosphere, they produce showers of secondary cosmic rays.
+Particles found in the showers include neutrons, muons and electrons
+that ground based detectors, i.e., neutron monitors, muon detectors
+and neutron telescopes, near the sub-solar point can detect at a
+higher count rate than normally at the time of the event.
+
+Solar neutrons are high energy neutrons that are produced by high
+energy processes at the Sun. The solar neutrons travel directly from
+the Sun at a high speed nearly at the speed of light and produce an
+increased count rate at neutron monitors for a few minutes after the
+event. In the literature, there are reports of several events that
+produced an increase in the count rate of ground-based detectors
+that can be attributed to solar neutrons impacting the top of the
+atmosphere. The neutron monitors that observed solar neutrons are
+listed in Table \ref{table:nm}, the times of phenomena associated
+with the solar neutron events are shown in Table \ref{ltable}, and
+Table \ref{table:sn} summarizes the time and significance of solar
+neutron detection.
+
+\clearpage
+\begin{table}[!hp]
+  \caption{\normalsize Summary of neutron monitors that have detected solar neutron events}\label{table:nm}
+\footnotesize
+ \begin{tabular}{|c|c|r @{.} l|r @{.} l|r|r @{.} l|c|r @{.} l|}
+ \hline Station & Countries &\multicolumn{2}{c|}{Lat.} &\multicolumn{2}{c|}{Long.} &\multicolumn{1}{c|}{Altitude} & \multicolumn{2}{c|}{Cutoff} & Type & \multicolumn{2}{c|}{Local time}  \\
+  &  &\multicolumn{2}{c|}{} &\multicolumn{2}{c|}{}
+ &\multicolumn{1}{c|}{(m)} & \multicolumn{2}{c|}{Rigidity} &  &
+ \multicolumn{2}{c|}{- UT}\\
+  &  &\multicolumn{2}{c|}{} &\multicolumn{2}{c|}{}
+ &\multicolumn{1}{c|}{} & \multicolumn{2}{c|}{(GV)} & &
+ \multicolumn{2}{c|}{} \\
+  \hline
+ Jungfraujoch & Switzerland & 46&5 & 8&0 & 3580 & 4&61 & 18IGY & 0&53 \\
+ Lomnick\' y \v St\' it & Slovakia & 49&2 & 20&22 & 2634 & 3&98 & 8NM & 1&35 \\
+ Rome & Italy & 41&90 & 12&52 & 60 & 6&32 & 17NM & 0&84 \\
+ Climax & USA & 39&37 & -106&18 & 3400 & 2&99 & 12IGY & 16&92 \\
+ Mexico City & Mexico & 19&33 & -99&18 & 2274 & 8&60 & 6NM & 17&39 \\
+ Calgary & Canada & 51&08 & -114&13 & 1128 & 1&08 & 12NM & 16&39 \\
+ Deep River & Canada & 46&10 & -77&50 & 145 & 1&14 & 48NM & 18&83 \\
+ Inuvik & Canada & 68&35 & -133&72 & 21 & 0&17 & 18NM & 15&08 \\
+ Mt Washington & USA & 44&30 & -71&30 & 1909 & 1&46 & 12IGY & 19&25 \\
+ Haleakala & USA & 36&1 & -156&3 & 3030 & 12&91 & 18NM & 13&58 \\
+ Mt Norikura & Japan & 36&1 & 137&5 & 2770 & 11&48 & 12NM & 9&17 \\
+ Alma-Ata & Kazakhstan & 43&2 & 76&6 & 3340 & 6&61 & 18NM & 5&11 \\
+ Chacaltaya & Bolivia & -16&2 & -68&15 & 5250 & 13&10 & 12NM & 19&46 \\
+ Tsumeb & Namibia & -19&2 & 17&58 & 1240 & 9&21 & 18NM & 1&17 \\
+ \hline
+ \end{tabular}
+\end{table}
+
+\begin{landscape}
+\begin{table}[p]
+\centering
+\begin{minipage}{20cm}
+ \caption{\normalsize Summary of time profiles of phenomena
+associated with solar neutron events.}\label{ltable} \footnotesize
+\begin{tabular}{|c|c|c|c|c|r @{.} l|c|}
+  \hline
+  \textbf{Event} & \textbf{X-ray} & \textbf{Soft X-ray time} & \textbf{$\gamma$-ray peak} & \textbf{Stations} & \multicolumn{2}{c|}{ \textbf{The zenith}} & \textbf{Start time of}\\
+   & \textbf{classification} & \textbf{(UT)} & \textbf{time (UT)} &
+& \multicolumn{2}{c|}{\textbf{angle}} & \textbf{signal (UT)}
+   \\ \hline
+  3 June 1982 & X8 & 1141 & 1143 & Jungfraujoch & 25&0 & 1145 \\
+              &    &      &      & Lomnicky Stit & 25&0 & 1145 \\
+              &    &      &      & Rome & 23&0& 1145 \\
+\hline
+  24 May 1990 & X9.2 & 2045 & 2048 & Climax & 28&8 & 2049 \\
+              &      &      &      & Mexico City & 32&8 & 2045 \\
+              &      &      &      & Calgary & 33&8 & 2050 \\
+              &      &      &      & Deep River & 51&8 & 2045\\
+              &      &      &      & Inuvik & 47&5 & 2050 \\
+              &      &      &      & Mt.\ Washington & 55&9 & 2050
+              \\ \hline
+  22 March 1991 & X9.4 & 2242 & 2243 & Haleakala & 21&0 & 2243 \\
+  \hline
+  4 June 1991 & X12 & 0337 & 0342 & Norikura & 18&9 & 0340 \\
+  \hline
+  6 June 1991 & X12 & 0054 & 0105 & Norikura & 26&0 & 0112 \\
+              &     &      &      & Haleakala & 44&5 & 0112 \\
+  \hline
+  15 June 1991 & X12 & 0810 & 0815 & Alma-Ata & 28&0 & 0820 \\
+  \hline
+  24 November 2000 & X2.3& 1451 & 1508 & Chacaltaya & 17&5 & 1510 \\
+  \hline
+  25 August 2001 & X5.3 & 1623 & 1632 & Chacaltaya & 26&5 & 1634 \\
+  \hline
+  28 October 2003 & X17.2 & 1101 & 1105 & Tsumeb & 8&4 & 1105 \\
+  \hline
+  2 November 2003 & X8.3 & 1703 & 1718 & Chacaltaya & 17&9 & 1725 \\
+  \hline
+  4 November 2003 & X28 & 1942 & 1946 & Haleakala & 50&5 & 1945 \\
+              &     &      &      & Mexico City & 40&5 & 1945 \\
+  \hline
+\end{tabular}
+\end{minipage}
+\end{table}
+\end{landscape}
+
+\begin{table}[!hp]
+  \caption{\normalsize Table summary solar neutron events that observed by
+neutron monitors}\label{table:sn}
+\footnotesize
+\begin{tabular}{|c|c|c|c|c|c|}
+\hline Event & Stations & Time(UT) & Local time & Duration(min.) &
+$\sigma$ \\ \hline
+3 June 1982 & Jungfraujoch & $1145-1155$ & $1217-1227$ & 10 & 6.7\\
+& Lomnick\' y \v St\' it & $1145-1150$ & $1306-1311$ & 5 & 8.5 \\
+& Rome & $1145-1150$ & $1220-1225$ & 5 & 2.9 \\ \hline
+24 May 1990 & Climax & $2049-2058$ & $1344-1354$ & 10 & 9 \\
+& Mexico City & $2045-2110$ & $1408-1423$ & 15 & 10 \\
+& Calgary & $2050-2055$ & $1313-1318$ & 5 & 7 \\
+& Deep River & $2045-2110$ & $1535-1550$ & 15 & 5 \\
+& Inuvik & $2050-2055$ & $1155-1200$ & 5 & 4.8 \\
+& Mount Washington & $2050-2055$ & $1605-1610$ & 5 & 3 \\ \hline
+22 March 1991 & Haleakala & $2243-2255$ & $1218-1230$ & 12 & 5-6 \\
+\hline 4 June 1991 & Norikura & $0340-0410$ & $1250-1320$ & 30 & 9.6
+\\ \hline
+6 June 1991 & Norikura & $0112-0142$ & $1022-1052$ & 30 & 5.16 \\
+& Haleakala & $0112-0127$ & $1447-1502$ & 15 & 4.28 \\ \hline 15
+June 1991 & Alma-Ata & $0820-0840$ & $1327-1347$ & 20 & 2.6 \\
+\hline
+24 November 2000 & Chacaltaya & $1510-1525$ & $1038-1053$ & 15 & 5.5 \\
+\hline 25 August 2001 & Chacaltaya & $1634-1649$ & $1202-1217$ & 15
+& 4.7
+\\ \hline 28 October 2003 & Tsumeb & $1105-1115$ & $1210-1219$ & 10 &
+6.4 \\ \hline 2 November 2003 & Chacaltaya & $1725-1750$ &
+$1253-1318$ & 25 & 4.7 \\ \hline
+4 November 2003 & Haleakala & $1945-2000$ & $0920-0935$ & 15 & 7.5 \\
+& Mexico City & $1945-2000$ & $1308-1323$ & 15 & 7.5\\ \hline
+\end{tabular}
+\end{table}
+\clearpage
+
+\section[The solar neutron event on 3 June 1982]{The solar neutron event on 3 June 1982 (Chupp et al.\ 1987)}
+\hspace{40pt} This was the first solar neutron event detected by
+ground-based neutron monitors. On 3 June 1982 at 1141 UT an X8/2B
+white light flare was produced. SMM/GRS detected an intense 59-199
+keV X-ray burst and $\gamma$-ray line event at around 1143-1144 UT.
+At this time neutron monitors at Jungfraujoch, Lomnick\' y \v St\'
+it and Rome had an increase over their normal count rates during
+this time interval.
+
+Beginning with the time interval 1144-1145 UT, the Jungfraujoch neutron monitor count rate
+shows a statistically significant enhancement over the average rate until about 1155 UT,
+ reaching a maximum increase of about 5\% in 1 minute averages
+(Figure \ref{fig:3jun82}). The 5-minute count rates in the time
+interval 1145-1150 UT were 6.7$\sigma$ and 8.5$\sigma$ higher at the
+high altitude monitors Jungfraujoch and Lomnick\'y \v St\'it,
+respectively. The percentage increases of these two stations were
+4.21\% and 2.8\%, respectively,  in that time interval. Rome showed
+a small increase during 1145-1150 UT at 2.04\% or 2.9$\sigma$ above
+the background level.
+
+\newpage
+\begin{figure}[!hp]
+\begin{center}
+\includegraphics[scale=0.8]{3jun82.eps}
+\end{center}
+\caption{Time history for several data channels from the SMM GRS and
+from the Jungfraujoch neutron monitor count rate for the 3 June 1982
+flare. Error bars are 1 $\sigma$ based on count statistics only
+\cite{Chupp1987}.} \label{fig:3jun82}
+\end{figure}
+
+\section[The solar neutron event on 24 May 1990]{The solar neutron event on 24 May 1990 (Shea et al.\ 1991)}
+\hspace{40pt} This was the largest solar neutron event ever observed
+by ground-based monitors. The station that best observed this event
+is the Climax neutron monitor located at high altitude, 3400 m above
+sea level, with a solar zenith angle of 28.8$^\circ$ at the time of
+this event.
+ Furthermore, there are several other neutron monitors in North America that observed this event.
+
+The start time of the flare was around 2046 UT. It  emitted X9.3 level soft X-rays
+as observed by GOES. Also at around 2046 UT, there was a type IV radio burst.
+ The $\gamma$-ray emission occurred at around 2048 UT when 4-7 MeV and 2.2
+ MeV emission
+reached a maximum. Then at 2100 UT there was a type II radio burst.
+The cosmic ray data from the worldwide network of neutron monitors
+shows an abrupt increase to 26.0\% over background level during
+2049-2050 UT at the Climax neutron monitor and the maximum increase
+of intensity was 31.4\% above the background. The cosmic ray
+intensity observed at Climax had an amplitude of 25.3\% over the
+2045-2055 UT time interval.
+
+To ascertain the origin of the abrupt increase observed by the
+Climax monitor, which in principle could be due to solar neutrons,
+solar energetic ions, or galactic cosmic rays impacting the Earth's
+atmosphere, when comparing with cosmic ray data from other neutron
+monitors (Figure \ref{fig:24may90}), it was found that the cosmic
+ray intensity for each of these monitor stations in the time
+interval 2050-2055 UT was not organized by geomagnetic cutoff, as
+would be expected for charged cosmic rays. Instead, the data are
+well organized by path length through the atmosphere, as expected
+for neutrons (due to atmospheric absorption). Therefore, this peak
+can be attributed to neutrons impacting the top of the atmosphere
+with sufficient energy to generate a nuclear cascade detectable at
+the Earth surface.
+
+\begin{figure}[p]
+\begin{center}
+\includegraphics[scale=0.9]{24may90.eps}
+\end{center}
+\caption{Five-minute average count rates in counts s $^{-1}$ of a
+6NM64 monitor at the given location from 2030 to 2300 UT on 24 May
+1990. The vertical cutoff rigidity and atmospheric depth $h$ (g cm
+$^{-2}$) of the NM are indicated along with the increase in the
+count rate for 2050-2055 UT \cite{Debrunner1993}.}
+\label{fig:24may90}
+\end{figure}
+
+
+\section[The solar neutron event on 22 March 1991]{The solar neutron event on 22 March 1991 (Pyle and Simpson, 1991)}
+\hspace{40pt} On 22 March 1991 the 3B solar optical flare at
+26$^\circ$ S 28$^\circ$ E was coincident with both an X9 solar X-ray
+event and the onset of a solar neutron intensity increase rising to
+$\sim$ 2-3\% as measured by the Haleakala 18-tube neutron monitor.
+The X-ray onset was at 2243 UT. There was an observed 1.5\% increase
+above the background level at Haleakala in Hawaii at vertical cutoff
+rigidity 12.91 GV, atmospheric depth 724 g cm$^{-2}$ with angle
+21$^\circ$ from the sub-solar point. The altitude of this station is
+3033 m \cite{Pyle1991}. The soft X-rays of this flare were
+classified as X9.4 and the GOES6 satellite recorded a 50\% increase
+in the flux of protons at $\>$850 MeV, commencing about 3 hours
+after the solar event, followed by the large flux of 10 MeV protons.
+The peak flux of the 2.2 MeV $\gamma$-ray line was observed by the
+Granat satellite about one minute after the onset time of the soft
+X-rays \cite{Terekhov1996}. A search for protons at neutron monitor
+energies from this event was negative.
+
+The increased count rate in the Haleakala neutron monitor was
+attributed to an enhanced flux of neutrons arriving just after the
+beginning of the X-ray burst. The estimated significance at this
+station was at the 5 to 6 $\sigma$ level (Figure \ref{fig:22mar91}).
+
+\begin{figure}[h!]
+\begin{center}
+\includegraphics[scale=0.8]{22mar91.eps}
+\end{center}
+\caption{Neutron count rates observed by the Haleakala neutron
+monitor. The dashed line corresponds to the onset time of the flare
+\cite{Pyle1991}.} \label{fig:22mar91}
+\end{figure}
+
+\section[The solar neutron event on 4 June 1991]{The solar neutron event on 4 June 1991 (Muraki et al.\ 1992, Chiba et al.\ 1992, Struminsky et al.\ 1994)}
+\hspace{40pt} The event on 4 June 1991 was the first time that solar
+neutrons were recorded by three different types of  detectors, the
+solar neutron telescope of Nagoya University, the Nagoya muon
+telescope and the Mt.\ Norikura neutron monitor. In addition, there
+was a significant signal at an air shower array attributed to solar
+neutrons of energy greater than 10 GeV observed by scintillation
+detectors of the Akeno Giant Air Shower Array (AGASA), located
+between Tokyo and Mt.\ Norikura at a mean atmospheric depth of 920
+g/cm$^{2}$. The flux of solar neutrons above 10 GeV is about 1 to 2
+per m$^2$ s at the top of the atmosphere and lasted for more than 20
+minutes after the solar flare.
+
+The start time of the X-ray (X12.0) event was observed by GOES7 from
+0337 UT to 0730 UT and the GRO satellite observed an $\gamma$-ray
+burst to begin at 0341 UT. The $\gamma$-ray emission continued for
+more than 110 minutes after the peak of emission. An apparent
+discontinuity in the $\gamma$-ray intensity may have occurred during
+satellite night, 0405-0430 UT. Also, a radio burst began at 03:37:30
+UT and reached a maximum at 03:41:10 UT. An enhancement was observed
+in the count rate at the Norikura neutron monitor (type 12NM64)
+located at 36.18$^\circ$ N, 137.92$^\circ$ E, and the average
+atmospheric depth over the station at that time was 736 g cm$^{-2}$.
+
+There were two humps in the signal, first at 0340-0410 UT and then
+at 0415-0505 UT. The maximum of the first enhancement, 0350-0355 UT,
+had 9.6 $\sigma$ significance as shown in Figure \ref{fig:4jun91}.
+This enhancement was attributed to solar neutrons because the
+attenuation mean free paths of the cosmic ray particles are smaller
+than those of the background and the corresponding count rate of the
+night side neutron monitors did not show any enhancement.
+
+Furthermore, cosmic ray increases were observed by both a muon telescope
+and a neutron telescope at the Mount Norikura Cosmic-Ray Laboratory,
+which has an elevation of 2770 m above sea level.
+The geographical latitude is 36.10$^\circ$ N and the longitude is 137.55$^\circ$ E.
+The zenith angle of the Sun at 0337 UT on June 4 was 18.9$^\circ$ and the solar neutron
+telescope was set at a zenith angle of 15$^\circ$.
+
+\begin{figure}[!h]
+\begin{center}
+\includegraphics[scale=0.8]{4jun91.eps}
+\end{center}
+\caption{Five-minute count rate observed by the Norikura neutron
+monitor on 4 June 1991 \cite{Struminsky1994}.} \label{fig:4jun91}
+\end{figure}
+
+The neutron telescope recorded a 4.4 $\sigma$ statistical
+significance of signal for neutron kinetic energies between 50 and
+360 MeV in the time interval 0340-0349 UT and for the muon telescope
+the statistical significance of the signal is 4.9$\sigma$ in the
+time interval 0347-0356 UT.
+
+\section[The solar neutron event on 6 June 1991]{The solar neutron event on 6 June 1991 (Muraki et al.\ 1992, Watanabe et al.\ 2003)}
+\hspace{40pt} An X12.0 class solar flare was observed at 0054 UT on
+6 June 1991 and an increase of intensity of $\gamma$-rays was seen
+at 0105-0106 UT. At the start time of the X12.0 flare, the Sun was
+over the Pacific Ocean between Hawaii and Japan.
+
+During this event, the Mt.\ Norikura station  had a vertical air mass of 730 g cm$^{-2}$ and the zenith angle of the Sun was 26$^\circ$.
+The air mass along the line of sight to the Sun was 812 g cm$^{-2}$.
+A clear excess was found between 0112 UT and 0142 UT. The statistical significance of the strongest excess is 3.96 $\sigma$ during 0112-0117 UT,
+and the total significance for 30 minutes between 0112 and 0142 UT is 5.16 $\sigma$.
+
+The Mt.\ Haleakala station, where the vertical air mass is 707 g
+cm$^{-2}$ and the zenith angle of the Sun was 44.5$^\circ$, with an
+air mass along the line of sight to the Sun of\ 991 g cm$^{-2}$,
+found an enhancement between 0112 UT and 0127 UT. The statistical
+significance of the strongest excess is 3.03 $\sigma$ during
+0122-0127 UT and the total significance for 15 minutes is 4.28
+$\sigma$ (Figure \ref{fig:norikura}).
+
+\begin{figure}[!h]
+\begin{center}
+\includegraphics[scale=0.8]{norikura.eps}
+\end{center}
+\caption{The time profile of neutrons detected by two neutron
+monitors on 6 June 1991. The vertical axis is the counting rate per
+5 minutes. The solid smooth line is the average background, and the
+dashed lines are $\pm1\sigma$ from the background
+\cite{Watanabe1991}.} \label{fig:norikura}
+\end{figure}
+
+There is a possibility that these excesses came from energetic ions.
+However, the authors did not found evidence that the enhancement was
+produced by energetic ions, such the measurements by the other
+stations in the worldwide network of neutron monitors. Also the
+proton channel of the GOES satellites did not show enhancements.
+Therefore, these signals were attributed to solar neutrons.
+
+\section[The solar neutron event on 15 June 1991]{The solar neutron event on 15 June 1991 (Kovaltsov et al.\ 1995)}
+\hspace{40pt} The solar flare event on 15 June 1991 produced an
+intense soft X-ray flux of X12 class. The best neutron monitor
+station for ground-based solar neutron observations was the Alma-Ata
+station located at Tien Shan mountain between eastern Kyrgyzstan and
+western China where the zenith angle was 28$^\circ$ and the cutoff
+value of this station is 6.7 GV. The response of a monitor to solar
+neutrons depends on its altitude and solar zenith angle during the
+observations. The significance of each 5-minute recording during the
+increase is not high ($\le2.6\sigma$) but the probability of a
+statistical artifact over the whole 20 minutes increase is
+negligible. Thus, this increase could be caused by solar neutrons.
+
+\section[The solar neutron event on 24 November 2000]{The solar neutron event on 24 November 2000 (Watanabe et al.\ 2003)}
+\hspace{40pt} At the time 1451 UT, an X2.3 class flare was observed
+by the GOES satellite and reached a maximum at 1513 UT. Around 1508
+UT, a large amount of hard X-rays was observed. This time profile
+can be used to indicate times when electron acceleration took place.
+However, it is more useful to examine information of $\gamma$-rays
+to estimate the acceleration time of ions. The time profile of the
+$\gamma$-ray line at 2.223 MeV, due to neutron capture, showed that
+neutrons were produced around 1508 UT.
+
+At 1508 UT, the Sun was over Bolivia. The neutron monitor installed
+at Mount Chacaltaya was the most suitable place for observing solar
+neutrons. This station is located at 292.0$^\circ$E, 16.2$^\circ$S,
+5250 m above sea level, the vertical air mass is 540 g cm$^{-2}$ and
+the zenith angle of the Sun was 17.47$^\circ$, so the air mass along
+the line of sight to the sun was 566 g cm$^{-2}$. A clear excess was
+found between 1510 UT and 1525 UT, as shown in Figure
+\ref{fig:nov2000}. The statistical significance of each bin is 4.7
+$\sigma$ at 1510-1515 UT, 2.4 $\sigma$ at 1515-1520 UT and 2.4
+$\sigma$ at 1520-1525 UT. The total significance for 15 minutes,
+between 1510 UT and 1525 UT, turned out to be 5.5 $\sigma$.
+
+\begin{figure}[!h]
+\begin{center}
+\includegraphics[scale=0.7]{nov2000.eps}
+\end{center}
+\caption{Five-minute count rate observed by the Bolivia neutron
+monitor on 24 November 2000. The top panel is the time profile
+observed by the neutron monitor. The solid smooth line is the
+averaged background and dashed lines are $\pm1\sigma$ from the
+background. The bottom panel is the statistical significance. The
+clear excess made by solar neutrons observed from 1510 to 1525 UT
+had a total significance of 5.5 $\sigma$ \cite{Watanabe2000}.}
+\label{fig:nov2000}
+\end{figure}
+
+Not only solar neutrons can produce an increase of signal of neutron
+monitors; in fact, such increases are usually due to energetic ions.
+However, there is no evidence that this enhancement was produced by
+energetic ions since the measurements by other stations in the
+worldwide network of neutron monitors showed no enhancement. In
+addition, the cutoff rigidity at Mount Chacaltaya is high, that is,
+12.53 GV, so it is difficult for solar energetic ions, which have a
+soft spectrum, to reach this location. Furthermore, protons of
+kinetic energy greater than 100 MeV were observed by the GOES
+satellite in association with the X2.3 solar flare, which was
+observed 1 hour later. These signals could be produced from the
+decay of solar neutrons.
+
+\section[The solar neutron event on 25 August 2001]{The solar neutron event on 25 August 2001 (Watanabe et al.\ 2003)}
+\hspace{40pt} A soft X-ray flare classified as X5.3 was observed by
+GOES satellites at 1623 UT on August 25, 2001 and reached a maximum
+at 1645 UT. Large fluxes of hard X-rays and $\gamma$-rays were also
+observed in this event by the Yohkoh/HXT and Yohkoh/GRS. The fluxes
+of the hard X-rays and $\gamma$-rays were maximal at 1632 UT, so we
+deduce that solar neutrons might be produced at this time.
+
+At the start time of the flare on 25 August 2001, the neutron
+monitor installed at Mt.\ Chacaltaya in Bolivia was the most
+suitable place for observing solar neutrons. At this time, the
+zenith angle of the Sun was 26.5$^\circ$ and the air mass along the
+line of sight to the Sun was 603 g cm$^{-2}$.
+
+The enhancement was observed between 1634 UT and 1640 UT. This had
+significance 4.7 $\sigma$ at 1634-1636 UT, 1.4 $\sigma$ at 1639-1644
+UT and 2.5 $\sigma$ at 1644-1649 UT. The total significance for 15
+minutes is 4.7 $\sigma$, as shown in Figure \ref{fig:25aug01}.
+
+\begin{figure}[!h]
+\begin{center}
+\includegraphics[scale=0.9]{25aug01.eps}
+\end{center}
+\caption{The Bolivia neutron monitor time profile on 25 August 2001.
+The solid smooth line is the averaged background and the dashed
+lines are $\pm1\sigma$ from the background \cite{Watanabe2001}.}
+\label{fig:25aug01}
+\end{figure}
+
+\section[The solar neutron event on 28 October 2003]{The solar neutron event on 28 October 2003 (Bieber et al.\ 2005, Watanabe et al.\ 2005)}
+\hspace{40pt} The solar flare was observed at 0951 UT with the X17.2
+soft X-ray classification. The maximum intensity of soft X-rays
+occurred at 1110 UT. The large fluxes of hard X-rays and
+$\gamma$-rays were observed by the INTEGRAL satellite after 1100 UT.
+The time of peak intensity of $\gamma$-rays at 4-7 MeV occurred at
+1105 UT and the 2.2 MeV neutron capture $\gamma$-ray line peaked at
+1106 UT. At 1105 UT on 28 October 2003, the Sun was located over
+Africa and the Tsumeb neutron monitor at Namibia observed a small
+but clear increase in count rate.
+
+This neutron monitor station is located at 19.2$^\circ$S
+17.58$^\circ$E, 1240 m above sea level, and the cutoff rigidity is
+9.21 GV. The zenith angle of the Sun was 8.4$^\circ$ and the clear
+excess of signal was seen in five-minute count rates between 1105
+and 1115 UT with the total significance 6.4$\sigma$ (see Figure
+\ref{fig:28oct03}).
+
+\begin{figure}[!h]
+\begin{center}
+\includegraphics[scale=0.7]{28oct03.eps}
+\end{center}
+\caption{The time profile of neutrons detected by neutron monitors
+on 28 October 2003. The vertical axis is the counting rate per
+5-minute bin. The solid smooth line is the averaged background, and
+the dashed lines are $\pm1\sigma$ from the background. The bottom
+figure shows the one-minute count rate of the Tsumeb neutron monitor
+(black line), with an increase attributed to solar neutrons, and the
+time profile of the Lomnick\' y \v Stit neutron monitor (gray line),
+with an increase attributed to solar energetic particles
+\cite{Watanabe2006}.} \label{fig:28oct03}
+\end{figure}
+
+\section[The solar neutron event on 2 November 2003]{The solar neutron event on 2 November 2003 (Watanabe et al.\ 2005)}
+\hspace{40pt} The solar flare on 2 November 2003 was associated with
+an intense X8.3 class soft X-ray event observed at 1703 UT in NOAA
+active region 10486. The location of this region was S14W56. A large
+flux of $\gamma$-ray emission was observed by the RHESSI satellite.
+The intensity of 4-7 MeV $\gamma$-rays from de-excited nuclei
+reached a maximum at 1717 UT and the 2.2 MeV neutron capture line
+peaked at 1718 UT. At the time of the flare, the Sun was over South
+America so that the Chacaltaya neutron monitor station was the most
+suitable station to observe solar neutrons. At 1717 UT, the zenith
+angle of the Sun was 14.9$^\circ$ with an air mass along the line of
+sight to the Sun of 559 g cm$^{-2}$. A clear excess count rate was
+found between 1725 and 1750 UT with the statistical significance of
+4.7$\sigma$ in 5-minute count rate data (Figure \ref{fig:2nov03}).
+
+\begin{figure}[!h]
+\begin{center}
+\includegraphics[scale=0.9]{2nov03.eps}
+\end{center}
+\caption{The Chacaltaya neutron monitor time profile on 2 November
+2003. Top panel is the 5-minute count rate. The solid smooth line is
+the averaged background and the dashed lines are $\pm1\sigma$ from
+the background. The bottom panel shows the one-minute count rate.
+The black line is the Bolivia neutron monitor and the gray line is
+McMurdo neutron monitor time profile \cite{Watanabe2003}.}
+\label{fig:2nov03}
+\end{figure}
+
+\section[The solar neutron event on 4 November 2003]{The solar neutron event on 4 November 2003 (Watanabe et al.\ 2005)}
+\hspace{40pt} An X28 class solar flare occurred at 1929 UT in NOAA
+active region 10486 at S19$^\circ$ W83$^\circ$ and the intensity of
+soft X-ray emission reached to maximum around 1942 UT. After that,
+hard X-ray and $\gamma$-ray emission was observed by the INTEGRAL
+spacecraft. The peak of the de-excitation $\gamma$-ray line at 4-7
+MeV was observed at 1944 UT and the neutron capture $\gamma$-ray
+line was observed at 1945 UT.
+
+At 1945 UT, the Sun was located between Hawaii and South America.
+The zenith angle of the Sun was 50.5$^\circ$ at Haleakala
+ and the air mass along the line of sight to the Sun was 1112 g cm$^{-2}$.
+Otherwise, there is the Mexico City station where the zenith angle of the Sun was 40.52$^\circ$
+and the air mass along the line of sight to the Sun was 1026 g/cm$^{-2}$.
+These two stations were the most suitable stations for observing solar neutrons.
+Haleakala saw a clear excess from 1945 to 2000 UT with
+ the statistical significance of 7.5$\sigma$.
+For the Mexico City, a clear excess was seen at the same time as
+Haleakala and the significance was 5.2$\sigma$ (Figure
+\ref{fig:4nov03}).
+
+\begin{figure}[!h]
+\begin{center}
+\includegraphics[scale=0.8]{4nov03.eps}
+\end{center}
+\caption{Five-minute count rate observed by the Haleakala (top) and
+Mexico City (bottom) neutron monitors on 4 November 2003. The solid
+smooth line is the averaged background and the dashed lines are
+$\pm1\sigma$ from the background \cite{Watanabe2006}.}
+\label{fig:4nov03}
+\end{figure}
+
+\section{Summary of the literature}\label{sumlit}
+\hspace{40pt} According to the observations of solar neutrons in the
+literature, we can summarize as follows:
+\begin{itemize}
+  \item Most neutron monitors that have observed solar neutron
+events are located near the Equator.
+  \item The average time duration of the solar neutron signal is 15
+  minutes.
+  \item The time duration of a solar neutron signal is not over 30
+  minutes.
+  \item All solar events with reported solar neutron events had the
+  intensity of soft X-rays classified in class X.
+  \item The signal of solar neutrons is always observed in local
+daytime. In this survey the times were between 09:20 and 16:10. To
+be safe, we might consider it possible to observe solar neutrons
+between 08:00 and 17:00 local time.
+  \item The increase in count rate due to solar neutrons is small,
+  so good statistics are needed to evaluate whether or not an increase
+of count rate in a neutron monitor is due to solar neutrons.
+\end{itemize}
+\chapter{Statistics of Solar Neutrons}
+
+\section{Relevant statistical concepts}
+\hspace{40pt} The literature review in the previous chapter shows
+that ground-based stations that observe solar neutrons should be
+located at high altitude and the Sun should have a small zenith
+angle at the time of the event, because neutrons move along a
+straight line path from the Sun and are absorbed by Earth's
+atmosphere. At any given station, solar neutron detection is quite
+rare at about 0 to 3 per decade.
+
+Normally, the count rate in a neutron monitor is due to GCRs. The
+number of GCRs typically varies slowly and when a solar flare
+occurs, an increase of the count rate due to solar neutrons occurs
+over a short time duration. Afterward, the flux goes back down to
+the background level. However, the background count rate has random
+fluctuations that might also produce a signal like this. Statistical
+methods are needed to decide whether or not an increase of the count
+rate in a neutron monitor is a signal from solar neutrons. The
+5-minute count rate data are the best data set for observing solar
+neutrons because the solar neutron signal is over a short time
+duration for 5 to 30 minutes. We could observe a solar neutron
+signal from 1-minute data from neutron monitors, but there are
+greater statistical fluctuations and it is hard to see a clear
+excess of signal.
+
+Let $y_1$, $y_2$, $y_3$, $\ldots$ , $y_n$ be a random sample from a
+population with mean $\mu$ and variance $\sigma^2$. We can use
+$\bar{y}$, the average count rate, to estimate the mean, $\mu$, of
+the count rate of cosmic ray intensity:
+\begin{equation}\label{eq1}
+\mu \simeq \bar{y} = \frac{1}{N} \sum y_i .
+\end{equation}
+\noindent The standard deviation $\sigma$ of the parent population
+can be estimated from the data according to
+\begin{equation}\label{eq2}
+\sigma \simeq s = \sqrt{\frac{1}{N-1} \sum \left(y_i - \bar{y}
+\right)^2},
+\end{equation}
+\noindent which gives an uncertainty $\sigma_\mu$ in the
+determination of the mean,
+\begin{equation}\label{eq3}
+\sigma_\mu = \frac{\sigma}{\sqrt{N}} \simeq \frac{s}{\sqrt{N}},
+\end{equation}
+\noindent where $\sigma_\mu$ is referred to as the standard
+deviation of the mean, or the standard error.
+
+The GCR background not only depends on the altitude and cutoff
+rigidity of the station, but it also depends on pressure. If the
+pressure increases with time, the number of counts will decrease. We
+only use pressure-corrected count rates. A Forbush decrease, due to
+a coronal mass ejection from the Sun, will reduce the count rate of
+the GCR background for up to a week. We treat the time variation of
+the background by using a linear regression model as shown in Figure
+\ref{fig:lgraph}. If the GCR rate does not change with time, the
+slope of the linear model should be zero.
+\begin{figure}[!h]
+  \begin{center}
+  \includegraphics[scale=0.7]{lgraph.eps}\\
+  \end{center}
+  \caption{A simple linear model.}\label{fig:lgraph}
+\end{figure}
+
+The expectation value of the count rate, $\hat{y}$, is defined by
+Equation (\ref{eq4}), where $\beta_0$ is the $y$-intercept and
+$\beta_1$ is the slope of this model:
+\begin{equation}\label{eq4}
+    \hat{y} = \hat{\beta}_0  + \hat{\beta}_1 x.
+\end{equation}
+The parameters $\hat{\beta}_0$ and $\hat{\beta}_1$ can be found by
+the least squares method. Details of this method are shown in
+Appendix A. The first step in finding the least-squares best-fit
+line is to find the sums of the $x^2$ values and the cross-products
+of the corresponding $x$ and $y$ values $\left(\sum\ xy\right)$ for
+all data points. The second step is to substitute the values of
+$\sum\ x$, $\sum\ y$, $\sum\ x^2$ and $\sum\ xy$ into the formulas
+for SS$_{xy}$ and SS$_{xy}$:
+\begin{eqnarray}
+\mathrm{SS}_{xy} &=& \sum\ xy - \frac{\left(\sum\
+x\right)\left(\sum\
+    y\right)}{n}\label{eq5}\\
+\mathrm{SS}_{xx} &=& \sum\ x^{2} - \frac{\left(\sum\
+x\right)^{2}}{n}.\label{eq6}
+\end{eqnarray}
+
+Finally, we use these values of SS$_{xy}$ and SS$_{xx}$ to calculate
+the estimates $\hat{\beta}_1$ and $\hat{\beta}_0$,
+\begin{equation}\label{eq7}
+    \hat{\beta}_1 = \frac{\mathrm{SS}_{xy}}{\mathrm{SS}_{xx}}\ ,\qquad
+    \hat{\beta}_0 = \bar{y} - \hat{\beta}_1 \bar{x}
+\end{equation}
+
+The data from a neutron monitor are analyzed, using the 5-minute or
+1-minute count rate data. When this method is applied for use with
+time series data, the $x$ value (time) is defined to be zero at the
+midpoint of the data set, times before the midpoint are negative,
+and times after the midpoint are positive. These $x$ values will
+make $\sum\ x$ equal to zero. Then the values of SS$_{xy}$ and
+SS$_{xx}$ in Equations (\ref{eq5}) and (\ref{eq6}) are simply $\sum\
+xy$ and $\sum\ x^2$, respectively.
+
+The uncertainty of the least squares line is determined by a measure
+of the variability of the $y$ values or an estimation of $\sigma^2$.
+This value is given by
+\begin{equation}
+s^2 = \frac{\mathrm{SSE}}{n-2},
+\end{equation}
+where
+\begin{eqnarray} \mathrm{SSE} = \sum\left(y-\hat{y}\right)^2 =
+\mathrm{SS}_{yy} - \hat{\beta}_1 \mathrm{SS}_{xy}\\
+\mathrm{SS}_{yy} = \sum\left(y - \bar{y}\right)^2 = \sum\ y^2 -
+\frac{\left(\sum\ y\right)^2}{n}.
+\end{eqnarray}
+
+After that, we use a statistical check of the usefulness of the
+model. That is a hypothesis test in which the null hypothesis is
+that the parameter $\beta_1$ or slope of the linear model is equal
+to zero, and the alternative hypothesis is that $\beta_1$ is not
+equal to zero:
+\begin{eqnarray}
+\mathrm{H_{0}}: \beta_1 &=& 0 \nonumber\\
+\mathrm{H_{1}}: \beta_1 &\neq& 0.
+\end{eqnarray}
+The test statistic is the $t$-statistic. This $t$-test is based on
+Student's $t$ distribution. The test is value calculated from
+\begin{equation}\label{eq8}
+    t = \frac{\hat{\beta}_1}{s/\sqrt{\mathrm{SS}_{xx}}}.
+\end{equation}
+The null hypothesis is rejected where $|t|\ >\ t_{\alpha/2, n-2}$.
+The distribution of $t$ is based on $n-2$ degrees of freedom, and
+$t_{\alpha/2}$ is the $t$ value such that $P(|t|>t_{\alpha/2 ,n-2})
+= 1-\alpha$.
+
+The decision of whether or not an increase of count rate represents
+solar neutrons is based on the hypothesis that the increase in count
+rate is inconsistent with statistical fluctuations of the
+background. The hypothesis test compared the signal  to the
+background. The null hypothesis is that the signal is absent from
+the data and the alternative hypothesis is the signal is present:
+\begin{eqnarray}
+\mathrm{H_{0}} : \bar{y}_s \leq \bar{y}_b \nonumber \\
+\mathrm{H_{1}} : \bar{y}_s > \bar{y}_b,
+\end{eqnarray}
+
+\noindent where $\bar{y}_s$ is the estimated mean rate of the signal
+$+$ background and $\bar{y}_b$ is the estimated mean rate of
+background. The confidence level of decisions on this hypothesis is
+$(1-\alpha)100\%$, where $\alpha$ is probability of a Type I error
+that occurs from rejecting H$_{0}$ when it is true \cite{Statistic}.
+The null hypothesis is rejected when the test statistic is higher
+than the statistic of significance level, $\alpha$.
+
+The statistic used to test the hypothesis is based on the normal
+distribution. The statistic test value for the large sample is $z$
+that based on normal distribution and if we have a small sample, we
+use the following $t$ value instead as shown in Equation
+(\ref{teststat}). The $t$ distribution is very like the $z$
+distribution. In particular, both are symmetric and have a mean of
+0. However, the $t$ distribution is more variable. The distribution
+of $t$ depends on its degrees of freedom, defined by $\nu = n_s +
+n_b -2$, where $n_s$ and $n_b$ are the number of signal and
+background interval, respectively. The test statistic is
+\begin{equation}\label{teststat}
+    t = \frac{\bar{y}_s -
+\bar{y}_b}{s},
+\end{equation}
+where $s = \sqrt{\frac{s^{2}_{s}}{n_s}+\frac{s^{2}_{b}}{n_b}}$.
+
+\section{The solar event on 20 January 2005}
+\hspace{40pt} On 20 January 2005, there was a solar event with an
+intense soft X-ray emission peaking in class X7.1 at 0701 UT with a
+GLE, i.e., an observed enhancement of charged SEP at several neutron
+monitor stations. As a check of our statistical methods, we examine
+whether there was a significant increase in the count rate of the
+MicroMonitor operating at Chulalongkorn University at the time of
+the event. Such an increase would be due to solar protons,
+\emph{not} solar neutrons. The MicroMonitor is single $^{10}$BF$_3$
+proportional tube for a neutron monitor without the surrounding lead
+or polyethylene. The MicroMonitor is located at 13.45$^\circ$N,
+100.35$^\circ$E and 32 m above sea level. To evaluate a possible
+detection, we used a hypothesis test. The signal period started at
+0700 UT. We set linear regression to examine the background.
+
+The results, including the means, standard  deviation (Stdev or
+$s$), standard error of mean (SE), and the number $N$ of background
+and signal periods are shown in Table \ref{tab:20jan}. From this
+test, we did not find a significant signal from solar protons at
+this small, sea-level, equatorial detector (see Figure
+\ref{fig:20jan}). We calculate
+\begin{equation}\label{upper}
+    k = (\bar{y}_s - \bar{y}_b) + t_{\alpha}s
+\end{equation}
+\noindent where $k$ is an upper limit according to the objectives of
+this thesis and $t_{\alpha}$ is the value of $t$ at the upper
+confidence level of the significance value $\alpha$. The upper limit
+on the signal during this event, calculated from Equation
+(\ref{upper}), is 159.4 counts per 10-minute interval, or a 4.51\%
+increase at the 95\% confidence level, or $\alpha = 0.05$.
+
+\clearpage
+\begin{figure}[!ht]
+\begin{center}
+  \includegraphics[scale=0.8]{20jan.eps}
+\end{center}
+  \caption{Ten-minute count rate of the MicroMonitor at Chulalongkorn University on 20 January 2005.
+  The solid line is the estimated background and the dashed line is the upper confidence level (95\%) of the background.
+  The dotted line is the average rate during the signal period.}\label{fig:20jan}
+\end{figure}
+
+\begin{table}[h!]
+  \centering
+  \caption{The results of the hypothesis test on 20 January 2005.}\label{tab:20jan}
+\begin{tabular}{|lcccc|}
+\hline
+& Mean & StDev & SE mean & $N$\\
+\hline
+Background period & 3531.67 & 114.97 & 27.10 & 18 \\
+0400 to 0700 UT & & & & \\
+Signal period & 3575.00 & 106.42 & 61.44 & 3\\
+0700 to 0730 UT & & & & \\
+\hline
+\multicolumn{5}{|l|}{Difference in means = 43.33}\\
+\multicolumn{5}{|l|}{Test statistic = 0.645}\\
+\multicolumn{5}{|l|}{Both use Pooled StDev = 67.15}\\
+\multicolumn{5}{|l|}{Distribution: Student's $t$ distribution}\\
+\multicolumn{5}{|l|}{$P$ value = 0.263}\\
+\multicolumn{5}{|l|}{Significance level is 0.05}\\
+\multicolumn{5}{|l|}{Accept the null hypothesis at significance
+level 0.05}\\
+\hline
+\end{tabular}
+\end{table}
+
+\section{Searching for solar neutrons over a general time period}
+\hspace{40pt} To search for a signal of solar neutrons from neutron
+monitor data over a general time period, we have developed the
+following procedure. Note that we use two models, a  and b, as shown
+in Figure \ref{fig:b}. The following procedure uses for Model A up
+to step 5, and then uses Model B as a further check (if needed).
+
+\begin{enumerate}
+  \item Use the 5-minute or 1-minute count rate of neutron monitor data.
+The 5-minute binning is more useful because it reduces the
+fluctuations of the background cosmic ray intensity in comparison
+with the 1-minute count rate. The hourly rate cannot be used because
+a solar neutron event occurred over a short time, so the hourly rate
+may not indicate the signal of a solar neutron event.
+  \item Search for increases in the count rate that might be a solar neutron signal
+by checking each count rate that has a higher count rate than the
+preceding count rate with the significance level $\alpha = 0.01$.
+  \item If we find an increased count rate from step 2, we compare
+this possible signal with the preceding background, averaged over
+$N$ time intervals. To find the number of background intervals $N$,
+we use linear regression to model the background vs.\ time and test
+whether the slope is consistent with zero at the 95\% confidence
+level. If so, we increase $N$ as much as possible while still giving
+a slope of background consistent with zero for finding the largest
+number of count rate bins that can be used to estimate a constant
+background. However, if the slope is not consistent with zero at the
+starting value of $N$ ($N$ corresponding to 6, or 30 minutes), we
+use these $N$ time intervals to estimate the background. In any
+case, we limit $N$ to no more than 36 bins or 3 hours. For 1-minute
+data, we limit $N$ to no more than 180 bins.
+  \item Calculate an estimate of the mean and standard deviation of
+the background and signal. From the previous chapter, the estimated
+duration time of a solar neutron signal is 15 minutes as shown in
+Figure \ref{fig:b}.
+  \item Calculate the statistic used to test the hypothesis.
+  \item If the null hypothesis is rejected, we repeat Steps 4 and 5 with $N/2$ additional background intervals, starting 15 minutes after the signal
+  period, to further test the hypothesis (Figure \ref{fig:b}b).
+  \item Decide whether the rate increase found in the neutron monitor is a signal from
+solar neutrons.
+\end{enumerate}
+
+\begin{figure}
+\centering
+  \includegraphics[scale=0.8]{back2.eps}\\
+  \caption{Models of a solar neutron event. a) Model A: with this
+  method, $\bar{y_b}$ is the average background count rate of cosmic
+  rays during $N$ time periods previous to the time of the possible
+  signal, and $\bar{y_s}$ is the average signal $+$ background. b)
+  Model B: with this method, $\bar{y_b}$ is averaged from $N$ time
+  periods previous to the possible signal and $N/2$ time periods
+  starting 15 minutes after the time of the possible signal
+  period.}\label{fig:b}
+\end{figure}
+
+The method to identify solar neutron signals is concluded in the
+flow chart shown in Figure \ref{fig:flow}. The data are corrected
+for the effect of pressure before evaluating the statistic. We also
+require a local time between 08:00 and 17:00 since solar neutrons
+only occur in local daytime. For Model B, the reason why we consider
+the signal over 15 minutes is because in the literature the average
+time of signal duration is about 15 minutes. We consider the
+background before the signal period and starting 15 minutes after
+the signal period because the signal period may be longer than 15
+minutes. This method can help to eliminate increases due to ground
+level enhancements (GLEs) of charged solar particles, or due to
+Forbush decrease recovery, for which the count rate does not return
+to the background after 30 minutes.
+
+We wrote a computer program comparing the signal count rate and the
+previous count rate, which are considered to be from the different
+populations. We test the program for data from the Tsumeb station
+during October, 2003, checking every 5 minutes in the data. The
+results of the program show significant increases, i.e., candidate
+solar neutron signals, at only one time period as shown in Table
+\ref{Table:signal}.
+
+\begin{figure}[p]
+\begin{center}
+\includegraphics[scale=0.9]{flowchart.eps}
+\end{center}
+\caption{Flow chart showing steps of the program to identify signals
+of solar neutrons.} \label{fig:flow}
+\end{figure}
+
+\begin{landscape}
+\begin{table}[p]
+\centering
+\begin{minipage}{18cm}
+\caption{Results of the program searching for signals of solar
+neutrons during October, 2003 with mean and error of mean of both
+signal and background and the significance of the statistical test.}
+\label{Table:signal}
+\begin{tabular}{rccccccllc}
+\hline \hline
+{\bf Date} & {\bf Start time} & {\bf Local time} & $\bar{y}_b$ & $s_{\bar{y_b}}$ & $\bar{y}_s$ & $s_{\bar{y_s}}$ & {\bf TestStat} & {\bf $P$ value} & {\bf Model}\\
+& {\bf of signal}& & & & & & & &\\
+\hline \hline 28 & 11:05 & 12:15 & 91371.58 & 84.03 & 93413.08 &
+630.55 & 3.209 & $6.764\times10^{-4}$ & b \\
+  \hline
+\end{tabular}
+\end{minipage}
+\end{table}
+\end{landscape}
+
+\section{Solar neutrons in October, 2003}
+\hspace{40pt} We examined data from the Tsumeb neutron monitor
+station located in Namibia in southern Africa, for October 2003, in
+order to test our methods by looking for a signal of solar neutrons.
+This station detected an increase in count rate due to solar
+neutrons on October, 28 (Bieber et al.\ 2005). These data were
+kindly provided by Prof.\ Harm Moraal, Northwest University, South
+Africa. The time of increase of the count rate was at 11:05 to 11:20
+UT. For evaluating this solar event, using the 1-minute count rate
+of Tsumeb data, we calculate both the mean and standard deviation in
+background and signal periods. According to our hypothesis test the
+mean of background and signal are from different populations. We aim
+to verify that the method correctly identifies the true solar
+neutron signal and to measure the number of false positives (Table
+\ref{Table:signal}), which actually did not occur.
+
+\begin{figure}[!h]
+\includegraphics[scale=0.8]{28octmin.eps}\\
+\caption{One-minute count rate of Tsumeb neutron monitor station on
+28 October 2003. The solid line is the estimated background from
+0930 to 1105 UT and 1120 to 1207 UT, the dashed line is the upper
+99\% confidence level, and the dotted line is the estimated mean
+during the signal period of solar neutrons between 1105 and 1120
+UT.}\label{fig:28oct}
+\end{figure}
+\clearpage
+The solar neutron time interval in this event is 15
+minutes. The model for this event is shown in Figure \ref{fig:b}
+(b). The results of the statistical test are in Table
+\ref{tab:28oct}.
+\begin{table}
+  \centering
+  \caption{The results of the hypothesis test on 28 October 2003.}\label{tab:28oct}
+\begin{tabular}{|lcccc|}
+    \hline
+     & Mean & StDev & SE mean & $N + N/2$\\
+    \hline
+    Background period & 18275.98 & 270.07 & 24.25 & 142 \\
+    0930-1105 and 1120-1207 UT & & & & \\
+    Signal period & 18743.23 & 295.54 & 76.31 & 15\\
+    1105 to 1120 UT & & & & \\
+   \hline
+\multicolumn{5}{|l|}{Difference in means = 406.64}\\
+\multicolumn{5}{|l|}{Test statistic = 5.078}\\
+\multicolumn{5}{|l|}{Both use Pooled StDev = 79.60}\\
+\multicolumn{5}{|l|}{Distribution: Normal Distribution}\\
+\multicolumn{5}{|l|}{$P$ value = $2.519\times10^{-7}$}\\
+\multicolumn{5}{|l|}{Significance level is 0.01}\\
+\multicolumn{5}{|l|}{Reject the null hypothesis at significance
+level 0.01}\\
+\hline
+\end{tabular}
+\end{table}
+
+\chapter{Discussion and Conclusions}
+\hspace{40pt} Solar neutrons are produced from high energy processes
+in solar flares that have the soft X-ray emission of class X. Other
+phenomena associated with solar neutrons are produced, such as the
+$\gamma$-ray emission. The time profile of the neutron capture line
+at 2.223 MeV is the best estimator of the time profile of solar
+neutron production.
+
+The statistical method used to evaluate the detection of signals of
+solar neutrons at the 95\% confidence level at the Tsumeb neutron
+monitor station in southern Africa has not found false alarms during
+October, 2003. The signal that was found from this station by the
+statistical method is generally recognized as a true signal (data
+shown in \ref{Table:signal}; see also Section 3.9). The results from
+the statistical method could be checked with the local time of the
+station.
+
+The linear regression method is used to avoid the time variation of
+background which helps us to correctly perform the hypothesis test
+in the solar event time analysis. However, if the results from this
+a priori statistical method were to have false positives, that might
+occur from the increase of count rate data from statistical
+fluctuations, GLEs, or Forbush decrease recoveries. Model B in
+Figure \ref{fig:b} is designed to eliminate the latter two, because
+these events have an increase over long duration time compared with
+solar neutron events. Then the linear regression for the preceding
+background and background after signal did not have slope consistent
+with zero. In further consideration of whether a candidate signal is
+a true solar neutron signal, we note that GLEs and Forbush decreases
+should be observed by several stations, whereas solar neutrons are
+not. In particular, a GLE of solar protons or Forbush decrease
+recovery of galactic protons should have a stronger percent increase
+at high-latitude stations. We expect to make use of this method when
+analyzing data from neutron monitors, especially the Princess
+Sirindhorn Neutron Monitor at Doi Inthanon.
+
+For the decision as to whether solar neutrons are detected, we must
+also consider the phenomena related to solar neutron events, such as
+the time of the solar flare event, for which the soft X-ray emission
+should have an intensity at (or near) class X (see Section
+\ref{sumlit}). The neutron monitor stations that observe the solar
+neutrons should be located near the Equator, at high altitude, and
+with a small zenith angle of the Sun at the time of the event. If
+the station that is believed to observe solar neutrons has a large
+zenith angle, it could be checked whether other stations located
+with a smaller zenith angle found a signal or not.
+\input{references}
+%\input{introduction}
+\newpage
+\begin{center}
+\topskip 10cm
+\large \bf APPENDIX
+\end{center}
+\appendix
+\chapter{Some Statistics Used in This Work}
+\section{Linear regression}
+\hspace{40pt} A regression model is use to describe the relation
+between two or more measured variables. Linear regression is use to
+describe two variables that are related by a linear function:
+\begin{equation}\label{linear}
+y(x) = \beta_0 + \beta_1 x.
+\end{equation}
+By using the method of least squares to find values of the
+parameters $\beta_0$ and $\beta_1$ that minimize the discrepancy
+between the measured values $y_i$ and calculated value $y(x)$ with
+the assumption of a Gaussian distribution of measurement
+uncertainty, the probability $P_i$ of making the measurement $y_i$
+standard deviation $\sigma_i$ is for the observation about the
+actual value $y_i$ with
+\begin{equation}\label{gauss}
+P_i = \frac{1}{\sigma_i \sqrt{2\pi}} \exp\left\{-\frac{1}{2}
+\left[\frac{y_i - y(x_i)}{\sigma_i}\right]^2\right\}.
+\end{equation}
+Similarly, for any estimated values of the parameters, we can
+calculate the probability of obtaining the observed set of
+measurements as
+\begin{equation}\label{estprob}
+    P(\beta_0 ,\beta_1) = \left[\prod_{i} \left(\frac{1}{\sigma_i
+    \sqrt{2\pi}}\right)\right]
+    \exp\left\{-\frac{1}{2} \sum\left[\frac{y_i -
+    y(x_i)}{\sigma_i}\right]^2\right\}
+\end{equation}
+The first factor on the right side of Equation (\ref{estprob}) is a
+constant, independent of the values of $\beta_0$ and $\beta_1$, so
+maximizing the probability $P(\beta_0 ,\beta_1)$ is equivalent to
+minimizing the sum in the exponential, defined as the goodness of
+fit parameter $\chi^2$:
+\begin{equation}\label{chi}
+    \chi^2 = \sum\left[\frac{y_i - y(x_i)}{\sigma_i}\right]^{2} =
+    \sum\left[\frac{y_i - \beta_0 - \beta_1 x_i}{\sigma_i}\right]^2.
+\end{equation}
+For simple linear regression assume that $\sigma_i = \sigma$ for all
+data points. The least squares estimator of $\beta_0$ and $\beta_1$
+is defined as $\hat{\beta_0}$ and $\hat{\beta_1}$. Finding these by
+minimizing $\chi^2$,
+\begin{eqnarray}
+% \nonumber to remove numbering (before each equation)
+  \frac{\partial\chi^2}{\partial\beta_0}\Bigg|_{\hat{\beta_0},\hat{\beta_1}} &=& -2\sum \left(y_i - \beta_0 - \beta_1 x_i\right)=0\\
+  \frac{\partial\chi^2}{\partial\beta_1}\Bigg|_{\hat{\beta_0},\hat{\beta_1}}&=& -2\sum \left(y_i - \beta_0 - \beta_1
+  x_i\right)x_i = 0.
+\end{eqnarray}
+Simplifying these two equations:
+\begin{eqnarray}
+% \nonumber to remove numbering (before each equation)
+  \sum y_i &=& n\hat{\beta_0} + \hat{\beta_1}\sum x_i \\
+  \sum x_i y_i &=& \hat{\beta_0}\sum x_i + \hat{\beta_1}\sum
+  x^{2}_i.
+\end{eqnarray}
+From these two equations we can find the estimated parameter
+$\hat{\beta_0}$ and $\hat{\beta_1}$:
+\begin{equation}\label{beta}
+    \left[\begin{array}{c}\hat{\beta_0}\\ \hat{\beta_1}\end{array}\right] = \frac{1}{n\sum x^{2}_i - \left(\sum
+    x_i\right)^2} \left[\begin{array}{cc} \sum x^{2}_i & -\sum x_i \\
+    -\sum x_i & n\end{array}\right]\left[\begin{array}{c} \sum y_i
+    \\ \sum x_i y_i\end{array}\right].
+\end{equation}
+The solution is
+\begin{eqnarray}
+% \nonumber to remove numbering (before each equation)
+  \hat{\beta_1} &=& \frac{\sum x_i y_i - \frac{\left(\sum x_i\right)\left(\sum y_i\right)}{n}}{\sum x^{2}_i - \frac{\left(\sum x_i\right)^2}{n}} \\
+  \hat{\beta_0} &=& \bar{y} - \hat{\beta_1}\bar{x},
+\end{eqnarray}
+where $\bar{x}$ and $\bar{y}$ are the average of measurement value
+$x$ and $y$, respectively.
+
+\section{The $t$ Distribution}
+\hspace{40pt} A better estimate of the probability when we have a
+small data set can be obtained from Student's $t$ distribution,
+which describes the distribution of the parameter $t = |x -
+\bar{x}|/s_{\bar{x}}$, where $t$ is the number of standard
+deviations of the sample distribution $s_{\bar{x}}$ by which $x$
+differs from $\bar{x}$.
+
+The $t$ probability density function is
+\begin{equation}\label{tpdf}
+p(t,\nu) = \frac{\Gamma\left[(\nu+1)/2\right]}{\sqrt{\pi
+v}\Gamma(\nu/2)}\cdot \frac{1}{\left[(t^{2}/\nu) +
+1\right]^{(\nu+1)/2}},
+\end{equation}
+where $\nu$ is the number of degrees of freedom. The general
+appearance of the $t$ distribution is similar to the normal
+distribution, but the $t$ distribution depends upon the number of
+degrees of freedom $\nu = N-1$. In the limit of large $\nu$,
+Student's $t$ and Gaussian probability distributions are the same,
+where has the degree of freedom $\nu \geq 40$.
+%\chapter{Taeng}
+
+\biography
+\end{document}

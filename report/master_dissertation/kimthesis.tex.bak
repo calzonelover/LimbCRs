@@ -1,0 +1,262 @@
+\documentclass[natbib]{muthesis}
+% if you are not using the author-year ref system remove [natbib]
+% from the above line
+% IMPORTANT!!! -- DO NOT USE THIS FILE FOR YOUR THESIS --
+% INSTEAD make a COPY of it and call it something like mythesis.tex
+% i.e. cp -i muthesis_temlate.tex mythesis.tex
+\usepackage{cite}
+\usepackage{lscape}
+%\draft
+% in draft mode there is one title page (title, candidate, abstract)
+% no tables of contents, etc or
+%\notitlepage  % (only works in draft mode)
+% put your own newcommands and calls to packages here
+\usepackage{graphicx} % for input of graphics files
+\usepackage{amsmath,amssymb} % for improved equation formating and symbols
+
+%\setcounter{totalnumber}{9}
+%\setlength{\floatsep}{1cm}
+%\setcounter{secnumdepth}{4} \setcounter{tocdepth}{4}
+%\renewcommand{\arraystretch}{1.5}
+%\renewcommand{\thefootnote}{\dag}
+\usepackage{url}
+%\input{macrosMAA}
+\bibliographystyle{uwthesis} % if you are using bibtex
+%\bibstyle{uwthesis}
+\bibpunct{(}{)}{;}{a}{}{,}
+
+
+% information for front page
+
+\title{Trapping Boundaries and Dropouts of Solar Energetic Particles}
+\candidate{Achara Seripienlert} \degree{PhD} \subject{Physics}
+\submissionyear{2010}
+%\isbn{974-04-0357-3}
+% information for page i(advisors)
+
+\candidatetitle{Ms.\ } \majoradvisor{David Ruffolo}
+\majoradvisortitle{Prof.\ } \majoradvisorletters{Ph.D.}
+\majoradvisorsubject{Physics} \coadvisor{Michael  Allen}
+%\coadvisor{Alan Partridge}
+\coadvisortitle{Asst.\ Prof.\ } \coadvisorletters{Ph.D.}
+\coadvisorsubject{Physics} \coadvisorstatus{Co-advisor}
+\coadvisorII{Tanakorn Osotchan} \coadvisorIItitle{Asst.\ Prof.\ }
+\coadvisorIIletters{Ph.D.} \coadvisorIIsubject{Physics}
+%\coadvisorIII{Austin D. Flowers}
+%\coadvisorIIItitle{Prof.\ }
+%\coadvisorIIIletters{M.Sc.}
+%\coadvisorIIIsubject{Nanophysics}
+%\graduatestudiesdean{Prof.\ Liangchai Limlomwongse, Ph.D.}
+\GSDqual{Ph.D.}
+%\GSDstatus{Acting}
+\programchair{Assoc.\ Prof.\ Wannapong Triampo}
+\programchairqual{Ph.D. (Physics)} \faculty{Science}
+
+% information for page ii (exam committee)
+
+\submissiondate{June 15, 2010} \chair{Lect.\ Piyanate Chuychai}
+\chairqual{Ph.D. (Physics)} \memberIII{Asst.~Prof.~Tanakorn
+Osotchan} \memberIIIqual{Ph.D. (Physics)}
+%\memberIV{Ahpisit Ungkitchanukit}
+%\memberIVqual{Ph.D. (Chemical Physics and Physical Chemistry)}
+\facultydean{Prof.~Skorn Mogkolsuk} \FDqual{Ph.D. (Biological
+Science)}
+%\FDstatus{Acting}
+% information for page iv (ABSTRACT)
+
+\candidatenumber{4938556 SCPY/D}
+%\longsubject
+\keywords{solar energetic particles / magnetic turbulence}
+\keywordsII{trapping boundaries / collimation}
+%\keywordsIII{MHD /current sheets}
+
+% information for page v (THAI ABSTRACT)
+\thaisubject{ซากเดนแม้หลงเหลือยังไร้ทาง} \thaicandidate{อัจฉรา
+เสรีเพียรเลิศ}
+\thaititle{ขอบเขตการกักและดรอปเอาท์ของอนุภาคพลังงานสูงจากดวงอาทิตย์}
+%\thaititle{พลศาสตร์ของขดคลื่นภายใต้การควบคุมแบบย้อนกลับในปฏิกิริยาเบลูซอฟจาโบทิงสกีที่ไวแสง}
+\thaimajoradvisor{เดวิด รูฟโฟโล}
+\thaicoadvisor{}
+\thaicoadvisorII{ผศ.ดร.ไมเคลิ อัลเลน} \thaicoadvisorIII{ผศ.ดร.ธนากร
+โอสถจันทร์}
+
+% information for Biography
+
+\dateofbirth{26th August 1981}
+\placeofbirth{Bangkok, Thailand}
+\firstdegree{Bachelor of Science}
+%\longfirstdegree
+\firstdegreemajor{Physics} \firstdegreeinstitution{Thammasat
+University} \firstdegreeyears{1999--2002} \preinstitutionII{Mahidol
+University, 2003--2006} \preinstitutionIILnII{Master of Science
+(Physics)} \years{2006--Present}
+%\postinstitution{Mahidol University}
+%\postinstitutionLnII{Magdeburg, Germany, 1998--2001}
+%\scholarship{Development and Promotion of Science and }
+%\scholarshipLnII{Technology Talents Project (DPST),}
+%\scholarshipLnIII{Thailand, 2002--2008}
+%\scholarshipII{Deutscher Akademischer Austauschdienst}
+%\scholarshipIILnII{(DAAD), Germany, 1998--2000}
+%\scholarshipIII{Postgraduate Education and Research Program}
+%\scholarshipIIILnII{in Chemistry, 2000--2001}
+%\position{Lecturer, 1997--Present}
+%\workplace{Chemistry Department, Mahidol University}
+\homeaddress{293 Bangkok-Nonthaburi Road, Bangsue}
+\homeaddressLnII{Bangkok 10800 Thailand}
+\email{achara.seri@gmail.com}
+
+\begin{document}
+\maketitle \acknowledgements{
+
+First of all, I wish to sincerely express my gratitude to my
+advisor, Prof.\ David Ruffolo, for always giving me supervision and
+encouragement during my graduate study. Without his guidance and
+rescue, I could not finish this work.
+
+I would like to give my gratitude to my thesis committee, Dr.\
+Piyanate Chuychai, Asst.\ Prof.\ Michael Allen, and Asst.\ Prof.\
+Tanakorn Osotchan for their kind suggestions.
+
+I would like to thank Asst.\ Prof.\ Michael Allen for the Latex
+template of this thesis, and Alejandro S\'aiz for the IDL
+programming.
+
+Much help during the work was provided by many people. I would like
+to thank Dr.\ Piyanate Chuychai and Dr.\ Paisan Tooprakai for
+discussions and suggestions about physics, turbulence and computer
+simulations. I would like to thank my collaborators: Mr.\ Wirin,
+Mr.\ Rakpong, Dr.\ Watcharawuth, Mr.\ Pat, and everyone in the Space
+Physics and Energetic Particles Lab.
+
+I would like to thank Miss Suchada Kittisrisopit for standing by me.
+
+Finally I would like to thank my family that always supports and
+takes care of me.}
+
+\abstract{
+%submit version
+% Ver 4b: shortened in some places
+As seen in recent observations by the \emph{Advanced Composition
+Explorer (ACE)}, the intensity of solar energetic particles (SEPs)
+exhibits sudden, large changes known as dropouts. These have been
+explained in terms of turbulence or a flux tube structure in the
+solar wind. Computer simulations of a random-phase model of magnetic
+turbulence have indicated a spatial association between dropout
+features and local trapping boundaries (LTBs) defined for a
+two-dimensional (2D) + slab model of turbulence. Previous
+observations have shown that dropout features are not strongly
+associated with
+% Ver 4b
+sharp magnetic field changes,
+%
+as might be expected in the flux tube model.  Random-phase
+turbulence models do not properly treat sharp changes in the
+magnetic field, such as current sheets, and thus cannot be tested in
+this way. Here we explore the properties of a more realistic
+two-dimensional magnetohydrodynamic (2D MHD) turbulence model, in
+which current sheets develop and the current and magnetic field have
+characteristic %%
+non-Gaussian %%
+statistical properties. For this model, computer simulations
+indicate that sharp particle gradients should frequently be
+associated with LTBs, sometimes with strong 2D magnetic
+fluctuations, and infrequently with current sheets.  Thus the 2D MHD
++ slab model of turbulent fluctuations includes some realistic
+features of the flux tube view.
+
+
+Besides simulations in Cartesian geometry, we also perform
+simulations of particle transport using a 2D MHD + slab model in
+spherical geometry, including particle focusing. We have discovered
+collimation of beams of charged particles toward a high (low)
+potential for a positive (negative) charge. In the solar wind, this
+should occur only for relativistic particles. For future work, we
+will investigate whether this effect can be applied to help
+understand the highest energy SEPs.}
+
+\thaiabstract{
+%\linespacing{2} % Make double line spacing for checking English by grad school
+\setlength{\parindent}{2cm}
+{\thai โดเมนทั้งหมดถูกแบ่งเป็นโดเมนย่อยที่มีขนาดเท่ากัน~~การแบ่งโดเมนอย่างมีลำดับ\\
+ขั้นได้ถูกปรับเปลี่ยนสองอย่างเพื่อให้เหมาะสมกับการแก้ปัญหาไปข้างหน้าของแมกนีโตเทลลูริค \\
+ในการแบ่งโดเมนอย่างมีลำดับนั้นตัวแปรถูกแบ่งออกเป็นสามชนิดคือ ตัวแปรภายใน ตัวแปรบน\\
+รอยต่อ และตัวแปรบนจุดตัด และโดยอาศัยข้อดีของไฟไนต์ดิฟเฟอร์เรนต์ การปรับเปลี่ยนที่หนึ่ง\\
+คือการแบ่งรอยต่อออกเป็นรอยต่อในแนวราบและรอยต่อในแนวตั้ง~~~~การปรับเปลี่ยนที่สองคือ\\
+การประยุกต์ใช้การกำหนดสีแดงและดำเพื่อใช้แก้ปัญหาของรอยต่อทั้งในแนวราบและในแนวตั้ง}
+\par    % New paragraph
+{\thai วิธีที่พัฒนาขึ้นมานี้ถูกนำไปใช้แก้ปัญหาจากแบบจำลองสังเคราะห์และแบบจำลองที่\\
+ได้จากการแก้ปัญหาย้อนกลับเพื่อทดสอบความถูกต้อง~~~และเมื่อโดเมนย่อยมีจำนวนเหมาะสม\\
+วิธีที่พัฒนาขึ้นมานี้ให้ผลที่ดีกว่าการแก้ปัญหาทั้งโดเมนในแง่ของเวลาและหน่วยความจำที่ใช้\\
+นอกจากนี้วิธีที่พัฒนาขึ้นยังให้ประสิทธิภาพที่ดีขึ้น~~~เมื่อโมเดลมีขนาดใหญ่~~~จากการที่จำนวน\\
+หน่วยความจำที่ใช้สามารถประมาณได้ล่วงหน้าจึงนำไปสู่การเลือกจำนวนโดเมนย่อยที่ให้ผลดีที่\\
+สุด ดังนั้นเราจึงสามารถหลีกเลี่ยงการลองผิดลองถูกในการเลือกจำนวนโดเมนย่อยได้ ด้วยเหตุนี้\\
+วิธีที่นำเสนอจึงเป็นวิธีที่มีประสิทธิภาพในการแก้ปัญหาสองมิติ~~~และมีศักยภาพที่จะนำไปใช้กับ\\
+ปัญหาสามมิติ }
+
+} \makeatletter
+\renewcommand{\@dotsep}{1000}  %remove sigdot in contents this method come from http://www.prashblog.com/2008/08/remove-dots-in-table-of-contents-in.html
+\renewcommand*\l@section{\@dottedtocline{1}{20mm}{7mm}}
+\renewcommand*\l@subsection{\@dottedtocline{2}{35mm}{9mm}}
+%\renewcommand*\l@subsubsection{\@dottedtocline{3}{40mm}{11mm}}
+\makeatother %http://www.latex-community.org/forum/v
+
+\linespacing{1.2}
+\tableofcontents
+\listoftables
+\listoffigures
+
+\linespacing{1.77}
+
+\input{ch1_intro}
+
+\input{ch2_theory}
+
+\input{ch3_old_numer}
+
+\input{ch4_new_numer}
+
+\input{ch5_ltb}
+
+\input{ch6_2dcoll}
+
+\input{ch7_conclusions}
+
+\bibliography{abbrev,mbib} % for bibtex (recommended!!!)
+
+%\input{thebibliography}
+
+\input{appendices}
+
+
+\biography
+
+\end{document}
+
+%\chapter{test}
+%\bfig
+%\vspace{2cm}
+%\caption{hjk}
+%\efig
+%\chapter{test}
+%\bfig
+%\vspace{2cm}
+%\caption{hjk}
+%\efig
+%\chapter{test}
+%\bfig
+%\vspace{2cm}
+
+%\newpage\mbox{}
+%\newpage\mbox{}
+%\noindent
+%\input{introduction}
+
+%\chapter{Meuk2}
+%Consider the well-known equation
+%\begin{equation}
+%E=mc^2.
+%\end{equation}
+%\chapter{Taeng}
+%\input{references_template} % if you are not using bibtex
+
+%\input{references}

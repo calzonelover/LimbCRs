@@ -1,0 +1,242 @@
+\DeclareUnicodeCharacter{2212}{-}
+\DeclareUnicodeCharacter{223C}{-}
+
+\documentclass[natbib]{muthesis_tawat_alex}
+\usepackage{natbib}
+%\usepackage[numbers,square]{natbib}
+
+
+% if you are not using the author-year ref system remove [natbib]
+% from the above line
+% IMPORTANT!!! -- DO NOT USE THIS FILE FOR YOUR THESIS --
+% INSTEAD make a COPY of it and call it something like mythesis.tex
+% i.e. cp -i muthesis_temlate.tex mythesis.tex
+%\usepackage{cite}
+\usepackage{lscape}
+%\draft
+% in draft mode there is one title page (title, candidate, abstract)
+% no tables of contents, etc or
+%\notitlepage  % (only works in draft mode)
+% put your own newcommands and calls to packages here
+\usepackage{graphicx} % for input of graphics files
+\usepackage{amsmath,amssymb} % for improved equation formating and symbols
+\usepackage{subfig} %for figures
+\usepackage{booktabs}
+%\usepackage[table]{xcolor}
+\usepackage{longtable}
+\usepackage{pdflscape}
+\usepackage{bm}
+\usepackage{caption}
+%\usepackage{subcaption}
+%\usepackage{psfrag}
+\usepackage{rotating}
+\usepackage{dcolumn}% Align table columns on decimal point
+\usepackage{color}
+\usepackage{soul}
+\usepackage{multirow}
+\usepackage{float}
+\usepackage{babel}
+\usepackage{hyphenat}
+\usepackage{microtype}
+\usepackage{kantlipsum}
+\usepackage[nottoc,notlof,notlot]{tocbibind}
+\usepackage[allow-number-unit-breaks=true]{siunitx}
+\newcommand{\tca}[1]{\textcolor{black}{#1}}
+\newcommand{\tcb}[1]{\textcolor{black}{#1}}
+%\usepackage{hyphenat}
+\usepackage[export]{adjustbox}
+
+%\newfontfamily{\englishfont}[Ligatures=Tex]{Times New Roman}
+%\setcounter{totalnumber}{9}
+%\setlength{\floatsep}{1cm}
+%\setcounter{secnumdepth}{4} \setcounter{tocdepth}{4}
+%\renewcommand{\arraystretch}{1.5}
+%\renewcommand{\the\frac{footnote}{}}{\dag}
+\usepackage{url}
+%\input{macrosMAA}
+%\bibliographystyle{uwthesis} % if you are using bibtex
+
+%\bibliographystyle{muthesis}
+
+%\bibstyle{uwthesis}
+%\bibpunct{(}{)}{;}{a}{}{,}
+
+
+% information for front page
+
+\title{Preliminary indirect measurement of cosmic-ray proton spectrum using Earth's $\gamma$-ray data from {\it Fermi} Large Area Telescope}
+\candidate{Patomporn Payoungkhamdee} \degree{MSc} \subject{Physics}
+\submissionyear{2021}
+%\isbn{974-04-0357-3}
+% information for page i(advisors)
+
+\candidatetitle{Mr.\ } 
+\majoradvisor{Warit Mitthumsiri}
+\majoradvisortitle{Asst. Prof.\ } 
+\majoradvisorletters{Ph.D.}
+\majoradvisorsubject{Physics} 
+\coadvisor{David Ruffolo}
+\coadvisortitle{Prof.\ }
+\coadvisorletters{Ph.D.}
+\coadvisorsubject{Physics} 
+\coadvisorstatus{Co-advisor}
+\coadvisorII{Alejandro S\'aiz}
+\coadvisorIItitle{Dr.\ }
+\coadvisorIIletters{Ph.D.}
+\coadvisorIIsubject{Physics}
+%\coadvisorIIstatus{Co-advisor}
+
+%\coadvisorIIletters{Ph.D.}
+%\coadvisorIII{Austin D. Flowers}
+%\coadvisorIIItitle{Prof.\ }
+
+
+%\coadvisorIIIletters{M.Sc.}
+%\coadvisorIIIsubject{Nanophysics}
+%\graduatestudiesdean{Prof.\ Liangchai Limlomwongse, Ph.D.}
+%\GSDqual{Ph.D.}
+%\GSDstatus{Acting}
+\programchair{Assoc.\ Prof.\ Kittiwit Matan}
+\programchairqual{Ph.D. (Physics)} \faculty{Science}
+
+% information for page ii (exam committee)
+
+\submissiondate{May 18, 2020} \chair{Assoc.\ Prof.\ Paisan Tooprakai} \chairqual{Ph.D. (Physics)} 
+%\memberIV{Ahpisit Ungkitchanukit}
+%\memberIVqual{Ph.D. (Chemical Physics and Physical Chemistry)}
+\facultydean{Assoc.\ Prof.\~Palangpon Kongsaree} \FDqual{Ph.D. (Organic Chemistry)}
+%\FDstatus{Acting}
+% information for page iv (ABSTRACT)
+
+\candidatenumber{5736149 SCPY/D}
+%\longsubject
+\keywords{Earth's gamma rays / cosmic rays/ GEOMAGNETIC FIELD }
+
+%\keywordsIII{MHD /current sheets}
+
+% information for page v (THAI ABSTRACT)
+%\thaisubject{} \thaicandidate{} \thaititle{}
+%\thaititle{¾ÅÈÒÊµÃì¢Í§¢´¤Å×è¹ÀÒÂãµé¡ÒÃ¤Çº¤ØÁáººÂéÍ¹¡ÅÑºã¹»¯Ô¡ÔÃÔÂÒàºÅÙ«Í¿¨Òâº·Ô§Ê¡Õ·ÕèäÇáÊ§}
+%\thaimajoradvisor{} \thaicoadvisor{} \thaicoadvisorII{}
+%\thaicoadvisorIII{}
+
+% information for Biography
+
+\dateofbirth{29 April 1996}
+\placeofbirth{Bangkok, Thailand}
+\firstdegree{Bachelor of Science}
+
+\firstdegreemajor{Physics}
+\firstdegreeinstitution{Mahidol University}
+\firstdegreeyears{2014--2017}
+\years{2018--2020} % years taken to do your present degree
+%\preinstitutionII{Mahidol University, 2014--2017}
+%\preinstitutionIILnII{Master of Science (Physics)}
+
+\position{} % present position
+\workplace{} % location 
+\homeaddress{86/46 Moo. 7, Bangmuang, Muang,} % your home address if you do not have a position
+\homeaddressLnII{Samutprakan 10270 Thailand} 
+\homeaddressLnIII{}
+\email{patomporn.pay@student.mahidol.ac.th} 
+
+
+\begin{document}
+\microtypesetup{activate=true}
+
+
+\maketitle \acknowledgements{\linespacing{1.4} First of all, I would like to express my special gratefulness to my advisor Asst.\ Dr.\ Warit Mitthunsiri for the wisely advise, providing guidance, and constant support through the program. Thanks for instructing me how to manage with a towering stack of data, challenged coding and for all Python tips. This work would not finish without many suggestions from Prof.\ David Ruffolo, the head of the space physics and energetic particles laboratory for helping me successfully achieve the goal for each phase of this project and for a great opportunity to work on this field of Physics. Particular thanks to the other co-advisor, Dr.\ Alejandro S\'aiz, the first teacher who has inspired me on computer simulation including helpful suggestions and discussions relating to this work. Many thanks to Dr.\ Waraporn Nunthiyakul for the cutoff-rigidity program and various tricks of FLUKA simulation, valuable comments about this work and for sharing excellent experiences. I deeply appreciate my Ph.D. Committee for their time and scientific expertise to review my work. 
+	
+	Thanks to the members of space physics laboratory for academic discussions and sharing experiences which was an essential ingredient in the completion of this thesis. Thanks the Department of Physics, Mahidol University for an exceptional experience. Last not least, sincere appreciation goes to my colleagues and friends for their support and encouragement throughout. I acknowledge the financial support I received over these years to the Science Achievement Scholarship of Thailand (SAST) and the Thailand Research Fund (TRF). Ultimately, I would like to thank my parents, my sister, and brothers for their constant \tca{support} and \tca{patient}.
+
+}
+
+\abstract{\setlength{\parindent}{2cm} 
+Cosmic rays (CRs) are high-energy particles, mostly protons, propagating in space. The rigidity (momentum per charge) spectrum of CRs is well described by a power law for which the spectral index is approximately 2.8 around 30 - 1000 GV. Recent measurements by PAMELA and AMS-02 indicate an abrupt change of the CR proton spectral index at about 340 GV. When CRs interact with the Earth's upper atmosphere, $\gamma$ rays can be produced and detected by space-based detectors. Here we use the Earth's $\gamma$-ray data collected by the {\it Fermi} Large Area Telescope along with a proton-air interaction model to indirectly determine the CR proton spectral index and compare against observations by other instruments.
+% Collisions of cosmic rays (CRs), high-energy particles in space, with the air molecules in the Earth's upper atmosphere produce secondary particles, including the gamma rays which are known as the Earth's gamma-ray emission. These photons with the energy of 0.2 - 20 GeV are detected by the Large Area Telescope (LAT), the primary instrument onboard the $\textit{Fermi}$ Gamma-ray Space Telescope ($\textit{Fermi}$) which was launched in 2008 into a low-Earth equatorial orbit at roughly 550 kilometers altitude. In this work, we present the results of the Earth's gamma-ray intensity in the geographical coordinates (latitude and longitude) using 10 years of the latest version of the LAT event selection (\texttt{Pass 8}). We obtain relationships between the gamma-ray intensity at a given location and the geomagnetic cutoff rigidity for different directions of incoming CRs, where rigidity is the ratio between particle momentum and its charge, and the geomagnetic cutoff rigidity is the minimum rigidity for a CR particle to pass through the Earth's magnetic field and reach the atmosphere. The yield function of gamma rays above 0.2 GeV being produced by CR protons as a function of the CR rigidity is calculated. This study has provided better understanding of the geomagnetic field, the Earth's atmosphere, and CRs.
+}
+
+%\thaiabstract{test Thai abstract}
+
+%\thaiabstract{
+%%\linespacing{2} % Make double line spacing for checking English by grad school
+%\setlength{\parindent}{2cm} {
+
+%} }
+
+%\makeatletter
+%
+%\renewcommand{\@dotsep}{1000}  %remove sigdot in contents this method come from http://www.prashblog.com/2008/08/remove-dots-in-table-of-contents-in.html
+%\renewcommand*\l@section{\@dottedtocline{1}{20mm}{7mm}}
+%\renewcommand*\l@subsection{\@dottedtocline{2}{35mm}{9mm}}
+%%\renewcommand*\l@subsubsection{\@dottedtocline{3}{40mm}{11mm}}
+%\makeatother %http://www.latex-community.org/forum/v
+
+
+\linespacing{1.5}
+
+%\toccont %\lotcont %\lofcont  % TOC, LOT, LOF are longer than one page
+
+%\linespacing{1.2}
+%\toccont
+\tableofcontents %
+
+\listoftables %
+
+\listoffigures %
+%\addcontentsline{toc}{section}{\listfigurename}%
+%\linespacing{1.5}
+
+\newpage
+
+\input{content/introduction}
+
+\toccont
+
+
+\input{content/background/background}
+
+% \lofcont    % LOF is longer than two pages
+
+
+\input{content/literature_review}
+
+% \lofcont  % LOF is longer than three pages (etc)
+
+
+\input{content/methodology}
+
+% \lofcont
+
+
+\input{content/result_and_discussion}
+
+
+
+% \lofcont
+
+\input{content/conclusion}
+
+
+\nocite{*}
+
+\bibliographystyle{muthesis}
+%\bibliography{abbrev,mbib,conf} % for bibtex (recommended!!!)
+%\bibliographystyle{plainnat}
+
+%\bibliography{mybirds_0}
+\bibliography{JABTHESISBIB}
+%\bibliography{Busbib}
+%\bibliography{paper}
+
+%\input{fhoonethesis_bib.tex}
+
+
+
+\input{APPENDIX}
+
+
+\biography
+
+\end{document}
+

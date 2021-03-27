@@ -1,0 +1,841 @@
+\appendices
+
+
+\chapter{Lists of Problematic Times}
+
+After we finished the latitude survey data preparation in the format
+of the Latsur file as explained in Chapter 4, we corrected for
+several instrumental anomalies by comparing the count rates of three
+independent neutron detector tubes. We noted everything we did to
+correct the data for all surveys. Table \ref{problematiclists1}
+shows an example of details of the first correction of three count
+ratios T1/T2, T2/T3, and T3/T1 for 30-min. data in survey year 1998.
+We recorded all things we did in the column of ``Notes.'' Let us
+explain these definitions:
+
+\textbf{use (1),(2)and(3)} means we preserved the count rates of
+tubes T1 (left tube), T2 (middle tube) and T3 (right tube) because
+they had good data.
+
+\textbf{REMOVE ALL TUBES} means we removed T1, T2 and T3 because of
+bad counts.
+
+\textbf{DATA GAP} means there were no data during that time
+interval. They may have been deleted in the preparation process
+because of various equipment problems.
+
+\textbf{REMOVE(1);use(2)and(3)} means we removed the counts of T1
+because of a bad count rate but use the data of two remaining tubes
+which are T2 and T3. The tube number may be changed in this case.
+
+\textbf{use(1)$\times$\emph{frac.num},(2)and(3)} means we multiplied
+T1 by the specified fraction and used the data together with T2 and
+T3. In the same pattern, if there is a mark ``$\times$'' and
+multiplier (fraction number) after any tube number, the count rate
+of that tube was multiplied by that fraction.
+
+\textbf{REMOVE(1);use(2)and(3)$\times$\emph{frac.num}} means we
+removed counts of T1, used T2 and multiplied T3 by the specified
+fraction. The tube number may be changed in this case.
+
+Table \ref{problematiclists2} shows an example of details of the
+second correction as in Table \ref{problematiclists1} but for the
+daily average tube ratios of the 1998 survey year.
+
+\clearpage
+
+\begin{table}[!h]
+\centering \caption{An example of a list of problematic times for
+the FIRST correction for half-hourly data in the 1998 survey year}
+\label{problematiclists1} \vspace{0.3cm}
+\begin{minipage}{15cm}
+\small
+    \begin{tabular}{ | c | c | c | p{5.1cm} | c | c | c |}
+    %\toprule
+    \hline
+    Survey & Start & End & Notes & T1/T2 & T2/T3 & T3/T1 \\ %\hline
+    Years & DOY & DOY &  &  &  &  \\ \hline
+    1998 &      &      & Half-hourly average data & & & \\ \hline
+         & year & year & Before FIRST correction & 0.899 & 0.969 & 1.149\\
+         & year & year & After FIRST correction & 0.897 & 1.110 &
+         1.004\\ \hline
+             &   307.042 &   307.795 &   use (1),(2)and(3) &       &       &       \\
+    &   307.808 &   307.808 &   REMOVE ALL TUBES    &       &       &       \\
+    &   307.839 &   312.119 &   use(1),(2) and(3) &       &       &       \\
+    &   312.135 &   312.727 &   DATA GAP    &       &       &       \\
+    &   312.727 &   314.681 &   use(1),(2) and(3) &       &       &       \\
+    &   314.681 &   320.773 &   DATA GAP    &       &       &       \\
+    &   320.773 &   325.939 &   use(1),(2) and(3) &       &       &       \\
+    &   325.960 &   325.960 &   REMOVE(3);use(1) and(2)  &       &       &       \\
+    &   325.984 &   326.935 &   use(1),(2)and(3)$\times$0.860  &       &       &       \\
+    &   327.004 &   329.281 &   use(1),(2)and(3)$\times$0.725  &       &       &       \\
+    &   327.090 &   327.090 &   REMOVE(3);use(1)and(2)  &       &       &       \\
+    &   327.834 &   327.920 &   REMOVE(3);use(1)and(2)  &       &       &       \\
+    &   329.302 &   346.993 &   use(1),(2)and(3)$\times$0.766  &       &       &       \\
+    &   347.105 &   348.946 &   REMOVE(3);use(1)and(2)  &       &       &       \\
+    &   348.968 &   371.208 &   use(1),(2)and(3)$\times$0.880  &       &       &       \\
+    &   350.917 &   351.236 &   REMOVE(3);use(1)and(2)  &       &       &       \\
+    &   371.229 &   371.229 &   REMOVE(1);use(2)and(3)$\times$0.880    &       &       &       \\
+    &   371.250 &   372.924 &   use(1),(2)and(3)$\times$0.880  &       &       &       \\
+    &   371.992 &   371.992 &   REMOVE ALL TUBES    &       &       &       \\
+    &   372.055 &   372.055 &   REMOVE ALL TUBES    &       &       &       \\
+    &   372.818 &   372.840 &   REMOVE ALL TUBES    &       &       &       \\
+    &   372.945 &   373.454 &   REMOVE(1);use(2)and(3)$\times$0.880    &       &       &       \\
+    &   373.475 &   376.999 &   use(1),(2)and(3)$\times$0.880  &       &       &       \\
+    &   376.818 &   376.882 &   REMOVE ALL TUBES    &       &       &       \\
+    &   376.999 &   426.037 &   DATA GAP    &       &       &       \\
+    &   426.037 &   442.762 &   use(1),(2)and(3)$\times$0.867  &       &       &       \\
+    &   442.783 &   446.404 &   REMOVE(1);use(2)and(3)$\times$0.867    &       &       &       \\
+    &   444.604 &   444.604 &   REMOVE(1)and(3);use(2)   &       &       &       \\
+    &   446.425 &   453.351 &   REMOVE(3);use(1)and(2)  &       &       &       \\
+    &   453.372 &   453.372 &   REMOVE(1)and(3);use(2)   &       &       &       \\
+    &   453.393 &   453.520 &   REMOVE(3);use(1)and(2)  &       &       &       \\
+    &   453.456 &   453.456 &   REMOVE(2)and(3);use(1)   &       &       &       \\
+    &   453.541 &   477.716 &   use(1),(2)and(3)$\times$0.867  &       &       &       \\
+    &   453.859 &   453.922 &   REMOVE(1);use(2)and(3)  &       &       &       \\
+    &   453.986 &   454.113 &   REMOVE(3);use(1)and(2)  &       &       &       \\
+    &   454.642 &   454.642 &   REMOVE ALL TUBES    &       &       &       \\
+    &   456.231 &   456.421 &   REMOVE ALL TUBES    &       &       &       \\
+    &   473.214 &   473.214 &   REMOVE(3);use(1)and(2)  &       &       &       \\
+    &   477.716 &   477.716 &   REMOVE ALL TUBES    &       &       &       \\
+    &   477.716 &   478.591 &   DATA GAP    &       &       &       \\
+    &   478.591 &   508.264 &   use(1),(2)and(3)$\times$0.867  &       &       &       \\
+    \hline
+    \end{tabular}
+    \end{minipage}
+\end{table}
+\clearpage
+
+\begin{table}[!h]
+\centering \caption{An example of a list of problematic times for
+the SECOND correction for daily average data in the 1998 survey
+year} \label{problematiclists2} \vspace{0.3cm}
+\begin{minipage}{15cm}
+\small
+    %\begin{longtable}{ | l | l | l | p{5.5cm} | l | l | l |}
+    \begin{tabular}{ | c | c | c | p{5.1cm} | c | c | c |}
+    %\toprule
+    \hline
+    Survey & Start & End & Notes & T1/T2 & T2/T3 & T3/T1 \\ %\hline
+    Years & DOY & DOY &  &  &  &  \\ \hline
+    1998 &      &      & Daily average data & & &
+    \\ \hline
+         & year & year & Before SECOND correction & 0.897 & 1.110 & 1.004\\
+         & year & year & After SECOND correction & 0.899 & 1.109 &
+         1.004\\ \hline
+    &   307.000 &   308.000 &   use(1),(2)$\times$0.989 and(3)$\times$0.970    &       &       &       \\
+    &   309.000 &   309.000 &   use(1),(2)$\times$0.990 and(3)$\times$0.974    &       &       &       \\
+    &   310.000 &   310.000 &   use(1),(2)$\times$0.988 and(3)$\times$0.978    &       &       &       \\
+    &   311.000 &   311.000 &   use(1),(2)$\times$0.987 and(3)$\times$0.976    &       &       &       \\
+    &   312.000 &   312.000 &   use(1),(2)$\times$0.990 and(3)$\times$0.976    &       &       &       \\
+    &   313.000 &   314.000 &   use(1),(2)$\times$0.993 and(3)$\times$0.981    &       &       &       \\
+    &   315.000 &   319.000 &   DATA GAP    &       &       &       \\
+    &   320.000 &   320.000 &   use(1)$\times$0.997,(2)and(3)  &       &       &       \\
+    &   321.000 &   323.000 &   use(1)$\times$1.002,(2)and(3)  &       &       &       \\
+    &   324.000 &   325.000 &   use(1),(2)and(3) &       &       &       \\
+    &   326.000 &   326.000 &   use(1),(2)and(3)$\times$0.990  &       &       &       \\
+    &   327.000 &   328.000 &   use(1),(2)and(3) &       &       &       \\
+    &   329.000 &   329.000 &   use(1),(2)and(3)$\times$0.985  &       &       &       \\
+    &   330.000 &   330.000 &   use(1),(2)and(3)$\times$0.992  &       &       &       \\
+    &   331.000 &   331.000 &   use(1),(2)and(3) &       &       &       \\
+    &   332.000 &   332.000 &   use(1),(2)and(3)$\times$0.977  &       &       &       \\
+    &   333.000 &   333.000 &   use(1),(2)and(3) &       &       &       \\
+    &   334.000 &   334.000 &   use(1),(2)and(3)$\times$0.978  &       &       &       \\
+    &   335.000 &   335.000 &   use(1),(2)and(3)$\times$0.980  &       &       &       \\
+    &   336.000 &   338.000 &   use(1),(2)and(3)$\times$0.989  &       &       &       \\
+    &   339.000 &   348.000 &   use(1),(2)and(3) &       &       &       \\
+    &   349.000 &   349.000 &   use(1),(2)and(3)$\times$0.995  &       &       &       \\
+    &   350.000 &   350.000 &   use(1),(2)and(3)$\times$0.986  &       &       &       \\
+    &   351.000 &   364.000 &   use(1),(2)and(3)$\times$0.995  &       &       &       \\
+    &   365.000 &   365.000 &   use(1)$\times$1.002,(2)and(3)$\times$0.990    &       &       &       \\
+    &   366.000 &   374.000 &   use(1),(2)and(3)$\times$0.996  &       &       &       \\
+    &   375.000 &   376.000 &   use(1),(2)and(3)$\times$0.998  &       &       &       \\
+    &   377.000 &   425.000 &   DATA GAP    &       &       &       \\
+    &   426.000 &   428.000 &   use(1),(2)and(3) &       &       &       \\
+    &   429.000 &   434.000 &   use(1),(2)$\times$0.996 and(3)  &       &       &       \\
+    &   435.000 &   444.000 &   use(1),(2)$\times$0.993 and(3)  &       &       &       \\
+    &   445.000 &   445.000 &   use(1),(2)$\times$0.991 and(3)  &       &       &       \\
+    &   446.000 &   446.000 &   use(1)$\times$1.004,(2) and(3)  &       &       &       \\
+    &   447.000 &   452.000 &   use(1),(2)and(3) &       &       &       \\
+    &   453.000 &   455.000 &   use(1),(2)and(3)$\times$1.004  &       &       &       \\
+    &   456.000 &   456.000 &   use(1)$\times$0.992,(2)and(3)$\times$1.004    &       &       &       \\
+    &   457.000 &   462.000 &   use(1),(2)and(3)$\times$1.004  &       &       &       \\
+    &   463.000 &   468.000 &   use(1),(2)and(3)$\times$1.009  &       &       &       \\
+    &   469.000 &   469.000 &   use(1),(2)and(3)$\times$1.013  &       &       &       \\
+    &   470.000 &   471.000 &   use(1),(2)and(3)$\times$1.009  &       &       &       \\
+    &   472.000 &   483.000 &   use(1),(2)and(3)$\times$1.011  &       &       &       \\
+    &   484.000 &   485.000 &   use(1),(2)and(3)$\times$1.010  &       &       &       \\
+    &   486.000 &   489.000 &   use(1),(2)and(3)$\times$1.009  &       &       &       \\
+    &   490.000 &   491.000 &   use(1),(2)and(3)$\times$1.008  &       &       &       \\
+    &   492.000 &   492.000 &   use(1),(2)and(3)$\times$1.005  &       &       &       \\
+    &   493.000 &   495.000 &   use(1),(2)and(3)$\times$1.010  &       &       &       \\
+    &   496.000 &   497.000 &   use(1),(2)and(3)$\times$1.008  &       &       &       \\
+    &   498.000 &   499.000 &   use(1),(2)and(3)$\times$1.010  &       &       &       \\
+    &   500.000 &   507.000 &   use(1),(2)and(3)$\times$1.006  &       &       &       \\
+    &   508.000 &   508.000 &   use(1),(2)and(3) &       &       &       \\
+    \hline
+    %\end{longtable}
+    \end{tabular}
+    \end{minipage}
+\end{table}
+
+
+\chapter{Pressure Coefficient Determination}
+
+The secondary cosmic rays could be absorbed in the Earth's
+atmosphere because of barometric pressure according to
+\begin{eqnarray} \label{eqnprescoef}
+C = C_0e^{-\beta(p-p_0)}
+\end{eqnarray}where $C$ is the neutron monitor count rate, $C_0$ is the neutron
+monitor count rate at the reference barometric pressure, $p$ is the
+barometric pressure, $p_0$ is the reference barometric pressure and
+$\beta$ is the dimensionless barometric pressure coefficient, which
+is a value indicating the neutron absorption rate when the
+barometric pressure increases. We assume that $\beta$ has a specific
+value that depends only on cutoff rigidity and does not otherwise
+depend on latitude, longitude, or altitude. This section discusses
+the pressure coefficient determination, which is applied for each
+cutoff rigidity, and shows the steps to obtain an empirical pressure
+coefficient varying with cutoff rigidity. Once we know $\beta(P_c)$,
+we can derive $C_p$, the pressure corrected count rate, as an
+estimate of $C_0$.
+
+We consider a linear fitting process for equation \ref{eqnprescoef},
+so that
+\begin{eqnarray} \label{eqnlnprescoef}
+\ln C = \ln C_0-\beta(p-p_0)
+\end{eqnarray}
+
+It should be useful if we take 24-hour averages to equation
+\ref{eqnlnprescoef}.
+%In latitude survey data, there is less continued data keeping if the
+%data was separated by cutoff rigidity for all survey years, we found
+%it useful to use daily average of equation (\ref{eqnlnprescoef}).
+\begin{eqnarray} \label{eqnavelnprescoef}
+\langle{\ln C}\rangle = \langle{\ln
+C_0}\rangle-\beta(\langle{p}\rangle-p_0),
+\end{eqnarray}
+
+If we consider the primary cosmic ray flux at the reference
+pressure, we could assume that $\ln C_0\approx\langle \ln
+C_0\rangle$ because $\ln C_0$ varies much more slowly than other
+quantities. From equations \ref{eqnlnprescoef} and
+(\ref{eqnavelnprescoef}), we obtain:
+\begin{eqnarray} \label{eqnplotprescoef}
+\ln C-\langle{\ln C}\rangle= -\beta(p-\langle{p}\rangle).
+\end{eqnarray}where $p$ is the barometric pressure recorded for each time and
+$\langle{p}\rangle$ is the average barometric pressure during the
+day.
+
+The data of latitude surveys cover a wide range of apparent cutoff
+rigidity, from $\approx$ 0 GV at McMurdo to over 18 GV near
+Thailand. If we need the count rate corrected for pressure, we
+should know a best fit relationship between $\beta$ and the cutoff
+rigidity for existing latitude survey data. There are many steps to
+obtain the formula.
+
+In the first step, after obtaining the LatSur files as explained in
+section 4.3, we sorted the data into cutoff rigidity bins, i.e., 0-1
+GV, 1-2 GV, ..., 18-19 GV. In the second step, we analyzed the data
+for each interval using a C language program to calculate $\ln
+C-\langle{\ln C}\rangle$ and $p-\langle{p}\rangle$. Because the data
+interval duration was 1 h for survey year 1994 and 30 min for
+subsequent survey years, the 24-hour-averaged quantities were
+running averages over 24 data points for survey year 1994 and 48
+data points for subsequent survey years. Using equation
+\ref{eqnplotprescoef}, we obtain the slope of the linear regression
+for each rigidity bin as shown in Figures
+\ref{fig:pressurecoefficients1}, \ref{fig:pressurecoefficients2},
+and \ref{fig:pressurecoefficients3}. All slopes from linear
+regression are noted in the third column of Table
+\ref{presregression}. We have no data for cutoff rigidity range 7--8
+GV because 24-hour-averaged quantities were not computed if data for
+part of the day were missing. We discounted the slopes in some
+rigidity intervals with poor statistics ($R^2 <$ 0.3, or there were
+less than 100 data points), i.e., $P_c$ ranges 6--7 GV, 9--10 GV,
+10--11 GV, 13--14 GV, 14--15 GV, 17--18 GV and 18--19 GV. We list
+the remaining usable data in the fourth column of Table
+\ref{presregression}. Then we graph the pressure coefficients
+against $P_c$ (plotting at the center of rigidity bins). Vertical
+error bars represent the standard error of the data, about 0.0006.
+We obtain a formula for an empirical pressure coefficient as a
+function of cutoff rigidity determined from our survey data, $\beta
+= (1.006-0.0153P_c/\rm GV)$ \%/mm Hg as shown in Figure
+\ref{fig:pressurecoefapd}.
+%\begin{equation} \beta = 1.006-0.01534 P_c,
+%\label{eqn:presregrescoefinapp}
+%\end{equation}
+\clearpage
+\begin{figure}[!h]
+\vspace{0cm}
+  \centering
+  \begin{tabular}{cc}
+    \includegraphics[width=70mm]{0-1gv.eps}&
+    \includegraphics[width=70mm]{1-2gv.eps}\\
+    \includegraphics[width=70mm]{2-3gv.eps}&
+    \includegraphics[width=70mm]{3-4gv.eps}\\
+     \includegraphics[width=70mm]{4-5gv.eps}&
+    \includegraphics[width=70mm]{5-6gv.eps}\\
+  \end{tabular}
+   \caption{Linear fitting of residuals from 24-hour averages of the logarithmic
+count rate and the barometric pressure (mm Hg), using latitude
+survey data from all survey years to find the slopes for each
+rigidity bin from $P_c: 0-1$ GV to $P_c: 5-6$ GV. The symbol
+\checkmark or $\times$ shows whether we obtained a usable estimate
+of the slope (pressure coefficient).}
+\label{fig:pressurecoefficients1}
+\end{figure}
+\clearpage
+\begin{figure}[!h]
+  \centering
+  \begin{tabular}{cc}
+   \includegraphics[width=70mm]{6-7gv.eps}&
+    \includegraphics[width=70mm]{8-9gv.eps}\\
+    \includegraphics[width=70mm]{9-10gv.eps}&
+    \includegraphics[width=70mm]{10-11gv.eps}\\
+     \includegraphics[width=70mm]{11-12gv.eps}&
+    \includegraphics[width=70mm]{12-13gv.eps}\\
+  \end{tabular}
+  \caption{Like Figure \ref{fig:pressurecoefficients1}, from $P_c: 6-7$ GV to $P_c: 12-13$ GV.} \label{fig:pressurecoefficients2}
+  %\caption*{Figure B.1 Continued: From $P_c: 6-7$ GV to $P_c: 12-13$ GV.}
+\end{figure}
+\clearpage
+\begin{figure}[!h]
+  \centering
+  \begin{tabular}{cc}
+      \includegraphics[width=70mm]{13-14gv.eps}&
+      \includegraphics[width=70mm]{14-15gv.eps}\\
+      \includegraphics[width=70mm]{15-16gv.eps}&
+      \includegraphics[width=70mm]{16-17gv.eps}\\
+      \includegraphics[width=70mm]{17-18gv.eps}&
+      \includegraphics[width=70mm]{18-19gv.eps}\\
+  \end{tabular}
+  \caption{Like Figure \ref{fig:pressurecoefficients1}, from $P_c: 13-14$ GV to $P_c: 18-19$
+  %\caption*{Figure B.1 Continued: From $P_c: 13-14$ GV to $P_c: 18-19$
+  GV.} \label{fig:pressurecoefficients3}
+\end{figure}
+
+
+%\clearpage
+%\begin{figure}[!ht]
+%\centering %\subfloat[]
+%{\label{fig:pressurecoef1}\includegraphics[width=1.06\textwidth]{pressurecoef1.eps}}\,
+%\caption{Linear fitting of 24-hour residuals of the logarithmic
+%count rate and the barometric pressure (mm Hg), using latitude
+%survey data from 1994-2006 survey years to find the slopes for each
+%rigidity bin starting from Pc: 0--1 GV to Pc: 5--6 GV.}
+%\end{figure}
+%\clearpage
+%\begin{figure}[!ht]
+%\centering \ContinuedFloat %\subfloat[Pc: 0-1 GV to Pc: 5-6GV]
+%{\label{fig:pressurecoef2}\includegraphics[width=1.061\textwidth]{pressurecoef2.eps}}\,
+%\caption*{Figure B.1 Continued: Starting from Pc:
+%6--7 GV to Pc: 12--13 GV.} %{Starting at (g) Pc:
+%6--7 GV to (l) Pc: 12--13 GV.}
+%\end{figure}
+%\clearpage
+%\begin{figure}[!ht]
+%\centering \ContinuedFloat %\subfloat[(e)-(g)]
+%{\label{fig:pressurecoef3}\includegraphics[width=1.06\textwidth]{pressurecoef3.eps}}\,
+%\caption*{Figure B.1 Continued: Starting from Pc: 13--14 GV to Pc:
+%18--19 GV.} \label{fig:pressurecoefficients}
+%\end{figure}
+
+
+\clearpage
+\begin{table}[!h]
+\centering \caption{The data of cutoff rigidity bin (GV), center of
+rigidity bin (GV), $\beta$ (all estimates), and $\beta$ (usable
+estimates)} \label{presregression} \vspace{0.3cm}
+\begin{minipage}{15cm}
+    \centering \begin{tabular}{cccc}
+    \hline
+    Cutoff Rigidity & Center of Rigidity  & $\beta$ \footnote{Regression coefficient between $\Delta{lnC}$ and $\Delta{P}$ for each cutoff rigidity interval, i.e., 0-1 GV, 1-2 GV, ...,18-19 GV.} & $\beta$ \footnote{The regression coefficient is considered usable if $R^{2}>$ 0.3 and there are more than 100 data points. }\\ %\hline
+    Bin(GV) & Bin (GV) & (all estimates) & (usable estimates)  \\ %\hline
+    \hline
+    %1998 &      &      & Daily average data & & &
+    %\\ \hline
+         %& year & year & Before SECOND correction & 0.897 & 1.110 & 1.004\\
+         %& year & year & After SECOND correction & 0.899 & 1.109 &
+         %1.004\\ \hline
+   0--1   &   0.5 &   0.009977    &   0.009977    \\
+   1--2   &   1.5 &   0.009734    &   0.009734    \\
+   2--3   &   2.5 &   0.009480    &   0.009480 \\
+   3--4   &   3.5 &   0.009492    &   0.009492    \\
+   4--5   &   4.5 &   0.009757    &   0.009757    \\
+   5--6   &   5.5 &   0.008814    &   0.008814    \\
+   6--7   &   6.5 &   0.008699    &     --  \\
+   7--8   &   7.5 &      --       &     --  \\
+   8--9   &   8.5 &   0.009267    &   0.009267    \\
+    \phantom{0}9--10  &   9.5 &   0.004098    &    --   \\
+    \phantom{0}10--11     &   10.5    &   0.008115    &     --  \\
+    \phantom{0}11--12     &   11.5    &   0.008591    &   0.008591    \\
+    \phantom{0}12--13     &   12.5    &   0.007624    &   0.007624    \\
+    \phantom{0}13--14     &   13.5    &   0.007152    &     --  \\
+    \phantom{0}14--15     &   14.5    &   0.008091    &     --  \\
+    \phantom{0}15--16     &   15.5    &   0.008780    &   0.00878 \\
+    \phantom{0}16--17     &   16.5    &   0.006502    &   0.006502    \\
+    \phantom{0}17--18     &   17.5    &   0.006054    &     --  \\
+    \phantom{0}18--19     &   18.5    &   0.005304    &     --  \\
+    %\hline
+    \end{tabular}
+    \end{minipage}
+\end{table}
+
+\clearpage
+% Pressure coefficient
+\begin{figure}[!h]
+\begin{center}
+\includegraphics[scale=0.8]{pressurecoef.eps}
+\end{center}
+\caption{The pressure coefficient ($\beta$) as a function of
+apparent cutoff $P_c$} \label{fig:pressurecoefapd}
+%\caption*{Figure B.2: The
+%pressure coefficient ($\beta$) as a function of apparent cutoff
+%$P_c$.} \label{fig:pressurecoef}
+\end{figure}
+
+\chapter{Regression Coefficient for Short-Term Variations in
+Modulation Level}
+
+After we plotted the mobile monitor count rate from the latitude
+survey data from 1994 to 2007 as a function of apparent cutoff
+rigidity, we noticed short-term fluctuations in the data. We plotted
+the mobile count rate corrected for barometric pressure vs.\ the
+McMurdo count rate and apparent cutoff rigidity in three dimensions
+as shown in Figures \ref{fig:3dmcm1}, \ref{fig:3dmcm2}, and
+\ref{fig:3dmcm3} for different survey years. The colored lines
+explain the code for the segments, i.e., the blue lines indicate
+``segment A'' in which the ship traveled from Seattle (US West
+Coast) to the Cutoff Equator, CE (similar to the geomagnetic
+equator), the black lines indicate ``segment B'' in which the ship
+traveled from CE to McMurdo (Coast of Antarctica), the green lines
+indicate ``segment C'' in which the ship traveled from McMurdo to
+CE, the orange lines indicate ``segment D'' in which the ship
+traveled from CE to Seattle, and the grey lines indicate ``all
+segments.'' The grey lines also indicate the projection of data in
+each plane. We can clearly see variations in modulation level in
+segment D of survey year 1996 and segment A of survey years 1998 and
+1999. The data of segments A and B are separate from segments C and
+D for survey year 2000. For the survey year 2003, segments C and D
+were grouped together but segments A and B were separated from them.
+We identified that whenever the mobile monitor is unusually high for
+a segment, the McMurdo rate was also high. Especially, the survey
+year 2003 even has funny ups and downs that mimic changes at
+McMurdo. Therefore, we should correct the mobile monitor count rate
+for short-term (sub-year) GCR fluctuations. In other words, we
+should correct the mobile monitor data for variations at McMurdo to
+improve the quality of the integral response functions. We proposed
+that we could determine a slope between mobile monitor and McMurdo
+data for each rigidity interval, and could correct each year's
+mobile monitor data to the average McMurdo value for that year.
+
+There are some steps to obtain an empirical formula for correction
+of the variations. The first step is to sort the data into apparent
+cutoff rigidity bins and plot graphs between the mobile monitor
+count rate corrected for tube ratios and pressure as a function of
+the McMurdo count rate corrected for pressure for each rigidity bin,
+i.e., 0-1 GV, 1-2 GV, ..., 17-19 GV (where 17-18 GV and 18-19 GV
+were grouped together) to obtain slopes of them as shown in Figures
+\ref{fig:mcmcoefficients1}, \ref{fig:mcmcoefficients2}, and
+\ref{fig:mcmcoefficients3}. Then we noted the rigidity bins, center
+of rigidity bins (mostly with intervals of width 1 GV instead of 0.5
+GV) and slopes from the plots in the Table \ref{tab: mcmregression}.
+The final step was to plot a graph of those slopes against the
+apparent cutoff rigidity. We found that the regression coefficient
+$S$ as a function of apparent cutoff rigidity $P_c$ was well fit by
+an exponential function, $S = 0.211e^{-0.141P_c}$, as shown in
+Figure \ref{fig:mcmformulaapd}. We then used this value of $S$ to
+correct each survey year's mobile monitor data to the average
+McMurdo value $\overline{m}$ for that survey year according to
+$C_{TPM} = C_{TP} - S(m-\overline{m})$, where $C_{TPM}$ is the
+normalized mobile monitor count rate corrected for tube anomalies,
+pressure, and short-term GCR variations, $m$ is McMurdo count rate,
+and $C_{TP}$ is the mobile monitor count rate corrected for tube
+anomalies, normalized to McMurdo, and corrected for pressure, as
+explained in Section 4.4.
+
+\clearpage
+% 3D plot in IDL to see McMurdo dependence
+\begin{figure}[!ht]
+%\vspace{0cm}
+  \centering
+  \begin{tabular}{cc}
+    \includegraphics[width=66mm]{mcmva94.eps}&
+    \includegraphics[width=66mm]{mcmva95.eps}\\
+    \includegraphics[width=66mm]{mcmva96.eps}&
+    \includegraphics[width=66mm]{mcmva97.eps}\\
+  \end{tabular}
+   \caption{Three dimensional plot among mobile monitor count rate corrected for tube ratios and pressure (s$^{-1}$), McMurdo count rate corrected for pressure (s$^{-1}$), and apparent cutoff rigidity (GV) for survey years 1994-1997.}
+ \label{fig:3dmcm1}
+\end{figure}
+\clearpage
+
+\lofcont
+
+\begin{figure}[!ht]
+  \centering
+  \begin{tabular}{cc}
+   \includegraphics[width=66.1mm]{mcmva98.eps}&
+    \includegraphics[width=66.1mm]{mcmva99.eps}\\
+    \includegraphics[width=66.1mm]{mcmva00.eps}&
+    \includegraphics[width=66.1mm]{mcmva01.eps}\\
+  \end{tabular}
+  \caption{Like Figure \ref{fig:3dmcm1}, for survey years 1998-2001.} \label{fig:3dmcm2}
+  %\caption*{Figure C.1 Continued: For survey years 1998-2001.}
+\end{figure}
+\clearpage
+
+
+
+\begin{figure}[!ht]
+  \centering
+  \begin{tabular}{cc}
+      \includegraphics[width=66.1mm]{mcmva02.eps}&
+    \includegraphics[width=66.1mm]{mcmva03.eps}\\
+    \includegraphics[width=66mm]{mcmva04.eps}&
+    \includegraphics[width=66.1mm]{mcmva05.eps}\\
+  \end{tabular}
+\end{figure}
+\begin{figure}[!ht]
+  \centering
+  \begin{tabular}{ccc}
+    \includegraphics[width=66.2mm]{mcmva06.eps}\\
+  \end{tabular}
+  \caption{Like Figure \ref{fig:3dmcm1}, for survey years 2002-2006.} \label{fig:3dmcm3}
+  %\caption*{Figure C.1 Continued: For survey years 2002-2006.}
+\end{figure}
+
+
+
+\clearpage
+\begin{figure}[!ht]
+  \centering
+  \begin{tabular}{cc}
+    % Requires \usepackage{graphicx}
+    \includegraphics[width=70mm]{mcm0-1GV.eps}&
+    \includegraphics[width=70mm]{mcm1-2GV.eps}\\
+    \includegraphics[width=70mm]{mcm2-3GV.eps}&
+    \includegraphics[width=70mm]{mcm3-4GV.eps}\\
+    \includegraphics[width=70mm]{mcm4-5GV.eps}&
+    \includegraphics[width=70mm]{mcm5-6GV.eps}\\
+    \end{tabular}
+    \caption{Linear fitting of mobile monitor count rate (s$^{-1}$) against McMurdo count rate (s$^{-1}$) for the 1994-2006 survey years to find the slopes for
+rigidity bins from 0-1 GV to 5-6 GV.} \label{fig:mcmcoefficients1}
+    %\caption*{Figure C.2: Linear fitting of mobile monitor count rate (s$^{-1}$) against McMurdo count rate (s$^{-1}$) for the 1994-2006 survey years to find the slopes for
+%rigidity bins from 0-1 GV to 5-6 GV.}
+\end{figure}
+\clearpage
+\begin{figure}[!ht]
+  \centering
+  \begin{tabular}{cc}
+    \includegraphics[width=70mm]{mcm6-7GV.eps}&
+    \includegraphics[width=70mm]{mcm7-8GV.eps}\\
+    \includegraphics[width=70mm]{mcm8-9GV.eps}&
+    \includegraphics[width=70mm]{mcm9-10GV.eps}\\
+    \includegraphics[width=70mm]{mcm10-11GV.eps}&
+    \includegraphics[width=70mm]{mcm11-12GV.eps}\\
+  \end{tabular}
+  \caption{Like Figure \ref{fig:mcmcoefficients1}, for rigidity bins from 6-7 GV to 11-12
+  GV.} \label{fig:mcmcoefficients2}
+  %\caption*{Figure C.2 Continued: For rigidity bins from 6-7 GV to 11-12
+  %GV.} \label{fig:mcmcoefficients2}
+\end{figure}
+\clearpage
+\begin{figure}[!ht]
+  \centering
+  \begin{tabular}{cc}
+    \includegraphics[width=70mm]{mcm12-13GV.eps}&
+    \includegraphics[width=70mm]{mcm13-14GV.eps}\\
+    \includegraphics[width=70mm]{mcm14-15GV.eps}&
+    \includegraphics[width=70mm]{mcm15-16GV.eps}\\
+    \includegraphics[width=70mm]{mcm16-17GV.eps}&
+    \includegraphics[width=70mm]{mcm17-19GV.eps}\\
+  \end{tabular}
+  \caption{Like Figure \ref{fig:mcmcoefficients1}, for rigidity bins from 12-13 to 17-19 GV.} \label{fig:mcmcoefficients3}
+  %\caption*{Figure C.2 Continued: For rigidity bins from 12-13 to 17-19 GV.} \label{fig:mcmcoefficients3}
+\end{figure}
+
+\clearpage
+\begin{table}[!h]
+\centering \caption{Cutoff rigidity and regression coefficient
+between the normalized mobile neutron monitor count rate corrected
+for tube ratios and pressure and the McMurdo count rate corrected
+for pressure for each apparent cutoff rigidity bin.} \label{tab:
+mcmregression} \vspace{0.3cm}
+\begin{minipage}{15cm}
+    \centering \begin{tabular}{ccc}
+    \hline
+    Cutoff Rigidity & Center of Rigidity & Regression \\ %\hline
+    Bins(GV) & Bins (GV) & Coefficient  \\ %\hline
+    \hline
+0--1    &   1.0 &   0.186763    \\
+1--2    &   1.5 &   0.179125    \\
+2--3    &   2.5 &   0.164141    \\
+3--4    &   3.5 &   0.137369    \\
+4--5    &   4.5 &   0.115381    \\
+5--6    &   5.5 &   0.092129    \\
+6--7    &   6.5 &   0.087492    \\
+7--8    &   7.5 &   0.069329    \\
+8--9    &   8.5 &   0.057012    \\
+\phantom{0}9--10    &   9.5 &   0.053608    \\
+\phantom{0}10--11   &   10.5    &   0.041948    \\
+\phantom{0}11--12   &   11.5    &   0.044929    \\
+\phantom{0}12--13   &   12.5    &   0.033388    \\
+\phantom{0}13--14   &   13.5    &   0.031923    \\
+\phantom{0}14-15    &   14.5    &   0.018694    \\
+\phantom{0}15--16   &   15.5    &   0.019953    \\
+\phantom{0}16--17   &   16.5    &   0.027571    \\
+\phantom{0}17--19   &   18.0    &   0.022294    \\
+    \hline
+    \end{tabular}
+    \end{minipage}
+\end{table}
+
+
+%\clearpage
+% Short term Galactic cosmic ray variation
+\begin{figure}[!ht]
+\begin{center}
+\includegraphics[scale=0.62]{mcmformula.eps}
+\end{center}
+\caption{The regression coefficient $S$ as a function of apparent
+cutoff rigidity $P_c$}
+%\caption*{Figure C.3: The
+%regression coefficient $S$ as a function of apparent cutoff rigidity
+%$P_c$.}
+%\caption{The regression
+%coefficient $S$ as a function of apparent cutoff rigidity $P_c$.}
+\label{fig:mcmformulaapd}
+\end{figure}
+
+\chapter[The Nagashima Approach...]{The Nagashima Approach Applied to the Latitude Survey Data}
+
+Before we obtained excellent results by using the Dorman technique
+as described in Chapter 4, we first focused on using the Nagashima
+technique for determining a response function $R$ of primary cosmic
+rays. \citet{NagashimaEA89} constructed a response function by
+combining the Galactic cosmic ray spectrum ($G$), modulation
+function ($M$) and yield function ($Y$) as expressed in equations
+\ref{eqn_respapp}-\ref{eqn_yfunctionapp}:
+
+
+\begin{equation} \label{eqn_respapp}
+R = - \left[\frac{dN}{dP_c}\right]_P = G(P) M(P,t) Y(P,h).
+\end{equation}
+
+\begin{equation} \label{eqn_gfunctionapp}
+G(u,\gamma_n) = \frac{\gamma_1}{(\gamma_2+u) ^{\gamma_3}},
+\end{equation}
+
+\begin{equation} \label{eqn_mfunctionapp}
+M(P_c,t) = \exp \left[ \frac{-\mu_1(t)}{\mu_2+(P_c/{\rm 1\
+GV})^{\mu_2}} \right],
+\end{equation}
+
+\begin{equation} \label{eqn_yfunctionapp}
+Y(U,h,\varepsilon, \eta_n) = Y_0 u^{\varepsilon} \exp \left[ -\eta_1
+\left(\frac{h}{1033} \right)^{\eta_2} -\eta_3 \left(\frac{h}{1033}
+\right)^{\eta_4} k_l(u,\eta_5) \right],
+\end{equation}where $N$ is the count rate from a neutron monitor,
+$P$ is rigidity, $P_c$ is cutoff rigidity, $h$ is depth in the
+atmosphere and $t$ is time. \citet{NagashimaEA89} tried to make
+their parameterization have some physical content, as opposed to the
+Dorman function, which has no physical content. From equations
+\ref{eqn_gfunctionapp}-\ref{eqn_yfunctionapp}, we can see that there
+are a total of 14 adjustable parameters. We used the SURVEY program,
+developed by Prof.\ Paul Evenson (U. Delaware, USA), to seek optimal
+parameters to fit latitude survey data. We decided to vary only six
+parameters, $\varepsilon$, $\eta_{1}$, $\eta_{2}$, $\eta_{3}$,
+$\eta_{4}$ and $\eta_{5}$, to describe the yield function, and
+$\gamma_1$ is an overall normalization. The initial values are the
+values in \citet{NagashimaEA89} as explained in chapter 2, i.e.,
+$\varepsilon = 0.0$, $\eta_{1} = 2.2$, $\eta_{2} = 1.62$, $\eta_{3}
+= 12.7$, $\eta_{4} = 0.50$ and $\eta_{5} = 0.42$. We fixed all other
+parameters to values from Nagashima et al. (1989).
+
+Figures \ref{fig:nagdfr1994-1997}-\ref{fig:nagdfr2003-2006} below
+show two kinds of graphs for each survey. The left panels compare
+the data (black squares) and model fit (red solid lines). The fit
+error between them vs. cutoff rigidity is shown in Figure
+\ref{fig:fitdev}. The black bunches may be due to the problem of
+barometric pressure treatment. The figures also show the ``Quality''
+value, which is square of the accumulated count rate difference.
+With only one or two exceptions they form a nice pattern. There is
+little error during solar maximum and a ``concave'' shape,
+increasing towards solar minimum, both before and after the polarity
+reversal.
+
+A key weakness of this technique is a lack of clear information
+about whether we are getting all of the “bugs” out of the data and
+fully correcting for pressure and other effects. Another problem is
+that the Nagashima spectrum parameterization cannot describe a
+crossover in the spectrum. Thus addressing the goals of this study
+would require modifying the Nagashima parameterization.  We had
+hoped that the non-physical parameters like those of the Dorman
+function, but with more parameters, would help describe changes in
+the response function better than that the Dorman function. This
+hope was not realized.
+
+To get the best representation of each annual survey we would
+generate a sea level response function for the average modulation
+level of the survey. If we ever decide on what the proper yield
+function should be we could just divide the response functions by
+the yield function to get actual spectra. If we get the best
+parameters of the yield function, we could obtain the cosmic ray
+spectrum. We thought that this would be easily done in the Nagashima
+model because the spectrum is separate from the yield function. But
+finally, we could not obtain good parameters of the yield function
+from the Nagashima technique. We have used the parameters of the fit
+for each year, together with the average McMurdo count rate, to
+generate a differential response function (at sea level) for each
+year. Figure \ref{fig:dfrall} shows all the years together. The red
+upward triangles indicate the data before survey year 2000, the
+green downward triangles indicate those after survey year 2000, and
+black squares indicate those of survey year 2000 itself. The yearly
+plots are also shown in Figures \ref{fig:nagdfr1994-1997}-
+\ref{fig:nagdfr2003-2006}. There is a nice progression from solar
+minimum to solar maximum and back, but the issue about the best
+parameters is still questionable.
+
+One another problem occurred when we ran the barometer coefficient
+calculation for all of the surveys, with the result shown in Figure
+\ref{fig:barometercoefficient}. This just confirms that the major
+apparent difference between the Nagashima analysis and the Dorman
+analysis is somehow related to getting the barometer correction
+wrong. The Nagashima analysis builds the systematic variation of the
+barometer with cutoff into the yield function. The barometer
+dependence may be taking care of the fluctuations but the
+extrapolation to sea level is failing. With these problematic
+issues, we gave up on the Nagashima technique and changed to use the
+method of direct determination fitted by the Dorman technique
+instead.
+
+
+\clearpage
+\begin{figure}[!ht]
+  \centering
+  \begin{tabular}{cc}
+    % Requires \usepackage{graphicx}
+    \includegraphics[width=63mm]{1994simpson61.eps}&
+    \includegraphics[width=68mm]{dfr1994.eps}\\
+    \includegraphics[width=63mm]{1995simpson61.eps}&
+    \includegraphics[width=68mm]{dfr1995.eps}\\
+    \includegraphics[width=63mm]{1996simpson61.eps}&
+    \includegraphics[width=68mm]{dfr1996.eps}\\
+    \includegraphics[width=63mm]{1997simpson61.eps}&
+    \includegraphics[width=68mm]{dfr1997.eps}\\
+  \end{tabular}
+  \caption{(a)-(d) Mobile neutron monitor count rate (black squares) and Nagashima model fit (red line) for survey years 1994 to 1997 as a function of apparent geomagnetic cutoff. (e)-(h) Inferred differential response functions (at sea
+  level).} \label{fig:nagdfr1994-1997}
+\end{figure}
+
+
+
+\clearpage
+\begin{figure}[!ht]
+  \centering
+  \begin{tabular}{cc}
+    % Requires \usepackage{graphicx}
+    \includegraphics[width=53mm]{1998simpson61.eps}&
+    \includegraphics[width=56mm]{dfr1998.eps}\\
+    \includegraphics[width=53mm]{1999simpson61.eps}&
+    \includegraphics[width=56mm]{dfr1999.eps}\\
+    \includegraphics[width=53.2mm]{2000simpson61.eps}&
+    \includegraphics[width=56mm]{dfr2000.eps}\\
+    \includegraphics[width=53.2mm]{2001simpson61.eps}&
+    \includegraphics[width=56mm]{dfr2001.eps}\\
+    \includegraphics[width=53mm]{2002simpson61.eps}&
+    \includegraphics[width=56mm]{dfr2002.eps}\\
+
+  \end{tabular}
+  \caption{Like Figure \ref{fig:nagdfr1994-1997} of Nagashima technique, for 1998-2002 survey years, showing the transition from solar minimum to solar maximum conditions.} \label{fig:nagdfr1998-2002}
+\end{figure}
+
+\clearpage
+\begin{figure}[!ht]
+  \centering
+  \begin{tabular}{cc}
+    % Requires \usepackage{graphicx}
+    \includegraphics[width=63mm]{2003simpson61.eps}&
+    \includegraphics[width=68mm]{dfr2003.eps}\\
+    \includegraphics[width=63mm]{2004simpson61.eps}&
+    \includegraphics[width=68mm]{dfr2004.eps}\\
+    \includegraphics[width=63mm]{2005simpson61.eps}&
+    \includegraphics[width=68mm]{dfr2005.eps}\\
+    \includegraphics[width=63mm]{2006simpson61.eps}&
+    \includegraphics[width=68mm]{dfr2006.eps}\\
+  \end{tabular}
+  \caption{Like Figure \ref{fig:nagdfr1994-1997} of Nagashima technique, for 2003-2006 survey years, showing the transition from solar maximum to solar minimum conditions.} \label{fig:nagdfr2003-2006}
+\end{figure}
+
+\clearpage
+\begin{figure}[!ht]
+  \centering
+  \begin{tabular}{ccc}
+    % Requires \usepackage{graphicx}
+    \includegraphics[width=45mm]{1994fitdev.eps}&
+    \includegraphics[width=45mm]{1995fitdev.eps}&
+    \includegraphics[width=45mm]{1996fitdev.eps}\\
+    \includegraphics[width=45mm]{1997fitdev.eps}&
+    \includegraphics[width=45mm]{1998fitdev.eps}&
+    \includegraphics[width=45mm]{1999fitdev.eps}\\
+    \includegraphics[width=45mm]{2000fitdev.eps}&
+    \includegraphics[width=45mm]{2001fitdev.eps}&
+    \includegraphics[width=45mm]{2002fitdev.eps}\\
+    \includegraphics[width=45mm]{2003fitdev.eps}&
+    \includegraphics[width=45mm]{2004fitdev.eps}&
+    \includegraphics[width=45mm]{2005fitdev.eps}\\
+    &
+    \includegraphics[width=45mm]{2006fitdev.eps}& \\
+  \end{tabular}
+  \caption{Residuals (s$^{-1}$) from the fits between mobile neutron monitor count rate and Nagashima model fit for all survey years as a function
+of cutoff rigidity.} \label{fig:fitdev}
+\end{figure}
+
+
+%A DFR(at sea level) before and after 2000
+
+\clearpage
+\begin{figure}[!ht]
+\begin{center}
+\includegraphics[scale=0.6]{dfrall.eps}
+\end{center}
+\caption{Differential response functions (at sea level) for all the
+voyages together as a function of rigidity (GV). Red upward
+triangles are from data before 2000, green downward triangles are
+from data after 2000 and black squares are from data of 2000. There
+is clear no crossover in the spectrum described by the Nagashima
+technique.} \label{fig:dfrall}
+\end{figure}
+
+
+%Barometric problem
+
+\clearpage
+\begin{figure}[!ht]
+  \centering
+  \begin{tabular}{ccc}
+    % Requires \usepackage{graphicx}
+     \includegraphics[width=45mm]{1994barocoef.eps}&
+    \includegraphics[width=45mm]{1995barocoef.eps}&
+    \includegraphics[width=45mm]{1996barocoef.eps}\\
+    \includegraphics[width=45mm]{1997barocoef.eps}&
+    \includegraphics[width=45mm]{1998barocoef.eps}&
+    \includegraphics[width=45mm]{1999barocoef.eps}\\
+    \includegraphics[width=45mm]{2000barocoef.eps}&
+    \includegraphics[width=45mm]{2001barocoef.eps}&
+    \includegraphics[width=45mm]{2002barocoef.eps}\\
+    \includegraphics[width=45mm]{2003barocoef.eps}&
+    \includegraphics[width=45mm]{2004barocoef.eps}&
+    \includegraphics[width=45mm]{2005barocoef.eps}\\
+    &
+    \includegraphics[width=45mm]{2006barocoef.eps}& \\
+  \end{tabular}
+  \caption{Comparisons of the barometer correction from equation (2) of \citet{ClemEA97} (red lines), from this work following equation \ref{eqn:presregrescoef} (blue lines), and from the Nagashima analysis (black lines), which is at a different level for each survey year.} \label{fig:barometercoefficient}
+\end{figure}
+
+%\chapter{Regression Coefficient Determination for Short Term Variations in Modulation Level}
+
+
+%\chapter{Regression Coefficient Determination for Short Term Variations in Modulation Level}

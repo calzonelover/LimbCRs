@@ -1,0 +1,1148 @@
+@INPROCEEDINGS{BieberEA03,
+   author = {{Bieber}, J.~W. and {Clem}, J. and {Duldig}, M.~L. and {Evenson}, P. and
+    {Humble}, J.~E. and {Pyle}, R.},
+    title = "{Cosmic Ray Spectra and the Solar Magnetic Polarity: Preliminary Results from 1994-2002}",
+ keywords = {Particle emission, solar wind, Solar wind plasma; sources of solar wind},
+booktitle = {Solar Wind Ten},
+     year = 2003,
+   series = {American Institute of Physics Conference Series},
+   volume = 679,
+   editor = {{Velli}, M. and {Bruno}, R. and {Malara}, F. and {Bucci}, B.
+    },
+    month = sep,
+    pages = {628-631},
+      doi = {10.1063/1.1618673},
+   adsurl = {http://adsabs.harvard.edu/abs/2003AIPC..679..628B},
+  adsnote = {Provided by the SAO/NASA Astrophysics Data System}
+}
+
+@ARTICLE{Fowler63,
+   author = {{Fowler}, I.~L.},
+    title = "{Very Large Boron Trifluoride Proportional Counters}",
+  journal = {Review of Scientific Instruments},
+     year = 1963,
+    month = jul,
+   volume = 34,
+    pages = {731-739},
+      doi = {10.1063/1.1718559},
+   adsurl = {http://adsabs.harvard.edu/abs/1963RScI...34..731F},
+  adsnote = {Provided by the SAO/NASA Astrophysics Data System}
+}
+
+
+@ARTICLE{Simpson57,
+   author = {{Simpson}, J.~A.},
+    title = "{Solar Origin of Changes in the Primary Cosmic Radiation}",
+  journal = {Proceedings of the National Academy of Science},
+     year = 1957,
+    month = jan,
+   volume = 43,
+    pages = {42-56},
+      doi = {10.1073/pnas.43.1.42},
+   adsurl = {http://adsabs.harvard.edu/abs/1957PNAS...43...42S},
+  adsnote = {Provided by the SAO/NASA Astrophysics Data System}
+}
+
+@ARTICLE{Forbush37,
+   author = {{Forbush}, S.~E.},
+    title = "{On the Effects in Cosmic-Ray Intensity Observed During the Recent Magnetic Storm}",
+  journal = {Physical Review},
+     year = 1937,
+    month = jun,
+   volume = 51,
+    pages = {1108-1109},
+      doi = {10.1103/PhysRev.51.1108.3},
+   adsurl = {http://adsabs.harvard.edu/abs/1937PhRv...51.1108F},
+  adsnote = {Provided by the SAO/NASA Astrophysics Data System}
+}
+
+@ARTICLE{MatthaeusGoldstein82,
+   author = {{Matthaeus}, W.~H. and {Goldstein}, M.~L.},
+    title = "{Measurement of the rugged invariants of magnetohydrodynamic turbulence in the solar wind}",
+  journal = {Journal of Geophysical Research},
+ keywords = {ENERGY SPECTRA, INCOMPRESSIBLE FLUIDS, MAGNETIC FLUX, MAGNETOHYDRODYNAMIC FLOW, MAGNETOHYDRODYNAMIC TURBULENCE, SOLAR WIND, MAGNETIC FIELD CONFIGURATIONS, SOLAR MAGNETIC FIELD, SOLAR WIND VELOCITY, THREE DIMENSIONAL FLOW, VOYAGER PROJECT},
+     year = 1982,
+    month = aug,
+   volume = 87,
+    pages = {6011-6028},
+      doi = {10.1029/JA087iA08p06011},
+   adsurl = {http://adsabs.harvard.edu/abs/1982JGR....87.6011M},
+  adsnote = {Provided by the SAO/NASA Astrophysics Data System}
+}
+
+@ARTICLE{SmithBieber93,
+   author = {{Smith}, C.~W. and {Bieber}, J.~W.},
+    title = "{Multiple spacecraft survey of the north-south asymmetry of the interplanetary magnetic field}",
+  journal = {Journal of Geophysical Research},
+ keywords = {INTERPLANETARY MAGNETIC FIELDS, MAGNETIC FIELD CONFIGURATIONS, SATELLITE OBSERVATION, SOLAR WIND, HELIOSPHERE, PIONEER VENUS SPACECRAFT, SOLAR ROTATION},
+     year = 1993,
+    month = jun,
+   volume = 98,
+    pages = {9401-9415},
+      doi = {10.1029/93JA00145},
+   adsurl = {http://adsabs.harvard.edu/abs/1993JGR....98.9401S},
+  adsnote = {Provided by the SAO/NASA Astrophysics Data System}
+}
+
+@ARTICLE{BieberBurger90,
+   author = {{Bieber}, J.~W. and {Burger}, R.~A.},
+    title = "{Cosmic-ray streaming in the Born approximation}",
+  journal = {Astrophys.\ J.},
+ keywords = {BORN APPROXIMATION, COSMIC RAYS, DIFFUSION COEFFICIENT, PARTICLE ACCELERATION, DIFFUSE RADIATION, FOKKER-PLANCK EQUATION, SOLAR RADIATION},
+     year = 1990,
+    month = jan,
+   volume = 348,
+    pages = {597-607},
+      doi = {10.1086/168266},
+   adsurl = {http://adsabs.harvard.edu/abs/1990ApJ...348..597B},
+  adsnote = {Provided by the SAO/NASA Astrophysics Data System}
+}
+
+@ARTICLE{BieberEA87a,
+   author = {{Bieber}, J.~W. and {Evenson}, P. and {Matthaeus}, W.~H.},
+    title = "{Magnetic helicity of the IMF and the solar modulation of cosmic rays}",
+  journal = {Geophys.~Res.\ Lett.},
+ keywords = {COSMIC RAYS, INTERPLANETARY MAGNETIC FIELDS, MAGNETIC FIELD CONFIGURATIONS, RADIANT FLUX DENSITY, SOLAR WIND, HELIUM IONS, JUPITER ATMOSPHERE, MODULATION, SOLAR ACTIVITY EFFECTS, SOLAR MAGNETIC FIELD},
+     year = 1987,
+    month = aug,
+   volume = 14,
+    pages = {864-867},
+      doi = {10.1029/GL014i008p00864},
+   adsurl = {http://adsabs.harvard.edu/abs/1987GeoRL..14..864B},
+  adsnote = {Provided by the SAO/NASA Astrophysics Data System}
+}
+
+
+@ARTICLE{BieberEA87b,
+   author = {{Bieber}, J.~W. and {Evenson}, P.~A. and {Matthaeus}, W.~H.},
+    title = "{The Nuts and Bolts of Cosmic Ray Modulation}",
+  journal = {International Cosmic Ray Conference},
+     year = 1987,
+   volume = 3,
+    pages = {175},
+   adsurl = {http://adsabs.harvard.edu/abs/1987ICRC....3..175B},
+  adsnote = {Provided by the SAO/NASA Astrophysics Data System}
+}
+
+@ARTICLE{Potgieter85,
+   author = {{Potgieter}, M.~S. and {Moraal}, H.},
+    title = "{A drift model for the modulation of galactic cosmic rays}",
+  journal = {Astrophys.\ J.},
+ keywords = {COSMIC RAY SHOWERS, DRIFT RATE, ENERGY SPECTRA, GALACTIC COSMIC RAYS, INTERPLANETARY MAGNETIC FIELDS, SOLAR ACTIVITY EFFECTS, ANISOTROPY, ASTRONOMICAL MODELS, ELECTRON FLUX DENSITY, HELIOSPHERE, PROTON FLUX DENSITY, SOLAR CYCLES},
+     year = 1985,
+    month = jul,
+   volume = 294,
+    pages = {425-440},
+      doi = {10.1086/163309},
+   adsurl = {http://adsabs.harvard.edu/abs/1985ApJ...294..425P},
+  adsnote = {Provided by the SAO/NASA Astrophysics Data System}
+}
+
+@ARTICLE{Swordy01,
+   author = {{Swordy}, S.~P.},
+    title = "{The Energy Spectra and Anisotropies of Cosmic Rays}",
+  journal = {Space Science Reviews},
+     year = 2001,
+    month = oct,
+   volume = 99,
+    pages = {85-94},
+   adsurl = {http://adsabs.harvard.edu/abs/2001SSRv...99...85S},
+  adsnote = {Provided by the SAO/NASA Astrophysics Data System}
+}
+
+@INPROCEEDINGS{MitchellEA08,
+   author = {{Mitchell}, J.~W. and {Abe}, K. and {Fuke}, H. and {et al.}},
+    title = "{Solar Modulation of Low-Energy Antiproton and Proton Spectra Measured by BESS}",
+booktitle = {International Cosmic Ray Conference},
+     year = 2008,
+   series = {International Cosmic Ray Conference},
+   volume = 1,
+    pages = {455-458},
+   adsurl = {http://adsabs.harvard.edu/abs/2008ICRC....1..455M},
+  adsnote = {Provided by the SAO/NASA Astrophysics Data System}
+}
+
+@ARTICLE{ClemEA04,
+   author = {{Clem}, J.~M. and {De Angelis}, G. and {Goldhagen}, W. and {Wilson}, J.~W.},
+    title = "{New calculations of the atmospheric cosmic radiation field--results for neutron spectra}",
+  journal = {Oxford University Press},
+     year = 2004,
+    month = may,
+   volume = 110,
+    pages = {423-428},
+      doi = {10.1093/rpd/nch175},
+   adsurl = {http://rpd.oxfordjournals.org/},
+  adsnote = {Provided by the SAO/NASA Astrophysics Data System}
+}
+
+@ARTICLE{Jokipii77,
+   author = {{Jokipii}, J.~R. and {Levy}, E.~H. and {Hubbard}, W.~B.},
+    title = "{Effects of particle drift on cosmic-ray transport. I - General properties, application to solar modulation}",
+  journal = {Astrophys.\ J.},
+ keywords = {PARTICLE DIFFUSION, SOLAR COSMIC RAYS, SOLAR FLARES, SOLAR WIND VELOCITY, TRANSPORT PROPERTIES, ADIABATIC CONDITIONS, INTERPLANETARY MAGNETIC FIELDS, PARTICLE FLUX DENSITY},
+     year = 1977,
+    month = may,
+   volume = 213,
+    pages = {861-868},
+      doi = {10.1086/155218},
+   adsurl = {http://adsabs.harvard.edu/abs/1977ApJ...213..861J},
+  adsnote = {Provided by the SAO/NASA Astrophysics Data System}
+}
+
+@ARTICLE{Bieber07,
+   author = {{Bieber}, J.~W. and {Clem}, J. and {Desilets}, D. and {Evenson}, P. and {Lal}, D. and {Lopate}, C. and {Pyle}, R.},
+    title = "{Long-term decline of South Pole neutron rates}",
+  journal = {Journal of Geophysical Research},
+     year = 2007,
+    month = mar,
+   volume = 112,
+    pages = {A12102},
+      doi = {10.1029/2006JA011894},
+   adsurl = {http://adsabs.harvard.edu/abs/1993ApJ...405..375C},
+  adsnote = {Provided by the SAO/NASA Astrophysics Data System}
+}
+
+@ARTICLE{ChenBieber93,
+   author = {{Chen}, J. and {Bieber}, J.~W.},
+    title = "{Cosmic-ray anisotropies and gradients in three dimensions}",
+  journal = {Astrophys.\ J.},
+ keywords = {ANISOTROPY, COSMIC RAYS, SOLAR ACTIVITY EFFECTS, INTERPLANETARY MEDIUM, MEAN FREE PATH, SOLAR MAGNETIC FIELD},
+     year = 1993,
+    month = mar,
+   volume = 405,
+    pages = {375-389},
+      doi = {10.1086/172369},
+   adsurl = {http://adsabs.harvard.edu/abs/1993ApJ...405..375C},
+  adsnote = {Provided by the SAO/NASA Astrophysics Data System}
+}
+
+@INPROCEEDINGS{BieberChen91,
+   author = {{Bieber}, J.~W. and {Chen}, J.},
+    title = "{Solar Magnetic Cycle Variation of Cosmic-ray gradients and Scattering Mean Free Path}",
+booktitle = {International Cosmic Ray Conference},
+     year = 1991,
+   series = {International Cosmic Ray Conference},
+   volume = 3,
+    month = aug,
+    pages = {525},
+   adsurl = {http://adsabs.harvard.edu/abs/1991ICRC....3..525B},
+  adsnote = {Provided by the SAO/NASA Astrophysics Data System}
+}
+
+@INPROCEEDINGS{ReineckeEA97,
+   author = {{Reinecke}, J.~P.~L. and {Moraal}, H. and {Potgieter}, M.~s. and
+    {McDonald}, F.~B. and {Webber}, W.~R.},
+    title = "{Different Crossovers?}",
+booktitle = {International Cosmic Ray Conference},
+     year = 1997,
+   series = {International Cosmic Ray Conference},
+   volume = 2,
+    pages = {49},
+   adsurl = {http://adsabs.harvard.edu/abs/1997ICRC....2...49R},
+  adsnote = {Provided by the SAO/NASA Astrophysics Data System}
+}
+
+@ARTICLE{LockwoodWebber96,
+   author = {{Lockwood}, J.~A. and {Webber}, W.~R.},
+    title = "{Comparison of the rigidity dependence of the 11-year cosmic ray variation at the earth in two solar cycles of opposite magnetic polarity}",
+  journal = {Journal of Geophysical Research},
+ keywords = {Interplanetary Physics: Cosmic rays, Interplanetary Physics: Energetic particles, heliospheric},
+     year = 1996,
+    month = oct,
+   volume = 101,
+    pages = {21573-21580},
+      doi = {10.1029/96JA01821},
+   adsurl = {http://adsabs.harvard.edu/abs/1996JGR...10121573L},
+  adsnote = {Provided by the SAO/NASA Astrophysics Data System}
+}
+
+@ARTICLE{BieberEA99,
+   author = {{Bieber}, J.~W. and {Burger}, R.~A. and {Engel}, R. and {Gaisser}, T.~K. and
+    {Roesler}, S. and {Stanev}, T.},
+    title = "{Antiprotons at Solar Maximum}",
+  journal = {Physical Review Letters},
+   eprint = {arXiv:astro-ph/9903163},
+     year = 1999,
+    month = jul,
+   volume = 83,
+    pages = {674-677},
+      doi = {10.1103/PhysRevLett.83.674},
+   adsurl = {http://adsabs.harvard.edu/abs/1999PhRvL..83..674B},
+  adsnote = {Provided by the SAO/NASA Astrophysics Data System}
+}
+
+@INPROCEEDINGS{KrugerEA11,
+   author = {{Kr{\"u}ger}, H. and {Moraal}, H. and {Ruffolo}, D. and {Saiz}, A. and {Nutaro}, T. and {Kamyan}, N. and {Nuntiyakul}, W. and {Hebber}, B. and {Steigies}, C},
+    title = "{Progress Report on the Intercalibration of the World's Neutron Monitors}",
+booktitle = {International Cosmic Ray Conference},
+     year = 2011,
+   series = {International Cosmic Ray Conference},
+   volume = 11,
+    pages = {446},
+   adsurl = {http://adsabs.harvard.edu/abs/2011ICRC...11..446K},
+  adsnote = {Provided by the SAO/NASA Astrophysics Data System}
+}
+
+@INPROCEEDINGS{BieberEA97,
+   author = {{Bieber}, J.~W. and {Clem}, J. and {Evenson}, P.},
+    title = "{Efficient Computation of Apparent Cutoffs}",
+booktitle = {International Cosmic Ray Conference},
+     year = 1997,
+   series = {International Cosmic Ray Conference},
+   volume = 2,
+    pages = {389},
+   adsurl = {http://adsabs.harvard.edu/abs/1997ICRC....2..389B},
+  adsnote = {Provided by the SAO/NASA Astrophysics Data System}
+}
+
+
+@INPROCEEDINGS{BieberEvenson95,
+   author = {{Bieber}, J.~W. and {Evenson}, P.},
+    title = "{Spaceship Earth - An Optimized Network of Neutron Monitors}",
+booktitle = {International Cosmic Ray Conference},
+     year = 1995,
+   series = {International Cosmic Ray Conference},
+   volume = 4,
+    pages = {1316},
+   adsurl = {http://adsabs.harvard.edu/abs/1995ICRC....4.1316B},
+  adsnote = {Provided by the SAO/NASA Astrophysics Data System}
+}
+
+
+@INPROCEEDINGS{Clem99,
+   author = {{Clem}, J.},
+    title = "{Atmospheric Yield Functions and the Response to Secondary Particles of Neutron Monitors}",
+booktitle = {International Cosmic Ray Conference},
+     year = 1999,
+   series = {International Cosmic Ray Conference},
+   volume = 7,
+    pages = {317},
+   adsurl = {http://adsabs.harvard.edu/abs/1999ICRC....7..317C},
+  adsnote = {Provided by the SAO/NASA Astrophysics Data System}
+}
+
+@ARTICLE{BieberEA04,
+   author = {{Bieber}, J.~W. and {Clem}, J.~M. and {Duldig}, M.~L. and {Evenson}, P.~A. and
+    {Humble}, J.~E. and {Pyle}, R.},
+    title = "{Latitude survey observations of neutron monitor multiplicity}",
+  journal = {Journal of Geophysical Research (Space Physics)},
+ keywords = {Interplanetary Physics: Cosmic rays, Ionosphere: Solar radiation and cosmic ray effects, Marine Geology and Geophysics: Geomagnetism (1550), Space Plasma Physics: Charged particle motion and acceleration, Atmospheric Composition and Structure: Pressure, density, and temperature, neutron monitor, geomagnetic field, cosmic rays},
+     year = 2004,
+    month = dec,
+   volume = 109,
+   number = A18,
+      eid = {A12106},
+    pages = {12106},
+      doi = {10.1029/2004JA010493},
+   adsurl = {http://adsabs.harvard.edu/abs/2004JGRA..10912106B},
+  adsnote = {Provided by the SAO/NASA Astrophysics Data System}
+}
+
+@ARTICLE{GleesonAxford68,
+   author = {{Gleeson}, L.~J. and {Axford}, W.~I.},
+    title = "{Solar Modulation of Galactic Cosmic Rays}",
+  journal = {Astrophys.\ J.},
+     year = 1968,
+    month = dec,
+   volume = 154,
+    pages = {1011},
+      doi = {10.1086/149822},
+   adsurl = {http://adsabs.harvard.edu/abs/1968ApJ...154.1011G},
+  adsnote = {Provided by the SAO/NASA Astrophysics Data System}
+}
+
+@ARTICLE{AsaokaEA02,
+   author = {{Asaoka}, Y. and {Shikaze}, Y. and {Abe}, K. and {Anraku}, K. and
+    {Fujikawa}, M. and {Fuke}, H. and {Haino}, S. and {Imori}, M. and
+    {Izumi}, K. and {Maeno}, T. and {Makida}, Y. and {Matsuda}, S. and
+    {Matsui}, N. and {Matsukawa}, T. and {Matsumoto}, H. and {Matsunaga}, H. and
+    {Mitchell}, J. and {Mitsui}, T. and {Moiseev}, A. and {Motoki}, M. and
+    {Nishimura}, J. and {Nozaki}, M. and {Orito}, S. and {Ormes}, J.~F. and
+    {Saeki}, T. and {Sanuki}, T. and {Sasaki}, M. and {Seo}, E.~S. and
+    {Sonoda}, T. and {Streitmatter}, R. and {Suzuki}, J. and {Tanaka}, K. and
+    {Tanizaki}, K. and {Ueda}, I. and {Wang}, J.~Z. and {Yajima}, Y. and
+    {Yamagami}, Y. and {Yamamoto}, A. and {Yamamoto}, Y. and {Yamato}, K. and
+    {Yoshida}, T. and {Yoshimura}, K.},
+    title = "{Measurements of Cosmic-Ray Low-Energy Antiproton and Proton Spectra in a Transient Period of Solar Field Reversal}",
+  journal = {Physical Review Letters},
+   eprint = {astro-ph/0109007},
+     year = 2002,
+    month = feb,
+   volume = 88,
+   number = 5,
+      eid = {051101},
+    pages = {051101},
+      doi = {10.1103/PhysRevLett.88.051101},
+   adsurl = {http://adsabs.harvard.edu/abs/2002PhRvL..88e1101A},
+  adsnote = {Provided by the SAO/NASA Astrophysics Data System}
+}
+
+@ARTICLE{Potgieter13,
+   author = {{Potgieter}, M.~S.},
+    title = "{Cosmic Rays in the Inner Heliosphere: Insights from Observations, Theory and Models}",
+  journal = {Space~Sci. \ Rev.},
+ keywords = {Cosmic rays, Heliosphere, Solar activity, Solar modulation},
+     year = 2013,
+    month = jun,
+   volume = 176,
+    pages = {165-176},
+      doi = {10.1007/s11214-011-9750-7},
+   adsurl = {http://adsabs.harvard.edu/abs/2013SSRv..176..165P},
+  adsnote = {Provided by the SAO/NASA Astrophysics Data System}
+}
+
+@ARTICLE{Forbush67,
+   author = {{Forbush}, S.~E.},
+    title = "{A variation, with a period of two solar cycles, in the cosmic-ray diurnal anisotropy}",
+  journal = {Journal of Geophysical Research},
+ keywords = {Particles and Fields in Interplanetary Space: Cosmic rays, Particles and Fields in Interplanetary Space: Solar-wind magnetic fields},
+     year = 1967,
+    month = oct,
+   volume = 72,
+    pages = {4937-4939},
+      doi = {10.1029/JZ072i019p04937},
+   adsurl = {http://adsabs.harvard.edu/abs/1967JGR....72.4937F},
+  adsnote = {Provided by the SAO/NASA Astrophysics Data System}
+}
+
+
+@ARTICLE{Levy76,
+   author = {{Levy}, E.~H.},
+    title = "{Theory of the solar magnetic cycle wave in the diurnal variation of energetic cosmic rays - Physical basis of the anisotropy}",
+  journal = {Journal of Geophysical Research},
+ keywords = {Cosmic Rays, Diurnal Variations, Interplanetary Magnetic Fields, Solar Cycles, Anisotropic Media, Astronomical Models, Solar Magnetic Field, Solar Wind},
+     year = 1976,
+    month = may,
+   volume = 81,
+    pages = {2082-2088},
+      doi = {10.1029/JA081i013p02082},
+   adsurl = {http://adsabs.harvard.edu/abs/1976JGR....81.2082L},
+  adsnote = {Provided by the SAO/NASA Astrophysics Data System}
+}
+
+@ARTICLE{ClemEA00,
+   author = {{Clem}, J.~M. and {Evenson}, P. and {Huber}, D. and {Pyle}, R. and
+    {Lopate}, C. and {Simpson}, J.~A.},
+    title = "{Charge sign dependence of cosmic ray modulation near a rigidity of 1 GV}",
+  journal = {Journal of Geophysical Research},
+ keywords = {Interplanetary Physics: Cosmic rays, Interplanetary Physics: Interplanetary magnetic fields, Interplanetary Physics: Solar cycle variations, Magnetospheric Physics: Energetic particles, trapped},
+     year = 2000,
+    month = oct,
+   volume = 105,
+    pages = {23099-23106},
+      doi = {10.1029/2000JA000097},
+   adsurl = {http://adsabs.harvard.edu/abs/2000JGR...10523099C},
+  adsnote = {Provided by the SAO/NASA Astrophysics Data System}
+}
+
+@ARTICLE{ClemEA03,
+   author = {{Clem}, J.~M. and {De Angelis}, G. and {Goldhagen}, P. and {Wilson}, J.~W.
+    },
+    title = "{Preliminary validation of computational procedures for a new atmospheric ionizing radiation (air) model}",
+  journal = {Advances in Space Research},
+     year = 2003,
+   volume = 32,
+    pages = {27-33},
+      doi = {10.1016/S0273-1177(03)90366-8},
+   adsurl = {http://adsabs.harvard.edu/abs/2003AdSpR..32...27C},
+  adsnote = {Provided by the SAO/NASA Astrophysics Data System}
+}
+
+@ARTICLE{McDonald00,
+   author = {{McDonald}, F.~B.},
+    title = "{Integration of Neutron Monitor Data with Spacecraft Observations: a Historical Perspective}",
+  journal = {Space~Sci. \ Rev.},
+     year = 2000,
+    month = jul,
+   volume = 93,
+    pages = {263-284},
+      doi = {10.1023/A:1026552730290},
+   adsurl = {http://adsabs.harvard.edu/abs/2000SSRv...93..263M},
+  adsnote = {Provided by the SAO/NASA Astrophysics Data System}
+}
+
+@ARTICLE{SimpsonEA53,
+   author = {{Simpson}, J.~A. and {Fonger}, W. and {Treiman}, S.~B.},
+    title = "{Cosmic Radiation Intensity-Time Variations and Their Origin. I. Neutron Intensity Variation Method and Meteorological Factors}",
+  journal = {Physical Review},
+     year = 1953,
+    month = jun,
+   volume = 90,
+    pages = {934-950},
+      doi = {10.1103/PhysRev.90.934},
+   adsurl = {http://adsabs.harvard.edu/abs/1953PhRv...90..934S},
+  adsnote = {Provided by the SAO/NASA Astrophysics Data System}
+}
+
+
+@ARTICLE{ClemEvenson04,
+   author = {{Clem}, J. and {Evenson}, P.},
+    title = "{Observations of cosmic ray electrons and positrons during the early stages of the A- magnetic polarity epoch}",
+  journal = {Journal of Geophysical Research (Space Physics)},
+ keywords = {Interplanetary Physics: Solar cycle variations (7536), Interplanetary Physics: Cosmic rays, Interplanetary Physics: Interplanetary magnetic fields, Solar Physics, Astrophysics, and Astronomy: Magnetic fields, and Astronomy: Radio emissions, solar modulation, drifts, cosmic rays, heliospheric magnetic field, solar wind, particle gradients},
+     year = 2004,
+    month = jul,
+   volume = 109,
+      eid = {A07107},
+    pages = {7107},
+      doi = {10.1029/2003JA010361},
+   adsurl = {http://adsabs.harvard.edu/abs/2004JGRA..109.7107C},
+  adsnote = {Provided by the SAO/NASA Astrophysics Data System}
+}
+
+
+@ARTICLE{ClemEvenson02,
+   author = {{Clem}, J.~M. and {Evenson}, P.~A.},
+    title = "{Positron Abundance in Galactic Cosmic Rays}",
+  journal = {Astrophys.\ J.},
+ keywords = {ISM: Cosmic Rays, Sun: Solar Wind},
+     year = 2002,
+    month = mar,
+   volume = 568,
+    pages = {216-219},
+      doi = {10.1086/338841},
+   adsurl = {http://adsabs.harvard.edu/abs/2002ApJ...568..216C},
+  adsnote = {Provided by the SAO/NASA Astrophysics Data System}
+}
+
+@ARTICLE{UsoskinEA11,
+   author = {{Usoskin}, I.~G. and {Bazilevskaya}, G.~A. and {Kovaltsov}, G.~A.
+    },
+    title = "{Solar modulation parameter for cosmic rays since 1936 reconstructed from ground-based neutron monitors and ionization chambers}",
+  journal = {Journal of Geophysical Research (Space Physics)},
+ keywords = {Interplanetary Physics: Cosmic rays, Space Weather: Space radiation environment, Interplanetary Physics: Solar cycle variations (7536)},
+     year = 2011,
+    month = feb,
+   volume = 116,
+      eid = {A02104},
+    pages = {2104},
+      doi = {10.1029/2010JA016105},
+   adsurl = {http://adsabs.harvard.edu/abs/2011JGRA..116.2104U},
+  adsnote = {Provided by the SAO/NASA Astrophysics Data System}
+}
+
+@ARTICLE{WebberLockwood88,
+   author = {{Webber}, W.~R. and {Lockwood}, J.~A.},
+    title = "{Characteristics of the 22-year modulation of cosmic rays as seen by neutron monitors}",
+  journal = {Journal of Geophysical Research},
+ keywords = {Cosmic Rays, Current Sheets, Neutron Spectrometers, Solar Activity, Solar Cycles, Charged Particles, Correlation, Magnetic Rigidity},
+     year = 1988,
+    month = aug,
+   volume = 93,
+    pages = {8735-8740},
+      doi = {10.1029/JA093iA08p08735},
+   adsurl = {http://adsabs.harvard.edu/abs/1988JGR....93.8735W},
+  adsnote = {Provided by the SAO/NASA Astrophysics Data System}
+}
+
+@ARTICLE{BurgerEA08,
+   author = {{Burger}, R.~A. and {Kr{\"u}ger}, T.~P.~J. and {Hitge}, M. and
+    {Engelbrecht}, N.~E.},
+    title = "{A Fisk-Parker Hybrid Heliospheric Magnetic Field With a Solar-Cycle Dependence}",
+  journal = {Astrophys.\ J.},
+ keywords = {ISM: Cosmic Rays, Diffusion, Sun: Magnetic Fields, Turbulence},
+     year = 2008,
+    month = feb,
+   volume = 674,
+    pages = {511-519},
+      doi = {10.1086/525039},
+   adsurl = {http://adsabs.harvard.edu/abs/2008ApJ...674..511B},
+  adsnote = {Provided by the SAO/NASA Astrophysics Data System}
+}
+
+@ARTICLE{Caballero-LopezMoraal12,
+   author = {{Caballero-Lopez}, R.~A. and {Moraal}, H.},
+    title = "{Cosmic-ray yield and response functions in the atmosphere}",
+  journal = {Journal of Geophysical Research (Space Physics)},
+ keywords = {cosmic-ray yield, ground-level enhancements, neutron monitor, response function, spectrum, Interplanetary Physics: Cosmic rays, Interplanetary Physics: Energetic particles (7514), Interplanetary Physics: Instruments and techniques, Natural Hazards: Atmospheric (0370, 3322, 3339), Space Weather: Solar effects},
+     year = 2012,
+    month = dec,
+   volume = 117,
+   number = A16,
+      eid = {A12103},
+    pages = {12103},
+      doi = {10.1029/2012JA017794},
+   adsurl = {http://adsabs.harvard.edu/abs/2012JGRA..11712103C},
+  adsnote = {Provided by the SAO/NASA Astrophysics Data System}
+}
+
+@ARTICLE{Caballero-LopezMoraal04,
+   author = {{Caballero-Lopez}, R.~A. and {Moraal}, H.},
+    title = "{Limitations of the force field equation to describe cosmic ray modulation}",
+  journal = {Journal of Geophysical Research (Space Physics)},
+ keywords = {Interplanetary Physics: Cosmic rays, Interplanetary Physics: Instruments and techniques, Space Plasma Physics: Charged particle motion and acceleration, Space Plasma Physics: Numerical simulation studies, Space Plasma Physics: Transport processes, limitations of the force field equation},
+     year = 2004,
+    month = jan,
+   volume = 109,
+      eid = {A01101},
+    pages = {1101},
+      doi = {10.1029/2003JA010098},
+   adsurl = {http://adsabs.harvard.edu/abs/2004JGRA..109.1101C},
+  adsnote = {Provided by the SAO/NASA Astrophysics Data System}
+}
+
+%@ARTICLE{Caballero-LopezMoraal04,
+%   author = {{Caballero-Lopez}, R.~A. and {Moraal}, H. and {McDonald}, F.~B.
+%    },
+%    title = "{Galactic cosmic ray modulation: Effects of the solar wind termination shock and the heliosheath}",
+%  journal = {Journal of Geophysical Research (Space Physics)},
+% keywords = {Interplanetary Physics: Cosmic rays, Space Plasma Physics: Transport processes, Space Plasma Physics: Numerical simulation studies, Solar Physics, Astrophysics, and Astronomy: Magnetic fields, Interplanetary Physics: Heliopause and solar wind termination, cosmic ray modulation, heliosphere, solar wind termination shock},
+%     year = 2004,
+%    month = may,
+%   volume = 109,
+%      eid = {A05105},
+%    pages = {5105},
+%      doi = {10.1029/2003JA010358},
+%   adsurl = {http://adsabs.harvard.edu/abs/2004JGRA..109.5105C},
+%  adsnote = {Provided by the SAO/NASA Astrophysics Data System}
+%}
+
+@ARTICLE{DormanEA70,
+   author = {{Dorman}, L.~I. and {Fedchenko}, S.~G. and {Granitsky}, L.~V. and
+    {Rishe}, G.~A.},
+    title = "{Coupling and barometer coefficients for measurements of cosmic ray variations at altitudes of 260-400 mb}",
+  journal = {International Cosmic Ray Conference},
+     year = 1970,
+   volume = 2,
+    pages = {233},
+   adsurl = {http://adsabs.harvard.edu/abs/1970ICRC....2..233D},
+  adsnote = {Provided by the SAO/NASA Astrophysics Data System}
+}
+
+
+@ARTICLE{LinEA95,
+   author = {{Lin}, Z. and {Bieber}, J.~W. and {Evenson}, P.},
+    title = "{Electron trajectories in a model magnetosphere: Simulation and observation under active conditions}",
+  journal = {Journal of Geophysical Research (Space Physics)},
+ keywords = {Interplanetary Physics: Cosmic rays, Magnetospheric Physics: Energetic particles, precipitating, Space Plasma Physics: Charged particle motion and acceleration, Space Plasma Physics: Transport processes},
+     year = 1995,
+    month = dec,
+   volume = 100,
+    pages = {23543-23550},
+      doi = {10.1029/95JA02696},
+   adsurl = {http://adsabs.harvard.edu/abs/1995JGR...10023543L},
+  adsnote = {Provided by the SAO/NASA Astrophysics Data System}
+}
+
+@ARTICLE{Carmichael64,
+   author = {{Carmichael}, H.},
+    title = "{IQSY Instruction Manual No. 7 (London: IQSY Secretariat)}",
+  journal = {Cosmic Rays},
+ keywords = {cosmic ray, neutron monitor, differential response function, global record high},
+     year = 1964,
+    month = feb,
+   volume = 1,
+    pages = {1-178},
+      doi = {10.1002/jgra.50544},
+}
+
+@ARTICLE{OhEA13,
+   author = {{Oh}, S. and {Bieber}, J.~W. and {Evenson}, P. and {Clem}, J. and
+    {Yi}, Y. and {Kim}, Y.},
+    title = "{Record neutron monitor counting rates from galactic cosmic rays}",
+  journal = {Journal of Geophysical Research (Space Physics)},
+ keywords = {cosmic ray, neutron monitor, differential response function, global record high},
+     year = 2013,
+    month = sep,
+   volume = 118,
+    pages = {5431-5436},
+      doi = {10.1002/jgra.50544},
+   adsurl = {http://adsabs.harvard.edu/abs/2013JGRA..118.5431O},
+  adsnote = {Provided by the SAO/NASA Astrophysics Data System}
+}
+
+@ARTICLE{JokipiiThomas81,
+   author = {{Jokipii}, J.~R. and {Thomas}, B.},
+    title = "{Effects of drift on the transport of cosmic rays. IV - Modulation by a wavy interplanetary current sheet}",
+  journal = {Astrophys.\ J.},
+ keywords = {Cosmic Rays, Current Sheets, Galactic Radiation, Interplanetary Magnetic Fields, Radiation Transport, Solar Activity Effects, Astronomical Models, Interplanetary Medium, Modulation, Pioneer 10 Space Probe, Solar Cycles, Solar Rotation},
+     year = 1981,
+    month = feb,
+   volume = 243,
+    pages = {1115-1122},
+      doi = {10.1086/158675},
+   adsurl = {http://adsabs.harvard.edu/abs/1981ApJ...243.1115J},
+  adsnote = {Provided by the SAO/NASA Astrophysics Data System}
+}
+
+@ARTICLE{Garcia-MunozEA86,
+   author = {{Garcia-Munoz}, M. and {Meyer}, P. and {Pyle}, K.~R. and {Simpson}, J.~A. and
+    {Evenson}, P.},
+    title = "{The dependence of solar modulation on the sign of the cosmic ray particle charge}",
+  journal = {Journal of Geophysical Research},
+ keywords = {Galactic Cosmic Rays, Solar Activity Effects, Sunspot Cycle, Electrons, Energy Spectra, Helium, Interplanetary Magnetic Fields, Modulation, Particle Telescopes, Protons, Time Dependence},
+     year = 1986,
+    month = mar,
+   volume = 91,
+    pages = {2858-2866},
+      doi = {10.1029/JA091iA03p02858},
+   adsurl = {http://adsabs.harvard.edu/abs/1986JGR....91.2858G},
+  adsnote = {Provided by the SAO/NASA Astrophysics Data System}
+}
+
+@ARTICLE{JokipiiEA77,
+   author = {{Jokipii}, J.~R. and {Levy}, E.~H.},
+    title = "{Effects of particle drifts on the solar modulation of galactic cosmic rays}",
+  journal = {Astrophys.\ J.\ Lett.},
+ keywords = {Cosmic Rays, Galactic Radiation, Interplanetary Magnetic Fields, Magnetic Field Configurations, Particle Motion, Solar Wind Velocity, Curvature, Drift Rate, Monte Carlo Method, Particle Diffusion, Radial Distribution},
+     year = 1977,
+    month = apr,
+   volume = 213,
+    pages = {L85-L88},
+      doi = {10.1086/182415},
+   adsurl = {http://adsabs.harvard.edu/abs/1977ApJ...213L..85J},
+  adsnote = {Provided by the SAO/NASA Astrophysics Data System}
+}
+
+@ARTICLE{ThambyahpillaiElliot53,
+   author = {{Thambyahpillai}, T. and {Elliot}, H.},
+    title = "{World-Wide Changes in the Phase of the Cosmic-Ray Solar Daily Variation}",
+  journal = {Nature},
+     year = 1953,
+    month = may,
+   volume = 171,
+    pages = {918-920},
+      doi = {10.1038/171918b0},
+   adsurl = {http://adsabs.harvard.edu/abs/1953Natur.171..918T},
+  adsnote = {Provided by the SAO/NASA Astrophysics Data System}
+}
+
+@ARTICLE{Forbush54,
+   author = {{Forbush}, S.~E.},
+    title = "{World-Wide Cosmic-Ray Variations, 1937-1952}",
+  journal = {Journal of Geophysical Research},
+     year = 1954,
+    month = dec,
+   volume = 59,
+    pages = {525-542},
+      doi = {10.1029/JZ059i004p00525},
+   adsurl = {http://adsabs.harvard.edu/abs/1954JGR....59..525F},
+  adsnote = {Provided by the SAO/NASA Astrophysics Data System}
+}
+
+@ARTICLE{ClemEA97,
+   author = {{Clem}, J.~M. and {Bieber}, J.~W. and {Evenson}, P. and {Hall}, D. and
+    {Humble}, J.~E. and {Duldig}, M.},
+    title = "{Contribution of obliquely incident particles to neutron monitor counting rate}",
+  journal = {Journal of Geophysical Research},
+ keywords = {Interplanetary Physics: Cosmic rays, Magnetospheric Physics: Magnetospheric configuration and dynamics, Space Plasma Physics: Charged particle motion and acceleration, Space Plasma Physics: Transport processes},
+     year = 1997,
+    month = dec,
+   volume = 102,
+    pages = {26919-26926},
+      doi = {10.1029/97JA02366},
+   adsurl = {http://adsabs.harvard.edu/abs/1997JGR...10226919C},
+  adsnote = {Provided by the SAO/NASA Astrophysics Data System}
+}
+
+@ARTICLE{ClemDorman00,
+   author = {{Clem}, J.~M. and {Dorman}, L.~I.},
+    title = "{Neutron Monitor Response Functions}",
+  journal = {Space Science Reviews},
+     year = 2000,
+    month = jul,
+   volume = 93,
+    pages = {335-359},
+      doi = {10.1023/A:1026508915269},
+   adsurl = {http://adsabs.harvard.edu/abs/2000SSRv...93..335C},
+  adsnote = {Provided by the SAO/NASA Astrophysics Data System}
+}
+
+@ARTICLE{StokerMoraal95,
+   author = {{Stoker}, P.~H. and {Moraal}, H.},
+    title = "{Neutron Monitor Latitude Surveys at Aircraft Altitudes}",
+  journal = {Astrophysics Space Science},
+ keywords = {cosmic rays, neutron monitor, cutoff rigidity, 22-year modulation cycle},
+     year = 1995,
+    month = aug,
+   volume = 230,
+    pages = {365-373},
+      doi = {10.1007/BF00658194},
+   adsurl = {http://adsabs.harvard.edu/abs/1995Ap%26SS.230..365S},
+  adsnote = {Provided by the SAO/NASA Astrophysics Data System}
+}
+
+@ARTICLE{CarmichaelBercovitch69,
+   author = {{Carmichael}, H. and {Bercovitch}, M.},
+    title = "{Analysis of IQSY cosmic-ray survey measurements.}",
+  journal = {Canadian Journal of Physics},
+     year = 1969,
+   volume = 47,
+    pages = {2073-2093},
+      doi = {10.1139/p69-261},
+   adsurl = {http://adsabs.harvard.edu/abs/1969CaJPh..47.2073C},
+  adsnote = {Provided by the SAO/NASA Astrophysics Data System}
+}
+
+
+@ARTICLE{Fulks75,
+   author = {{Fulks}, G.~J.},
+    title = "{Solar modulation of galactic cosmic ray electrons, protons, and alphas}",
+  journal = {Journal of Geophysical Research},
+ keywords = {BALLOON SOUNDING, GALACTIC RADIATION, INTERMODULATION, PARTICLE INTERACTIONS, PRIMARY COSMIC RAYS, SOLAR CORPUSCULAR RADIATION, ABSORPTION SPECTROSCOPY, ALPHA PARTICLES, BALLOON FLIGHT, DIFFUSION COEFFICIENT, ELECTRON ENERGY, ENERGY SPECTRA, MATHEMATICAL MODELS, PROTON ENERGY},
+     year = 1975,
+    month = may,
+   volume = 80,
+    pages = {1701-1714},
+      doi = {10.1029/JA080i013p01701},
+   adsurl = {http://adsabs.harvard.edu/abs/1975JGR....80.1701F},
+  adsnote = {Provided by the SAO/NASA Astrophysics Data System}
+}
+
+
+@ARTICLE{StokerEA00,
+   author = {{Stoker}, P.~H. and {Dorman}, L.~I. and {Clem}, J.~M.},
+    title = "{Neutron Monitor Design Improvements}",
+  journal = {Space Science Reviews},
+     year = 2000,
+    month = jul,
+   volume = 93,
+    pages = {361-380},
+      doi = {10.1023/A:1026560932107},
+   adsurl = {http://adsabs.harvard.edu/abs/2000SSRv...93..361S},
+  adsnote = {Provided by the SAO/NASA Astrophysics Data System}
+}
+
+
+@ARTICLE{NagashimaEA89,
+   author = {{Nagashima}, K. and {Sakakibara}, S. and {Murakami}, K. and
+    {Morishita}, I.},
+    title = "{Response and yield functions of neutron monitor, Galactic cosmic ray spectrum and its solar modulation, derived from all the available world-wide surveys}",
+  journal = {Nuovo Cimento C Geophysics Space Physics C},
+ keywords = {GALACTIC COSMIC RAYS, INTERPLANETARY MAGNETIC FIELDS, MODULATION TRANSFER FUNCTION, POWER SPECTRA, SOLAR ACTIVITY, SOLAR PROTONS, KINETIC ENERGY, LEAST SQUARES METHOD},
+     year = 1989,
+    month = apr,
+   volume = 12,
+    pages = {173-209},
+      doi = {10.1007/BF02523790},
+   adsurl = {http://adsabs.harvard.edu/abs/1989NCimC..12..173N},
+  adsnote = {Provided by the SAO/NASA Astrophysics Data System}
+}
+
+@ARTICLE{WebberLezniak74,
+   author = {{Webber}, W.~R. and {Lezniak}, J.~A.},
+    title = "{The comparative spectra of cosmic-ray protons and helium nuclei}",
+  journal = {Astrophys.\ Space \ Sci.},
+ keywords = {ALPHA PARTICLES, ENERGY SPECTRA, PRIMARY COSMIC RAYS, PROTON FLUX DENSITY, ABUNDANCE, INTERPLANETARY SPACE, INTERSTELLAR MATTER, MAGNETIC RIGIDITY, SOLAR ACTIVITY EFFECTS, SPECTRUM ANALYSIS},
+     year = 1974,
+    month = oct,
+   volume = 30,
+    pages = {361-380},
+      doi = {10.1007/BF00648282},
+   adsurl = {http://adsabs.harvard.edu/abs/1974Ap%26SS..30..361W},
+  adsnote = {Provided by the SAO/NASA Astrophysics Data System}
+}
+
+@ARTICLE{SmithEA73,
+   author = {{Smith}, L.~H. and {Buffington}, A. and {Smoot}, D.~F. and {Alvarez}, L.~W. and
+    {Wahlig}, M.~A.},
+    title = "{A Measurement of Cosmic-Ray Rigidity Spectra above 5 GV/c of Elements from Hydrogen to Iron}",
+  journal = {Astrophys.\ J.},
+     year = 1973,
+    month = mar,
+   volume = 180,
+    pages = {987-1010},
+      doi = {10.1086/152021},
+   adsurl = {http://adsabs.harvard.edu/abs/1973ApJ...180..987S},
+  adsnote = {Provided by the SAO/NASA Astrophysics Data System}
+}
+
+@ARTICLE{RyanEA72,
+   author = {{Ryan}, M.~J. and {Ormes}, J.~F. and {Balasubrahmanyan}, V.~K.
+    },
+    title = "{Cosmic-Ray Proton and Helium Spectra above 50 GeV}",
+  journal = {Physical Review Letters},
+     year = 1972,
+    month = apr,
+   volume = 28,
+    pages = {985-988},
+      doi = {10.1103/PhysRevLett.28.985},
+   adsurl = {http://adsabs.harvard.edu/abs/1972PhRvL..28..985R},
+  adsnote = {Provided by the SAO/NASA Astrophysics Data System}
+}
+
+@ARTICLE{VonRosenvingeEA69,
+   author = {{von Rosenvinge}, T.~T. and {Webber}, W.~R. and {Ormes}, J.~F.
+    },
+    title = "{A Comparison of the Energy Spectra of Cosmic Ray Helium and Heavy Nuclei}",
+  journal = {Astrophys.\ Space \ Sci.},
+     year = 1969,
+    month = nov,
+   volume = 5,
+    pages = {342-359},
+      doi = {10.1007/BF00650001},
+   adsurl = {http://adsabs.harvard.edu/abs/1969Ap%26SS...5..342V},
+  adsnote = {Provided by the SAO/NASA Astrophysics Data System}
+}
+
+@ARTICLE{Cane00,
+   author = {{Cane}, H.~V.},
+    title = "{Coronal Mass Ejections and Forbush Decreases}",
+  journal = {Space~Sci. \ Rev.},
+     year = 2000,
+    month = jul,
+   volume = 93,
+    pages = {55-77},
+      doi = {10.1023/A:1026532125747},
+   adsurl = {http://adsabs.harvard.edu/abs/2000SSRv...93...55C},
+  adsnote = {Provided by the SAO/NASA Astrophysics Data System}
+}
+
+@INPROCEEDINGS{Barnden73,
+   author = {{Barnden}, L.~R.},
+    title = "{The Large-Scale Magnetic Field Configuration Associated With Forbush Decreases}",
+booktitle = {International Cosmic Ray Conference},
+     year = 1973,
+   series = {International Cosmic Ray Conference},
+   volume = 2,
+    pages = {1277},
+   adsurl = {http://adsabs.harvard.edu/abs/1973ICRC....2.1277B},
+  adsnote = {Provided by the SAO/NASA Astrophysics Data System}
+}
+
+@ARTICLE{NagashimaMorishita80,
+   author = {{Nagashima}, K. and {Morishita}, L.},
+    title = "{Twenty-two year modulation of cosmic rays associated with polarity reversal of polar magnetic field of the sun}",
+  journal = {Planet.~Space \ Sci.},
+ keywords = {SOLAR ACTIVITY EFFECTS, SOLAR COSMIC RAYS, SOLAR CYCLES, SOLAR MAGNETIC FIELD, CONVECTION, DIFFUSION THEORY, INTERSTELLAR MAGNETIC FIELDS, LINES OF FORCE, MODULATION, POLARITY, TIME LAG},
+     year = 1980,
+    month = feb,
+   volume = 28,
+    pages = {195-205},
+      doi = {10.1016/0032-0633(80)90095-1},
+   adsurl = {http://adsabs.harvard.edu/abs/1980P%26SS...28..195N},
+  adsnote = {Provided by the SAO/NASA Astrophysics Data System}
+}
+
+@ARTICLE{AnandEA68,
+   author = {{Anand}, K.~C. and {Daniel}, R.~R. and {Stephens}, S.~A. and
+    {Bhowmik}, B. and {Krishna}, C.~S. and {Aditya}, P.~K. and {Puri}, R.~K.
+    },
+    title = "{Rigidity spectrum of cosmic-ray helium nuclei ${\geq}$12 GV}",
+  journal = {Can.\ J. Phys.},
+     year = 1968,
+   volume = 46,
+    pages = {652},
+   adsurl = {http://adsabs.harvard.edu/abs/1968CaJPS..46..652A},
+  adsnote = {Provided by the SAO/NASA Astrophysics Data System}
+}
+
+
+@ARTICLE{FanEA66,
+   author = {{Fan}, C.~Y. and {Gloeckler}, G. and {Hsieh}, K.~C. and {Simpson}, J.~A.
+    },
+    title = "{Isotopic Abundances and Energy Spectra of He$^{3}$ and He$^{4}$ Above 40 MeV per Nucleon from the Galaxy}",
+  journal = {Physical Review Letters},
+     year = 1966,
+    month = may,
+   volume = 16,
+    pages = {813-817},
+      doi = {10.1103/PhysRevLett.16.813},
+   adsurl = {http://adsabs.harvard.edu/abs/1966PhRvL..16..813F},
+  adsnote = {Provided by the SAO/NASA Astrophysics Data System}
+}
+
+@ARTICLE{PotgieterEA80,
+   author = {{Potgieter}, M.~S. and {Raubenheimer}, B.~C. and {Stoker}, P.~H. and
+    {van der Walt}, A.~J.},
+    title = "{Modulation of cosmic rays during solar minimum. II - Cosmic ray latitude distribution at sea-level during 1976}",
+  journal = {South African Journal of Physics},
+ keywords = {Cosmic Rays, Ocean Surface, Particle Flux Density, Solar Activity Effects, Solar Terrestrial Interactions, Atmospheric Pressure, Atmospheric Temperature, Geomagnetic Latitude, Regression Analysis, Tables (Data)},
+     year = 1980,
+   volume = 3,
+    pages = {77-89},
+   adsurl = {http://adsabs.harvard.edu/abs/1980SAJPh...3...77P},
+  adsnote = {Provided by the SAO/NASA Astrophysics Data System}
+}
+
+@ARTICLE{MewaldtEA10,
+   author = {{Mewaldt}, R.~A. and {Davis}, A.~J. and {Lave}, K.~A. and {Leske}, R.~A. and
+    {Stone}, E.~C. and {Wiedenbeck}, M.~E. and {Binns}, W.~R. and
+    {Christian}, E.~R. and {Cummings}, A.~C. and {de Nolfo}, G.~A. and
+    {Israel}, M.~H. and {Labrador}, A.~W. and {von Rosenvinge}, T.~T.
+    },
+    title = "{Record-setting Cosmic-ray Intensities in 2009 and 2010}",
+  journal = {Astrophys.\ J.\ Lett.},
+ keywords = {cosmic rays, solar wind, Sun: activity, Sun: heliosphere},
+     year = 2010,
+    month = nov,
+   volume = 723,
+    pages = {L1-L6},
+      doi = {10.1088/2041-8205/723/1/L1},
+   adsurl = {http://adsabs.harvard.edu/abs/2010ApJ...723L...1M},
+  adsnote = {Provided by the SAO/NASA Astrophysics Data System}
+}
+
+@ARTICLE{KrugerEA08a,
+   author = {{Kr{\"u}ger}, H. and {Moraal}, H. and {Bieber}, J.~W. and {et al.}
+    },
+    title = "{Experiments with two calibration neutron monitors}",
+  journal = {International Cosmic Ray Conference},
+     year = 2008,
+   volume = 1,
+    pages = {741-744},
+   adsurl = {http://adsabs.harvard.edu/abs/2008ICRC....1..741K},
+  adsnote = {Provided by the SAO/NASA Astrophysics Data System}
+}
+
+@ARTICLE{KrugerEA08b,
+   author = {{Kr{\"u}ger}, H. and {Moraal}, H. and {Bieber}, J.~W. and {Clem}, J.~M. and
+    {Evenson}, P.~A. and {Pyle}, K.~R. and {Duldig}, M.~L. and {Humble}, J.~E.},
+    title = "{A calibration neutron monitor: Energy response and instrumental temperature sensitivity}",
+  journal = {Journal of Geophysical Research (Space Physics)},
+ keywords = {Interplanetary Physics: Cosmic rays, Interplanetary Physics: Heliopause and solar wind termination, Interplanetary Physics: Energetic particles (7514), Interplanetary Physics: General or miscellaneous, Interplanetary Physics: Instruments and techniques, cosmic rays},
+     year = 2008,
+    month = aug,
+   volume = 113,
+      eid = {A08101},
+    pages = {8101},
+      doi = {10.1029/2008JA013229},
+   adsurl = {http://adsabs.harvard.edu/abs/2008JGRA..113.8101K},
+  adsnote = {Provided by the SAO/NASA Astrophysics Data System}
+}
+
+@INPROCEEDINGS{OrmesWebber65,
+   author = {{Ormes}, J.~F. and {Webber}, W.~R.},
+    title = "{Measurements of the primary proton and helium nuclei spectra and their modulations using a ballon-borne Cerenkov-scintillation counter.}",
+booktitle = {International Cosmic Ray Conference},
+     year = 1965,
+   series = {International Cosmic Ray Conference},
+   volume = 1,
+    pages = {349},
+   adsurl = {http://adsabs.harvard.edu/abs/1965ICRC....1..349O},
+  adsnote = {Provided by the SAO/NASA Astrophysics Data System}
+}
+
+@ARTICLE{KrugerMoraal10,
+   author = {{Kr{\"u}ger}, H. and {Moraal}, H.},
+    title = "{A calibration neutron monitor: Statistical accuracy and environmental sensitivity}",
+  journal = {Advances in Space Research},
+     year = 2010,
+    month = dec,
+   volume = 46,
+    pages = {1394-1399},
+      doi = {10.1016/j.asr.2010.07.008},
+   adsurl = {http://adsabs.harvard.edu/abs/2010AdSpR..46.1394K},
+  adsnote = {Provided by the SAO/NASA Astrophysics Data System}
+}
+
+@INPROCEEDINGS{KrugerEA03,
+   author = {{Kr{\"u}ger}, H. and {Moraal}, H. and {Bieber}, J.~W. and {Clem}, J.~M. and
+    {Evenson}, P.~A. and {Pyle}, K.~R and {Duldig}, M.~L. and {Humble}, J.~E.
+    },
+    title = "{First Results of a Mobile Neutron Monitor to Intercalibrate the Worldwide Network}",
+booktitle = {International Cosmic Ray Conference},
+     year = 2003,
+   series = {International Cosmic Ray Conference},
+   volume = 6,
+    month = jul,
+    pages = {3441},
+   adsurl = {http://adsabs.harvard.edu/abs/2003ICRC....6.3441K},
+  adsnote = {Provided by the SAO/NASA Astrophysics Data System}
+}
+
+@ARTICLE{MoraalEA89,
+   author = {{Moraal}, H. and {Potgieter}, M.~S. and {Stoker}, P.~H. and
+    {van der Walt}, A.~J.},
+    title = "{Neutron monitor latitude survey of cosmic ray intensity during the 1986/1987 solar minimum}",
+  journal = {Journal of Geophysical Research},
+ keywords = {NEUTRON FLUX DENSITY, PARTICLE INTENSITY, SOLAR COSMIC RAYS, LATITUDE, SEA LEVEL},
+     year = 1989,
+    month = feb,
+   volume = 94,
+    pages = {1459-1464},
+      doi = {10.1029/JA094iA02p01459},
+   adsurl = {http://adsabs.harvard.edu/abs/1989JGR....94.1459M},
+  adsnote = {Provided by the SAO/NASA Astrophysics Data System}
+}
+
+
+@ARTICLE{MoraalEA00,
+   author = {{Moraal}, H. and {Belov}, A. and {Clem}, J.~M.},
+    title = "{Design and Co-ordination of Multi-Station International Neutron Monitor Networks}",
+  journal = {Space Science Reviews},
+     year = 2000,
+    month = jul,
+   volume = 93,
+    pages = {285-303},
+      doi = {10.1023/A:1026504814360},
+   adsurl = {http://adsabs.harvard.edu/abs/2000SSRv...93..285M},
+  adsnote = {Provided by the SAO/NASA Astrophysics Data System}
+}
+
+
+
+@ARTICLE{RaubenheimerStoker74,
+   author = {{Raubenheimer}, B.~C. and {Stoker}, P.~H.},
+    title = "{Various aspects of the attenuation coefficient of a neutron monitor}",
+  journal = {Journal of Geophysical Research},
+ keywords = {ATTENUATION COEFFICIENTS, COSMIC RAYS, ERROR CORRECTING DEVICES, INSTRUMENT ERRORS, NEUTRON COUNTERS, NEUTRON FLUX DENSITY, DATA RECORDING, ERROR ANALYSIS, MAGNETIC RIGIDITY, MONITORS, MONTE CARLO METHOD, PRESSURE EFFECTS, SOLAR ACTIVITY EFFECTS, STATISTICAL ANALYSIS},
+     year = 1974,
+    month = dec,
+   volume = 79,
+    pages = {5069-5076},
+      doi = {10.1029/JA079i034p05069},
+   adsurl = {http://adsabs.harvard.edu/abs/1974JGR....79.5069R},
+  adsnote = {Provided by the SAO/NASA Astrophysics Data System}
+}
+
+
+@PHDTHESIS{KrugerPhD,
+  AUTHOR =        {{Kr{\"u}ger}, H.},
+  TITLE =        {A calibration neutron monitor for long-term cosmic ray modulation studies},
+  SCHOOL =       {North-West University},
+  YEAR =         {2006}
+}
+
+@INPROCEEDINGS{DormanYanke81,
+   author = {{Dorman}, L.~I. and {Yanke}, V.~G.},
+    title = "{The Coupling Functions of NM64 Neutron Supermonitor}",
+booktitle = {International Cosmic Ray Conference},
+     year = 1981,
+   series = {International Cosmic Ray Conference},
+   volume = 4,
+    pages = {326},
+   adsurl = {http://adsabs.harvard.edu/abs/1981ICRC....4..326D},
+  adsnote = {Provided by the SAO/NASA Astrophysics Data System}
+}
+
+
+
+@ARTICLE{HattonCarmichael64,
+   author = {{Hatton}, C.~J. and {Carmichael}, H.},
+    title = "{Experimental Investigation of the NM-64 Neutron Monitor}",
+  journal = {Canadian Journal of Physics},
+     year = 1964,
+    month = dec,
+   volume = 42,
+    pages = {2443-2472},
+      doi = {10.1139/p64-222},
+   adsurl = {http://adsabs.harvard.edu/abs/1964CaJPh..42.2443H},
+  adsnote = {Provided by the SAO/NASA Astrophysics Data System}
+}
+@INCOLLECTION{Hatton71,
+  AUTHOR =       {{Hatton}, C.~J.},
+  TITLE =        "{The Neutron Monitor}",
+  BOOKTITLE =    {Progress in elementary particle and cosmic ray physics},
+  PUBLISHER =    {North-Holland Publishing Company},
+  YEAR =         {1971},
+  editor =       {{Wilson, J.~G.} and {Wouthuysen, S.~A.}},
+  volume =       {10},
+  pages =        {1},
+  address =      {Amsterdam, Netherlands}
+}
+
+
+@ARTICLE{DormanEA00,
+   author = {{Dorman}, L.~I. and {Villoresi}, G. and {Iucci}, N. and {Parisi}, M. and
+    {Tyasto}, M.~I. and {Danilova}, O.~A. and {Ptitsyna}, N.~G.},
+    title = "{Cosmic ray survey to Antarctica and coupling functions for neutron component near solar minimum (1996-1997) 3. Geomagnetic effects and coupling functions}",
+  journal = {Journal of Geophysical Research},
+ keywords = {Interplanetary Physics: Cosmic rays, Interplanetary Physics: Solar cycle variations, Solar Physics, Astrophysics, and Astronomy: Energetic particles, Solar Physics, Astrophysics, and Astronomy: Solar activity cycle},
+     year = 2000,
+   volume = 105,
+    pages = {21047-21056},
+      doi = {10.1029/2000JA900051},
+   adsurl = {http://adsabs.harvard.edu/abs/2000JGR...10521047D},
+  adsnote = {Provided by the SAO/NASA Astrophysics Data System}
+}

@@ -1,0 +1,455 @@
+\begin{thebibliography}{19}
+\providecommand{\natexlab}[1]{#1}
+\providecommand{\url}[1]{\texttt{#1}}
+\expandafter\ifx\csname urlstyle\endcsname\relax
+  \providecommand{\doi}[1]{doi: #1}\else
+  \providecommand{\doi}{doi: \begingroup \urlstyle{rm}\Url}\fi
+
+\bibitem[Hess(1936)]{HESS}
+Victor~Franz Hess.
+\newblock The nobel prize in physics 1936.
+\newblock The Nobel Foundation, 1936.
+
+\bibitem[Pacini(1912)]{Pacini}
+D.~Pacini.
+\newblock Penetrating radiation at the surface of and in water.
+\newblock \emph{Il Nuovo Cimento}, 3\penalty0 (3):\penalty0 93, 1912.
+\newblock URL \url{https://doi.org/10.1007/BF02957440}.
+
+\bibitem[Clay(1927)]{Clay}
+Jacob Clay.
+\newblock Penetrating radiation.
+\newblock \emph{Proceedings of the Section of Sciences, Koninklijke Akademie
+  van Wetenschappen te Amsterdam}, 30\penalty0 (9-10):\penalty0 1115--1127,
+  1927.
+
+\bibitem[Adriani et~al.(2013)Adriani, Barbarino, Bazilevskaya, Bellotti,
+  Boezio, Bogomolov, Bongi, Bonvicini, Borisov, Bottai, Bruno, Cafagna,
+  Campana, Carbone, Carlson, Casolino, Castellini, Pascale, Santis, Simone,
+  Felice, Formato, Galper, Grishantseva, Karelin, Koldashov, Koldobskiy,
+  Krutkov, Kvashnin, Leonov, Malakhov, Marcelli, Mayorov, Menn, Mikhailov,
+  Mocchiutti, Monaco, Mori, Nikonov, Osteria, Palma, Papini, Pearce, Picozza,
+  Pizzolotto, Ricci, Ricciarini, Rossetto, Sarkar, Simon, Sparvoli,
+  Spillantini, Stozhkov, Vacchi, Vannuccini, Vasilyev, Voronov, Yurkin, Wu,
+  Zampa, Zampa, Zverev, Potgieter, and Vos]{PAMELA}
+O.~Adriani, G.~C. Barbarino, G.~A. Bazilevskaya, R.~Bellotti, M.~Boezio, E.~A.
+  Bogomolov, M.~Bongi, V.~Bonvicini, S.~Borisov, S.~Bottai, A.~Bruno,
+  F.~Cafagna, D.~Campana, R.~Carbone, P.~Carlson, M.~Casolino, G.~Castellini,
+  M.~P.~De Pascale, C.~De Santis, N.~De Simone, V.~Di Felice, V.~Formato, A.~M.
+  Galper, L.~Grishantseva, A.~V. Karelin, S.~V. Koldashov, S.~Koldobskiy, S.~Y.
+  Krutkov, A.~N. Kvashnin, A.~Leonov, V.~Malakhov, L.~Marcelli, A.~G. Mayorov,
+  W.~Menn, V.~V. Mikhailov, E.~Mocchiutti, A.~Monaco, N.~Mori, N.~Nikonov,
+  G.~Osteria, F.~Palma, P.~Papini, M.~Pearce, P.~Picozza, C.~Pizzolotto,
+  M.~Ricci, S.~B. Ricciarini, L.~Rossetto, R.~Sarkar, M.~Simon, R.~Sparvoli,
+  P.~Spillantini, Y.~I. Stozhkov, A.~Vacchi, E.~Vannuccini, G.~Vasilyev, S.~A.
+  Voronov, Y.~T. Yurkin, J.~Wu, G.~Zampa, N.~Zampa, V.~G. Zverev, M.~S.
+  Potgieter, and E.~E. Vos.
+\newblock Time dependence of the proton flux measured by pamela during the 2006
+  july-2009 december solar minimum.
+\newblock \emph{The Astrophysical Journal}, 765\penalty0 (2):\penalty0 91,
+  2013.
+\newblock URL \url{http://stacks.iop.org/0004-637X/765/i=2/a=91}.
+
+\bibitem[Aguilar(2015)]{AMS-02}
+M.~Aguilar.
+\newblock Precision measurement of the proton flux in primary cosmic rays from
+  rigidity 1 gv to 1.8 tv with the alpha magnetic spectrometer on the
+  international space station.
+\newblock \emph{Phys. Rev. Lett.}, 114:\penalty0 171103, Apr 2015.
+\newblock \doi{10.1103/PhysRevLett.114.171103}.
+\newblock URL \url{https://link.aps.org/doi/10.1103/PhysRevLett.114.171103}.
+
+\bibitem[Swordy(2001)]{Swordy2001}
+S.P. Swordy.
+\newblock The energy spectra and anisotropies of cosmic rays.
+\newblock \emph{Space Science Reviews}, 99\penalty0 (1):\penalty0 85--94, Oct
+  2001.
+\newblock ISSN 1572-9672.
+\newblock \doi{10.1023/A:1013828611730}.
+\newblock URL \url{https://doi.org/10.1023/A:1013828611730}.
+
+\bibitem[Abdo et~al.(2009)Abdo, Ackermann, Ajello, Atwood, Baldini, Ballet,
+  Barbiellini, Bastieri, Baughman, Bechtol, Bellazzini, Berenji, Bloom,
+  Bonamente, Borgland, Bouvier, Bregeon, Brez, Brigida, Bruel, Buehler,
+  Burnett, Buson, Caliandro, Cameron, Caraveo, Casandjian, Cecchi,
+  \ifmmode~\mbox{\c{C}}\else \c{C}\fi{}elik, Charles, Chekhtman, Chiang,
+  Ciprini, Claus, Cohen-Tanugi, Conrad, de~Palma, Digel, do~Couto~e Silva,
+  Drell, Dubois, Dumora, Farnier, Favuzzi, Fegan, Focke, Fortin, Frailis,
+  Fukazawa, Funk, Fusco, Gargano, Gehrels, Germani, Giebels, Giglietto,
+  Giordano, Glanzman, Godfrey, Grenier, Grondin, Grove, Guillemot, Guiriec,
+  Hays, Horan, Hughes, J\'ohannesson, Johnson, Johnson, Johnson, Kamae,
+  Katagiri, Kataoka, Kawai, Kerr, Kn\"odlseder, Kuss, Lande, Latronico,
+  Lemoine-Goumard, Longo, Loparco, Lott, Lovellette, Lubrano, Makeev,
+  Mazziotta, McEnery, Meurer, Michelson, Mitthumsiri, Mizuno, Monte, Monzani,
+  Morselli, Moskalenko, Murgia, Nolan, Norris, Nuss, Ohsugi, Okumura, Omodei,
+  Orlando, Ormes, Paneque, Panetta, Parent, Pelassa, Pepe, Pesce-Rollins,
+  Piron, Porter, Rain\`o, Rando, Razzano, Reimer, Reimer, Reposeur, Rochester,
+  Rodriguez, Roth, Sadrozinski, Sander, Saz~Parkinson, Sgr\`o, Share, Siskind,
+  Smith, Smith, Spandre, Spinelli, Strickman, Suson, Takahashi, Tanaka, Thayer,
+  Thayer, Thompson, Tibaldo, Torres, Tosti, Tramacere, Uchiyama, Usher,
+  Vasileiou, Vilchez, Vitale, Waite, Wang, Winer, Wood, Ylinen, and
+  Ziegler]{Warit2009}
+A.~A. Abdo, M.~Ackermann, M.~Ajello, W.~B. Atwood, L.~Baldini, J.~Ballet,
+  G.~Barbiellini, D.~Bastieri, B.~M. Baughman, K.~Bechtol, R.~Bellazzini,
+  B.~Berenji, E.~D. Bloom, E.~Bonamente, A.~W. Borgland, A.~Bouvier,
+  J.~Bregeon, A.~Brez, M.~Brigida, P.~Bruel, R.~Buehler, T.~H. Burnett,
+  S.~Buson, G.~A. Caliandro, R.~A. Cameron, P.~A. Caraveo, J.~M. Casandjian,
+  C.~Cecchi, \"O. \ifmmode~\mbox{\c{C}}\else \c{C}\fi{}elik, E.~Charles,
+  A.~Chekhtman, J.~Chiang, S.~Ciprini, R.~Claus, J.~Cohen-Tanugi, J.~Conrad,
+  F.~de~Palma, S.~W. Digel, E.~do~Couto~e Silva, P.~S. Drell, R.~Dubois,
+  D.~Dumora, C.~Farnier, C.~Favuzzi, S.~J. Fegan, W.~B. Focke, P.~Fortin,
+  M.~Frailis, Y.~Fukazawa, S.~Funk, P.~Fusco, F.~Gargano, N.~Gehrels,
+  S.~Germani, B.~Giebels, N.~Giglietto, F.~Giordano, T.~Glanzman, G.~Godfrey,
+  I.~A. Grenier, M.-H. Grondin, J.~E. Grove, L.~Guillemot, S.~Guiriec, E.~Hays,
+  D.~Horan, R.~E. Hughes, G.~J\'ohannesson, A.~S. Johnson, T.~J. Johnson, W.~N.
+  Johnson, T.~Kamae, H.~Katagiri, J.~Kataoka, N.~Kawai, M.~Kerr,
+  J.~Kn\"odlseder, M.~Kuss, J.~Lande, L.~Latronico, M.~Lemoine-Goumard,
+  F.~Longo, F.~Loparco, B.~Lott, M.~N. Lovellette, P.~Lubrano, A.~Makeev, M.~N.
+  Mazziotta, J.~E. McEnery, C.~Meurer, P.~F. Michelson, W.~Mitthumsiri,
+  T.~Mizuno, C.~Monte, M.~E. Monzani, A.~Morselli, I.~V. Moskalenko, S.~Murgia,
+  P.~L. Nolan, J.~P. Norris, E.~Nuss, T.~Ohsugi, A.~Okumura, N.~Omodei,
+  E.~Orlando, J.~F. Ormes, D.~Paneque, J.~H. Panetta, D.~Parent, V.~Pelassa,
+  M.~Pepe, M.~Pesce-Rollins, F.~Piron, T.~A. Porter, S.~Rain\`o, R.~Rando,
+  M.~Razzano, A.~Reimer, O.~Reimer, T.~Reposeur, L.~S. Rochester, A.~Y.
+  Rodriguez, M.~Roth, H.~F.-W. Sadrozinski, A.~Sander, P.~M. Saz~Parkinson,
+  C.~Sgr\`o, G.~H. Share, E.~J. Siskind, D.~A. Smith, P.~D. Smith, G.~Spandre,
+  P.~Spinelli, M.~S. Strickman, D.~J. Suson, H.~Takahashi, T.~Tanaka, J.~B.
+  Thayer, J.~G. Thayer, D.~J. Thompson, L.~Tibaldo, D.~F. Torres, G.~Tosti,
+  A.~Tramacere, Y.~Uchiyama, T.~L. Usher, V.~Vasileiou, N.~Vilchez, V.~Vitale,
+  A.~P. Waite, P.~Wang, B.~L. Winer, K.~S. Wood, T.~Ylinen, and M.~Ziegler.
+\newblock Fermi large area telescope observations of the cosmic-ray induced
+  $\ensuremath{\gamma}$-ray emission of the earth's atmosphere.
+\newblock \emph{Phys. Rev. D}, 80:\penalty0 122004, Dec 2009.
+\newblock \doi{10.1103/PhysRevD.80.122004}.
+\newblock URL \url{https://link.aps.org/doi/10.1103/PhysRevD.80.122004}.
+
+\bibitem[Ackermann et~al.(2012{\natexlab{a}})Ackermann, Ajello, Albert,
+  Allafort, Atwood, Axelsson, Baldini, Ballet, Barbiellini, Bastieri, Bechtol,
+  Bellazzini, Bissaldi, Blandford, Bloom, Bogart, Bonamente, Borgland,
+  Bottacini, Bouvier, Brandt, Bregeon, Brigida, Bruel, Buehler, Burnett, Buson,
+  Caliandro, Cameron, Caraveo, Casandjian, Cavazzuti, Cecchi, Çelik, Charles,
+  Chaves, Chekhtman, Cheung, Chiang, Ciprini, Claus, Cohen-Tanugi, Conrad,
+  Corbet, Cutini, D’Ammando, Davis, de~Angelis, DeKlotz, de~Palma, Dermer,
+  Digel, do~Couto~e Silva, Drell, Drlica-Wagner, Dubois, Favuzzi, Fegan,
+  Ferrara, Focke, Fortin, Fukazawa, Funk, Fusco, Gargano, Gasparrini, Gehrels,
+  Giebels, Giglietto, Giordano, Giroletti, Glanzman, Godfrey, Grenier, Grove,
+  Guiriec, Hadasch, Hayashida, Hays, Horan, Hou, Hughes, Jackson, Jogler,
+  Jóhannesson, Johnson, Johnson, Johnson, Kamae, Katagiri, Kataoka, Kerr,
+  Knödlseder, Kuss, Lande, Larsson, Latronico, Lavalley, Lemoine-Goumard,
+  Longo, Loparco, Lott, Lovellette, Lubrano, Mazziotta, McConville, McEnery,
+  Mehault, Michelson, Mitthumsiri, Mizuno, Moiseev, Monte, Monzani, Morselli,
+  Moskalenko, Murgia, Naumann-Godo, Nemmen, Nishino, Norris, Nuss, Ohno,
+  Ohsugi, Okumura, Omodei, Orienti, Orlando, Ormes, Paneque, Panetta, Perkins,
+  Pesce-Rollins, Pierbattista, Piron, Pivato, Porter, Racusin, Rainò, Rando,
+  Razzano, Razzaque, Reimer, Reimer, Reposeur, Reyes, Ritz, Rochester, Romoli,
+  Roth, Sadrozinski, Sanchez, Parkinson, Sbarra, Scargle, Sgrò,
+  Siegal-Gaskins, Siskind, Spandre, Spinelli, Stephens, Suson, Tajima,
+  Takahashi, Tanaka, Thayer, Thayer, Thompson, Tibaldo, Tinivella, Tosti,
+  Troja, Usher, Vandenbroucke, Klaveren, Vasileiou, Vianello, Vitale, Waite,
+  Wallace, Winer, Wood, Wood, Wood, Yang, and Zimmer]{FermiPass7}
+M.~Ackermann, M.~Ajello, A.~Albert, A.~Allafort, W.~B. Atwood, M.~Axelsson,
+  L.~Baldini, J.~Ballet, G.~Barbiellini, D.~Bastieri, K.~Bechtol,
+  R.~Bellazzini, E.~Bissaldi, R.~D. Blandford, E.~D. Bloom, J.~R. Bogart,
+  E.~Bonamente, A.~W. Borgland, E.~Bottacini, A.~Bouvier, T.~J. Brandt,
+  J.~Bregeon, M.~Brigida, P.~Bruel, R.~Buehler, T.~H. Burnett, S.~Buson, G.~A.
+  Caliandro, R.~A. Cameron, P.~A. Caraveo, J.~M. Casandjian, E.~Cavazzuti,
+  C.~Cecchi, Ö. Çelik, E.~Charles, R.~C.~G. Chaves, A.~Chekhtman, C.~C.
+  Cheung, J.~Chiang, S.~Ciprini, R.~Claus, J.~Cohen-Tanugi, J.~Conrad,
+  R.~Corbet, S.~Cutini, F.~D’Ammando, D.~S. Davis, A.~de~Angelis, M.~DeKlotz,
+  F.~de~Palma, C.~D. Dermer, S.~W. Digel, E.~do~Couto~e Silva, P.~S. Drell,
+  A.~Drlica-Wagner, R.~Dubois, C.~Favuzzi, S.~J. Fegan, E.~C. Ferrara, W.~B.
+  Focke, P.~Fortin, Y.~Fukazawa, S.~Funk, P.~Fusco, F.~Gargano, D.~Gasparrini,
+  N.~Gehrels, B.~Giebels, N.~Giglietto, F.~Giordano, M.~Giroletti, T.~Glanzman,
+  G.~Godfrey, I.~A. Grenier, J.~E. Grove, S.~Guiriec, D.~Hadasch, M.~Hayashida,
+  E.~Hays, D.~Horan, X.~Hou, R.~E. Hughes, M.~S. Jackson, T.~Jogler,
+  G.~Jóhannesson, R.~P. Johnson, T.~J. Johnson, W.~N. Johnson, T.~Kamae,
+  H.~Katagiri, J.~Kataoka, M.~Kerr, J.~Knödlseder, M.~Kuss, J.~Lande,
+  S.~Larsson, L.~Latronico, C.~Lavalley, M.~Lemoine-Goumard, F.~Longo,
+  F.~Loparco, B.~Lott, M.~N. Lovellette, P.~Lubrano, M.~N. Mazziotta,
+  W.~McConville, J.~E. McEnery, J.~Mehault, P.~F. Michelson, W.~Mitthumsiri,
+  T.~Mizuno, A.~A. Moiseev, C.~Monte, M.~E. Monzani, A.~Morselli, I.~V.
+  Moskalenko, S.~Murgia, M.~Naumann-Godo, R.~Nemmen, S.~Nishino, J.~P. Norris,
+  E.~Nuss, M.~Ohno, T.~Ohsugi, A.~Okumura, N.~Omodei, M.~Orienti, E.~Orlando,
+  J.~F. Ormes, D.~Paneque, J.~H. Panetta, J.~S. Perkins, M.~Pesce-Rollins,
+  M.~Pierbattista, F.~Piron, G.~Pivato, T.~A. Porter, J.~L. Racusin, S.~Rainò,
+  R.~Rando, M.~Razzano, S.~Razzaque, A.~Reimer, O.~Reimer, T.~Reposeur, L.~C.
+  Reyes, S.~Ritz, L.~S. Rochester, C.~Romoli, M.~Roth, H.~F.-W. Sadrozinski,
+  D.~A. Sanchez, P.~M.~Saz Parkinson, C.~Sbarra, J.~D. Scargle, C.~Sgrò,
+  J.~Siegal-Gaskins, E.~J. Siskind, G.~Spandre, P.~Spinelli, T.~E. Stephens,
+  D.~J. Suson, H.~Tajima, H.~Takahashi, T.~Tanaka, J.~G. Thayer, J.~B. Thayer,
+  D.~J. Thompson, L.~Tibaldo, M.~Tinivella, G.~Tosti, E.~Troja, T.~L. Usher,
+  J.~Vandenbroucke, B.~Van Klaveren, V.~Vasileiou, G.~Vianello, V.~Vitale,
+  A.~P. Waite, E.~Wallace, B.~L. Winer, D.~L. Wood, K.~S. Wood, M.~Wood,
+  Z.~Yang, and S.~Zimmer.
+\newblock The fermi large area telescope on orbit: Event classification,
+  instrument response functions, and calibration.
+\newblock \emph{The Astrophysical Journal Supplement Series}, 203\penalty0
+  (1):\penalty0 4, 2012{\natexlab{a}}.
+\newblock URL \url{http://stacks.iop.org/0067-0049/203/i=1/a=4}.
+
+\bibitem[Ackermann et~al.(2014)Ackermann, Ajello, Albert, Allafort, Baldini,
+  Barbiellini, Bastieri, Bechtol, Bellazzini, Blandford, Bloom, Bonamente,
+  Bottacini, Bouvier, Brandt, Brigida, Bruel, Buehler, Buson, Caliandro,
+  Cameron, Caraveo, Cecchi, Charles, Chaves, Chekhtman, Chiang, Chiaro,
+  Ciprini, Claus, Cohen-Tanugi, Conrad, Cutini, Dalton, D'Ammando, de~Angelis,
+  de~Palma, Dermer, Digel, Di~Venere, do~Couto~e Silva, Drell, Drlica-Wagner,
+  Favuzzi, Fegan, Ferrara, Focke, Franckowiak, Fukazawa, Funk, Fusco, Gargano,
+  Gasparrini, Germani, Giglietto, Giordano, Giroletti, Glanzman, Godfrey,
+  Gomez-Vargas, Grenier, Grove, Guiriec, Gustafsson, Hadasch, Hanabata,
+  Harding, Hayashida, Hayashi, Hewitt, Horan, Hou, Hughes, Inoue, Jackson,
+  Jogler, J\'ohannesson, Johnson, Kamae, Kawano, Kn\"odlseder, Kuss, Lande,
+  Larsson, Latronico, Longo, Loparco, Lovellette, Lubrano, Mayer, Mazziotta,
+  McEnery, Mehault, Michelson, Mitthumsiri, Mizuno, Moiseev, Monte, Monzani,
+  Morselli, Moskalenko, Murgia, Nemmen, Nuss, Ohsugi, Okumura, Orienti,
+  Orlando, Ormes, Paneque, Panetta, Perkins, Pesce-Rollins, Piron, Pivato,
+  Porter, Rain\`o, Rando, Razzano, Razzaque, Reimer, Reimer, Ritz, Roth,
+  Schaal, Schulz, Sgr\`o, Siskind, Spandre, Spinelli, Strong, Takahashi,
+  Takeuchi, Thayer, Thayer, Thompson, Tibaldo, Tinivella, Torres, Tosti, Troja,
+  Tronconi, Usher, Vandenbroucke, Vasileiou, Vianello, Vitale, Werner, Winer,
+  Wood, Wood, and Yang]{previouswork}
+M.~Ackermann, M.~Ajello, A.~Albert, A.~Allafort, L.~Baldini, G.~Barbiellini,
+  D.~Bastieri, K.~Bechtol, R.~Bellazzini, R.~D. Blandford, E.~D. Bloom,
+  E.~Bonamente, E.~Bottacini, A.~Bouvier, T.~J. Brandt, M.~Brigida, P.~Bruel,
+  R.~Buehler, S.~Buson, G.~A. Caliandro, R.~A. Cameron, P.~A. Caraveo,
+  C.~Cecchi, E.~Charles, R.~C.~G. Chaves, A.~Chekhtman, J.~Chiang, G.~Chiaro,
+  S.~Ciprini, R.~Claus, J.~Cohen-Tanugi, J.~Conrad, S.~Cutini, M.~Dalton,
+  F.~D'Ammando, A.~de~Angelis, F.~de~Palma, C.~D. Dermer, S.~W. Digel,
+  L.~Di~Venere, E.~do~Couto~e Silva, P.~S. Drell, A.~Drlica-Wagner, C.~Favuzzi,
+  S.~J. Fegan, E.~C. Ferrara, W.~B. Focke, A.~Franckowiak, Y.~Fukazawa,
+  S.~Funk, P.~Fusco, F.~Gargano, D.~Gasparrini, S.~Germani, N.~Giglietto,
+  F.~Giordano, M.~Giroletti, T.~Glanzman, G.~Godfrey, G.~A. Gomez-Vargas, I.~A.
+  Grenier, J.~E. Grove, S.~Guiriec, M.~Gustafsson, D.~Hadasch, Y.~Hanabata,
+  A.~K. Harding, M.~Hayashida, K.~Hayashi, J.~W. Hewitt, D.~Horan, X.~Hou,
+  R.~E. Hughes, Y.~Inoue, M.~S. Jackson, T.~Jogler, G.~J\'ohannesson, A.~S.
+  Johnson, T.~Kamae, T.~Kawano, J.~Kn\"odlseder, M.~Kuss, J.~Lande, S.~Larsson,
+  L.~Latronico, F.~Longo, F.~Loparco, M.~N. Lovellette, P.~Lubrano, M.~Mayer,
+  M.~N. Mazziotta, J.~E. McEnery, J.~Mehault, P.~F. Michelson, W.~Mitthumsiri,
+  T.~Mizuno, A.~A. Moiseev, C.~Monte, M.~E. Monzani, A.~Morselli, I.~V.
+  Moskalenko, S.~Murgia, R.~Nemmen, E.~Nuss, T.~Ohsugi, A.~Okumura, M.~Orienti,
+  E.~Orlando, J.~F. Ormes, D.~Paneque, J.~H. Panetta, J.~S. Perkins,
+  M.~Pesce-Rollins, F.~Piron, G.~Pivato, T.~A. Porter, S.~Rain\`o, R.~Rando,
+  M.~Razzano, S.~Razzaque, A.~Reimer, O.~Reimer, S.~Ritz, M.~Roth, M.~Schaal,
+  A.~Schulz, C.~Sgr\`o, E.~J. Siskind, G.~Spandre, P.~Spinelli, A.~W. Strong,
+  H.~Takahashi, Y.~Takeuchi, J.~G. Thayer, J.~B. Thayer, D.~J. Thompson,
+  L.~Tibaldo, M.~Tinivella, D.~F. Torres, G.~Tosti, E.~Troja, V.~Tronconi,
+  T.~L. Usher, J.~Vandenbroucke, V.~Vasileiou, G.~Vianello, V.~Vitale,
+  M.~Werner, B.~L. Winer, K.~S. Wood, M.~Wood, and Z.~Yang.
+\newblock Inferred cosmic-ray spectrum from fermi large area telescope
+  $\ensuremath{\gamma}$-ray observations of earth's limb.
+\newblock \emph{Phys. Rev. Lett.}, 112:\penalty0 151103, Apr 2014.
+\newblock \doi{10.1103/PhysRevLett.112.151103}.
+\newblock URL \url{https://link.aps.org/doi/10.1103/PhysRevLett.112.151103}.
+
+\bibitem[Fer()]{FermiStructure}
+Overview of the lat.
+\newblock URL
+  \url{https://fermi.gsfc.nasa.gov/ssc/data/analysis/documentation/Cicerone/Cicerone_Introduction/LAT_overview.html}.
+\newblock (accessed: 07.06.2018).
+
+\bibitem[Ackermann et~al.(2012{\natexlab{b}})Ackermann, Ajello, Albert,
+  Allafort, Atwood, Axelsson, Baldini, Ballet, Barbiellini, Bastieri, Bechtol,
+  Bellazzini, Bissaldi, Blandford, Bloom, Bogart, Bonamente, Borgland,
+  Bottacini, Bouvier, Brandt, Bregeon, Brigida, Bruel, Buehler, Burnett, Buson,
+  Caliandro, Cameron, Caraveo, Casandjian, Cavazzuti, Cecchi, Çelik, Charles,
+  Chaves, Chekhtman, Cheung, Chiang, Ciprini, Claus, Cohen-Tanugi, Conrad,
+  Corbet, Cutini, D’Ammando, Davis, de~Angelis, DeKlotz, de~Palma, Dermer,
+  Digel, do~Couto~e Silva, Drell, Drlica-Wagner, Dubois, Favuzzi, Fegan,
+  Ferrara, Focke, Fortin, Fukazawa, Funk, Fusco, Gargano, Gasparrini, Gehrels,
+  Giebels, Giglietto, Giordano, Giroletti, Glanzman, Godfrey, Grenier, Grove,
+  Guiriec, Hadasch, Hayashida, Hays, Horan, Hou, Hughes, Jackson, Jogler,
+  Jóhannesson, Johnson, Johnson, Johnson, Kamae, Katagiri, Kataoka, Kerr,
+  Knödlseder, Kuss, Lande, Larsson, Latronico, Lavalley, Lemoine-Goumard,
+  Longo, Loparco, Lott, Lovellette, Lubrano, Mazziotta, McConville, McEnery,
+  Mehault, Michelson, Mitthumsiri, Mizuno, Moiseev, Monte, Monzani, Morselli,
+  Moskalenko, Murgia, Naumann-Godo, Nemmen, Nishino, Norris, Nuss, Ohno,
+  Ohsugi, Okumura, Omodei, Orienti, Orlando, Ormes, Paneque, Panetta, Perkins,
+  Pesce-Rollins, Pierbattista, Piron, Pivato, Porter, Racusin, Rainò, Rando,
+  Razzano, Razzaque, Reimer, Reimer, Reposeur, Reyes, Ritz, Rochester, Romoli,
+  Roth, Sadrozinski, Sanchez, Parkinson, Sbarra, Scargle, Sgrò,
+  Siegal-Gaskins, Siskind, Spandre, Spinelli, Stephens, Suson, Tajima,
+  Takahashi, Tanaka, Thayer, Thayer, Thompson, Tibaldo, Tinivella, Tosti,
+  Troja, Usher, Vandenbroucke, Klaveren, Vasileiou, Vianello, Vitale, Waite,
+  Wallace, Winer, Wood, Wood, Wood, Yang, and Zimmer]{FermiDetail}
+M.~Ackermann, M.~Ajello, A.~Albert, A.~Allafort, W.~B. Atwood, M.~Axelsson,
+  L.~Baldini, J.~Ballet, G.~Barbiellini, D.~Bastieri, K.~Bechtol,
+  R.~Bellazzini, E.~Bissaldi, R.~D. Blandford, E.~D. Bloom, J.~R. Bogart,
+  E.~Bonamente, A.~W. Borgland, E.~Bottacini, A.~Bouvier, T.~J. Brandt,
+  J.~Bregeon, M.~Brigida, P.~Bruel, R.~Buehler, T.~H. Burnett, S.~Buson, G.~A.
+  Caliandro, R.~A. Cameron, P.~A. Caraveo, J.~M. Casandjian, E.~Cavazzuti,
+  C.~Cecchi, Ö. Çelik, E.~Charles, R.~C.~G. Chaves, A.~Chekhtman, C.~C.
+  Cheung, J.~Chiang, S.~Ciprini, R.~Claus, J.~Cohen-Tanugi, J.~Conrad,
+  R.~Corbet, S.~Cutini, F.~D’Ammando, D.~S. Davis, A.~de~Angelis, M.~DeKlotz,
+  F.~de~Palma, C.~D. Dermer, S.~W. Digel, E.~do~Couto~e Silva, P.~S. Drell,
+  A.~Drlica-Wagner, R.~Dubois, C.~Favuzzi, S.~J. Fegan, E.~C. Ferrara, W.~B.
+  Focke, P.~Fortin, Y.~Fukazawa, S.~Funk, P.~Fusco, F.~Gargano, D.~Gasparrini,
+  N.~Gehrels, B.~Giebels, N.~Giglietto, F.~Giordano, M.~Giroletti, T.~Glanzman,
+  G.~Godfrey, I.~A. Grenier, J.~E. Grove, S.~Guiriec, D.~Hadasch, M.~Hayashida,
+  E.~Hays, D.~Horan, X.~Hou, R.~E. Hughes, M.~S. Jackson, T.~Jogler,
+  G.~Jóhannesson, R.~P. Johnson, T.~J. Johnson, W.~N. Johnson, T.~Kamae,
+  H.~Katagiri, J.~Kataoka, M.~Kerr, J.~Knödlseder, M.~Kuss, J.~Lande,
+  S.~Larsson, L.~Latronico, C.~Lavalley, M.~Lemoine-Goumard, F.~Longo,
+  F.~Loparco, B.~Lott, M.~N. Lovellette, P.~Lubrano, M.~N. Mazziotta,
+  W.~McConville, J.~E. McEnery, J.~Mehault, P.~F. Michelson, W.~Mitthumsiri,
+  T.~Mizuno, A.~A. Moiseev, C.~Monte, M.~E. Monzani, A.~Morselli, I.~V.
+  Moskalenko, S.~Murgia, M.~Naumann-Godo, R.~Nemmen, S.~Nishino, J.~P. Norris,
+  E.~Nuss, M.~Ohno, T.~Ohsugi, A.~Okumura, N.~Omodei, M.~Orienti, E.~Orlando,
+  J.~F. Ormes, D.~Paneque, J.~H. Panetta, J.~S. Perkins, M.~Pesce-Rollins,
+  M.~Pierbattista, F.~Piron, G.~Pivato, T.~A. Porter, J.~L. Racusin, S.~Rainò,
+  R.~Rando, M.~Razzano, S.~Razzaque, A.~Reimer, O.~Reimer, T.~Reposeur, L.~C.
+  Reyes, S.~Ritz, L.~S. Rochester, C.~Romoli, M.~Roth, H.~F.-W. Sadrozinski,
+  D.~A. Sanchez, P.~M.~Saz Parkinson, C.~Sbarra, J.~D. Scargle, C.~Sgrò,
+  J.~Siegal-Gaskins, E.~J. Siskind, G.~Spandre, P.~Spinelli, T.~E. Stephens,
+  D.~J. Suson, H.~Tajima, H.~Takahashi, T.~Tanaka, J.~G. Thayer, J.~B. Thayer,
+  D.~J. Thompson, L.~Tibaldo, M.~Tinivella, G.~Tosti, E.~Troja, T.~L. Usher,
+  J.~Vandenbroucke, B.~Van Klaveren, V.~Vasileiou, G.~Vianello, V.~Vitale,
+  A.~P. Waite, E.~Wallace, B.~L. Winer, D.~L. Wood, K.~S. Wood, M.~Wood,
+  Z.~Yang, and S.~Zimmer.
+\newblock The fermi large area telescope on orbit: Event classification,
+  instrument response functions, and calibration.
+\newblock \emph{The Astrophysical Journal Supplement Series}, 203\penalty0
+  (1):\penalty0 4, 2012{\natexlab{b}}.
+\newblock URL \url{http://stacks.iop.org/0067-0049/203/i=1/a=4}.
+
+\bibitem[Atwood et~al.(2013)]{Atwood:2013rka}
+W.~Atwood et~al.
+\newblock {Pass 8: Toward the Full Realization of the Fermi-LAT Scientific
+  Potential}.
+\newblock 2013.
+\newblock URL
+  \url{http://inspirehep.net/record/1223837/files/arXiv:1303.3514.pdf}.
+
+\bibitem[Kachelrie\ss{} and Ostapchenko(2012)]{K&Omodel}
+M.~Kachelrie\ss{} and S.~Ostapchenko.
+\newblock Deriving the cosmic ray spectrum from gamma-ray observations.
+\newblock \emph{Phys. Rev. D}, 86:\penalty0 043004, Aug 2012.
+\newblock \doi{10.1103/PhysRevD.86.043004}.
+\newblock URL \url{https://link.aps.org/doi/10.1103/PhysRevD.86.043004}.
+
+\bibitem[Wallace and Hobbs(2006)]{atmosCompos}
+John~M. Wallace and Peter~V. Hobbs.
+\newblock \emph{Atmospheric}.
+\newblock Science, 2006.
+
+\bibitem[Atwater and Freier(1986)]{WAtwater}
+Thomas~W. Atwater and Phyllis~S. Freier.
+\newblock Meson multiplicity versus energy in relativistic nucleus-nucleus
+  collisions.
+\newblock \emph{Phys. Rev. Lett.}, 56:\penalty0 1350--1353, Mar 1986.
+\newblock \doi{10.1103/PhysRevLett.56.1350}.
+\newblock URL \url{https://link.aps.org/doi/10.1103/PhysRevLett.56.1350}.
+
+\bibitem[Aguilar et~al.(2015)Aguilar, Aisa, Alpat, Alvino, Ambrosi, Andeen,
+  Arruda, Attig, Azzarello, Bachlechner, Barao, Barrau, Barrin, Bartoloni,
+  Basara, Battarbee, Battiston, Bazo, Becker, Behlmann, Beischer, Berdugo,
+  Bertucci, Bindi, Bizzaglia, Bizzarri, Boella, de~Boer, Bollweg, Bonnivard,
+  Borgia, Borsini, Boschini, Bourquin, Burger, Cadoux, Cai, Capell, Caroff,
+  Casaus, Castellini, Cernuda, Cerreta, Cervelli, Chae, Chang, Chen, Chen,
+  Chen, Chen, Cheng, Chou, Choumilov, Choutko, Chung, Clark, Clavero, Coignet,
+  Consolandi, Contin, Corti, Gil, Coste, Creus, Crispoltoni, Cui, Dai, Delgado,
+  Della~Torre, Demirk\"oz, Derome, Di~Falco, Di~Masso, Dimiccoli, D\'{\i}az,
+  von Doetinchem, Donnini, Duranti, D'Urso, Egorov, Eline, Eppling, Eronen,
+  Fan, Farnesini, Feng, Fiandrini, Fiasson, Finch, Fisher, Formato,
+  Galaktionov, Gallucci, Garc\'{\i}a, Garc\'{\i}a-L\'opez, Gargiulo, Gast,
+  Gebauer, Gervasi, Ghelfi, Giovacchini, Goglov, Gong, Goy, Grabski, Grandi,
+  Graziani, Guandalini, Guerri, Guo, Haas, Habiby, Haino, Han, He, Heil,
+  Hoffman, Hsieh, Huang, Huh, Incagli, Ionica, Jang, Jinchi, Kanishev, Kim,
+  Kim, Kirn, Korkmaz, Kossakowski, Kounina, Kounine, Koutsenko, Krafczyk,
+  La~Vacca, Laudi, Laurenti, Lazzizzera, Lebedev, Lee, Lee, Leluc, Li, Li, Li,
+  Li, Li, Li, Li, Li, Li, Li, Lim, Lin, Lipari, Lippert, Liu, Liu, Liu, Lolli,
+  Lomtadze, Lu, Lu, Lu, Luebelsmeyer, Luo, Luo, Lv, Majka, Ma\~n\'a,
+  Mar\'{\i}n, Martin, Mart\'{\i}nez, Masi, Maurin, Menchaca-Rocha, Meng, Mo,
+  Morescalchi, Mott, M\"uller, Nelson, Ni, Nikonov, Nozzoli, Nunes, Obermeier,
+  Oliva, Orcinha, Palmonari, Palomares, Paniccia, Papi, Pauluzzi, Pedreschi,
+  Pensotti, Pereira, Picot-Clemente, Pilo, Piluso, Pizzolotto, Plyaskin, Pohl,
+  Poireau, Putze, Quadrani, Qi, Qin, Qu, R\"aih\"a, Rancoita, Rapin, Ricol,
+  Rodr\'{\i}guez, Rosier-Lees, Rozhkov, Rozza, Sagdeev, Sandweiss, Saouter,
+  Schael, Schmidt, von Dratzig, Schwering, Scolieri, Seo, Shan, Shan, Shi, Shi,
+  Shi, Siedenburg, Son, Song, Spada, Spinella, Sun, Sun, Tacconi, Tang, Tang,
+  Tang, Tao, Tescaro, Ting, Ting, Tomassetti, Torsti,
+  T\"urko\ifmmode~\breve{g}\else \u{g}\fi{}lu, Urban, Vagelli, Valente,
+  Vannini, Valtonen, Vaurynovich, Vecchi, Velasco, Vialle, Vitale, Vitillo,
+  Wang, Wang, Wang, Wang, Wang, Wang, Weng, Whitman, Wienkenh\"over,
+  Willenbrock, Wu, Wu, Xia, Xie, Xie, Xiong, Xu, Xu, Yan, Yang, Yang, Yang, Ye,
+  Yi, Yu, Yu, Zeissler, Zhang, Zhang, Zhang, Zhang, Zhang, Zhang, Zhang, Zheng,
+  Zhuang, Zhukov, Zichichi, Zimmermann, and Zuccon]{AMS-02Helium}
+M.~Aguilar, D.~Aisa, B.~Alpat, A.~Alvino, G.~Ambrosi, K.~Andeen, L.~Arruda,
+  N.~Attig, P.~Azzarello, A.~Bachlechner, F.~Barao, A.~Barrau, L.~Barrin,
+  A.~Bartoloni, L.~Basara, M.~Battarbee, R.~Battiston, J.~Bazo, U.~Becker,
+  M.~Behlmann, B.~Beischer, J.~Berdugo, B.~Bertucci, V.~Bindi, S.~Bizzaglia,
+  M.~Bizzarri, G.~Boella, W.~de~Boer, K.~Bollweg, V.~Bonnivard, B.~Borgia,
+  S.~Borsini, M.~J. Boschini, M.~Bourquin, J.~Burger, F.~Cadoux, X.~D. Cai,
+  M.~Capell, S.~Caroff, J.~Casaus, G.~Castellini, I.~Cernuda, D.~Cerreta,
+  F.~Cervelli, M.~J. Chae, Y.~H. Chang, A.~I. Chen, G.~M. Chen, H.~Chen, H.~S.
+  Chen, L.~Cheng, H.~Y. Chou, E.~Choumilov, V.~Choutko, C.~H. Chung, C.~Clark,
+  R.~Clavero, G.~Coignet, C.~Consolandi, A.~Contin, C.~Corti, E.~Cortina Gil,
+  B.~Coste, W.~Creus, M.~Crispoltoni, Z.~Cui, Y.~M. Dai, C.~Delgado,
+  S.~Della~Torre, M.~B. Demirk\"oz, L.~Derome, S.~Di~Falco, L.~Di~Masso,
+  F.~Dimiccoli, C.~D\'{\i}az, P.~von Doetinchem, F.~Donnini, M.~Duranti,
+  D.~D'Urso, A.~Egorov, A.~Eline, F.~J. Eppling, T.~Eronen, Y.~Y. Fan,
+  L.~Farnesini, J.~Feng, E.~Fiandrini, A.~Fiasson, E.~Finch, P.~Fisher,
+  V.~Formato, Y.~Galaktionov, G.~Gallucci, B.~Garc\'{\i}a,
+  R.~Garc\'{\i}a-L\'opez, C.~Gargiulo, H.~Gast, I.~Gebauer, M.~Gervasi,
+  A.~Ghelfi, F.~Giovacchini, P.~Goglov, J.~Gong, C.~Goy, V.~Grabski, D.~Grandi,
+  M.~Graziani, C.~Guandalini, I.~Guerri, K.~H. Guo, D.~Haas, M.~Habiby,
+  S.~Haino, K.~C. Han, Z.~H. He, M.~Heil, J.~Hoffman, T.~H. Hsieh, Z.~C. Huang,
+  C.~Huh, M.~Incagli, M.~Ionica, W.~Y. Jang, H.~Jinchi, K.~Kanishev, G.~N. Kim,
+  K.~S. Kim, Th. Kirn, M.~A. Korkmaz, R.~Kossakowski, O.~Kounina, A.~Kounine,
+  V.~Koutsenko, M.~S. Krafczyk, G.~La~Vacca, E.~Laudi, G.~Laurenti,
+  I.~Lazzizzera, A.~Lebedev, H.~T. Lee, S.~C. Lee, C.~Leluc, H.~L. Li, J.~Q.
+  Li, J.~Q. Li, Q.~Li, Q.~Li, T.~X. Li, W.~Li, Y.~Li, Z.~H. Li, Z.~Y. Li,
+  S.~Lim, C.~H. Lin, P.~Lipari, T.~Lippert, D.~Liu, H.~Liu, Hu~Liu, M.~Lolli,
+  T.~Lomtadze, M.~J. Lu, S.~Q. Lu, Y.~S. Lu, K.~Luebelsmeyer, F.~Luo, J.~Z.
+  Luo, S.~S. Lv, R.~Majka, C.~Ma\~n\'a, J.~Mar\'{\i}n, T.~Martin,
+  G.~Mart\'{\i}nez, N.~Masi, D.~Maurin, A.~Menchaca-Rocha, Q.~Meng, D.~C. Mo,
+  L.~Morescalchi, P.~Mott, M.~M\"uller, T.~Nelson, J.~Q. Ni, N.~Nikonov,
+  F.~Nozzoli, P.~Nunes, A.~Obermeier, A.~Oliva, M.~Orcinha, F.~Palmonari,
+  C.~Palomares, M.~Paniccia, A.~Papi, M.~Pauluzzi, E.~Pedreschi, S.~Pensotti,
+  R.~Pereira, N.~Picot-Clemente, F.~Pilo, A.~Piluso, C.~Pizzolotto,
+  V.~Plyaskin, M.~Pohl, V.~Poireau, A.~Putze, L.~Quadrani, X.~M. Qi, X.~Qin,
+  Z.~Y. Qu, T.~R\"aih\"a, P.~G. Rancoita, D.~Rapin, J.~S. Ricol,
+  I.~Rodr\'{\i}guez, S.~Rosier-Lees, A.~Rozhkov, D.~Rozza, R.~Sagdeev,
+  J.~Sandweiss, P.~Saouter, S.~Schael, S.~M. Schmidt, A.~Schulz von Dratzig,
+  G.~Schwering, G.~Scolieri, E.~S. Seo, B.~S. Shan, Y.~H. Shan, J.~Y. Shi,
+  X.~Y. Shi, Y.~M. Shi, T.~Siedenburg, D.~Son, J.~W. Song, F.~Spada,
+  F.~Spinella, W.~Sun, W.~H. Sun, M.~Tacconi, C.~P. Tang, X.~W. Tang, Z.~C.
+  Tang, L.~Tao, D.~Tescaro, Samuel C.~C. Ting, S.~M. Ting, N.~Tomassetti,
+  J.~Torsti, C.~T\"urko\ifmmode~\breve{g}\else \u{g}\fi{}lu, T.~Urban,
+  V.~Vagelli, E.~Valente, C.~Vannini, E.~Valtonen, S.~Vaurynovich, M.~Vecchi,
+  M.~Velasco, J.~P. Vialle, V.~Vitale, S.~Vitillo, L.~Q. Wang, N.~H. Wang,
+  Q.~L. Wang, R.~S. Wang, X.~Wang, Z.~X. Wang, Z.~L. Weng, K.~Whitman,
+  J.~Wienkenh\"over, M.~Willenbrock, H.~Wu, X.~Wu, X.~Xia, M.~Xie, S.~Xie,
+  R.~Q. Xiong, N.~S. Xu, W.~Xu, Q.~Yan, J.~Yang, M.~Yang, Y.~Yang, Q.~H. Ye,
+  H.~Yi, Y.~J. Yu, Z.~Q. Yu, S.~Zeissler, C.~Zhang, J.~H. Zhang, M.~T. Zhang,
+  S.~D. Zhang, S.~W. Zhang, X.~B. Zhang, Z.~Zhang, Z.~M. Zheng, H.~L. Zhuang,
+  V.~Zhukov, A.~Zichichi, N.~Zimmermann, and P.~Zuccon.
+\newblock Precision measurement of the helium flux in primary cosmic rays of
+  rigidities 1.9 gv to 3 tv with the alpha magnetic spectrometer on the
+  international space station.
+\newblock \emph{Phys. Rev. Lett.}, 115:\penalty0 211101, Nov 2015.
+\newblock \doi{10.1103/PhysRevLett.115.211101}.
+\newblock URL \url{https://link.aps.org/doi/10.1103/PhysRevLett.115.211101}.
+
+\bibitem[Wilks(1938)]{Wilks1938}
+S.~S. Wilks.
+\newblock The large-sample distribution of the likelihood ratio for testing
+  composite hypotheses.
+\newblock \emph{Ann. Math. Statist.}, 9\penalty0 (1):\penalty0 60--62, 03 1938.
+\newblock \doi{10.1214/aoms/1177732360}.
+\newblock URL \url{https://doi.org/10.1214/aoms/1177732360}.
+
+\bibitem[Huelsenbeck and Crandall(1997)]{Huelsenbeck}
+John~P. Huelsenbeck and Keith~A. Crandall.
+\newblock Phylogeny estimation and hypothesis testing using maximum likelihood.
+\newblock \emph{Annual Review of Ecology and Systematics}, 28\penalty0
+  (1):\penalty0 437--466, 1997.
+\newblock \doi{10.1146/annurev.ecolsys.28.1.437}.
+\newblock URL \url{https://doi.org/10.1146/annurev.ecolsys.28.1.437}.
+
+\bibitem[M.J.~Berger()]{XCOMNIST}
+J.H.~Hubbell M.J.~Berger.
+\newblock Xcom: Photon cross sections database.
+\newblock URL
+  \url{https://www.nist.gov/pml/xcom-photon-cross-sections-database}.
+\newblock (accessed: 07.06.2018).
+
+\end{thebibliography}

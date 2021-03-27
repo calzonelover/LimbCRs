@@ -1,0 +1,78 @@
+README for MUTHESIS PACKAGE
+
+AUTHOR:  Michael A. Allen, Physics Department, Mahidol University
+ 
+E-MAIL:  frmaa@mahidol.ac.th / maa_software@yahoo.co.uk
+
+WEBSITE:  http://einstein.sc.mahidol.ac.th/~scmal/LaTeX/
+
+ADAPTED FROM:  report.cls and Thai LaTeX
+
+REQUIREMENTS: works best on Linux or Unix operating systems with LaTeX
+              and gv installed - but can also be used on Windoze
+              (except for the Thai abstract page).
+
+*** HOW TO INSTALL: ***
+
+        Put muthesis.tar.gz in your home directory and type
+
+tar xvfz muthesis.tar.gz
+
+        If you are installing for the first time you will also need to type
+
+cd muthesis
+
+make all
+
+        To check it is installed, type in 
+
+./tlatgv muthesis_example
+
+	 Hopefully the first page of a thesis should appear on your screen. 
+
+
+*** TEMPLATE FILE ***
+
+	 Look at muthesis_template.tex for an explanation.  If you are
+         creating your thesis *for the first time* then you should use
+         the template to start with as this contains instructions.
+
+cp -i muthesis_template.tex mythesis.tex
+
+         If you are just *updating* your version of muthesis.cls then just 
+         look at the template file to see if anything important has changed.
+
+*** DRAFT MODE ***
+         
+         When first preparing your thesis you will probably want to
+         use the draft mode which only displays a single title page
+         with abstract (or no title page at all), the chapters, and the
+         references. See the template file for how to do this.
+
+
+*** tlatgv *** (create and display a postscipt file)
+
+	 This runs cttex, latex, dvips and gv on a file  
+         e.g. tlatgv thesis         generates output from the whole thesis
+         e.g. tlatgv thesis 10      generates output starting on page 10
+         e.g. tlatgv thesis 10 2    generates 2 pages starting on page 10
+
+*** tplatac *** (create and display a pdf file)
+
+	 This runs cttex, pdflatex, acroread on a file  
+         e.g. tplatac thesis         generates output from the whole thesis
+         Note: (1) the pdf file created can be searched
+               (2) figures cannot be in postscript format for this to work
+
+*** IMPORTANT ***
+
+         To get the correct numbers in the table of contents, you must run
+	 latex (or tlatgv or tplatac) THREE times on your file.
+
+*** UPDATES ***
+
+         Before you print out the final copy of your thesis, check the
+         website to make sure that you have the latest version of muthesis.cls 
+
+	 If you have any problems or would like anything added or
+	 changed, contact me at the above email address.

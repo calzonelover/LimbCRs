@@ -40,7 +40,7 @@ int main(int argc, char** argv){
         0.0108818 , 1.98848 , 2.86015 , 2.63161 , 333.115
     };
     // SA
-
+    
 
     TFile *read_file = new TFile("data/root/extracted_data.root","READ");
     auto histogram = new Histogram();

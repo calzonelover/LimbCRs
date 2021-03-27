@@ -1,0 +1,337 @@
+\documentclass[natbib]{muthesis}
+
+% IMPORTANT!!! -- DO NOT USE THIS FILE FOR YOUR THESIS --
+% make a COPY of muthesis_template.tex instead
+
+%\draft
+%\notitlepage
+\usepackage{graphicx}
+\newcommand{\beq}{\begin{equation}}
+\newcommand{\eeq}{\end{equation}}
+\newcommand{\bfig}{\begin{figure}}
+\newcommand{\efig}{\end{figure}}
+\newcommand{\bfa}{\left\{\begin{array}}
+\newcommand{\efa}{\end{array}\right.}
+%\renewcommand\textfraction{.01}
+%\setcounter{totalnumber}{9}
+%\setlength{\floatsep}{1cm} 
+%\setcounter{secnumdepth}{4} \setcounter{tocdepth}{4}
+\renewcommand{\arraystretch}{1.5}
+
+\bibliographystyle{uwthesis} % if you are using bibtex
+
+% information for front page
+
+\title{Dynamics of Spiral Waves under Feedback Control in the
+Light-Sensitive Belousov-Zhabotinsky Reaction} 
+\candidate{Onuma Kheowan}
+\degree{PhD}
+\subject{Chemical~Physics} 
+\submissionyear{2001}
+%\isbn{974-04-0357-3}
+
+% information for page i (advisors)
+
+\candidatetitle{Miss.\ }
+\majoradvisor{Tata Young}
+\majoradvisortitle{Prof.\ }
+\majoradvisorletters{Dr.rer.nat.}
+\majoradvisorsubject{Chemistry}
+\coadvisor{Alan \mbox{Partridge}}
+%\coadvisor{Alan Partridge}
+\coadvisortitle{Prof.\ }
+\coadvisorletters{Dr.rer.nat.habil.}
+\coadvisorsubject{Mechanical Engineering and Operational Management}
+\coadvisorstatus{Major advisor}
+\coadvisorII{Austin D. Powers}
+\coadvisorIItitle{Assoc.\ Prof.\ }
+\coadvisorIIletters{Ph.D.}
+\coadvisorIIsubject{Theoretical Physics and \mbox{Chemistry}}
+\coadvisorIII{Austin D. Flowers}
+\coadvisorIIItitle{Prof.\ }
+\coadvisorIIIletters{M.Sc.}
+\coadvisorIIIsubject{Nanophysics}
+%\graduatestudiesdean{Prof.\ Liangchai Limlomwongse, Ph.D.}
+%\GSDstatus{Acting}
+\programchair{Assoc.\ Prof.\ Pongtip Winotai}
+\programchairqual{Ph.D. (Physical Chemistry)}
+\faculty{Science}
+
+% information for page ii (exam committee)
+
+\submissiondate{4th June 2001}
+\chair{Prof. D. Scheitzermann}
+\chairqual{Ph.D. (Eugenics)}
+\memberIII{Assoc.~Prof.~Pongtip Winotai}
+\memberIIIqual{Ph.D. (Chemical Physics)}
+\memberIV{Ahpisit Ungkitchanukit}
+\memberIVqual{Ph.D. (Chemical Physics and Physical Chemistry)}
+\facultydean{Prof.~Amaret Bhumiratana}
+\FDqual{Ph.D. (Microbiology)}
+%\FDstatus{Acting}
+
+% information for page iv (ABSTRACT)
+
+\candidatenumber{3836484 SCCP/D}
+%\longsubject
+\keywords{spiral wave dynamics / BZ reaction / feedback}
+\keywordsII{control / resonance attractor / light-sensitive}
+\keywordsIII{\NoCaseChange{Ru}-catalyst / tip trajectory / excitable media}
+
+% information for page v (THAI ABSTRACT)
+\thaisubject{���ԡ���ԧ���}
+\thaicandidate{������ ������ҹ}
+\thaititle{����ʵ��ͧ����㹻�ԡ�������٫Ϳ��⺷ԧʡշ�����ʧ}
+%\thaititle{����ʵ��ͧ������������äǺ���Ẻ��͹��Ѻ㹻�ԡ�������٫Ϳ��⺷ԧʡշ�����ʧ}
+\thaimajoradvisor{�þԹ�� �ѧ���ѹ��}
+%\thaicoadvisor{}
+\thaicoadvisorII{�ҷ� �ѧ}
+\thaicoadvisorIII{�� �ѧ�ѧ}
+
+% information for Biography
+
+\dateofbirth{16th December 1972}
+\placeofbirth{Suphanburi, Thailand}
+\firstdegree{Bachelor of Science}
+%\longfirstdegree
+\firstdegreemajor{Physics}
+\firstdegreeinstitution{Kasetsart University}
+\firstdegreeyears{1991--1995}
+\years{1995--2001}
+\postinstitution{Otto-von-Guericke Universit\"{a}t,}
+\postinstitutionLnII{Magdeburg, Germany, 1998--2001}
+\scholarship{Development and Promotion of Science and }
+\scholarshipLnII{Technology Talents Project (DPST),}
+\scholarshipLnIII{Thailand, 1991--2000}
+\scholarshipII{Deutscher Akademischer Austauschdienst}
+\scholarshipIILnII{(DAAD), Germany, 1998--2000}
+\scholarshipIII{Postgraduate Education and Research Program}
+\scholarshipIIILnII{in Chemistry, 2000--2001}
+\position{Lecturer, 1997--Present}
+\workplace{Chemistry Department, Mahidol University}
+\homeaddress{23/4 Rama 4 Road}
+\homeaddressLnII{Bangkok 10330 Thailand}
+\email{scokw@mahidol.ac.th}
+
+\begin{document}
+\maketitle
+\acknowledgements{
+I would like to first express my sincere gratitude to my advisor,
+Prof.\ Orapin Rangsiman, for her invaluable advice and
+encouragement throughout. I am equally grateful to Prof.\ Stefan C.\
+M\"{u}ller of Otto-von-Guericke Universit\"{a}t, Magdeburg, 
+for his helpful guidance,
+supervision, and giving me the opportunity to work in his research group.
+My deep gratitude also to Dr.~Vladimir Zykov for his
+insightful advice and valuable discussions. I am also thankful to
+Dr.\ Ahpisit Ungkitchanukit and Assoc.\ Prof.\ Pongtip Winotai for
+their kind comments and support. In addition, I express my special
+thanks to Asst.\ Prof.\ Michael A.\ Allen for his comments and
+help with \LaTeX.
+
+I gratefully acknowledge the Deutscher Akademischer
+Austauschdienst, Sandwich Program (DAAD) for giving me such a great
+opportunity to conduct my research at
+Otto-von-Guericke Universit\"{a}t, Magdeburg. I am particularly
+indebted to the Development and Promotion of Science and
+Technology Talents Project (DPST), funded by the Royal Thai
+Government for the scholarship which enabled me to undertake this
+study. I also wish to thank the 
+Postgraduate Education and Research Program in Chemistry,
+funded by the Royal Thai Government, for partial support.
+
+I have learnt a lot from the people that I have worked with in the
+laboratory of Prof.\ Stefan C.\ M\"{u}ller in Magdeburg during these
+years. Words are inadequate to express my thanks to Dirk Michael
+Goldschmidt for his expertise and insightful hints for getting
+started with the experimental work. Special thanks go to Dr.~Marcus
+Hauser and Dr.\ Thomas Mair for their kind advice, support,
+comments and critical reading of the manuscript. In addition, I
+wish to gratefully acknowledge Dr.~C.\ K.\ Chan, who provided me with
+valuable hints and fruitful collaboration. The support from all
+other colleagues is also gratefully acknowledged, in particular,
+Niklas Manz, Ulrich Storb, Bernd Schmidt, Eric Kasper, Wolfgang
+Janto\ss, Katja Guttmann and Ramona Bengsch.
+
+I greatly appreciate all my friends for their kind help on
+numerous occasions, in particular, Jareerat Samran, Pakavedee
+Sukanan and all others. Finally, I express my sincere gratitude to
+my family for their encouragement and support throughout my course
+of study.
+}
+
+\abstract{
+Dynamical properties of rigidly rotating spiral waves under
+feedback control are studied experimentally in the light-sensitive
+Belousov-Zhabotinsky reaction. After characterizing the influence
+of illumination on various spiral parameters, the behaviour of the
+spiral waves under both local and global feedback control is
+investigated.
+In local feedback, short light pulses are applied at the same time as,
+or at a fixed time interval after, the passage of a wave front through a
+preselected measuring point. It is shown that this type of feedback
+results in a drift of the spiral wave core along a discrete set of
+stable circular orbits centred at the measuring point.
+
+When the time delay in the feedback loop exceeds the rotation
+period of the spiral, the stability of the resonance attractor
+gets lost and pronounced deviations of the core trajectories from
+circular orbits are observed. In a theory that reduces the spiral
+wave dynamics to a higher order iterative map, these deviations
+are explained to be a result of instabilities appearing due to the
+Neimark bifurcation of the map.
+
+Finally, global aspects were incorporated into the feedback signal
+by choosing spatially extended control domains, where the
+intensity of the illumination is taken to be proportional to the
+average wave activity observed within a circular domain of the
+reaction layer. Stabilization and destabilization of spiral waves,
+as well as the existence of new types of attractors are
+demonstrated.
+}
+
+\thaiabstract{
+����Ԩ�¹���繡���֡�����ѵԷҧ����ʵ��ͧ������ (spiral
+waves) ������äǺ���Ẻ��͹��Ѻ (feedback
+control) 㹻�ԡ�������٫Ϳ��⺷Թʡ� (Belousov-Zhabotinsky
+reaction) ������ʧ
+����������¡�õ�Ǩ�ͺ�Է�ԾŢͧ�ʧ����յ�ͤҺ�ͧ�����ع
+������Ǥ��� �������Ǣͧ˹�Ҥ��� ��������鹼�ҹ�ٹ���ҧ�ͧ᡹�ͧ������ (spiral wave
+core) ��ѧ�ҡ�����ӡ���֡����������´�ͧ�ç���ҧ�ͧ���ṹ���͵�á����
+(resonance attractor) ��äǺ��������蹷����¡�é���ʧ�繪�ǧ����
+(light pulse) 㹢�з���������͹����ҹ�ش������¡��Ҩش�Ѵ (measuring point)
+����˹���� �����ʹ��¤���˹�ǧ���� (time delay) �������˹�� 
+��äǺ���Ẻ��͹��Ѻ��������ա������͹ (drift) �ͧ᡹�ͧ������ (spiral
+wave core) ��ǧ⤨� (orbit) ���������շ���ҧ�ѹ�繪ش�
+�������¹��ҵ���âͧ��äǺ���Ẻ��͹��Ѻ�觼�����Դ��â���
+(transition) �����ҧǧ⤨� �ѧ��鹨֧�������äǺ����������͹ (drift) �ͧ᡹�ͧ������ (spiral
+wave core) Ẻ����� (snail-shaped) ��������������ҧ�ش�Ѵ (measuring point)
+���᡹�ͧ������ (spiral wave core) �����������������ӴѺ
+
+����֡�ҡ�äǺ�����͹��ѺẺ��ͺ���� (global
+feedback) ����ѭ�ҳ�ͧ��äǺ�����鹤ӹǳ�Ҩҡ��鹷���ٻǧ����ͧ��ԡ�����
+�ʴ������繶֧������ʶ����Ҿ��С������ʶ����Ҿ�ͧ������
+�����駡�����͵�á���� (attractor) ��Դ�����Դ���
+�š�÷��ͧ����ѧࡵ������ö͸Ժ������¤�͸Ժ�·ҧ��Ե��ʵ����Ѳ�Ң��
+}
+
+\linespacing{1.2}
+\tableofcontents
+%\listoftables
+\listoffigures
+
+
+\linespacing{1.77}
+
+\chapter{test}
+
+As shown in Ref.~\cite{APR06,MP99,ZK74}, nonlinear waves are interesting.
+
+
+\chapter[Very long chapter title]
+{A very long chapter title that will not fit in the
+  space available for the page heading}
+\chapter{test}
+\chapter{A title with a chemical symbol: \NoCaseChange{NaMnO$_4$}}
+\bfig
+\vspace{2cm}
+\caption{hjk}
+\efig
+\chapter{test}
+\section{test}
+\bfig
+\vspace{2cm}
+\caption{hjk}
+\efig
+\chapter{test}
+\bfig
+\vspace{2cm}
+\caption{hjk}
+\efig
+\chapter{test}
+\bfig
+\vspace{2cm}
+\caption{hjk}
+\efig
+\chapter{test}
+\bfig
+\vspace{2cm}
+\caption{hjk}
+\efig
+\chapter{test}
+\bfig
+\vspace{2cm}
+\caption{hjk}
+\efig
+\chapter{test}
+\bfig
+\vspace{2cm}
+\caption{hjk}
+\efig
+\chapter{test}
+\bfig
+\vspace{2cm}
+\caption{hjk}
+\efig
+\chapter{test}
+\bfig
+\vspace{2cm}
+\caption{hjk}
+\efig
+\chapter{test}
+\bfig
+\vspace{2cm}
+\caption{hjk}
+\efig
+\chapter{test}
+\bfig
+\vspace{2cm}
+\caption{hjk}
+\efig
+\chapter{test}
+\bfig
+\vspace{2cm}
+\caption{hjk}
+\efig
+\chapter{test}
+\bfig
+\vspace{2cm}
+\caption{hjk}
+\efig
+\chapter{final test}
+\bfig
+\vspace{2cm}
+\caption{hjk}
+\efig
+\newpage\mbox{}
+\bfig
+\vspace{2cm}
+\caption{hjk}
+\efig
+\newpage\mbox{}
+\bfig
+\vspace{2cm}
+\caption{hjk}
+\efig
+\newpage\mbox{}
+\chapter{test}
+\bfig
+\vspace{2cm}
+\caption{hjk}
+\efig
+\noindent
+fdhasjk
+%\input{introduction}
+\appendix
+%\appendices
+\chapter{Meuk}
+%\chapter{Meuk2}
+Consider the well-known equation
+\begin{equation}
+E=mc^2.
+\end{equation}
+%\chapter{Taeng}
+%\input{references_template} % if you are not using bibtex
+\bibliography{abbrev,fc,solitons,books} % for bibtex (recommended!!!)
+\biography
+\end{document}

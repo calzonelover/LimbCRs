@@ -1,0 +1,12 @@
+#!/bin/bash
+
+# thai platac
+
+if [ -x cttex ]
+then ./cttex < $1.tex > $1.ttex 
+else cttex < $1.tex > $1.ttex
+fi
+pdflatex $1.ttex
+rm -f $1.ttex
+acroread `basename $1`.pdf
+

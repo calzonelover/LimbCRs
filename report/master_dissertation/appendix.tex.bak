@@ -1,0 +1,319 @@
+\appendices
+
+\chapter{Count map transformation}{\label{countmapcode}}
+
+We transform the positions of arriving photons into the geographical coordinate system (latitude and longtitude). The parameters used in transformation represent in following Figure. The R represents radius of Earth. The $h_{s}$ and $h_{p}$ denote the height of $\textit{Fermi}$ and peak $\gamma$-ray emission respectively.
+
+\begin{figure}[h]
+    \centering
+    %\includegraphics[width=0.7\textwidth]{viewabove1}
+    \includegraphics[width=0.45\textwidth]{Parameters.eps}
+    \caption{Side view of obervation}
+    \label{fig:mesh1}
+\end{figure}
+
+
+\noindent \textbf{Strategy} ::  
+\begin{itemize}
+\item{First use ``primed" spherical coordinates with pole toward \textit{Fermi}, relate angles of $\gamma$ incidence to coordinates of $\gamma$ emission}
+\item{ Then rotate to ``starred" spherical coordinates with pole to North pole and \textit{Fermi} at longitude 180$^{\circ}$ and desired lattitude ($\varphi$) }
+\item{Then rotate \textit{Fermi} to desired longitude ($\lambda$), final coordinates of $\gamma$ emission}
+\end{itemize}
+
+\newpage
+
+\noindent \begin{enumerate}[label=\arabic*)]
+\item\textbf{View system of  \textit{Fermi} over pole of ``primed coordinate"}
+
+\noindent Starting with right triangle, 
+\begin{eqnarray}
+x^{2} + z^{2} & = & R'^{2} 
+\end{eqnarray}
+\noindent where,
+\begin{eqnarray}
+x  & =  & (R'+h'-z)\tan \mathrm{\Theta_{\rm Nad}} \nonumber \\ \nonumber
+z  & = & R'+h'-x\cot \mathrm{\Theta_{\rm Nad}} 
+\end{eqnarray}
+\noindent So that,
+\begin{eqnarray}
+x^{2} +(R'+h')^{2} -2x(R'+h') \cot \mathrm{\Theta_{\rm Nad}} +x^{2} \cot ^{2}\mathrm{\Theta_{\rm Nad}} & = & R'^{2}  \nonumber \\
+(1+\cot ^{2}\mathrm{\Theta_{\rm Nad}}) x^{2} -2x(R'+h') \cot \mathrm{\Theta_{\rm Nad}} + (R' + h')^{2} - R'^{2} & = & 0  \nonumber \\
+x^{2} \csc^{2}\mathrm{\Theta_{\rm Nad}} - 2x(R'+h')\cot \mathrm{\Theta_{\rm Nad}} + (2h'R' +h'^{2}) & = & 0 \nonumber \\
+x^{2} - 2x(R'+h')\sin \mathrm{\Theta_{\rm Nad}} \cos \mathrm{\Theta_{\rm Nad}} + (2h'R'+h'^{2})\sin^{2}\mathrm{\Theta_{\rm Nad}} & = & 0 
+\end{eqnarray}
+\noindent Solving quadratic equations,
+\begin{eqnarray}
+x & = & \frac{1}{2}\Big[2(R'+h')\sin \mathrm{\Theta_{\rm Nad}} \cos \mathrm{\Theta_{\rm Nad}}  \nonumber \\
+&  & \pm \sqrt{4(R'+h')^{2}\sin^{2}\mathrm{\Theta_{\rm Nad}} \cos^{2}\mathrm{\Theta_{\rm Nad}} -4(2h'R'+h'^{2}\sin^{2}\mathrm{\Theta_{\rm Nad}})}\Big] \nonumber 
+\end{eqnarray}
+\noindent We want first intersection of incidence, so use ``-" sign
+\begin{eqnarray}
+x & = & (R'+h')\sin \mathrm{\Theta_{\rm Nad}} \cos\mathrm{\Theta_{\rm Nad}} - \sin \mathrm{\Theta_{\rm Nad}} \sqrt{(R'+h')^{2} \cos^{2}\mathrm{\Theta_{\rm Nad}} -2h'R'-h'^{2})}\nonumber
+\end{eqnarray}
+\noindent Thus,
+\begin{eqnarray}
+\sin \theta' & =& \frac{x}{R'} \nonumber \\
+\sin \theta' & = & \sin\mathrm{\Theta_{\rm Nad}} \bigg[\Big(1+\frac{h'}{R'}\Big)\cos\mathrm{\Theta_{\rm Nad}} - \sqrt{\Big(1+\frac{h'}{R'}\Big)^{2}\cos^{2}\mathrm{\Theta_{\rm Nad}} -2\frac{h'}{R'}-\Big(\frac{h'}{R'}\Big)^{2}}\bigg] \nonumber
+\end{eqnarray}
+
+\item\textbf{In primed coordinates (with pole toward \textit{Fermi})}
+
+\noindent \textit{Fermi} :: $x'_{F} = y'_{F} =0$,  $z'_{F}=R+h_{s}$ \\
+$\gamma$-ray emission point :: $x'=R'\sin\theta' \cos\phi$, $y'=R'\sin\theta' \sin \phi$,  $z' = R'\cos\theta'$ \\  
+
+\indent We will now rotate to stared coordinates, in which \textit{Fermi} is at latitude $\varphi$ (desired latitude) and longitude 180$^{\circ}$. \\
+\indent The reason for longitude 180$^{\circ}$  is so that azimuth $\phi$ corresponds to arrival from N.
+\begin{eqnarray}
+x^{*} & = & \cos \Theta x'-\sin \Theta z' \nonumber \\
+y^{*} & = & y' \nonumber \\
+z^{*} & = & \sin \Theta x' + \cos \Theta z' \nonumber 
+\end{eqnarray}
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.8\textwidth]{prime}
+    \caption{Side view ($z^{*}$ is  North pole)}
+    \label{fig:mesh1}
+\end{figure}
+\begin{eqnarray}
+x^{*} & = & \sin \varphi x'-\cos \varphi z' \nonumber \\
+y^{*} & = & y' \nonumber \\
+z^{*} & = & \cos \varphi x' + \sin \varphi z' \nonumber 
+\end{eqnarray}
+\noindent \textbf{Check :: } Where does \textit{Fermi} move to?
+\begin{eqnarray}
+x^{*} & = &  (R+h_{s})\cos \varphi \nonumber \\
+y^{*} & = & 0 \nonumber \\
+z^{*} & = & (R+h_{s}) \sin \varphi  \nonumber 
+\end{eqnarray}
+\noindent $\gamma$-ray emission point :: 
+\begin{eqnarray}
+x^{*} & = & R'(\sin \theta' \cos \phi \sin \varphi - \cos \theta' \cos \varphi ) \nonumber \\
+y^{*} & = & R'(\sin \theta' \sin \phi) \nonumber \\
+z^{*} & = & R'(\sin \theta' \cos \phi \cos \varphi + \cos \theta' \sin \varphi) \nonumber  \\
+x^{*2} + y^{*2} + z^{*2} & = & R'^{2} \nonumber
+\end{eqnarray}
+
+
+\item\textbf{Our desired coordinates::}
+Rotate so that \textit{Fermi} move from $-x^{*}_{F}$ direction to longitude $\lambda$ (E of primed meridian) $+x$
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.6\textwidth]{desired}
+    \caption{View from North}
+    \label{fig:mesh1}
+\end{figure}
+\begin{eqnarray}
+x & = & -\cos \lambda x^{*} + \sin \lambda y^{*} \nonumber \\
+y & = & - \sin \lambda x^{*} - \cos \lambda y^{*} \nonumber \\
+z & = & z^{*} \nonumber 
+\end{eqnarray}
+\textbf{Check :: } Where does \textit{Fermi} move to?
+\begin{eqnarray}
+x_{F} & = & (R+h_{s})\cos \varphi \cos \lambda \nonumber \\
+y_{F} & = & (R+h_{s})\cos \varphi \sin \lambda  \nonumber \\
+z_{F} & = & (R+h_{s}) \sin \varphi  \nonumber 
+\end{eqnarray}
+\noindent $\gamma$-ray emission point :: 
+\begin{eqnarray}
+x & = & R'(- \sin \theta' \cos \phi \sin \varphi \cos \lambda + \sin \theta' \sin \phi \sin \lambda + \cos \theta' \cos \varphi \cos \lambda ) \nonumber \\
+y & = & R'(- \sin \theta' \cos \phi \sin \varphi \sin \lambda - \sin \theta' \sin \phi \cos \lambda + \cos \theta' \cos \varphi \sin \lambda ) \nonumber \\
+z & = & R'( \sin \theta' \cos \phi \cos \varphi + \cos \theta' \sin \varphi) \nonumber \\
+x^{2}+y^{2}+z^{2} & = & R'^{2}\big({[(-\sin \theta' \cos \phi \sin \varphi + \cos\theta' \cos \varphi)^{2} + (\sin\theta' \sin\phi)^{2}] \cos^{2}\lambda} \nonumber \\
+&  & + [\sin^{2} \theta' \sin^{2} \phi + (-\sin \theta' \cos \phi \sin \varphi + \cos \theta' \cos \varphi)^{2}]\sin^{2} \lambda \nonumber \\
+& & + (\sin \theta' \cos \phi \cos \varphi + \cos \theta' \sin \varphi)^{2}\big) \nonumber \\
+& = & R'^{2}[(-\sin \theta' \cos \phi \sin \varphi + \cos \theta' \cos \varphi)^{2} + \sin^{2} \theta' \sin^{2} \phi \nonumber \\
+&  & + (\sin \theta' \cos \phi \cos \varphi + \cos \theta' \sin \varphi)^{2}] \nonumber \\
+& = & R'^{2}[\sin^{2}\theta' \cos^{2} \phi \sin^{2} \varphi -2\sin \theta' \cos \theta' \cos \phi \sin \varphi \cos \varphi + \cos^{2}\theta' \cos^{2}\varphi \nonumber \\
+& & + \sin^{2}\theta' \sin^{2}\phi + \sin^{2}\theta' \cos^{2} \phi \cos^{2} \varphi +2\sin \theta' \cos \theta' \cos \phi \sin \varphi \cos \varphi \nonumber \\
+& & + \cos^{2}\theta' \sin^{2}\varphi ] \nonumber  \\
+& =&  R'^{2}[\sin^{2}\theta' \cos^{2} \phi (\sin^{2} \varphi+\cos^{2}\varphi) + \sin^{2}\theta' \sin^{2}\phi +\cos^{2}\theta' (\cos^{2}\varphi+\sin^{2}\varphi) ]\nonumber  \\
+& = &  R'^{2}[\sin^{2}\theta' ( \cos^{2} \phi + \sin^{2}\phi )+\cos^{2}\theta' ] \nonumber  \\
+& =& R'^{2} \nonumber 
+\end{eqnarray}
+\noindent If $\theta' = 0 $, $\gamma$ from nadir should get \textit{Fermi} location that at Radius $R'$, 
+\begin{eqnarray}
+x & = & R'(\cos \varphi \cos \lambda) \nonumber \\
+y & = & R'(\cos \varphi \sin \lambda) \nonumber \\
+z & = & R' \sin \varphi \nonumber \\
+x^{2}+y^{2}+z^{2} & = & R'^{2}[\cos^{2} \varphi (\cos^{2}\lambda + \sin^{2}\lambda) + \sin^{2} \varphi ]  \nonumber \\
+& = & R'^{2} \nonumber 
+\end{eqnarray}
+
+\newpage
+
+\noindent \textbf{So that, Lattitude and Longitude of $\gamma$ emission ($\varphi_{\gamma}$ , $\lambda_{\gamma}$)}
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.6\textwidth]{LatLon}
+    \caption{Latitude and Longitude of $\gamma$ emission}
+    \label{fig:mesh1}
+\end{figure}
+
+\begin{eqnarray}
+\sin \varphi_{\gamma} & = & \sin \theta' \cos\phi \cos \varphi + \cos \theta' \sin \varphi \\
+\cos \varphi_{\gamma} \cos \lambda_{\gamma} & = & - \sin \theta' \cos \phi \sin \varphi \cos \lambda + \sin \theta' \sin \phi \sin \lambda + \cos \theta' \cos \varphi \cos \lambda \\
+\cos \varphi_{\gamma} \sin \lambda_{\gamma} & = & - \sin \theta' \cos \phi \sin \varphi \sin \lambda - \sin \theta' \sin \phi \cos \lambda + \cos \theta' \cos \varphi \sin \lambda 
+\end{eqnarray}
+
+\end{enumerate}
+
+
+\chapter{Exposure map transformation}{\label{exposuremapcode}}
+
+
+\indent The exposure map is computed by integrating the effective area-live time-solid angle product (Eq.\ref{eq4}) over the same Earth-centric coordinate grid as the counts map, taking into account the changing orientation of the LAT and the corrections for rate-dependent inefficiency.  The latter takes into account the loss of effective area in regions of the {\it Fermi} orbit where the rate of charged-particle background interaction with the LAT is high. 
+
+\begin{eqnarray}
+\textnormal{Exposure} =   \textnormal{Aeff}(E,\theta,\phi)\cdot\textnormal{live time}\cdot\textnormal{solid angle} \label{eq4}
+\end{eqnarray}
+where\\
+\indent $E$ is energy for different incoming photons in unit MeV \\
+\indent $\theta$ is the angle between a pixel (in the geographical coordinate) relative to the LAT's boresight (+Z axis of spacecraft) as shown in Figure \ref{fig:LAT}  \\
+\indent $\phi$ is the angle between a pixel (in the geographical coordinate) relative to the +X axis of spacecraft as shown in Figure \ref{fig:LAT}  \\
+\indent live time is the time that the LAT observed a given position
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.45\textwidth]{LAT}
+    \caption{Red arrow on the LAT represented a vector originate at (0,0,0) of ($x',y',z'$) points toward interested pixel in the geographical coordinate. }
+    \label{fig:LAT}
+\end{figure}
+
+\begin{itemize}
+\item\textbf{Evaluate $\theta$ and $\phi$ angle}
+\end{itemize}
+
+Here, Eq.\ref{eq5} -- \ref{eq9} are used to evaluate exposure map as defined in Eq.\ref{eq4}. First of all, rotated and translated vector that represented of two different coordinate systems are necessary. Note that $z$ and $z'$ axes direct to the same point all the time. The transformed equations can be written as
+
+\[
+\begin{bmatrix}
+    x'    \\
+    y'    \\
+    z'    \\
+\end{bmatrix}
+=
+\begin{bmatrix}
+    \textnormal{cos}\alpha & -\textnormal{sin}\alpha & 0\\
+    \textnormal{sin}\alpha & \textnormal{cos}\alpha  & 0\\
+    0 & 0 & 1 \\
+\end{bmatrix}
+\begin{bmatrix}
+    x  \\
+    y  \\
+    z  \\ 
+\end{bmatrix}
++
+\begin{bmatrix}
+    \Delta x  \\
+    \Delta y  \\
+    \Delta z  \\ 
+\end{bmatrix}
+\]  \\
+
+\begin{equation}
+\vec{V'} = \begin{cases}
+x'  =   x \cos \alpha - y \sin \alpha + \Delta x \\ \label{eq5}
+y'  =   x \sin \alpha - y \cos \alpha + \Delta y \\
+z'  =   z + \Delta z 
+\end{cases}
+\end{equation}
+
+\noindent where\\
+\indent $\alpha$ is rotated angle as shown in Figure  \ref{fig:Coordinate}  \\
+\indent $x$ is a direction pointing to intersection point between prime meridian plane and equatorial plane \\ 
+\indent $y$ is a orthogonal plane pointing to a direction of cross product between $x$ and $z$ planes using right-hand rule \\
+\indent $z$ is a direction toward the north polar axis \\
+\indent $x'$ is +X axis of spacecraft frame \\
+\indent $y'$ is +Y axis of spacecraft frame \\
+\indent $z'$ is +Z axis of spacecraft frame \\
+\indent $\Delta x$ is an altitude in x axis measured from Earth's surface to position of spacecraft at given time step \\
+\indent $\Delta y$ is an altitude in y axis measured from Earth's surface to position of spacecraft at given time step \\
+\indent $\Delta z$ is an altitude in z axis measured from Earth's surface to position of spacecraft at given time step\\
+
+\noindent Find $\textnormal{cos}\alpha$ and $\textnormal{sin}\alpha$ from equation (1) and (2) 
+\begin{eqnarray}
+ x' - \Delta x & = & x \textnormal{cos}\alpha - y \textnormal{sin}\alpha \nonumber  \\
+ y' - \Delta y & = & x \textnormal{sin}\alpha + y \textnormal{cos}\alpha  \nonumber  \\
+(1)\times x ;  (x' - \Delta x)x & = & x^{2} \textnormal{cos}\alpha - xy \textnormal{sin}\alpha \\
+ (2)\times y;  (y' - \Delta y)y & = & xy \textnormal{sin}\alpha + y^{2} \textnormal{cos}\alpha \\
+ \textnormal{cos}\alpha & = & \frac{[(x' -  \Delta x)x + (y' - \Delta y )y]}{(x^{2} + y^{2})} \\
+ (1)\times y ; (x' - \Delta x)y & = & xy\textnormal{cos}\alpha - y^{2}\textnormal{sin}\alpha \\
+ (2)\times y ;(y' - \Delta y)x & = & x^{2}\textnormal{sin}\alpha + xy\textnormal{cos}\alpha \\
+ \textnormal{sin}\alpha & = & \frac{[(y' -  \Delta y)x + (x' - \Delta y )x]}{(x^{2} + y^{2})} 
+\end{eqnarray}
+
+
+
+%\begin{figure}
+%\begin{subfigure}[b]{.45\textwidth}
+ % \includegraphics[width=\linewidth]{Observation}
+  %  \centering
+   % \caption{}
+  %\label{fig:Observation}
+%\end{subfigure}%
+%\begin{subfigure}[b]{0.45\textwidth}
+  %\includegraphics[width=\linewidth]{Coordinate}
+    %\centering
+    %\caption{}
+  %\label{fig:Coordinate}
+%\end{subfigure}
+%\caption{(a) Simple drawing of $\it{Fermi}$ observation displayed two different orthogonal frames, the Earth-centric coordinate and $\it{Femi}$ coordinate. The $x,y,z$ are three components of vector for former system and latter is represented in $x',y',z'$. (b) Two different coordinate systems with rotated angle ($\alpha$).}
+%\end{figure}
+
+In each time step during observation, the $z'$-axis and $x'$-axis of spacecraft are expressed as (RAZ, DEZ) and (RAX, DEX) respectively. A projection of this vector can be written as  
+
+\begin{equation}
+\vec{V_{z}} = \begin{cases}
+x_{z}  =  \cos(\textnormal{DEZ})\cos(\textnormal{RAX})  \\
+y_{z}  =  \cos(\textnormal{DEZ})\sin(\textnormal{RAX})  \\
+z_{z}  =  \sin(\textnormal{DEZ}) 
+\end{cases}
+\end{equation}
+
+\noindent where\\
+\indent\indent $\textnormal{DEZ}$ is the declination of $z'$ axis at given time step\\ 
+\indent\indent $\textnormal{RAZ}$ is the right ascension of $z'$ axis at given time step \\
+\noindent and,
+
+\begin{equation}
+\vec{V_{x}} = \begin{cases}
+x_{x}  =  \cos(\textnormal{DEX})\cos(\textnormal{RAX})  \\
+y_{x}  =  \cos(\textnormal{DEX})\sin(\textnormal{RAX})  \\
+z_{x}  =  \sin(\textnormal{DEX}) 
+\end{cases}
+\end{equation}
+\noindent where\\
+\indent\indent $\textnormal{DEX}$ is the declination of $x'$ axis at given time step \\ 
+\indent\indent $\textnormal{RAX}$ is the right ascension of $x'$ axis at given time step \\
+
+So, the $\vec{V_{y}}$ is product of cross product of two vectors ($\vec{V_{z}}$ $\times$ $\vec{V_{x}}$) which is given by the formular,
+\begin{displaymath}
+ \vec{V_{z}} \times \vec{V_{x}}=
+\Bigg| \begin{array}{ccc}
+\hat{i} & \hat{j} & \hat{k} \\
+x_{z} & y_{z} & z_{z} \\
+x_{x} & y_{x} & z_{x} \\
+\end{array} \Bigg|
+\end{displaymath} \\
+\noindent Then, 
+\begin{equation}
+\vec{V_{y}} = \begin{cases}
+x_{y}  =  y_{z}z_{x} - y_{x}z_{z} \\
+y_{y}  =  x_{x}z_{z} - x_{z}z_{x} \\
+z_{y}  =  x_{z}y_{x} - x_{x}y_{z} 
+\end{cases}
+\end{equation}
+
+Therefore, the $\theta$ and $\phi$ are expressed below :
+\begin{eqnarray}
+\theta & = & \cos^{-1} \Big( \frac{A_{x}}{A_{t}} \Big)  \\
+\phi & = & \tan^{-1} \Big( \frac{A_{y}}{A_{x}} \Big)   \label{eq9}
+\end{eqnarray}
+\noindent where\\
+\indent\indent $A_{x}$ is product of $\vec{V'} \cdot \vec{V_{x}}$ \\ 
+\indent\indent $A_{y}$ is product of $\vec{V'} \cdot \vec{V_{y}}$ ($\vec{V_{y}}$ = $\vec{V_{z}} \times \vec{V_{x}}$)\\
+\indent\indent $A_{z}$ is product of $\vec{V'} \cdot \vec{V_{z}}$ \\ 
+\indent\indent $A_{t}$ = $\sqrt{A_{x}^{2}+A_{y}^{2}+A_{z}^{2}}$  \\
+
+

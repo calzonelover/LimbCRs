@@ -1,0 +1,55 @@
+This is BibTeX, Version 0.99d (TeX Live 2019/Debian)
+Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
+The top-level auxiliary file: Thesis.aux
+The style file: unsrtnat.bst
+Database file #1: Bibliography.bib
+Warning--entry type for "FermiStructure" isn't style-file defined
+--line 190 of file Bibliography.bib
+Warning--entry type for "XCOMNIST" isn't style-file defined
+--line 298 of file Bibliography.bib
+Warning--empty booktitle in HESS
+Warning--empty year in FermiStructure
+Warning--empty booktitle in Atwood:2013rka
+Warning--empty year in XCOMNIST
+You've used 19 entries,
+            2481 wiz_defined-function locations,
+            707 strings with 22064 characters,
+and the built_in function-call counts, 33422 in all, are:
+= -- 614
+> -- 6400
+< -- 12
++ -- 2159
+- -- 2120
+* -- 4619
+:= -- 7228
+add.period$ -- 82
+call.type$ -- 19
+change.case$ -- 37
+chr.to.int$ -- 18
+cite$ -- 24
+duplicate$ -- 355
+empty$ -- 664
+format.name$ -- 2147
+if$ -- 5550
+int.to.chr$ -- 2
+int.to.str$ -- 20
+missing$ -- 18
+newline$ -- 128
+num.names$ -- 54
+pop$ -- 144
+preamble$ -- 1
+purify$ -- 19
+quote$ -- 0
+skip$ -- 193
+stack$ -- 0
+substring$ -- 264
+swap$ -- 48
+text.length$ -- 0
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 130
+warning$ -- 4
+while$ -- 53
+width$ -- 0
+write$ -- 296
+(There were 6 warnings)

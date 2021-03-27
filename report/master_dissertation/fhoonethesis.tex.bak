@@ -1,0 +1,307 @@
+\documentclass[natbib]{muthesis_tawat_alex}
+
+
+
+% if you are not using the author-year ref system remove [natbib]
+% from the above line
+% IMPORTANT!!! -- DO NOT USE THIS FILE FOR YOUR THESIS --
+% INSTEAD make a COPY of it and call it something like mythesis.tex
+% i.e. cp -i muthesis_temlate.tex mythesis.tex
+\usepackage{cite}
+\usepackage{lscape}
+%\draft
+% in draft mode there is one title page (title, candidate, abstract)
+% no tables of contents, etc or
+%\notitlepage  % (only works in draft mode)
+% put your own newcommands and calls to packages here
+\usepackage{graphicx} % for input of graphics files
+\usepackage{amsmath,amssymb} % for improved equation formating and symbols
+\usepackage{subfig} %for figures
+\usepackage{booktabs}
+%\usepackage{rotating}
+%\usepackage[table]{xcolor}
+\usepackage{longtable}
+\usepackage{pdflscape}
+\usepackage{graphicx}
+%\usepackage{caption}
+
+%\usepackage{psfrag}
+
+
+%\setcounter{totalnumber}{9}
+%\setlength{\floatsep}{1cm}
+%\setcounter{secnumdepth}{4} \setcounter{tocdepth}{4}
+%\renewcommand{\arraystretch}{1.5}
+%\renewcommand{\the\frac{footnote}{}}{\dag}
+\usepackage{url}
+%\input{macrosMAA}
+%\bibliographystyle{uwthesis} % if you are using bibtex
+
+\bibliographystyle{muthesis}
+
+%\bibstyle{uwthesis}
+\bibpunct{(}{)}{;}{a}{}{,}
+
+
+% information for front page
+
+\title{Analysis of Data from a Calibration Neutron Monitor at Doi Inthanon and a Ship-Borne Neutron Monitor}
+\candidate{Waraporn Nuntiyakul} \degree{PhD} \subject{Physics}
+\submissionyear{2014}
+%\isbn{974-04-0357-3}
+% information for page i(advisors)
+
+\candidatetitle{Ms.\ } \majoradvisor{David Ruffolo}
+\majoradvisortitle{Prof.\ } \majoradvisorletters{Ph.D.}
+\majoradvisorsubject{Physics} \coadvisor{Alejandro S\'aiz}
+%\coadvisor{Alan Partridge}
+\coadvisortitle{Lect.\ } \coadvisorletters{Ph.D.}
+\coadvisorsubject{Physics} \coadvisorstatus{Co-advisor}
+\coadvisorII{Kittiwit Matan} \coadvisorIItitle{Asst.\ Prof.\ }
+\coadvisorIIletters{Ph.D.} \coadvisorIIsubject{Physics}
+%\coadvisorIII{Austin D. Flowers}
+%\coadvisorIIItitle{Prof.\ }
+
+
+%\coadvisorIIIletters{M.Sc.}
+%\coadvisorIIIsubject{Nanophysics}
+%\graduatestudiesdean{Prof.\ Liangchai Limlomwongse, Ph.D.}
+%\GSDqual{Ph.D.}
+%\GSDstatus{Acting}
+\programchair{Assoc.\ Prof.\ Weerachai Siripunvaraporn}
+\programchairqual{Ph.D. (Geophysics)} \faculty{Science}
+
+% information for page ii (exam committee)
+
+\submissiondate{September 12, 2014} \chair{Asst.\ Prof.\ Thiranee
+Khumlumlert} \chairqual{Ph.D. (Physics)} \memberIII{Asst.\ Prof.\
+Kittiwit Matan} \memberIIIqual{Ph.D. (Physics)}
+%\memberIV{Ahpisit Ungkitchanukit}
+%\memberIVqual{Ph.D. (Chemical Physics and Physical Chemistry)}
+\facultydean{Prof.~Skorn Mongkolsuk} \FDqual{Ph.D. (Biological
+Science)}
+%\FDstatus{Acting}
+% information for page iv (ABSTRACT)
+
+\candidatenumber{5238713 SCPY/D}
+%\longsubject
+%\keywords{calibration neutron monitor / neutron cloud}
+%\keywords{calibration neutron monitor / neutron cloud}
+%\keywordsII{neutron monitors / Galactic cosmic ray spectrum}
+\keywords{neutron monitors / crossover / modulation /}
+%\keywordsIII{geomagnetic cutoff rigidity / latitude survey}
+\keywordsII{Galactic cosmic ray spectrum / latitude survey }
+
+%\keywordsIII{MHD /current sheets}
+
+% information for page v (THAI ABSTRACT)
+%\thaisubject{} \thaicandidate{} \thaititle{}
+%\thaititle{æ≈»“ µ√Ï¢Õß¢¥§≈◊Ëπ¿“¬„µÈ°“√§«∫§ÿ¡·∫∫¬ÈÕπ°≈—∫„πªØ‘°‘√‘¬“‡∫≈Ÿ´Õø®“‚∫∑‘ß °’∑’Ë‰«· ß}
+%\thaimajoradvisor{} \thaicoadvisor{} \thaicoadvisorII{}
+%\thaicoadvisorIII{}
+
+% information for Biography
+
+\dateofbirth{13 August 1981}
+\placeofbirth{Bangkok, Thailand}
+\firstdegree{Bachelor of Science}
+%\longfirstdegree
+\firstdegreemajor{Physics} \firstdegreeinstitution{Silpakorn
+University} \firstdegreeyears{1999--2002}
+\preinstitutionII{Kasetsart University, 2003--2006}
+\preinstitutionIILnII{Master of Science (Physics)}
+\years{2009--Present} \scholarship{The Royal Golden Jubilee Ph.D.
+Program} \researchgrants{Research assistant, Thailand Center }
+\researchgrantsLnII{of Excellence in Physics}
+%\postinstitution{Mahidol University}
+%\postinstitutionLnII{Magdeburg, Germany, 1998--2001}
+%\scholarship{Development and Promotion of Science and }
+%\scholarshipLnII{Technology Talents Project (DPST),}
+%\scholarshipLnIII{Thailand, 2002--2008}
+%\scholarshipII{Deutscher Akademischer Austauschdienst}
+%\scholarshipIILnII{(DAAD), Germany, 1998--2000}
+%\scholarshipIII{Postgraduate Education and Research Program}
+%\scholarshipIIILnII{in Chemistry, 2000--2001}
+\position{Lecturer, 2006--Present} \workplace{Physics Program,
+Faculty of Science, } \workplaceLnII{Chandrakasem Rajabhat
+University} \homeaddress{588/37 Ladprow-Wanghin Rd., Ladprow}
+\publication{Nuntiyakul, W., Evenson, P., Ruffolo, D., et al.}
+\publicationLnII{2014, \textit{Astrophys. J}, in press.}
+\homeaddressLnII{Bangkok 10230 Thailand} \homeaddressLnIII{E-mail:
+w.nuntiyakul@gmail.com} \award{Outstanding Oral Presentation Award,}
+\awardLnII{from RGJ-Ph.D. Congress XV} \awardII{The 2$^{nd}$ Poster
+Presentation Award,} \awardIILnII {from the first COSPAR Symposium}
+%\email{w.nuntiyakul@gmail.com}
+
+
+\begin{document}
+
+
+\maketitle \acknowledgements{\linespacing{1.4}First of all, I would
+like to express my sincere appreciation and gratitude to my advisor
+Professor Dr.\ David Ruffolo. You have been a tremendous mentor for
+me. I would like to thank you for encouraging my research and for
+allowing me to grow as a research physicist. During my graduate
+study, you were always there to provide necessary assistance and
+academic resources. Your advice on both research as well as on my
+career have been priceless. I profusely thank Professor Dr.\ Paul
+Evenson who was my international co-advisor, and a father-like
+figure to me. You were always eager to help, be it a research issue
+or taking care of me when I visited the University of Delaware, USA
+for eight months. I would also like to thank my committee members,
+Dr.\ Alejandro S\'aiz and Dr.\ Kittiwit Matan for taking the time
+serve as my committee members. I also want to thank you for letting
+my progress reports and defense be invaluable moments, and for your
+brilliant comments and suggestions, thanks to you.
+
+I would like to especially thank Dr.\ Achara Seripienlert who is the
+best friend I have ever come across. I admire your positive
+attitude. The best feature of your unique character is being a great
+listener. You were always there to listen and to give me sincere
+advice about anything I hoped for. Much help during the work was
+provided by many people. I would like to thank Mr.\ Wirin Sonsretee,
+Dr.\ Kittipat Malakit, Dr.\ Pierre-Simon Mangeard and Dr.\ Warit
+Mitthumsiri in the Space Physics and Energetic Particles Lab for
+discussions %and suggestions
+about physics knowledge. All of you
+encouraged holding group workshops to promote and encourage learning
+for me.
+
+I would like to thank my wonderful friends, Miss Wanna Wirojdanthai,
+Miss Porntip Terdbaramee and Miss Kanitta Onsiri from Chandrakasem
+Rajabhat University. You are always at my side when I feel tired,
+discouraged and despondent, so thanks to all of you. I would also
+like to thank Asst. Prof. Rawin Chaisittiporn who supported and
+suggested me in programming, and spurred me to strive towards my
+goal.
+
+I would like to thank my family. Words cannot express how grateful I
+am to my mother, my father and two younger brothers for all of the
+sacrifices that you have made on my behalf. Your prayer for me was
+what sustained me thus far.
+
+Finally, I am grateful to the Royal Golden Jubilee fellowship
+PHD/0136/2552, the Thailand Research Fund for supporting my
+funding.}
+
+\abstract{\setlength{\parindent}{2cm} Neutron monitors are large
+ground-based detectors that provide accurate measurements of
+variations in the cosmic ray flux from space. At any given location,
+the magnetic field of the Earth blocks particles below a
+well-defined rigidity (momentum per unit charge) known as the cutoff
+rigidity. By carrying a neutron monitor to different locations, the
+Earth served as a magnet spectrometer. This work explores two topics
+concerning portable neutron monitors. The first topic is to filter
+bad data from a calibration neutron monitor (``calmon'') at Doi
+Inthanon. It was used to calibrate the Princess Sirindhorn Neutron
+Monitor (PSNM), which is particularly important because this has the
+world's highest cutoff rigidity for a fixed station. From the raw
+data, we have extracted the calmon/PSNM count rate ratio as a
+function of the calmon location and environment. Another topic is to
+analyze data from a ship-borne neutron monitor. The Galactic cosmic
+ray spectrum exhibits subtle variations over the 22-year solar
+magnetic cycle in addition to the more dramatic variations over the
+11-year sunspot cycle. By repeating ship-borne latitude surveys with
+identical equipment, a sensitive measurement of changes in the
+spectrum can be made. Here we analyze data from the 1994 through
+2007 series of latitude surveys conducted by the Bartol Research
+Institute, the University of Tasmania, and the Australian Antarctic
+Division. We show that the curious ``crossover'' in spectra measured
+near sunspot minima during epochs of opposite solar magnetic
+polarity is related directly to a sudden change in the behavior of
+solar modulation at the time of the polarity reversal. We suggest
+that the crossover itself results from the interaction of effects
+due to gradient/curvature drifts with a systematic change in the
+interplanetary diffusion coefficient caused by turbulent magnetic
+helicity.}
+
+\thaiabstract{test Thai abstract}
+
+%\thaiabstract{
+%%\linespacing{2} % Make double line spacing for checking English by grad school
+%\setlength{\parindent}{2cm} {
+
+%} }
+
+%\makeatletter
+%
+%\renewcommand{\@dotsep}{1000}  %remove sigdot in contents this method come from http://www.prashblog.com/2008/08/remove-dots-in-table-of-contents-in.html
+%\renewcommand*\l@section{\@dottedtocline{1}{20mm}{7mm}}
+%\renewcommand*\l@subsection{\@dottedtocline{2}{35mm}{9mm}}
+%%\renewcommand*\l@subsubsection{\@dottedtocline{3}{40mm}{11mm}}
+%\makeatother %http://www.latex-community.org/forum/v
+
+
+\linespacing{1.5}
+
+\toccont \lotcont \lofcont  % TOC, LOT, LOF are longer than one page
+
+
+%\linespacing{1.2}
+
+\tableofcontents %
+\listoftables %
+\listoffigures
+
+%\linespacing{1.77}
+
+\input{ch1_intro}
+
+\input{ch2_literature}
+
+\lofcont    % LOF is longer than two pages
+
+%\input{ch_test}
+
+\input{ch3_calmon}
+
+\lofcont  % LOF is longer than three pages (etc)
+
+\input{ch4_latsur}
+
+
+\input{ch5_conclusion}
+
+
+\bibliography{abbrev,mbib,conf} % for bibtex (recommended!!!)
+
+%\input{thebibliography}
+
+
+
+\input{appendices}
+
+
+
+\biography
+
+\end{document}
+
+%\chapter{test}
+%\bfig
+%\vspace{2cm}
+%\caption{hjk}
+%\efig
+%\chapter{test}
+%\bfig
+%\vspace{2cm}
+%\caption{hjk}
+%\efig
+%\chapter{test}
+%\bfig
+%\vspace{2cm}
+
+%\newpage\mbox{}
+%\newpage\mbox{}
+%\noindent
+%\input{introduction}
+
+%\chapter{Meuk2}
+%Consider the well-known equation
+%\begin{equation}
+%E=mc^2.
+%\end{equation}
+%\chapter{Taeng}
+%\input{references_template} % if you are not using bibtex
+
+%\input{references}

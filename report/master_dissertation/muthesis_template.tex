@@ -1,0 +1,208 @@
+\documentclass[natbib]{muthesis}
+%\documentclass{muthesis}
+% if you are not using the author-year ref system remove [natbib] 
+
+% IMPORTANT!!! -- DO NOT USE muthesis_temlate.tex FOR YOUR THESIS --
+% INSTEAD make a COPY of it and call it something like mythesis.tex
+% i.e. cp -i muthesis_temlate.tex mythesis.tex
+
+%\usepackage{cite} % use this if you are not using natbib 
+
+\draft % in draft mode there is one title page (title, candidate, abstract)
+        % no tables of contents, etc or biography
+\notitlepage % (only works in draft mode)
+
+% put your own newcommands and calls to packages here 
+%\usepackage{graphicx} % for input of graphics files
+%\usepackage{amsmath,amssymb} % for improved equation formating and symbols
+%\input{macrosMAA} % file containing some time-saving definitions
+% like \beq instead of \begin{equation}
+
+%\bibliographystyle{uwthesis} % if you are using bibtex
+%\bibpunct{(}{)}{;}{a}{}{,} % use if you are using author-year ref system 
+% if you are using natbib, remember to use an appropriate .bst file
+
+% information for front page
+
+\title{} % title of thesis -- nouns and stressed words should begin
+	 % with a capital
+% if you wish to include chemical formulae in the title or chapter name, you 
+% need to use the \NoCaseChange command as in the following examples:
+% \NoCaseChange{AlGa}$_x$\NoCaseChange{As}$_{1-x}$
+% \NoCaseChange{FeCo$_2$Mo$_{10}$B}
+
+\candidate{} % your name (without title)
+
+%\degree{PhD} % default is MSc
+
+\subject{} % subject area of your thesis 
+
+%\submissionyear{} % default is current year -- but maybe you will
+                  % want to print it out again next year
+
+% uncomment next line if you want to specify the ISBN
+%\isbn{974-04-xxxx-x} % remember to replace the x's when you know the number
+
+% information for page i (advisors)
+
+\candidatetitle{.\ } % Mr.\ Miss.\ or Ms.\ 
+
+% NOTE: to avoid hyphenation in names on the abstract page, try
+% putting the name which is hyphenated inside \mbox{ }
+\majoradvisor{} % name of supervisor (without title)
+% default title is Lect.\
+\majoradvisortitle{} % Dr.~ or Asst.~Prof.~ or Assoc.~Prof.~ or Prof.~  
+\majoradvisorletters{.} % Ph.D. or Dr.rer.nat.
+\majoradvisorsubject{} % subject in which advisor obtained last degree
+
+\coadvisor{} % name of co-advisor
+\coadvisortitle{} % title of co-advisor
+\coadvisorletters{.} % Ph.D. or Dr.rer.nat.
+%\coadvisorstatus{Major advisor} % default is co-advisor but you might want
+				% to classify him/her as a joint major advisor
+\coadvisorsubject{} % subject in which co-advisor obtained last degree
+
+%\coadvisorII{} % in case you have two co-advisors
+%\coadvisorIItitle{}
+%\coadvisorIIletters{.}
+%\coadvisorIIsubject{}
+%\coadvisorIII{} % in case you have three co-advisors
+%\coadvisorIIItitle{}
+%\coadvisorIIIletters{.}
+%\coadvisorIIIsubject{}
+
+\programchair{Prof.~} % chair of your degree program
+\programchairqual{} % qualifications of program chair
+\faculty{Science} 
+
+% default graduate studies dean is Prof.~Banchong Mahisavariya, M.D.
+%\graduatestudiesdean{}
+%\GSDqual{} % this is no longer used
+%\GSDstatus{Acting} % in case the dean is away and you need to put
+		   % `Acting Dean' on the form 
+
+% information for page ii (exam committee)
+
+\submissiondate{  201} % date of submission
+
+\chair{}
+\chairqual{} % qualifications of chair
+%\memberI{} % use this if the major advisor is not present at the exam
+%\memberIqual{ ()} % qualifications of 1st member
+%\memberII{} % use this if the co-advisor is not present at the exam
+%\memberIIqual{ ()} % qualifications of 2nd member
+%\memberIII{} % 3rd member
+%\memberIIIqual{ ()} % qualifications of 3rd member
+%\memberIV{} % 4th member
+%\memberIVqual{ ()} % qualifications of 4th member
+
+
+%\facultydean{}    % default is Prof.~Amaret Bhumiratana
+%\FDqual{}         % default is Ph.D.
+%\FDstatus{Acting} % in case the dean is away and you need to put
+		   % `Acting Dean' on the form 
+
+% information for page iv (ABSTRACT)
+
+\candidatenumber{ SC/}
+%\major{} % major of thesis (not necessary if the same as subject)
+\keywords{ / / } % 1st line of keywords
+%\keywordsII{ /  / } % 2nd line of keywords
+%\keywordsIII{ /  / } % 3rd line of keywords
+
+% information for page v (THAI ABSTRACT)
+
+\thaisubject{} % thai name of degree subject
+\thaititle{} % title of thesis in thai
+\thaicandidate{} % your name in thai
+\thaimajoradvisor{} % Thai name of advisor (if they are Thai)
+\thaicoadvisor{} % Thai name of co-advisor (if they are Thai)
+% you might need to put the individual (first and last) names
+% inside \mbox{} to stop them being split by the word-breaking routine
+
+%\thaicoadvisorII{} % Thai name of 2nd co-advisor (if they are Thai)
+%\thaicoadvisorIII{} % Thai name of 3rd co-advisor (if they are Thai)
+
+% information for Biography
+
+\dateofbirth{ 19} % your date of birth
+\placeofbirth{, Thailand} % province and country of birth
+\firstdegreeinstitution{} % where you did your first degree
+\firstdegreeyears{--} % years for 1st degree
+%\firstdegree{} % default is Bachelor of Science
+\firstdegreemajor{} % first degree major
+%\longfirstdegree % necessary if you want the subject on the next line
+%\preinstitution{} % details of place you went before present degree if
+		  % it wasn't your 1st degree
+%\preinstitutionLnII{} % 2nd line of details
+%\preinstitutionII{} % details of 2nd place you went before present degree
+%\preinstitutionIILnII{} % 2nd line of details
+\years{--} % years taken to do your present degree
+%\postinstitution{} % details of place where you continued your study for your
+		   % present degree
+%\postinstitutionLnII{} % second line of details
+%\scholarship{} % details of 1st scholarship
+%\scholarshipLnII{} % 2nd line of details (if necessary)
+%\scholarshipLnIII{} % 3rd line of details (if necessary)
+%\scholarshipII{} % 2nd scholarship
+%\scholarshipIILnII{}
+%\scholarshipIILnIII{}
+%\scholarshipIII{}  % 3rd scholarship
+%\scholarshipIIILnII{}
+%\scholarshipIIILnIII{}
+%\scholarshipIV{}  % 4th scholarship
+%\scholarshipIVLnII{}
+%\scholarshipIVLnIII{}
+\position{} % present position
+\workplace{} % location 
+%\workplaceLnII{} % second line of location
+\homeaddress{} % your home address if you do not have a position
+\homeaddressLnII{}
+\homeaddressLnIII{}
+\email{} % the email address at which you can be contacted after you have left
+% Note: if your email has an underscore character ('_') in it you will need
+% to put '\_' otherwise LaTeX will give an error about missing $
+
+\begin{document}
+\maketitle
+\acknowledgements{%\linespacing{1.15} % uncomment this to reduce line spacing
+% acknowledgements go here
+
+% your name will appear automatically at the end
+}
+
+\abstract{%\linespacing{1.15} % uncomment this to reduce abstract line spacing 
+% body of abstract goes here
+% the heading is generated automatically 
+
+}
+
+\thaiabstract{
+% body of thai abstract goes here
+% the heading is generated automatically 
+% note that you *cannot* use something like \input{thaiabs} here
+}
+
+\linespacing{1.2}
+%\tableofcontents
+%\listoftables % you probably don't want this, even if you have some tables 
+%\listoffigures
+
+%\linespacing{1.77} % change this to get the desired spacing between lines
+\linespacing{1.00} % single spacing
+
+% your thesis goes here!
+
+
+%\input{intro} % input file (intro.tex) containing first chapter
+
+
+%\appendix % use this if you just have one appendix
+%\appendices % use this if you have more than one appendix
+
+% put appendices here
+
+%\input{references} % file containing refs if you are not using bibtex
+%\bibliography{abbrev,pubabbrev,solitons,conf,books} % for bibtex
+%\biography % use this to get the biography at the end of the thesis
+\end{document}

@@ -1,0 +1,35 @@
+\contentsline {chapter}{Abstract}{ii}{dummy.1}%
+\vspace {1em}
+\contentsline {chapter}{Acknowledgements}{iii}{dummy.2}%
+\vspace {1em}
+\contentsline {chapter}{List of Figures}{vi}{dummy.5}%
+\contentsline {chapter}{List of Tables}{vii}{dummy.7}%
+\contentsline {chapter}{Abbreviations}{viii}{chapter*.9}%
+\contentsline {chapter}{Physical Constants}{ix}{dummy.10}%
+\contentsline {chapter}{Symbols}{x}{dummy.13}%
+\vspace {2em}
+\contentsline {chapter}{\numberline {1}Introduction}{1}{chapter.16}%
+\contentsline {chapter}{\numberline {2}Background knowledge}{2}{chapter.20}%
+\contentsline {section}{\numberline {2.1}Cosmic rays}{2}{section.21}%
+\contentsline {section}{\numberline {2.2}\acl {Fermi-LAT} }{4}{section.24}%
+\contentsline {subsection}{\numberline {2.2.1}Apparatus}{4}{subsection.25}%
+\contentsline {subsection}{\numberline {2.2.2}Event reconstruction}{5}{subsection.27}%
+\contentsline {chapter}{\numberline {3}Literature review}{6}{chapter.29}%
+\contentsline {chapter}{\numberline {4}Methodology}{7}{chapter.30}%
+\contentsline {section}{\numberline {4.1}Data sets}{7}{section.31}%
+\contentsline {section}{\numberline {4.2}Flux extraction}{7}{section.32}%
+\contentsline {section}{\numberline {4.3}Interaction model}{8}{section.41}%
+\contentsline {section}{\numberline {4.4}Optimization}{9}{section.46}%
+\contentsline {section}{\numberline {4.5}Monte Carlo Simulation}{10}{section.50}%
+\contentsline {section}{\numberline {4.6}\acf {lrt}}{11}{section.53}%
+\contentsline {chapter}{\numberline {5}Results and discussion}{13}{chapter.56}%
+\contentsline {section}{\numberline {5.1}Limb's angle correction}{13}{section.57}%
+\contentsline {section}{\numberline {5.2}$\gamma $-ray spectrum}{14}{section.59}%
+\contentsline {section}{\numberline {5.3}Power law from indirect measurement}{17}{section.64}%
+\contentsline {chapter}{\numberline {6}Conclusion}{19}{chapter.68}%
+\vspace {2em}
+\contentsline {chapter}{\numberline {A}Why we can directly subtract a background photon}{20}{appendix.69}%
+\contentsline {chapter}{\numberline {B}Power law in energy}{22}{appendix.72}%
+\contentsline {chapter}{\numberline {C}Derivation of interaction model}{23}{appendix.75}%
+\vspace {2em}
+\contentsline {chapter}{Bibliography}{24}{dummy.79}%

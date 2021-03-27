@@ -75,10 +75,12 @@ to the measured $\gamma$-ray spectrum in the Figure (\ref{fig:bestfittedgamma}).
 
 \begin{figure}[h!]
     \centering
-    \includegraphics[width=0.8\textwidth]{img/ModelVSMeasurement}
-    \caption{The $\gamma$-ray spectra calculated from the SPL (blue) and BPL (green) models of CR proton
-    which best fit with the measured Earth’s $\gamma$-ray spectrum in the thin-target regime
-    (red)}
+    \includegraphics[width=0.8\textwidth]{img/fitted_result.pdf}
+    \caption{
+        The $\gamma$-ray spectra calculated from the SPL (blue) and BPL (green) models of CR proton
+        which best fit with the measured Earth’s $\gamma$-ray spectrum in the thin-target regime
+        (red)
+    }
     \label{fig:bestfittedgamma}
 \end{figure}
 
@@ -93,3 +95,26 @@ the Figure (\ref{fig:bestfittedproton}).
     by AMS-02 (blue) and PAMELA (green)}
     \label{fig:bestfittedproton}
 \end{figure}
+
+By applying Wilk's theorem, we could treat the log-likelihood ratio 
+as a score from chi-square distribution from 2 degree of freedoms
+to find p-value which is around 0.92.
+From doing so, this value could be converted to the Z-score
+in normal distribution and the result has shown that the
+value is around 1.38 $\sigma$. It's quite disappoint that the 
+significant level from the indirect measurement is not so high.
+The reason could be either from the constrain from the optimization
+does not cover the global minimum of the problem or the 
+result from the new measurement literally tells the limitation of
+an indirect measurement or the breaking point does not clear that it's exists from this study.
+
+\subsubsection*{Statistical significant}
+
+The significant level could be determined by using 
+central limit theorem (CLT) to test one-tail hypothesis 
+from the null hypothesis comparing to alternative hypothesis
+which is the breaking of spectral indices and non-breaking scheme.
+The significant is around 1.38 $\sigma$ or at 92\%.
+
+
+

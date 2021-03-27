@@ -1,0 +1,38 @@
+\babel@toc {nil}{}
+\contentsline {chapter}{ACKNOWLEDGEMENTS}{iii}%
+\contentsline {chapter}{ABSTRACT (ENGLISH)}{iv}%
+\contentsline {chapter}{\MakeTextUppercase {List of Tables}}{vii}%
+\contentsline {chapter}{\MakeTextUppercase {List of Figures}}{viii}%
+\contentsline {chapter}{\MakeUppercase {Chapter}\mbox {~}\numberline {I}\mbox {~~}\MakeUppercase {Introduction}}{1}%
+\contentsline {section}{\numberline {1.1}Overview}{1}%
+\contentsline {section}{\numberline {1.2}Objectives}{2}%
+\contentsline {section}{\numberline {1.3}Outline of Thesis}{3}%
+\afterpage {\addtoccont }
+\contentsline {chapter}{\MakeUppercase {Chapter}\mbox {~}\numberline {II}\mbox {~~}\MakeUppercase {Background}}{4}%
+\contentsline {section}{\numberline {2.1}Cosmic-ray}{4}%
+\contentsline {subsection}{\numberline {2.1.1}History}{4}%
+\contentsline {subsection}{\numberline {2.1.2}Physical properties}{6}%
+\contentsline {subsection}{\numberline {2.1.3}$\gamma $-ray production}{6}%
+\contentsline {subsection}{\numberline {2.1.4}Earth's limb $\gamma $-ray production}{6}%
+\contentsline {section}{\numberline {2.2}\textit {Fermi} Large Area Telescope (LAT)}{6}%
+\contentsline {subsection}{\numberline {2.2.1}Overview}{6}%
+\contentsline {subsection}{\numberline {2.2.2}Apparatus}{6}%
+\contentsline {subsection}{\numberline {2.2.3}Event reconstruction}{6}%
+\contentsline {chapter}{\MakeUppercase {Chapter}\mbox {~}\numberline {III}\mbox {~~}\MakeUppercase {Literature Review}}{7}%
+\contentsline {chapter}{\MakeUppercase {Chapter}\mbox {~}\numberline {IV}\mbox {~~}\MakeUppercase {Methodology}}{8}%
+\contentsline {section}{\numberline {4.1}Data selection}{8}%
+\contentsline {section}{\numberline {4.2}Flux extraction}{8}%
+\contentsline {section}{\numberline {4.3}Interaction Model}{8}%
+\contentsline {section}{\numberline {4.4}Optimization}{8}%
+\contentsline {section}{\numberline {4.5}Monte Carlo Simulation}{8}%
+\contentsline {section}{\numberline {4.6}Likelihood ratio test (LRT)}{8}%
+\contentsline {chapter}{\MakeUppercase {Chapter}\mbox {~}\numberline {V}\mbox {~~}\MakeUppercase {Results and discussion}}{9}%
+\contentsline {section}{\numberline {5.1}Limb's angle correction}{9}%
+\contentsline {section}{\numberline {5.2}$\gamma $-ray measurement}{9}%
+\contentsline {section}{\numberline {5.3}Best fit result}{9}%
+\contentsline {section}{\numberline {5.4}Error determination}{9}%
+\contentsline {chapter}{\MakeUppercase {Chapter}\mbox {~}\numberline {VI}\mbox {~~}\MakeUppercase {Conclusion}}{10}%
+\contentsline {chapter}{\MakeUppercase {References}}{11}%
+\contentsline {chapter}{\MakeUppercase {Appendices}}{17}%
+\contentsline {section}{Appendix\mbox {~}\numberline {A}bla}{18}%
+\contentsline {chapter}{BIOGRAPHY}{19}%
