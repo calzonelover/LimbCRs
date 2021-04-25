@@ -1,0 +1,20 @@
+\begin{tikzpicture}
+    \begin{feynman}
+    \vertex (a);
+    \vertex [right= of a] (b);
+    \vertex [below left= of a] (p1) {\(e^{-}\)};
+    \vertex [above left= of a] (q1) {\(\gamma_1\)};
+    \vertex [below right= of b] (p2) {\(e^{-}\)};
+    \vertex [above right= of b] (q2) {\(\gamma_2\)};
+  
+      \diagram* {
+        (a) -- [fermion, edge label'=\(\)] (b) ,
+        (q1) -- [photon, momentum] (a) ,
+        (p1) -- [fermion] (a),
+        (b) -- [photon, momentum] (q2),
+        (b) -- [fermion] (p2),
+      };
+      \vertex [below= 0.5em of a] {\(\)};
+      \vertex [below= 0.5em of b] {\(\)};
+    \end{feynman}
+  \end{tikzpicture}

@@ -1,0 +1,19 @@
+\begin{tikzpicture}
+    \begin{feynman}
+        \vertex (a);
+        \vertex [above right= of a] (b);
+        \vertex [below right= of a] (c);
+        \vertex [left= of a] (p1) {\(\pi^0\)};
+        \vertex [right= of b] (q1) {\(\gamma\)};
+        \vertex [right= of c] (q2) {\(\gamma\)};
+
+        \diagram* {
+            (p1) [particle] -- [scalar] (a),
+            (a) -- (b),
+            (a) -- (c),
+            (b) -- (c),
+            (b) -- [photon] (q1),
+            (c) -- [photon] (q2),
+        };
+    \end{feynman}
+\end{tikzpicture}

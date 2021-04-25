@@ -13,6 +13,7 @@
 % i.e. cp -i muthesis_temlate.tex mythesis.tex
 %\usepackage{cite}
 \usepackage{lscape}
+\usepackage{svg}
 %\draft
 % in draft mode there is one title page (title, candidate, abstract)
 % no tables of contents, etc or
@@ -39,6 +40,11 @@
 \usepackage{hyphenat}
 \usepackage{microtype}
 \usepackage{kantlipsum}
+
+% jab custom package
+\usepackage{chemformula}
+\usepackage{tikz-feynman}
+
 \usepackage[nottoc,notlof,notlot]{tocbibind}
 \usepackage[allow-number-unit-breaks=true]{siunitx}
 \newcommand{\tca}[1]{\textcolor{black}{#1}}
@@ -199,17 +205,17 @@ Cosmic rays (CRs) are high-energy particles, mostly protons, propagating in spac
 % \lofcont    % LOF is longer than two pages
 
 
-\input{content/literature_review}
+\input{content/literature_review/literature_review}
 
 % \lofcont  % LOF is longer than three pages (etc)
 
 
-\input{content/methodology}
+\input{content/methodology/methodology}
 
 % \lofcont
 
 
-\input{content/result_and_discussion}
+\input{content/result_and_discussion/result_and_discussion}
 
 
 

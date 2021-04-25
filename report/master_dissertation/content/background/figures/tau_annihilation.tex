@@ -1,0 +1,18 @@
+\begin{tikzpicture}
+    \begin{feynman}
+    \vertex (a);
+    \vertex [below= of a] (b);
+    \vertex [above left= of a] (p1) {\(\tau^{-}\)};
+    \vertex [below left= of b] (p2) {\(\tau^{+}\)};
+    \vertex [above right= of a] (q1) {\(\gamma_1\)};
+    \vertex [below right= of b] (q2) {\(\gamma_2\)};
+    
+        \diagram* {
+            (p1) -- [fermion] (a) ,
+            (a) -- [fermion] (b),
+            (b) -- [fermion] (p2) ,
+            (a) -- [photon] (q1),
+            (b) -- [photon] (q2),
+        };
+    \end{feynman}
+    \end{tikzpicture}
