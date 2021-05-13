@@ -1,14 +1,14 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2020.9.11)  21 SEP 2020 17:41
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2020.11.30)  3 MAY 2021 16:42
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
  %&-line parsing enabled.
-**/home/patomp/Desktop/MasterThesis/LimbCRs/report/SPC/proceeding_spc/JPCSLaTeXGuidelines.tex
-(/home/patomp/Desktop/MasterThesis/LimbCRs/report/SPC/proceeding_spc/JPCSLaTeXGuidelines.tex
+**/home/patomp/Desktop/MasterThesis/LimbCRs/report/SPC/proceeding_spc_patomporn_21Sep2020v3/JPCSLaTeXGuidelines.tex
+(/home/patomp/Desktop/MasterThesis/LimbCRs/report/SPC/proceeding_spc_patomporn_21Sep2020v3/JPCSLaTeXGuidelines.tex
 LaTeX2e <2020-02-02> patch level 2
-L3 programming layer <2020-02-14> (/home/patomp/Desktop/MasterThesis/LimbCRs/report/SPC/proceeding_spc/jpconf.cls
+L3 programming layer <2020-02-14> (/home/patomp/Desktop/MasterThesis/LimbCRs/report/SPC/proceeding_spc_patomporn_21Sep2020v3/jpconf.cls
 Document Class: jpconf 2007/03/07 v1.1 LaTeX class for Journal of Physics: Conference Series
-(/home/patomp/Desktop/MasterThesis/LimbCRs/report/SPC/proceeding_spc/jpconf11.clo
+(/home/patomp/Desktop/MasterThesis/LimbCRs/report/SPC/proceeding_spc_patomporn_21Sep2020v3/jpconf11.clo
 File: jpconf11.clo 2005/05/04 v1.0 LaTeX2e file (size option)
 )
 \indentedwidth=\skip47
@@ -150,7 +150,7 @@ Package xcolor Info: Model `wave' substituted by `hsb' on input line 1371.
 File: l3backend-pdfmode.def 2020-02-03 L3 backend support: PDF mode
 \l__kernel_color_stack_int=\count190
 \l__pdf_internal_box=\box50
-) (/home/patomp/Desktop/MasterThesis/LimbCRs/report/SPC/proceeding_spc/JPCSLaTeXGuidelines.aux)
+) (/home/patomp/Desktop/MasterThesis/LimbCRs/report/SPC/proceeding_spc_patomporn_21Sep2020v3/JPCSLaTeXGuidelines.aux)
 \openout1 = `JPCSLaTeXGuidelines.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 16.
@@ -227,9 +227,9 @@ LaTeX Font Warning: Font shape `OMX/cmex/m/n' in size <12.64719> not available
 LaTeX Font Warning: Font shape `OT1/cmr/m/it' in size <18.06749> not available
 (Font)              size <17.28> substituted on input line 17.
 
-(/home/patomp/Desktop/MasterThesis/LimbCRs/report/SPC/proceeding_spc/Chapters/Introduction.tex) [1
+(/home/patomp/Desktop/MasterThesis/LimbCRs/report/SPC/proceeding_spc_patomporn_21Sep2020v3/Chapters/Introduction.tex) [1
 
-{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] (/home/patomp/Desktop/MasterThesis/LimbCRs/report/SPC/proceeding_spc/Chapters/Methodology.tex
+{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] (/home/patomp/Desktop/MasterThesis/LimbCRs/report/SPC/proceeding_spc_patomporn_21Sep2020v3/Chapters/Methodology.tex
 <img/CRs_overview.pdf, id=20, 228.855pt x 237.7683pt>
 File: img/CRs_overview.pdf Graphic file (type pdf)
 <use img/CRs_overview.pdf>
@@ -245,10 +245,10 @@ Overfull \hbox (26.43332pt too wide) in paragraph at lines 26--37
 []$[]$  $[]$ 
  []
 
-[2 </home/patomp/Desktop/MasterThesis/LimbCRs/report/SPC/proceeding_spc/img/CRs_overview.pdf
+[2 </home/patomp/Desktop/MasterThesis/LimbCRs/report/SPC/proceeding_spc_patomporn_21Sep2020v3/img/CRs_overview.pdf
 
-pdfTeX warning: pdflatex (file /home/patomp/Desktop/MasterThesis/LimbCRs/report/SPC/proceeding_spc/img/CRs_overview.pdf): PDF inclusion: invalid other resource which is no dict (key 'ProcSets', type <array>); ignored.
-> </home/patomp/Desktop/MasterThesis/LimbCRs/report/SPC/proceeding_spc/img/gamma_production_schematic.pdf>]) (/home/patomp/Desktop/MasterThesis/LimbCRs/report/SPC/proceeding_spc/Chapters/Preliminary_Results.tex) (/home/patomp/Desktop/MasterThesis/LimbCRs/report/SPC/proceeding_spc/Chapters/discussion_future_work.tex
+pdfTeX warning: pdflatex (file /home/patomp/Desktop/MasterThesis/LimbCRs/report/SPC/proceeding_spc_patomporn_21Sep2020v3/img/CRs_overview.pdf): PDF inclusion: invalid other resource which is no dict (key 'ProcSets', type <array>); ignored.
+> </home/patomp/Desktop/MasterThesis/LimbCRs/report/SPC/proceeding_spc_patomporn_21Sep2020v3/img/gamma_production_schematic.pdf>]) (/home/patomp/Desktop/MasterThesis/LimbCRs/report/SPC/proceeding_spc_patomporn_21Sep2020v3/Chapters/Preliminary_Results.tex) (/home/patomp/Desktop/MasterThesis/LimbCRs/report/SPC/proceeding_spc_patomporn_21Sep2020v3/Chapters/discussion_future_work.tex
 <img/fitted_result.pdf, id=65, 569.12625pt x 426.59375pt>
 File: img/fitted_result.pdf Graphic file (type pdf)
 <use img/fitted_result.pdf>
@@ -265,22 +265,22 @@ Underfull \hbox (badness 2285) in paragraph at lines 44--50
 \OT1/cmr/m/n/10.95 I would like to express my deep gratitude to Assist. Prof. Warit Mitthumsiri and
  []
 
-[4 </home/patomp/Desktop/MasterThesis/LimbCRs/report/SPC/proceeding_spc/img/fitted_result.pdf, page is rotated 90 degrees>] (/home/patomp/Desktop/MasterThesis/LimbCRs/report/SPC/proceeding_spc/JPCSLaTeXGuidelines.bbl) [5 </home/patomp/Desktop/MasterThesis/LimbCRs/report/SPC/proceeding_spc/img/ProtonSpectrumModelMeasurement.pdf, page is rotated 90 degrees>] (/home/patomp/Desktop/MasterThesis/LimbCRs/report/SPC/proceeding_spc/JPCSLaTeXGuidelines.aux)
+[4 </home/patomp/Desktop/MasterThesis/LimbCRs/report/SPC/proceeding_spc_patomporn_21Sep2020v3/img/fitted_result.pdf, page is rotated 90 degrees>] (/home/patomp/Desktop/MasterThesis/LimbCRs/report/SPC/proceeding_spc_patomporn_21Sep2020v3/JPCSLaTeXGuidelines.bbl) [5 </home/patomp/Desktop/MasterThesis/LimbCRs/report/SPC/proceeding_spc_patomporn_21Sep2020v3/img/ProtonSpectrumModelMeasurement.pdf, page is rotated 90 degrees>] (/home/patomp/Desktop/MasterThesis/LimbCRs/report/SPC/proceeding_spc_patomporn_21Sep2020v3/JPCSLaTeXGuidelines.aux)
 
 LaTeX Font Warning: Size substitutions with differences
 (Font)              up to 0.78749pt have occurred.
 
  ) 
 Here is how much of TeX's memory you used:
- 2806 strings out of 483183
- 37496 string characters out of 5966292
- 279715 words of memory out of 5000000
- 17784 multiletter control sequences out of 15000+600000
+ 2806 strings out of 483107
+ 38024 string characters out of 5964629
+ 279960 words of memory out of 5000000
+ 17793 multiletter control sequences out of 15000+600000
  542139 words of font info for 58 fonts, out of 8000000 for 9000
- 14 hyphenation exceptions out of 8191
- 32i,13n,37p,826b,359s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 59 hyphenation exceptions out of 8191
+ 32i,13n,37p,848b,359s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt9.pfb>
-Output written on /home/patomp/Desktop/MasterThesis/LimbCRs/report/SPC/proceeding_spc/JPCSLaTeXGuidelines.pdf (5 pages, 423350 bytes).
+Output written on /home/patomp/Desktop/MasterThesis/LimbCRs/report/SPC/proceeding_spc_patomporn_21Sep2020v3/JPCSLaTeXGuidelines.pdf (5 pages, 423434 bytes).
 PDF statistics:
  228 PDF objects out of 1000 (max. 8388607)
  135 compressed objects within 2 object streams

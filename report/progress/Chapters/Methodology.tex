@@ -249,7 +249,7 @@ In this section, we perform a brute force method to find an error of any paramet
 The process of this algorithm has shown in Fig \ref{flow:montestat}.
 The amount of simulation process require an enough number of sampling to fill up the optimized parameters and see the shape of gaussian distribution curve looks obvious enough which our work done is roughly 2000 sampling.
 
-\begin{figure}[h]
+\begin{figure}[h!]
     \centering
     \begin{tikzpicture}[node distance = 12em, auto]
         \node [decision, fill = black!10, text width = 6em] (sampling) {While \\ sample $<$ N};
@@ -277,7 +277,7 @@ The amount of simulation process require an enough number of sampling to fill up
 \par For \textbf{total error}, we also take into account erro from instrument which is LAT that depends on energy. We exactly the same as the statistical error determination but one more thing that including to this algorithm is to pick three energy bin (10, 100, 1000 GeV) then rerandom flux in these three bin and apply a cubic spline interpolation to smooth the line for a statistical reason \cite{FermiDetail}. The deminstration of this program is shown as Fig \ref{flow:montetotal}.
 
 
-\begin{figure}[h]
+\begin{figure}[h!]
     \centering
     \begin{tikzpicture}[node distance = 12em, auto]
         \node [decision, fill = black!10, text width = 6em] (sampling) {While \\ sample $<$ N};
