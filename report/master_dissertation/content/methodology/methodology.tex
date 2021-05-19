@@ -1,16 +1,16 @@
 \chapter{Methodology}
 
-Procedure of getting data to perform an analysis
+The procedure of getting data to perform an analysis
 from the collected data is very important. In order 
 to get a precise Earth's limb $\gamma$-ray spectrum to
 trace back the incident proton spectrum, it is crucial 
 to carefully determine the selection criteria from raw 
-data in many angle base on the objectives. This chapter 
-will begin by giving information of $\gamma$-ray flux extraction 
-by providing information of data filtering and 
-the extracting process from scratch. Secondly, hadronic collision 
-model that forwardly yield the $\gamma$-ray spectrum 
-will be discuss and tracing the incident CR's proton 
+data in many angles base on the objectives. This chapter 
+will begin by giving information on $\gamma$-ray flux extraction 
+by providing information on data filtering and 
+the extracting process from scratch. Secondly, the hadronic collision 
+model that forwardly yields the $\gamma$-ray spectrum 
+will be discussed and tracing the incident CR's proton 
 spectrum algorithm from heuristic optimization. Lastly,
 the last sub-chapter contains details of statistical analysis.
 
@@ -24,10 +24,10 @@ the last sub-chapter contains details of statistical analysis.
 The required fundamental concept of spacecraft orientation and 
 the observations of Earth's limb $\gamma$ emission is another crucial
 concept. The Figure \ref{fig:gamma_emis_sp} demonstrates the important
-axis which are $\theta_\text{NADIR}$ represent the angle of how further
+axis which is $\theta_\text{NADIR}$ represent the angle of how further
 from Earth's center in the spacecraft point of view as well as 
 $\theta_\text{LAT}$ to the angle from incident $\gamma$-ray to the 
-detector normal in domain between 0 to 90\textdegree
+detector normal in the domain between 0 to 90\textdegree
 and $\phi_\text{LAT}$ as the clockwise angle from 0 to 2$\pi$.
 
 
@@ -36,14 +36,14 @@ In this work, 9 years of LAT's flight data has been used
 to analyze reconstructed photon and their metadata of spacecraft
 log recorded in a similar format periodically every half minutes.
 The reconstructed algorithm version is the latest version which is
-Pass 8 with the cleanest photon events that exists from \textit{Fermi}-LAT
-data catalogues called ULTRACLEANVETO. To be more precise, the photon 
+Pass 8 with the cleanest photon events that exist from \textit{Fermi}-LAT
+data catalogs called ULTRACLEANVETO. To be more precise, the photon 
 data is collected from publically available raw FITs file from the 
 
-Only high energy limb's photon will be selected from 10 GeV up to 1 TeV.
-It makes the tracebacking analysis for gaining the information of
+Only high energy limb photon will be selected from 10 GeV up to 1 TeV.
+It makes the traceback analysis for gaining the information of
 CR proton spectrum in rigidity between 60 GV to 2 TV. The definition 
-of $\gamma$-ray's limb regiom is obtained from \cite{FermiEarth09} in 
+of $\gamma$-ray's limb region is obtained from \cite{FermiEarth09} in 
 a given nadir angle from 68.4\textdegree to 70.0\textdegree. 
 The maximum of incident angle ($\theta_\text{LAT}$) that was
 measured from the z-axis of the LAT's foresight is 70\textdegree.
@@ -51,10 +51,10 @@ measured from the z-axis of the LAT's foresight is 70\textdegree.
 
 \section{Flux extraction}
 
-There are multiple step from trivial to complex calculation to 
+There are multiple steps from trivial to the complex calculation to 
 obtain the differential flux. The definition when saying flux 
-is actually a differential flux that be calculated one
-chunk of energy range at a time as Equation \ref{eq:def_flux}
+is a differential flux that is calculated one
+chunk of energy range at a time as Equation \ref{eq:def_flux}.
 
 \begin{equation}
     \textbf{Flux} \equiv \frac{dN_\gamma}{dE} = \frac{\int_\text{Limb region}(\text{Count map}/\text{Exposure map})}{\Delta\Omega\Delta E}.
@@ -63,10 +63,10 @@ chunk of energy range at a time as Equation \ref{eq:def_flux}
 Since the CR spectrum follows a power law as the exponential form 
  $dN/dR \propto R^\gamma$ as mentioned in the background section.
 Then the log-log relation of the flux versus rigidity would behave 
-like a trivial linear trend in the plot. Not only the rigidity, but 
+like a trivial linear trend in the plot. Not only the rigidity but 
 in the high energy CR like 10 GeV also makes the energy of the particle
-almsot the same as the rigidity does. Consequently, the $\gamma$-ray
-spectrum is equally divived in the energy space in the log scale for 
+almost the same as the rigidity does. Consequently, the $\gamma$-ray
+spectrum is equally divided in the energy space in the log scale for 
 50 bins.
 
 To get the spectrum, it is obvious to construct the histogram 
@@ -77,17 +77,17 @@ exposure time and the effectiveness of the spacecraft when looking
 at each angle in the sky. Let regards the following example for 
 a deeper understanding. The ideal scenario is when incident $\gamma$-ray
 walk pass through the LAT in a normal line of the detector. 
-Definitely, the performance would be the highest as it could do.
-On the other hand, if the incident $\gamma$-ray arrive with high 
+The performance would be the highest it could do.
+On the other hand, if the incident $\gamma$-ray arrives with high 
 tile angle from the LAT's plane (High $\theta_\text{LAT}$).
 An angle resolution is selected to be 2\textdegree in $\phi_\text{NADIR}$
 and 0.1\textdegree in $\theta_\text{NADIR}$. The reason behind these 
 number is simply from the toy experiment of plotting the result 
 in the 2D histogram and it is selected to be the one as the bin value 
-is not too noist. In another words, it should not be too small so that 
+is not too noisy. In another word, it should not be too small so that 
 the result is not too noisy and it is should not so big due to the 
 limb region could not be seen clearly which leads to the matched photon 
-mixed up with the Earth's $\gamma$-rays and collecting too many primary 
+mixed up with the Earth's $\gamma$-rays and collecting too many primaries 
 CR photon.
 
 
@@ -104,14 +104,13 @@ Basically, the procedure is summarized in these following steps.
 
 
 \subsection{Exposure map gathering}
-In fact, step 3 is the most complicate stage in this work.
+In fact, step 3 is the most complicated stage in this work.
 Practically, $Fermi$-LAT was designed for observing the space which
-makes the spacecraft logging in equatorial coordinates not for the 
-Earth's polar coordinates. The LAT position is recorded in 
-equatorial coordinates as well as the LAT's boresight of the detector
-plane to log their orientation during the orbit. In the end of the day,
-the coordinates transformation would be perform from multiple frame 
-of references to LAT boresight for acquiring the exposure of LAT's FoV
+makes the spacecraft logging in equatorial coordinates, not for the 
+Earth's polar coordinates. The LAT position is recorded in equatorial coordinates as well as the LAT's boresight of the detector
+plane to log their orientation during the orbit. At the end of the day,
+the coordinates transformation would be performed from multiple frame 
+of reference to LAT boresight for acquiring the exposure of LAT's FoV
 and reference the effectiveness from LAT's boresight angle dependency.
 The following content is the full detail of how things going on 
 under the hood.
@@ -119,11 +118,11 @@ under the hood.
 \subsubsection{Coordinate Transformations}
 
 Firstly, the spacecraft orbit is recorded in the equatorial coordinate
-which in spherical point of view. Defining the cartesian coordinate
-that share the origin between celestial point of view and the spacecraft 
+which in a spherical point of view. Defining the cartesian coordinate
+that share the origin between the celestial point of view and the spacecraft 
 by letting one axis point to the spacecraft could assist the calculation
-more convenient as the Figure \ref{fig:coord_eq_sp}. Please note that 
-the x-axis in equatorial coordinate is called ``Equinox''.
+more conveniently as the Figure \ref{fig:coord_eq_sp}. Please note that 
+the x-axis in the equatorial coordinate is called ``Equinox''.
 
 \begin{figure}[h!]
     \centering
@@ -153,13 +152,12 @@ represented in Equation \ref{eq:rep_tf_eq_sp}.
 \end{equation}
 
 The transformation matrix $T_{\text{eq}\rightarrow\text{sp}}$ has been implemented as a matrix in practical
-analysis due to the convenient for calculation and the compaction 
+analysis due to the convenience for calculation and the compaction 
 in the programming point of view.
 
-Secondly, LAT's boresight coordinates is also referenced in equatorial 
-coordinates. Figure \ref{fig:coord_eq_p} demonstrates the relation between
-an incident plane of detector on equatorial coordinate and the 
-nadir angle for regarding the exposure from LAT to Earth.
+Secondly, LAT's boresight coordinates are also referenced in equatorial coordinates. Figure \ref{fig:coord_eq_p} demonstrates the relation between
+an incident plane of the detector on equatorial coordinate and the 
+nadir angle regarding the exposure from LAT to Earth.
 
 \begin{figure}[h!]
     \centering
@@ -168,8 +166,7 @@ nadir angle for regarding the exposure from LAT to Earth.
     \label{fig:coord_eq_p}
 \end{figure}
 
-Unquestionably, it have to be converted into a cartesian 
-point of view to do a mathemetical operation for simplicity. A 
+Unquestionably, it has to be converted into a cartesian point of view to do a mathematical operation for simplicity. A 
 full representation of the coordinates could be written as Equation \ref{eq:tf_eq_p}
 and the compact form is in the Equation \ref{eq:rep_tf_eq_p}.
 
@@ -191,10 +188,10 @@ Similarly, $T_{\text{eq}\rightarrow\text{p}}$ is also considered as
 a transformation matrix in the computation for monotizing the source 
 code as well as keeping consistency in the logic.
 
-Again, all those representation just for mapping the LAT's boresight
+Again, all those representations just for mapping the LAT's boresight
 coordinate to link with the nadir coordinate to accumulate the 
 exposure from the spacecraft's FoV. The spacecraft coordinate can be 
-written as an dependency of Earth's poalr coordinate as Equation \ref{eq:def_r0}
+written as a dependency of Earth's polar coordinate as Equation \ref{eq:def_r0}
 in the cartesian system.
 
 \begin{equation}
@@ -205,7 +202,7 @@ in the cartesian system.
 By the end of the day, extracting the relations to simplify the 
 LAT's boresight coordinate could be contained by one inversion of 
 transformation matrix from equatorial to spacecraft and transform it 
-to plane of detector as written in the compact form in the Equation 
+to plane of the detector as written in the compact form in the Equation 
 \ref{eq:def_r0_to_rp}.
 
 \begin{equation}
@@ -220,8 +217,8 @@ to plane of detector as written in the compact form in the Equation
     \label{fig:tf_lat_pol_car}
 \end{figure}
 
-Geometrically, angular coordinate of LAT plane could be obtained from
-normalized component of the cartesian unit vector as in Figure
+Geometrically, an angular coordinate of the LAT plane could be obtained from
+a normalized component of the cartesian unit vector as in Figure
 \ref{fig:tf_lat_pol_car}. The exposure accumulation has been
 calculated in every single grid from the previous relation.
 
@@ -230,29 +227,29 @@ calculated in every single grid from the previous relation.
 From the previous section, it is obvious that the complexity of 
 the code becoming large due to the transformation operation.
 For example, a plain matrix inversion cost $\mathcal{O}(n^3)$ where 
-n is 3 because it is 3 by 3 matrix in this case. Not only the inversion,
+n is 3 because it is a 3 by 3 matrix in this case. Not only the inversion,
 but the matrix multiplication also cost the same amount of
-complexity which cause a long run in the execution time because 
+complexity which causes a long run in the execution time because 
 the original program has been designed in sequential execution.
 
-Nevertheless, the spacecraft log file namely ``FT2'' has been records
+Nevertheless, the spacecraft log file namely ``FT2'' has been recorded
 row by row which equivalently to a CSV format as a plain table with 
-the specific columns. Since the objectives is to determine the exposure map
+the specific columns. Since the objectives are to determine the exposure map
 by counting the exposure time as well as the effectiveness of the spacecraft 
 from each angle for a given small range of energy which means that 
 the energy could be approximate as one energy for getting the effective 
 area in each angle of the LAT during calculation. Moreover, the exposure 
-could be calculate parallely for each step or in each row of the FT2 due to 
-the property of exposure map. Consequently, splitting exposure map 
-and calculate parallely is possible to get rid of the performance issue.
+could be calculated parallelly for each step or in each row of the FT2 due to 
+the property of the exposure map. Consequently, splitting the exposure map 
+and calculate parallelly is possible to get rid of the performance issue.
 
 The code is implemented
-in Message Passing Interace (MPI). The framework provides 
-a simple protocal without knowing any type of protocal or 
+in Message Passing Interface (MPI). The framework provides 
+a simple protocol without knowing any type of protocol or 
 zero required network knowledge. It assists the user to 
-freely control multiple process with a full control of 
+freely control multiple processes with full control of 
 each process. According to Flynn's taxonomy of computation,
-this work exploits the Muliple Instruction Multiple Data (MIMD)
+this work exploits the Multiple Instruction Multiple Data (MIMD)
 architecture to utilizing the resources in a distributed systems.
 
 \begin{figure}[h!]
@@ -262,18 +259,17 @@ architecture to utilizing the resources in a distributed systems.
     \label{fig:ms1}
 \end{figure}
 
-To begin with the calculation, initializing the exposure map with a 
+To begin with, the calculation, initializing the exposure map with a 
 separate workers and send multiple rows to the workers in the same amount
-is trivial and waste a lot of resouces since there will be a fast worker 
-who do a calculation really fast and the slow worker due to the cluster 
-is composed of non-monolithic nodes with a different performance.
+is trivial and waste a lot of resources since there will be a fast worker 
+who do a calculation fast and the slow worker due to the cluster 
+is composed of non-monolithic nodes with different performances.
 The trivial calculation will lock the resource in the cluster and blocks 
-the other researcher who wants to run because the resouce allocation issue.
-To maximize the usage of the CPU based cluster computing, there is a 
-mechanism called ``Master-Slave technique''. The algorithm has been designed 
-for utilizing the resource by spawning a king as the process manager 
-and multiple slaves to be a process worker. The starting processs could 
-be demonstrated in the Figure \ref{fig:ms1}. 
+the other researcher who wants to run because of the resource allocation issue.
+To maximize the usage of the CPU-based cluster computing, there is a 
+mechanism called the ``Master-Slave technique''. The algorithm has been designed for utilizing the resource by spawning a king as the process manager 
+and multiple slaves to be a process worker. The starting process could 
+be demonstrated in Figure \ref{fig:ms1}. 
 
 
 \begin{figure}[h!]
@@ -294,13 +290,12 @@ be demonstrated in the Figure \ref{fig:ms1}.
 
 After that, the FT2 rows will be sent to slaves sequentially until
 all workers hold a small chunk of data and do their jobs.
-In practice, there is a metadata attach in the message. 
-One of the option is the status tag. The status tag sends to the 
-worker to declare the state of ther process whether it is in the 
+In practice, there is metadata attach to the message. 
+One of the options is the status tag. The status tag sends to the 
+worker to declare the state of the process whether it is in the 
 calculation or the finishing. Figure \ref{fig:ms3} illustrates 
-the non-sequential sending of the workload. The idea is simply 
-sending a small task to an available worker and skip a busy worker
-without disturbing them. This mechanism allows the exucution to utilize 
+the non-sequential sending of the workload. The idea is simply sending a small task to an available worker and skip a busy worker
+without disturbing them. This mechanism allows the execution to utilize 
 the resource in the cluster without wasting in the free worker.
 
 
@@ -313,11 +308,11 @@ in an early period of testing is reported in Appendix \ref{appendix:exposure}.
 
 
 \section{Hadronic Collision Model}
-The proton spectrum power law in ridigity is described in Equation \ref{eq:spl}
+The proton spectrum power law in rigidity is described in Equation \ref{eq:spl}
 as a single power law (SPL)
-where the $\gamma$ represent the spectral index of the model. 
+where the $\gamma$ represents the spectral index of the model. 
 In fact, the spectrum has been observed as the differential flux 
-in energy. Converting process between ridigity spectrum and the 
+in energy. Converting process between the ridigity spectrum and the 
 energy spectrum is derived in Appendix \ref{appendix:pw_energy} to 
 obtain a precise calculation.
 
@@ -330,8 +325,8 @@ obtain a precise calculation.
 
 The most crucial part of this work is to determine if there is any 
 breaking in the spectral indices in the power law. To represent 
-a single breaking energy, broken power law (BPL) could be modeled 
-the spectrum in ridigity as Equation \ref{eq:bpl}.
+a single breaking energy, the broken power law (BPL) could be modeled 
+the spectrum in rigidity as Equation \ref{eq:bpl}.
 
 
 \textbf{Broken power law (BPL)}
@@ -345,7 +340,7 @@ the spectrum in ridigity as Equation \ref{eq:bpl}.
 \end{equation}
 
 The scattering process of the hadronic collision from proton hitting 
-the atmosphric molecules. The collision from incoming proton kinetic 
+the atmospheric molecules. The collision from incoming proton kinetic 
 energy above 10 GeV could be modeled by proton-proton collision with 
 an approximation that depends on the majority of the air components.
 Model for the collision of proton-proton which yields $\gamma$-ray 
@@ -359,21 +354,20 @@ derived in Equation \ref{eq:KO_model} from \cite{K&Omodel} work.
 
 Where $d\sigma^{pp\rightarrow\gamma}(E',E_\gamma)/dE_\gamma$ contains 
 a scattering amplitude of a given kinetic energy proton and the 
-spectrum of the $\gamma$-ray. Atmosphric compoents mostly consists 
-of nitrogen as the majority and the oxygon (\cite{atmosCompos}). The cross section from 
+spectrum of the $\gamma$-ray. Atmospheric components mostly consists 
+of nitrogen as the majority and the oxygon (\cite{atmosCompos}). The cross-section from 
 proton-proton collision and proton-nitrogen collision is roughly 
-approximate as the multiplicative relation since there are plateau 
+approximate as the multiplicative relation since there is plateau 
 curve in the energy range in this analysis. The relation of the proton-proton 
 scattering amplitude and the proton-nitrogen is obtained from \cite{WAtwater}
-where it is highly depends on the atomic numbers of the air molecules. 
+where it highly depends on the atomic numbers of the air molecules. 
 
 However, the second highest fraction of the arrival CR particles on 
-Earth is an alpha ($\alpha$) particle. The helium nuclei can interact 
-with the nitrogen and produces high energy $\gamma$-rays depends on
+Earth is an alpha ($\alpha$) particle. The helium nuclei can interact with the nitrogen and produce high energy $\gamma$-rays depends on
 how much kinetic energy $\alpha$-particles is holding. Another 
-estimation has been exploid by applying $\sigma_{\alpha N}/\sigma_{pN}$
-to be a constant around 1.6 at the enegy range in GeV from 
-the same relationship of proton-air collision model. Hence, derived
+estimation has been exploited by applying $\sigma_{\alpha N}/\sigma_{pN}$
+to be a constant around 1.6 at the energy range in GeV from 
+the same relationship of the proton-air collision model. Hence, derived
 equation of the scattering process from incoming 
 proton and $\alpha$-particle with air molecules to produce $\gamma$-ray
 spectrum could be shown as Equation \ref{eq:derived_model}
@@ -390,8 +384,7 @@ spectrum could be shown as Equation \ref{eq:derived_model}
     ,\label{eq:derived_model}
 \end{equation}
 
-The CR helium spectrum would not be measured in this work 
-since there will be a multiple parameters which leads to an overwhelming 
+The CR helium spectrum would not be measured in this work since there will be multiple parameters that leads to an overwhelming 
 local optimum. The spectrum of $\alpha$-particles is directly measured 
 by \cite{AMS-02Helium} and fix the distribution as one function rather 
 modeled spectrum of CR proton spectrum. The full detail of the 
@@ -405,10 +398,9 @@ equation derivation will be demonstrated in \ref{appendix:interaction_model}.
 
 \section{Optimization}
 Determining the best-fit spectral model requires an objectives function
-to represent how well model match with an observed data. A proper 
+to represent how well the model match with an observed data. A proper 
 methodology for fitting or optimization in another word is also 
-a crucial part since there is likely that the local optimum exists 
-in the parameters space. A poor optimization could lead the best-fit
+a crucial part since it is likely that the local optimum exists in the parameters space. A poor optimization could lead the best-fit
 stuck in a local minimum and yield a poor result. For better escaping 
 local optima, heuristic optimization is employed for finding the 
 best-fit of the model in parameter space.
@@ -417,17 +409,17 @@ best-fit of the model in parameter space.
 \subsubsection{Poisson likelihood function}
 An objective function is defined as Poisson likelihood function 
 in the Equation \ref{eq:likelihood}. The reason behind the selection 
-of Poisson function came from the observed model and measurement is 
-considered as an amount of photons in each bin of the histogram. 
-Converting the model spectrum to be a count histogram is simply 
-multiplied by the integral of exposure map in limb region.
+of the Poisson function came from the observed model and measurement is 
+considered as a number of photons in each bin of the histogram. 
+Converting the model spectrum to be a count histogram is simply
+multiplied by the integral of the exposure map in the limb region.
 
 \begin{equation}
     \mathcal{L} = \prod_{i=1}^{N} P_{\text{pois}}(n_{\text{i,model}}, n_{\text{i,measurement}})
     \label{eq:likelihood}
 \end{equation}
 
-Since the spectrum order is in different order of magniture, then a
+Since the spectrum order is in different order of magnitude, then a
 proper way to define an objective function is to redefine a
 likelihood as a log-likelihood function for numerically
 convenient like Eq \ref{eq:loglikelihood}. 
@@ -437,28 +429,28 @@ convenient like Eq \ref{eq:loglikelihood}.
     \label{eq:loglikelihood}
 \end{equation}
 
-To sum up, a given proton spectrum yield a distrubution of $\gamma$-ray
+To sum up, a given proton spectrum yield a distribution of $\gamma$-ray
 spectrum to be converted into a count histogram and comparing with the 
-real measurement. Not only for numerical convenient, but the negative sign 
+real measurement. Not only for numerical convenient but the negative sign 
 also makes an algorithm to minimize the system rather than maximize 
 a likelihood.
 
 \subsubsection{Particle Swarm Optimization (PSO)}
 
-The Early phase of the optimization, a plain gradient descent 
+In the early phase of the optimization, a plain gradient descent 
 optimization has been used for model fitting. The result turns out 
-that with a different initial parameters, the different best-fit model 
-has changed which imply the local minimum in the problem. 
-Even there is no method guarantee the global minimum but the heuristic
+that with different initial parameters, the different best-fit model 
+has changed which implies the local minimum in the problem. 
+Even there is no method to guarantee the global minimum but the heuristic
 optimization could be a better option for handling this type of problem.
 One kind of most widely used algorithm is particle swarm
 optimization (PSO) and it is invented by \cite{pso_optimize}.
 
-In order to get a best fit spectral indices, exploying the Particle Swarm Optimization (PSO)
+In order to get a best fit spectral indices, employing the Particle Swarm Optimization (PSO)
 by randomly initiate many particles in a given range of the parameter space and find the
-local and global best fit in each step of iteration. Then rest of them would slowly moving
+local and global best fit in each step of the iteration. Then rest of them would slowly move
 toward to the local and global position in parameter space with a proper weight. 
-The iteration process will stop when the standard deviation of objective function from 
+The iteration process will stop when the standard deviation of the objective function from 
 every particle less than a decimal. The explicit formula for every iteration $k$,
 particle $i$ move with velocity $v_k^i$ is
 
@@ -480,20 +472,20 @@ where
 
 \section{Statistical significance}
 
-Certainly, a larger model parameters or complexity would yield 
+Certainly, larger model parameters or complexity would yield 
 a better performance except it is overfitting the problem.
-The critical issue is to answer how much significane the alternative 
+The critical issue is to answer how much significance the alternative 
 model could outperform the trivial model. As the language of statistics 
-would consider as two hypothesis. One for null and one for alternative 
+would consider as two hypotheses. One for null and one for alternative 
 approach. 
 
-For this case, BPL has 2 more degree of freedom (DOF) than SPL.
+For this case, BPL has 2 more degrees of freedom (DOF) than SPL.
 Unquestionably, if there is a good optimization procedure, 
 the objectives function would say BPL is better SPL. As mentioned 
 from the previous paragraph, the significance level has to be taken
 into account to put the weight on the study. Theoretically, regarding 
 the model likelihood with a given set of parameters could be determined 
-in the general case as Wilk's theorem define the realtion in 
+in the general case as Wilk's theorem define the relation in 
 Equation \ref{eq:wilk}.
 
 \begin{equation}
@@ -518,9 +510,9 @@ is shown in Equation \ref{eq:lrt}.
 \end{equation}
 
 
-\section{Error Determination}
+% \section{Error Determination}
 
-Monte Carlo Simulation
+% Monte Carlo Simulation
 
 
 
