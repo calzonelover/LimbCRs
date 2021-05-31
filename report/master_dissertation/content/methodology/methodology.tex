@@ -1,179 +1,269 @@
 \chapter{Methodology}
 
-The procedure of getting data to perform an analysis
-from the collected data is very important. In order 
-to get a precise Earth's limb $\gamma$-ray spectrum to
-trace back the incident proton spectrum, it is crucial 
-to carefully determine the selection criteria from raw 
-data in many angles base on the objectives. This chapter 
-will begin by giving information on $\gamma$-ray flux extraction 
-by providing information on data filtering and 
-the extracting process from scratch. Secondly, the hadronic collision 
-model that forwardly yields the $\gamma$-ray spectrum 
-will be discussed and tracing the incident CR's proton 
-spectrum algorithm from heuristic optimization. Lastly,
-the last sub-chapter contains details of statistical analysis.
+% The procedure of getting data to perform an analysis
+% from the collected data is very important. In order 
+% to get a precise Earth's limb $\gamma$-ray spectrum to
+% trace back the incident proton spectrum, it is crucial 
+% to carefully determine the selection criteria from raw 
+% data in many angles base on the objectives.
+This chapter gives
+information on $\gamma$-ray flux calculation 
+by providing the information on data filtering and 
+the extracting processes.
+The recent hadronic interaction model yielding $\gamma$ rays
+is discussed. This model is used to reconstruct the CR proton
+spectrum from the measured $\gamma$-ray spectrum.
+% Secondly, the hadronic collision 
+% model that forwardly yields the $\gamma$-ray spectrum 
+% will be discussed and tracing the incident CR's proton 
+% spectrum algorithm from heuristic optimization.
+Lastly, the last sub-chapter contains details of statistical analysis.
 
 \begin{figure}[h!]
     \centering
     \includegraphics[width=0.7\textwidth]{content/methodology/figures/gamma_production_schematic}
-    \caption{Schematics of $\gamma$-ray production}
+    \caption{
+        Schematics of the Earth's $\gamma$-ray production
+        from CR interaction with the upper atmosphere.
+    }
     \label{fig:gamma_emis_sp}
 \end{figure}
 
-The required fundamental concept of spacecraft orientation and 
-the observations of Earth's limb $\gamma$ emission is another crucial
-concept. The Figure \ref{fig:gamma_emis_sp} demonstrates the important
-axis which is $\theta_\text{NADIR}$ represent the angle of how further
-from Earth's center in the spacecraft point of view as well as 
-$\theta_\text{LAT}$ to the angle from incident $\gamma$-ray to the 
-detector normal in the domain between 0 to 90\textdegree
-and $\phi_\text{LAT}$ as the clockwise angle from 0 to 2$\pi$.
+Figure \ref{fig:gamma_emis_sp} demonstrates the definitions of some important angular
+variables describing a photon's direction in this analysis.
+The nadir angle ($\theta_{\rm NADIR}$) is the angle between a
+photon's and the nadir direction. The incidence angle
+($\theta_{\rm LAT}$) is the angle of a photon's direction with
+respect to the detector's boresight. The angle $\phi_{\rm LAT}$
+specifies the azimuthal angle of a photon in the LAT's
+reference frame.
+% The required fundamental concept of spacecraft orientation and 
+% the observations of Earth's limb $\gamma$ emission is another crucial
+% concept. The Figure \ref{fig:gamma_emis_sp} demonstrates the important
+% axis which is $\theta_\text{NADIR}$ represent the angle of how further
+% from Earth's center in the spacecraft point of view as well as 
+% $\theta_\text{LAT}$ to the angle from incident $\gamma$-ray to the 
+% detector normal in the domain between 0 to 90\textdegree
+% and $\phi_\text{LAT}$ as the clockwise angle from 0 to 2$\pi$.
 
 
 \section{Data selection}
-In this work, 9 years of LAT's flight data has been used
-to analyze reconstructed photon and their metadata of spacecraft
-log recorded in a similar format periodically every half minutes.
-The reconstructed algorithm version is the latest version which is
-Pass 8 with the cleanest photon events that exist from \textit{Fermi}-LAT
-data catalogs called ULTRACLEANVETO. To be more precise, the photon 
-data is collected from publically available raw FITs file from the 
+In this work, 9 years of
+LAT's photon and spacecraft data have been used.
+We use the latest version of event reconstruction (Pass 8) with the
+cleanest photon event class\footnote{\url{https://fermi.gsfc.nasa.gov/ssc/data/analysis/documentation/Cicerone/Cicerone_Data/LAT_DP.html}}
+(ULTRACLEANVETO) in this work.
+All data sets can be downloaded pubically
+from the LAT's database website\footnote{\url{https://fermi.gsfc.nasa.gov/ssc/data/access/lat}}.
 
-Only high energy limb photon will be selected from 10 GeV up to 1 TeV.
-It makes the traceback analysis for gaining the information of
-CR proton spectrum in rigidity between 60 GV to 2 TV. The definition 
-of $\gamma$-ray's limb region is obtained from \cite{FermiEarth09} in 
-a given nadir angle from 68.4\textdegree to 70.0\textdegree. 
-The maximum of incident angle ($\theta_\text{LAT}$) that was
-measured from the z-axis of the LAT's foresight is 70\textdegree.
+% LAT's flight data has been used
+% to analyze reconstructed photon and their metadata of spacecraft
+% log recorded in a similar format periodically every half minutes.
+% The reconstructed algorithm version is the latest version which is
+% Pass 8 with the cleanest photon events that exist from \textit{Fermi}-LAT
+% data catalogs called ULTRACLEANVETO. To be more precise, the photon 
+% data is collected from publically available raw FITs file from the 
+
+To select the Earth's limb photon produced in the thin-target regime
+where the absorption effect could be neglected, we follow the same
+criteria ($68.4^\circ < \theta_\text{NADIR} < 70.0^\circ$)
+used in the previous LAT analysis by \cite{FermiEarth14}.
+We select photons between 10 GeV and 1 TeV which would be
+correspond to the CR proton rigidity range of roughly 60 GV
+to 2 TV \citep{FermiEarth14}. We also cut photons with
+$\theta_{\rm LAT}>70^\circ$ to avoid mis-reconstructions of
+large off-axis photons.
+% Only high energy limb photon will be selected from 10 GeV up to 1 TeV.
+% It makes the traceback analysis for gaining the information of
+% CR proton spectrum in rigidity between 60 GV to 2 TV. The definition 
+% of $\gamma$-ray's limb region is obtained from \cite{FermiEarth09} in 
+% a given nadir angle from 68.4\textdegree to 70.0\textdegree. 
+% The maximum of incident angle ($\theta_\text{LAT}$) that was
+% measured from the z-axis of the LAT's foresight is 70\textdegree.
 
 
 \section{Flux extraction}
 
-There are multiple steps from trivial to the complex calculation to 
-obtain the differential flux. The definition when saying flux 
-is a differential flux that is calculated one
-chunk of energy range at a time as Equation \ref{eq:def_flux}.
+% There are multiple steps from trivial to the complex calculation to 
+% obtain the differential flux. The definition when saying flux 
+% is a differential flux that is calculated one
+% chunk of energy range at a time as Equation \ref{eq:def_flux}.
+The definition of the Earth's limb flux in the energy bin $i$ is given by
 
 \begin{equation}
-    \textbf{Flux} \equiv \frac{dN_\gamma}{dE} = \frac{\int_\text{Limb region}(\text{Count map}/\text{Exposure map})}{\Delta\Omega\Delta E}.
+    \textbf{Flux}(E_i) =  \frac{dN}{dE}(E_i) = \left(\int \frac{\text{Cnt}_i}{\text{Exp}_i}\right) \frac{1}{d(\Omega)dE_i}
     \label{eq:def_flux}
 \end{equation}
-Since the CR spectrum follows a power law as the exponential form 
- $dN/dR \propto R^\gamma$ as mentioned in the background section.
-Then the log-log relation of the flux versus rigidity would behave 
-like a trivial linear trend in the plot. Not only the rigidity but 
-in the high energy CR like 10 GeV also makes the energy of the particle
-almost the same as the rigidity does. Consequently, the $\gamma$-ray
-spectrum is equally divided in the energy space in the log scale for 
-50 bins.
+% \textbf{Flux} \equiv \frac{dN_\gamma}{dE} = \frac{\int_\text{Limb region}(\text{Count map}/\text{Exposure map})}{\Delta\Omega\Delta E}.
 
-To get the spectrum, it is obvious to construct the histogram 
-with 50 bins in a given energy scale as explained in the previous paragraph.
-The flux of each bin could be computed separately by initializing 
-the empty count map and the exposure map where it represents the
-exposure time and the effectiveness of the spacecraft when looking 
-at each angle in the sky. Let regards the following example for 
-a deeper understanding. The ideal scenario is when incident $\gamma$-ray
-walk pass through the LAT in a normal line of the detector. 
-The performance would be the highest it could do.
-On the other hand, if the incident $\gamma$-ray arrives with high 
-tile angle from the LAT's plane (High $\theta_\text{LAT}$).
-An angle resolution is selected to be 2\textdegree in $\phi_\text{NADIR}$
-and 0.1\textdegree in $\theta_\text{NADIR}$. The reason behind these 
-number is simply from the toy experiment of plotting the result 
-in the 2D histogram and it is selected to be the one as the bin value 
-is not too noisy. In another word, it should not be too small so that 
-the result is not too noisy and it is should not so big due to the 
-limb region could not be seen clearly which leads to the matched photon 
-mixed up with the Earth's $\gamma$-rays and collecting too many primaries 
-CR photon.
+where $\text{Cnt}_i$ is the photon count,
+$\text{Exp}_i$ is the exposure, $d(\Omega)$
+is the solid angle size of the limb region, and $dE_i$ is the energy
+bin width. The quantity $\text{Cnt}_i$ and $\text{Exp}_i$ 
+are from count and exposure
+maps which are discussed in the next subsection.
+Since the CR spectrum follows a power law in the energy range
+of this analysis, we expect a power law in the Earth's
+$\gamma$-ray emission spectrum. Therefore, to calculate the
+Earth's $\gamma$-ray spectrum, we divide the energy into 50 bins
+eqaully spaced in log scale from 10 GeV to 1.0 TeV.
+% Since the CR spectrum follows a power law as the exponential form 
+%  $dN/dR \propto R^\gamma$ as mentioned in the background section.
+% Then the log-log relation of the flux versus rigidity would behave 
+% like a trivial linear trend in the plot. Not only the rigidity but 
+% in the high energy CR like 10 GeV also makes the energy of the particle
+% almost the same as the rigidity does. Consequently, the $\gamma$-ray
+% spectrum is equally divided in the energy space in the log scale for 
+% 50 bins.
+
+% To get the spectrum, it is obvious to construct the histogram 
+% with 50 bins in a given energy scale as explained in the previous paragraph.
+% The flux of each bin could be computed separately by initializing 
+% the empty count map and the exposure map where it represents the
+% exposure time and the effectiveness of the spacecraft when looking 
+% at each angle in the sky. Let regards the following example for 
+% a deeper understanding. The ideal scenario is when incident $\gamma$-ray
+% walk pass through the LAT in a normal line of the detector. 
+% The performance would be the highest it could do.
+% On the other hand, if the incident $\gamma$-ray arrives with high 
+% tile angle from the LAT's plane (High $\theta_\text{LAT}$).
+% An angle resolution is selected to be 2\textdegree in $\phi_\text{NADIR}$
+% and 0.1\textdegree in $\theta_\text{NADIR}$. The reason behind these 
+% number is simply from the toy experiment of plotting the result 
+% in the 2D histogram and it is selected to be the one as the bin value 
+% is not too noisy. In another word, it should not be too small so that 
+% the result is not too noisy and it is should not so big due to the 
+% limb region could not be seen clearly which leads to the matched photon 
+% mixed up with the Earth's $\gamma$-rays and collecting too many primaries 
+% CR photon.
 
 
-Basically, the procedure is summarized in these following steps.
+The flux calculation procedure can be summarized in these following steps.
 \begin{enumerate}
-    \item Make 2D histograms with 25 bins per decade of energy
+    \item Make 2D histograms for which the x-axis is $\phi_{\rm NADIR}$
+    and the y-axis is $\theta_{\rm NADIR}$, with 25 bins per
+    decade of energy
     \item Select photon data and fill in the 2D histograms
-    \item Calculate exposure maps which include the effective area
-    and livetime of the LAT as it observed the Earth    
-    \item Compute the flux by applying Equation \ref{eq:def_flux} in for bin 
-    \item Taking consider background subtraction from a average
-    uniform background photon distribution by treating bin by bin 
+    \item Calculate similar 2D histograms for exposure maps
+    which include the effective area
+    and livetime of the LAT as it observed the Earth
+    \item Compute the flux for each energy bin by
+    applying Equation \ref{eq:def_flux}
+    % \item Compute the flux by applying Equation \ref{eq:def_flux} in for bin 
+    \item Perform background subtraction from an average
+    background distribution (Define background in range
+    $72.0^\circ < \theta_{\rm NADIR} < 80.0^\circ$)
 \end{enumerate}
 
 
-\subsection{Exposure map gathering}
-In fact, step 3 is the most complicated stage in this work.
-Practically, $Fermi$-LAT was designed for observing the space which
-makes the spacecraft logging in equatorial coordinates, not for the 
-Earth's polar coordinates. The LAT position is recorded in equatorial coordinates as well as the LAT's boresight of the detector
-plane to log their orientation during the orbit. At the end of the day,
-the coordinates transformation would be performed from multiple frame 
-of reference to LAT boresight for acquiring the exposure of LAT's FoV
-and reference the effectiveness from LAT's boresight angle dependency.
-The following content is the full detail of how things going on 
-under the hood.
+\subsection{Exposure map calculation}
+
+The exposure map calculation is the most complicated step in
+this work because we have to perform coordinate transformation.
+In the standard spacecraft data files, the LAT positions and
+orientations are recorded in equatorial coordinates.
+We have to make a coordinate transformation to obtain the
+position of any given pixel in an exposure map in the
+spacecraft's reference frame in order to derive the
+corresponding effective area for that pixel.
+% In fact, step 3 is the most complicated stage in this work.
+% Practically, $Fermi$-LAT was designed for observing the space which
+% makes the spacecraft logging in equatorial coordinates, not for the 
+% Earth's polar coordinates. The LAT position is recorded in equatorial coordinates as well as the LAT's boresight of the detector
+% plane to log their orientation during the orbit. At the end of the day,
+% the coordinates transformation would be performed from multiple frame 
+% of reference to LAT boresight for acquiring the exposure of LAT's FoV
+% and reference the effectiveness from LAT's boresight angle dependency.
+% The following content is the full detail of how things going on 
+% under the hood.
 
 \subsubsection{Coordinate Transformations}
 
-Firstly, the spacecraft orbit is recorded in the equatorial coordinate
-which in a spherical point of view. Defining the cartesian coordinate
-that share the origin between the celestial point of view and the spacecraft 
-by letting one axis point to the spacecraft could assist the calculation
-more conveniently as the Figure \ref{fig:coord_eq_sp}. Please note that 
-the x-axis in the equatorial coordinate is called ``Equinox''.
+Spacecraft's position and orientation (direction of the
+LAT's boresight and solar panel) are recorded in the equatorial
+coordinates for which we denote with a symbol ``eq''. We can define
+the Cartesian axes for the equatorial coordinate by letting the
+x-axis ($\hat{x}_\text{eq}$) point to the vernal equinox for which the right
+ascension (RA) is 0$^\circ$ and letting the z-axis point to the
+pole for which the declination (DEC) is 90$^\circ$.
+
+We analyze the Earth's $\gamma$-ray emission in the local-zenith
+coordinate system denoted by the symbol ``zn,'' as viewed locally
+by the LAT.  Here we define that $\hat{x}_\text{zn}$
+points along the local
+zenith direction of the LAT, and that $\hat{z}_\text{zn}$
+points perpendicular
+to $\hat{x}_\text{zn}$ in the $\hat{x}_\text{zn}$-$\hat{z}_\text{eq}$
+plane. The ``eq'' and ``zn''
+coordinate systems are illustrated in Figure \ref{fig:coord_eq_sp}.
+Here we assume that $\hat{x}_\text{zn}$ makes an angle 
+$\delta_{zn}$ with
+the $\hat{x}_\text{eq}$ and $\hat{y}_\text{eq}$ plane,
+and $\alpha_\text{zn}$ is the azimuthal
+angle of $\hat{x}_\text{zn}$ projection onto
+the $\hat{x}_\text{eq}$ and $\hat{y}_\text{eq}$ plane.
+% Firstly, the spacecraft orbit is recorded in the equatorial coordinate
+% which in a spherical point of view. Defining the cartesian coordinate
+% that share the origin between the celestial point of view and the spacecraft 
+% by letting one axis point to the spacecraft could assist the calculation
+% more conveniently as the Figure \ref{fig:coord_eq_sp}. Please note that 
+% the x-axis in the equatorial coordinate is called ``Equinox''.
 
 \begin{figure}[h!]
     \centering
     \includegraphics[width=0.5\textwidth]{content/methodology/figures/coord_eq_sp.pdf}
-    \caption{Coordinate transform between celestial and spacecraft}
+    \caption{
+        Illustration of the relationship between the equatorial (eq)
+        and local-zenith (zn) coordinate systems for the LAT.
+    % Coordinate transform between celestial and spacecraft
+    }
     \label{fig:coord_eq_sp}
 \end{figure}
 
 
-However, mapping into the cartesian 
-coordinate by adopting a unit vector in 3 dimensions has been written
-as Equation \ref{eq:tf_eq_sp} and the synbolic transformation is 
-represented in Equation \ref{eq:rep_tf_eq_sp}.
+% However, mapping into the cartesian 
+% coordinate by adopting a unit vector in 3 dimensions has been written
+% as Equation \ref{eq:tf_eq_sp} and the synbolic transformation is 
+% represented in Equation \ref{eq:rep_tf_eq_sp}.
+We can write the components of the zn system in terms of the eq system as
 
 \begin{equation}
     \begin{split}
-    \hat{x}_\text{sp} &= \cos\delta_\text{sp}\cos\alpha_\text{sp}\hat{x}_\text{eq} + \cos\delta_\text{sp}\sin\alpha_\text{sp}\hat{y}_\text{eq} + \sin\delta_\text{sp}\hat{z}_\text{eq}\\
-    \hat{z}_\text{sp} &= - \sin\delta_\text{sp}\cos\alpha_\text{sp}\hat{x}_\text{eq} + \sin\delta_\text{sp}\sin\alpha_\text{sp}\hat{y}_\text{eq} + \cos\delta_\text{sp}\hat{z}_\text{eq} \\
-    \hat{y}_\text{sp} &= \hat{z}_\text{sp} \times \hat{x}_\text{sp}
+    \hat{x}_\text{zn} &= \cos\delta_\text{zn}\cos\alpha_\text{zn}\hat{x}_\text{eq} + \cos\delta_\text{zn}\sin\alpha_\text{zn}\hat{y}_\text{eq} + \sin\delta_\text{zn}\hat{z}_\text{eq}\\
+    \hat{z}_\text{zn} &= - \sin\delta_\text{zn}\cos\alpha_\text{zn}\hat{x}_\text{eq} + \sin\delta_\text{zn}\sin\alpha_\text{zn}\hat{y}_\text{eq} + \cos\delta_\text{zn}\hat{z}_\text{eq} \\
+    \hat{y}_\text{zn} &= \hat{z}_\text{zn} \times \hat{x}_\text{zn}.
     \end{split}
     \label{eq:tf_eq_sp}
 \end{equation}
 
+Equation \ref{eq:tf_eq_sp} can be written more
+compactly in a matrix form with
+
 \begin{equation}
-    \hat{r}_\text{sp} \equiv T_{\text{eq}\rightarrow\text{sp}} (\delta_\text{sp}, \alpha_\text{sp}) \hat{r}_\text{eq}
+    \hat{r}_\text{zn} \equiv T_{\text{eq}\rightarrow\text{zn}} (\delta_\text{zn}, \alpha_\text{zn}) \hat{r}_\text{eq},
     \label{eq:rep_tf_eq_sp}
 \end{equation}
 
-The transformation matrix $T_{\text{eq}\rightarrow\text{sp}}$ has been implemented as a matrix in practical
-analysis due to the convenience for calculation and the compaction 
-in the programming point of view.
+where $T_{\text{eq}\rightarrow\text{zn}}$ is the transformation matrix which depends on the
+values of $\delta_\text{zn}$ and $\alpha_\text{zn}$.
+% The transformation matrix $T_{\text{eq}\rightarrow\text{zn}}$ has been implemented as a matrix in practical
+% analysis due to the convenience for calculation and the compaction 
+% in the programming point of view.
 
-Secondly, LAT's boresight coordinates are also referenced in equatorial coordinates. Figure \ref{fig:coord_eq_p} demonstrates the relation between
-an incident plane of the detector on equatorial coordinate and the 
-nadir angle regarding the exposure from LAT to Earth.
 
-\begin{figure}[h!]
-    \centering
-    \includegraphics[width=0.5\textwidth]{content/methodology/figures/coord_eq_p.pdf}
-    \caption{Coordinate transform between spacecraft and nadir angle}
-    \label{fig:coord_eq_p}
-\end{figure}
-
-Unquestionably, it has to be converted into a cartesian point of view to do a mathematical operation for simplicity. A 
-full representation of the coordinates could be written as Equation \ref{eq:tf_eq_p}
-and the compact form is in the Equation \ref{eq:rep_tf_eq_p}.
+% Unquestionably, it has to be converted into a cartesian point of view to do a mathematical operation for simplicity.
+Two variables for determining the LAT boresight
+orientation are described 
+in equatorial coordinates as declination angle ($\delta_\text{p}$)
+and the right ascension angle ($\alpha\text{p}$).
+A full representation of the zn and sp coordinates could
+be written as Equation \ref{eq:tf_eq_p}.
+The compact form is in the Equation \ref{eq:rep_tf_eq_p}.
 
 \begin{equation}
     \begin{split}
-    \hat{x}_\text{p} &= \cos\delta^\text{x}_\text{p}\cos\alpha^\text{x}_\text{p}\hat{x}_\text{eq} + \cos\delta^\text{x}_\text{p}\sin\alpha^\text{x}_\text{p}\hat{y}_\text{eq} + \sin\delta^\text{x}_\text{sp}\hat{z}_\text{eq}\\
-    \hat{z}_\text{p} &= \cos\delta^\text{z}_\text{p}\cos\alpha^\text{z}_\text{p}\hat{x}_\text{eq} + \cos\delta^\text{z}_\text{p}\sin\alpha^\text{z}_\text{p}\hat{y}_\text{eq} + \sin\delta^\text{z}_\text{sp}\hat{z}_\text{eq}\\
+    \hat{x}_\text{p} &= \cos\delta^\text{x}_\text{p}\cos\alpha^\text{x}_\text{p}\hat{x}_\text{eq} + \cos\delta^\text{x}_\text{p}\sin\alpha^\text{x}_\text{p}\hat{y}_\text{eq} + \sin\delta^\text{x}_\text{zn}\hat{z}_\text{eq}\\
+    \hat{z}_\text{p} &= \cos\delta^\text{z}_\text{p}\cos\alpha^\text{z}_\text{p}\hat{x}_\text{eq} + \cos\delta^\text{z}_\text{p}\sin\alpha^\text{z}_\text{p}\hat{y}_\text{eq} + \sin\delta^\text{z}_\text{zn}\hat{z}_\text{eq}\\
     \hat{y}_\text{p} &= \hat{z}_\text{p} \times \hat{x}_\text{p}
     \end{split}
     \label{eq:tf_eq_p}
@@ -185,35 +275,79 @@ and the compact form is in the Equation \ref{eq:rep_tf_eq_p}.
 \end{equation}
 
 Similarly, $T_{\text{eq}\rightarrow\text{p}}$ is also considered as 
-a transformation matrix in the computation for monotizing the source 
-code as well as keeping consistency in the logic.
+a transformation matrix.
+% in the computation for monotizing the source 
+% code as well as keeping consistency in the logic.
 
-Again, all those representations just for mapping the LAT's boresight
-coordinate to link with the nadir coordinate to accumulate the 
-exposure from the spacecraft's FoV. The spacecraft coordinate can be 
+
+
+The LAT coordinate system is defined such that $\hat{z}_\text{sp}$
+points along the boresight and $\hat{x}_\text{sp}$ points
+along one of its solar panel.
+The directions of $\hat{x}_\text{sp}$ and $\hat{z}_\text{sp}$
+are also recorded in the
+equatorial system. Figure \ref{fig:coord_eq_p} shows the
+relationship between the sp and zn coordinate systems.
+% Secondly, LAT's boresight coordinates are also referenced in equatorial coordinates. Figure \ref{fig:coord_eq_p} demonstrates the relation between
+% an incident plane of the detector on equatorial coordinate and the 
+% nadir angle regarding the exposure from LAT to Earth.
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.5\textwidth]{content/methodology/figures/coord_eq_p.pdf}
+    \caption{
+        Illustration of the local zenith (zn) and the spacecraft
+        (sp) coordinate systems. The nadir ($\theta_{\rm NADIR}$)
+        and azimuthal ($\phi_{\rm NADIR}$) angles of a pixel of
+        interest is also shown.
+    % Coordinate transform between spacecraft and nadir angle
+    }
+    \label{fig:coord_eq_p}
+\end{figure}
+
+
+With the two transformation matrices,
+$T_{\text{eq}\rightarrow\text{zn}}$
+and $T_{\text{zn}\rightarrow\text{sp}}$,
+we can transform the position of a pixel in a local zenith
+coordinate map into the LAT coordinate system to obtain
+the effective area for that pixel. The exposure for that
+pixel is the sum of effective are $\times$ livetime.
+% Again, all those representations just for mapping the LAT's boresight
+% coordinate to link with the nadir coordinate to accumulate the 
+% exposure from the spacecraft's FoV.
+The spacecraft coordinate can be 
 written as a dependency of Earth's polar coordinate as Equation \ref{eq:def_r0}
 in the cartesian system.
 
 \begin{equation}
-    \hat{r}^\text{o}_\text{sp} (\theta_\text{N}, \phi_\text{N}) \equiv -\cos\theta_\text{N}\hat{x}_\text{sp} + \sin\theta_\text{N}\cos\phi_\text{N}\hat{z}_\text{sp} + \sin\theta_\text{N}\sin\phi_\text{N}\hat{y}_\text{sp}
+    \hat{r}_\text{zn} (\theta_\text{N}, \phi_\text{N}) \equiv -\cos\theta_\text{N}\hat{x}_\text{zn} + \sin\theta_\text{N}\cos\phi_\text{N}\hat{z}_\text{zn} + \sin\theta_\text{N}\sin\phi_\text{N}\hat{y}_\text{zn}
     \label{eq:def_r0}
 \end{equation}
 
-By the end of the day, extracting the relations to simplify the 
+Extracting the relations to simplify the 
 LAT's boresight coordinate could be contained by one inversion of 
 transformation matrix from equatorial to spacecraft and transform it 
 to plane of the detector as written in the compact form in the Equation 
 \ref{eq:def_r0_to_rp}.
 
 \begin{equation}
-    \hat{r}^\text{o}_\text{p} (\theta_\text{N}, \phi_\text{N}) = T_{\text{eq}\rightarrow\text{p}} (\delta^\text{x}_\text{p}, \alpha^\text{x}_\text{p}, \delta^\text{z}_\text{p}, \alpha^\text{z}_\text{p}) \left[T_{\text{eq}\rightarrow\text{sp}} (\delta_\text{sp}, \alpha_\text{sp})\right]^{-1} \hat{r}^\text{o}_\text{sp} (\theta_\text{N}, \phi_\text{N})
+    \hat{r}_\text{p} (\theta_\text{N}, \phi_\text{N}) = T_{\text{eq}\rightarrow\text{p}} (\delta^\text{x}_\text{p}, \alpha^\text{x}_\text{p}, \delta^\text{z}_\text{p}, \alpha^\text{z}_\text{p}) \left[T_{\text{eq}\rightarrow\text{zn}} (\delta_\text{zn}, \alpha_\text{zn})\right]^{-1} \hat{r}_\text{zn} (\theta_\text{N}, \phi_\text{N})
     \label{eq:def_r0_to_rp}
 \end{equation}
 
 \begin{figure}[h!]
     \centering
     \includegraphics[width=0.5\textwidth]{content/methodology/figures/coord_plane}
-    \caption{Detector's boresight in cartesian and polar coordinate}
+    \caption{
+        A vector pointing to a pixel of interest (grey arrow)
+        in the plane of detector (p) coordinates.
+        The $\hat{z}_\text{p}$ axis
+        points along the LAT's boresight
+        and the $\hat{x}_\text{p}$ axis
+        points along one of its solar panel.
+        % Detector's boresight in cartesian and polar coordinate
+    }
     \label{fig:tf_lat_pol_car}
 \end{figure}
 
@@ -224,58 +358,80 @@ calculated in every single grid from the previous relation.
 
 \subsubsection{Parallel Computations}
 
-From the previous section, it is obvious that the complexity of 
-the code becoming large due to the transformation operation.
+The complexity of 
+the code becomes large due to the transformation operation.
 For example, a plain matrix inversion cost $\mathcal{O}(n^3)$ where 
-n is 3 because it is a 3 by 3 matrix in this case. Not only the inversion,
-but the matrix multiplication also cost the same amount of
-complexity which causes a long run in the execution time because 
-the original program has been designed in sequential execution.
+n is 3 because it is a 3 by 3 matrix in this case.
+% Not only the inversion, but
+The matrix multiplication also costs the same amount of
+complexity
+, rendering exposure map calculation a
+very computational intensive task.
+% which causes a long run in the execution time because 
+% the original program has been designed in sequential execution.
 
-Nevertheless, the spacecraft log file namely ``FT2'' has been recorded
-row by row which equivalently to a CSV format as a plain table with 
-the specific columns. Since the objectives are to determine the exposure map
-by counting the exposure time as well as the effectiveness of the spacecraft 
-from each angle for a given small range of energy which means that 
-the energy could be approximate as one energy for getting the effective 
-area in each angle of the LAT during calculation. Moreover, the exposure 
-could be calculated parallelly for each step or in each row of the FT2 due to 
-the property of the exposure map. Consequently, splitting the exposure map 
-and calculate parallelly is possible to get rid of the performance issue.
+The spacecraft files, which contain the information of the LAT
+position, orientation, and status in rows of 30-second time step,
+are called the FT2 files. We use 25 energy bins per decade,
+so the bin width is small enough to use the geometric mean
+to represent the mean energy for each bin. 
+Moreover, the exposure maps can be calculated separately
+for a given time period. We can therefore split the
+9-year analysis time into many small time periods,
+calculate the exposure maps for each time period
+in parallel, and sum all periods to obtain
+the total exposure maps.
+% Nevertheless, the spacecraft log file namely ``FT2'' has been recorded
+% row by row which equivalently to a CSV format as a plain table with 
+% the specific columns. Since the objectives are to determine the exposure map
+% by counting the exposure time as well as the effectiveness of the spacecraft 
+% from each angle for a given small range of energy which means that 
+% the energy could be approximate as one energy for getting the effective 
+% area in each angle of the LAT during calculation. Moreover, the exposure 
+% could be calculated parallelly for each step or in each row of the FT2 due to 
+% the property of the exposure map. Consequently, splitting the exposure map 
+% and calculate parallelly is possible to get rid of the performance issue.
 
 The code is implemented
 in Message Passing Interface (MPI). The framework provides 
-a simple protocol without knowing any type of protocol or 
-zero required network knowledge. It assists the user to 
+a simple protocol for communicate between each process
+with a customizable message schema.
+It assists the user to 
 freely control multiple processes with full control of 
 each process. According to Flynn's taxonomy of computation,
 this work exploits the Multiple Instruction Multiple Data (MIMD)
-architecture to utilizing the resources in a distributed systems.
+architecture to utilize the resources in a distributed system.
 
 \begin{figure}[h!]
     \centering
-    \includegraphics[width=0.7\textwidth]{content/methodology/figures/ms1}
+    \includegraphics[width=0.7\textwidth]{content/methodology/figures/ms1_v2}
     \caption{Spawning the king and slave processes}
     \label{fig:ms1}
 \end{figure}
 
-To begin with, the calculation, initializing the exposure map with a 
-separate workers and send multiple rows to the workers in the same amount
-is trivial and waste a lot of resources since there will be a fast worker 
-who do a calculation fast and the slow worker due to the cluster 
-is composed of non-monolithic nodes with different performances.
-The trivial calculation will lock the resource in the cluster and blocks 
-the other researcher who wants to run because of the resource allocation issue.
+In the normal parallel computing setup, sending equal
+amount of task to each node is not optimized since
+there would be fast and slow nodes with different performances. 
+Some trivial tasks can lock resources in a
+computing cluster and blocks the resource
+allocation for other tasks. 
+% To begin with, the calculation, initializing the exposure map with a 
+% separate workers and send multiple rows to the workers in the same amount
+% is trivial and waste a lot of resources since there will be a fast worker 
+% who do a calculation fast and the slow worker due to the cluster 
+% is composed of non-monolithic nodes with different performances.
+% The trivial calculation will lock the resource in the cluster and blocks 
+% the other researcher who wants to run because of the resource allocation issue.
 To maximize the usage of the CPU-based cluster computing, there is a 
 mechanism called the ``Master-Slave technique''. The algorithm has been designed for utilizing the resource by spawning a king as the process manager 
-and multiple slaves to be a process worker. The starting process could 
+and multiple slaves to be process workers. The starting process could 
 be demonstrated in Figure \ref{fig:ms1}. 
 
 
 \begin{figure}[h!]
     \centering
     \includegraphics[width=0.7\textwidth]{content/methodology/figures/ms2}
-    \caption{Master process send a small task to workers}
+    \caption{Master process sends a small task to slaves.}
     \label{fig:ms2}
 \end{figure}
 
@@ -283,78 +439,110 @@ be demonstrated in Figure \ref{fig:ms1}.
 \begin{figure}[h!]
     \centering
     \includegraphics[width=0.7\textwidth]{content/methodology/figures/ms3}
-    \caption{Aynchronous sending to an available worker}
+    \caption{Asynchronous assignment of tasks to available slaves.}
     \label{fig:ms3}
 \end{figure}
 
+A certain amount of spacecraft information (FT2 rows)
+would be sent as an input to slaves sequentially
+until all slaves are assigned with a small task
+and start the calculation.
+% After that, the FT2 rows will be sent to slaves sequentially until
+% all workers hold a small chunk of data and do their jobs.
+There are metadata attached
+% In practice, there is metadata attach
+to the message. 
+One of the options is the status tag
+which let the slaves declare the status of a process
+% The status tag sends to the worker to declare the state of the process
+whether it is still in process or has finished.
+Figure \ref{fig:ms3} illustrates 
+the non-sequential assignment of the workload.
+Small tasks are sent to available slaves and skip busy slaves.
+% The idea is simply sending a small task to an available worker and skip a busy worker
+% without disturbing them.
+This mechanism allows the execution to utilize 
+the resource in the cluster without wasting
+free slaves. After all tasks are assigned,
+the master process will send a status tag announcing
+that the overall calculation has finished.
+Then, the exposure maps from all slaves would be added
+to obtain the final total exposure maps.
+Examples of master-slave calculation are shown in Appendix \ref{appendix:exposure}.
+% in the free worker.
 
-After that, the FT2 rows will be sent to slaves sequentially until
-all workers hold a small chunk of data and do their jobs.
-In practice, there is metadata attach to the message. 
-One of the options is the status tag. The status tag sends to the 
-worker to declare the state of the process whether it is in the 
-calculation or the finishing. Figure \ref{fig:ms3} illustrates 
-the non-sequential sending of the workload. The idea is simply sending a small task to an available worker and skip a busy worker
-without disturbing them. This mechanism allows the execution to utilize 
-the resource in the cluster without wasting in the free worker.
 
-
-By the end of the day, if the task is completely sent.
-The master process will send the status tag as done to be an 
-announcement of the finishing period. Then the exposure map of 
-each worker will be gathered in the master process for superposition
-and dump it to unify an exposure map. In addition, the calculation 
-in an early period of testing is reported in Appendix \ref{appendix:exposure}.
+% By the end of the day, if the task is completely sent.
+% The master process will send the status tag as done to be an 
+% announcement of the finishing period. Then the exposure map of 
+% each worker will be gathered in the master process for superposition
+% and dump it to unify an exposure map. In addition, the calculation 
+% in an early period of testing is reported in Appendix \ref{appendix:exposure}.
 
 
 \section{Hadronic Collision Model}
-The proton spectrum power law in rigidity is described in Equation \ref{eq:spl}
-as a single power law (SPL)
-where the $\gamma$ represents the spectral index of the model. 
-In fact, the spectrum has been observed as the differential flux 
-in energy. Converting process between the ridigity spectrum and the 
-energy spectrum is derived in Appendix \ref{appendix:pw_energy} to 
-obtain a precise calculation.
+CR spectrum is well described in power in ridigity where 
+the ridigity is a momentum per charge of the particle.
+The explicit formula for proton power-law spectrum in rigidity
+in Equation \ref{eq:spl} as a single power law (SPL)
+where $\Gamma$ represents the spectral index of the model. 
+% In fact, the spectrum has been observed as the differential flux 
+% in energy.
+Converting between the ridigity ($R$) and the 
+energy spectrum is derived in Appendix \ref{appendix:pw_energy}.
 
 
 \textbf{Single power law (SPL)}
 \begin{equation}
-    \frac{dN}{dR} = R_0R^{-\gamma}
+    \frac{dN}{dR} = R_0R^{-\Gamma}
     \label{eq:spl}
 \end{equation}
 
+where $R_0$ is the coeffient of the powerlaw.
 The most crucial part of this work is to determine if there is any 
-breaking in the spectral indices in the power law. To represent 
+breaking in the spectral index of the power law. To represent 
 a single breaking energy, the broken power law (BPL) could be modeled 
-the spectrum in rigidity as Equation \ref{eq:bpl}.
+by Equation \ref{eq:bpl}. 
 
 
 \textbf{Broken power law (BPL)}
 \begin{equation}
 \frac{dN}{dR}=
   \begin{cases}
-    R_0R^{-\gamma_1}\ :\ E < E_{\text{Break}}\\
-    R_0[R(E_{\text{Break}})]^{\gamma_2-\gamma_1}R^{-\gamma_2}\ :\ E \ge E_{\text{Break}}
+    R_0R^{-\Gamma_1}\ :\ E < E_{\text{Break}}\\
+    R_0[R(E_{\text{Break}})]^{\Gamma_2-\Gamma_1}R^{-\Gamma_2}\ :\ E \ge E_{\text{Break}}
   \end{cases}
   \label{eq:bpl}
 \end{equation}
 
-The scattering process of the hadronic collision from proton hitting 
-the atmospheric molecules. The collision from incoming proton kinetic 
-energy above 10 GeV could be modeled by proton-proton collision with 
-an approximation that depends on the majority of the air components.
-Model for the collision of proton-proton which yields $\gamma$-ray 
-as a secondary product as a distribution in the spectrum has been 
-derived in Equation \ref{eq:KO_model} from \cite{K&Omodel} work.
+% The scattering process of the hadronic collision from proton hitting 
+% the atmospheric molecules.
+The collision from incoming protons with kinetic 
+energy above 10 GeV striking the Earth's atmosphere
+be modeled by proton-proton collision with 
+with the scaling of normalization depending
+on the chemical composition of the air.
+% an approximation that depends on the majority of the air components.
+The proton-proton collision yielding $\gamma$ rays
+as secondary products for a broad and smooth spectrum
+of proton can be modeled by Equation \ref{eq:KO_model}
+taken from \cite{K&Omodel} as 
+% Model for the collision of proton-proton which yields $\gamma$-ray 
+% as a secondary product as a distribution in the spectrum has been 
+% derived in
+% Equation  from \cite{K&Omodel} work.
 
 \begin{equation}
-    \frac{dN_\gamma}{dE_\gamma} \propto \int^{E_{\text{max}}}_{E_\gamma} dE'\frac{dN_p}{dE'} \frac{d\sigma^{pp\rightarrow\gamma}(E',E_\gamma)}{dE_\gamma}
+    \frac{dN_\gamma}{dE_\gamma} \propto \int^{E_{\text{max}}}_{E_\gamma} dE'\frac{dN_p}{dE'} \frac{d\sigma^{pp\rightarrow\gamma}(E',E_\gamma)}{dE_\gamma},
     \label{eq:KO_model}
 \end{equation}
 
-Where $d\sigma^{pp\rightarrow\gamma}(E',E_\gamma)/dE_\gamma$ contains 
-a scattering amplitude of a given kinetic energy proton and the 
-spectrum of the $\gamma$-ray. Atmospheric components mostly consists 
+where $d\sigma^{pp\rightarrow\gamma}(E',E_\gamma)/dE_\gamma$ contains 
+the scattering amplitude
+for the kinetic energy of proton $E'$ and the
+energy of $\gamma$ ray $E_\gamma$.
+% of a given kinetic energy proton and the spectrum of the $\gamma$-ray.
+Atmospheric components mostly consists 
 of nitrogen as the majority and the oxygon \citep{atmosCompos}. The cross-section from 
 proton-proton collision and proton-nitrogen collision is roughly 
 approximate as the multiplicative relation since there is plateau 
