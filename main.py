@@ -2,7 +2,10 @@
 # from unit_test.exposure_map import cntmap# livemap, cntmap, flxmap
 # from effective_area import generator, unit_test
 # from unit_test.exposure_map_cpp import visualize, compare
-from unit_test.compare_oldwork import cnt
+# from unit_test.compare_oldwork import cnt
+from unit_test import monte_carlo
+from unit_test.monte_carlo import plot
 
 if __name__ == "__main__":
-    cnt.main()
+    monte_carlo.main()
+    # plot.main()

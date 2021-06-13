@@ -21,7 +21,7 @@ Lastly, the last sub-chapter contains details of statistical analysis.
 
 \begin{figure}[h!]
     \centering
-    \includegraphics[width=0.7\textwidth]{content/methodology/figures/gamma_production_schematic}
+    \includegraphics[width=0.7\textwidth]{content/methodology/figures/for_lat_schematic/FermiLAT_v2.pdf}
     \caption{
         Schematics of the Earth's $\gamma$-ray production
         from CR interaction with the upper atmosphere.
@@ -211,7 +211,7 @@ the $\hat{x}_\text{eq}$ and $\hat{y}_\text{eq}$ plane.
 
 \begin{figure}[h!]
     \centering
-    \includegraphics[width=0.5\textwidth]{content/methodology/figures/coord_eq_sp.pdf}
+    \includegraphics[width=0.5\textwidth]{content/methodology/figures/fig_coordinate/coord_eq_sp_v3.pdf}
     \caption{
         Illustration of the relationship between the equatorial (eq)
         and local-zenith (zn) coordinate systems for the LAT.
@@ -230,7 +230,7 @@ We can write the components of the zn system in terms of the eq system as
 \begin{equation}
     \begin{split}
     \hat{x}_\text{zn} &= \cos\delta_\text{zn}\cos\alpha_\text{zn}\hat{x}_\text{eq} + \cos\delta_\text{zn}\sin\alpha_\text{zn}\hat{y}_\text{eq} + \sin\delta_\text{zn}\hat{z}_\text{eq}\\
-    \hat{z}_\text{zn} &= - \sin\delta_\text{zn}\cos\alpha_\text{zn}\hat{x}_\text{eq} + \sin\delta_\text{zn}\sin\alpha_\text{zn}\hat{y}_\text{eq} + \cos\delta_\text{zn}\hat{z}_\text{eq} \\
+    \hat{z}_\text{zn} &= - \sin\delta_\text{zn}\cos\alpha_\text{zn}\hat{x}_\text{eq} - \sin\delta_\text{zn}\sin\alpha_\text{zn}\hat{y}_\text{eq} + \cos\delta_\text{zn}\hat{z}_\text{eq} \\
     \hat{y}_\text{zn} &= \hat{z}_\text{zn} \times \hat{x}_\text{zn}.
     \end{split}
     \label{eq:tf_eq_sp}
@@ -255,7 +255,7 @@ values of $\delta_\text{zn}$ and $\alpha_\text{zn}$.
 Two variables for determining the LAT boresight
 orientation are described 
 in equatorial coordinates as declination angle ($\delta_\text{p}$)
-and the right ascension angle ($\alpha\text{p}$).
+and the right ascension angle ($\alpha_\text{p}$).
 A full representation of the zn and sp coordinates could
 be written as Equation \ref{eq:tf_eq_p}.
 The compact form is in the Equation \ref{eq:rep_tf_eq_p}.
@@ -281,10 +281,10 @@ a transformation matrix.
 
 
 
-The LAT coordinate system is defined such that $\hat{z}_\text{sp}$
-points along the boresight and $\hat{x}_\text{sp}$ points
+The LAT coordinate system is defined such that $\hat{z}_\text{p}$
+points along the boresight and $\hat{x}_\text{p}$ points
 along one of its solar panel.
-The directions of $\hat{x}_\text{sp}$ and $\hat{z}_\text{sp}$
+The directions of $\hat{x}_\text{p}$ and $\hat{z}_\text{p}$
 are also recorded in the
 equatorial system. Figure \ref{fig:coord_eq_p} shows the
 relationship between the sp and zn coordinate systems.
@@ -294,10 +294,10 @@ relationship between the sp and zn coordinate systems.
 
 \begin{figure}[h!]
     \centering
-    \includegraphics[width=0.5\textwidth]{content/methodology/figures/coord_eq_p.pdf}
+    \includegraphics[width=0.5\textwidth]{content/methodology/figures/fig_coordinate/coord_eq_p_v3.pdf}
     \caption{
-        Illustration of the local zenith (zn) and the spacecraft
-        (sp) coordinate systems. The nadir ($\theta_{\rm NADIR}$)
+        Illustration of the local zenith (zn) and the plane of detector
+        (p) coordinate systems. The nadir ($\theta_{\rm NADIR}$)
         and azimuthal ($\phi_{\rm NADIR}$) angles of a pixel of
         interest is also shown.
     % Coordinate transform between spacecraft and nadir angle
@@ -308,7 +308,7 @@ relationship between the sp and zn coordinate systems.
 
 With the two transformation matrices,
 $T_{\text{eq}\rightarrow\text{zn}}$
-and $T_{\text{zn}\rightarrow\text{sp}}$,
+and $T_{\text{zn}\rightarrow\text{p}}$,
 we can transform the position of a pixel in a local zenith
 coordinate map into the LAT coordinate system to obtain
 the effective area for that pixel. The exposure for that
@@ -338,7 +338,7 @@ to plane of the detector as written in the compact form in the Equation
 
 \begin{figure}[h!]
     \centering
-    \includegraphics[width=0.5\textwidth]{content/methodology/figures/coord_plane}
+    \includegraphics[width=0.5\textwidth]{content/methodology/figures/fig_coordinate/coord_plane_v2.pdf}
     \caption{
         A vector pointing to a pixel of interest (grey arrow)
         in the plane of detector (p) coordinates.
@@ -468,7 +468,8 @@ the master process will send a status tag announcing
 that the overall calculation has finished.
 Then, the exposure maps from all slaves would be added
 to obtain the final total exposure maps.
-Examples of master-slave calculation are shown in Appendix \ref{appendix:exposure}.
+The benchmark for the calculation time of serial code
+and parallel code is reported in Appendix \ref{appendix:exposure}.
 % in the free worker.
 
 

@@ -627,7 +627,15 @@ Here we briefly discuss the production processes of $\gamma$ rays.
     plane region detected by \textit{Fermi} LAT.
 
     \item \textbf{Active Galactic Nuclei (AGNs)}: 
-    \textcolor{red}{Write this..}
+    AGN is a center of the active galaxy.
+    The luminosity is much higher than the stars.
+    It produces multi-wavelengths
+    photon in a different band such as radio,
+    microwave, $\gamma$-ray and etc.    
+    Then this object could be observed from a broad instruments.
+    
+    
+    % \textcolor{red}{Write this..}
 
     \item \textbf{Earth's limb $\gamma$-ray production}:
     The closest $\gamma$-ray source to the LAT is our Earth's atmosphere.
@@ -755,7 +763,8 @@ charged particles which create electrical signals when
 passing through the scintillator tiles.
 The estimated efficiency for charged particle identification
 by the ACD is about 0.9997.
-\textcolor{red}{rewrite backsplash}
+% \textcolor{red}{rewrite backsplash}
+
 % (อ่านเรื่อง backsplash ไม่รู้เรื่อง ถ้าอยากเขียนจริงๆ เขียนมาใหม่)
 
 % The main objective of ACD is to support the charged-particle background rejection of the CRs. It is cover the tracker over the LAT field of 
@@ -1005,19 +1014,33 @@ also with the lowest statistics.
     \centering
     \includegraphics[width=0.7\textwidth]{content/background/figures/eff_energy.png}
     \caption{
-        Effective area along the photon energy range from MeV to TeV
-        \citep{lat_p8_performance}
+        LAT's effective area as a function of energy
+        for normally incidence photons \citep{lat_p8_performance}.
+        Front means the effective area of an event that photon hit
+        the conversion layer at the top and decays into
+        a pair of electron-position.
+        Back represents the effective area of the event that photon
+        passthrough the top part and be converted in the bottom of 
+        TKR module. The total effective area (black)
+        is the combination of front and back.
+        % Effective area along the photon energy range from MeV to TeV
+        % \citep{lat_p8_performance}
     }
     \label{fig:eff_energy}
 \end{figure}
 
 \textit{Fermi} LAT's physical cross section area is 1.8 x 1.8 m$^2$.
 However, its effective area for particle detection varies as a
-function of energy and incidence angle. Figure 2.16 shows the
-LAT's Pass 8 SOURCE effective area for photons arriving
+function of energy and incidence angle. Figure \ref{fig:eff_energy}
+shows the LAT's Pass 8 SOURCE effective
+area for photons arriving
 perpendicular to the cross section of the LAT as a function
 of energy, indicating low detection efficiency below $\sim$100 MeV
 and above $\sim$1 TeV.
+The effective area from front part is higher than the back due to 
+the conversion event that happens in the front 
+leaves more footprint in silicon strip of TKR more than the back.
+
 % \textit{Fermi}-LAT has been designed for detecting $\gamma$-ray in the 
 % space which means that the range of energy that it could see precisely 
 % will be starting at MeV up to TeV. The effective area in square-meters
@@ -1047,7 +1070,9 @@ the relation between the effective area and $\theta_{\rm LAT}$.
 \begin{figure}[h!]
     \centering
     \includegraphics[width=0.7\textwidth]{content/background/figures/eff_theta.png}
-    \caption{Effective area versus incidence angle \citep{lat_p8_performance}}
+    \caption{
+        Effective area versus incidence angle \citep{lat_p8_performance}
+    }
     \label{fig:eff_theta}
 \end{figure}
 
@@ -1067,19 +1092,21 @@ of the LAT.
 % area has fewer effects since the propagation length is narrow than 
 % the back.
 
-\begin{figure}[h!]
-    \centering
-    \includegraphics[width=0.7\textwidth]{content/background/figures/eff_phi.png}
-    \caption{
-        LAT's effective area versus azimuthal angle for
-        a 10 GeV photon with the incidence angle
-        of 30$^\circ$ \citep{lat_p8_performance}.
-        % Effective area versus azimuthal angle \citep{lat_p8_performance}
-    }
-    \label{fig:eff_phi}
-\end{figure}
+% \begin{figure}[h!]
+%     \centering
+%     \includegraphics[width=0.7\textwidth]{content/background/figures/eff_phi.png}
+%     \caption{
+%         LAT's effective area versus azimuthal angle for
+%         a 10 GeV photon with the incidence angle
+%         of 30$^\circ$ \citep{lat_p8_performance}.
+%         % Effective area versus azimuthal angle \citep{lat_p8_performance}
+%     }
+%     \label{fig:eff_phi}
+% \end{figure}
 
 % event class
+\newpage
+
 \begin{figure}[h!]
     \centering
     \includegraphics[width=0.7\textwidth]{content/background/figures/eff_event_class.png}
