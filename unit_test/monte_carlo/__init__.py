@@ -13,7 +13,7 @@ import settings
 from .disturb import get_cnts_by_sys_error, get_cnts_by_total_error
 
 
-ATTRS = ("obj_loss,norm_all", "norm", "gamma1", "gamma2", "e_break")
+ATTRS = ("obj_loss", "norm_all", "norm", "gamma1", "gamma2", "e_break")
 
 
 def main():
@@ -26,22 +26,15 @@ def main():
     #     model_names=model_names, n_trial=2,
     #     disturb_mode="sys", initialguesspars=initialguesspars
     # )
-
+    print("Run sys.")
     run(
-        model_names=model_names, n_trial=500,
-        disturb_mode="sys", initialguesspar=initialguesspars
+        model_names=model_names, n_trial=2000,
+        disturb_mode="sys", initialguesspars=initialguesspars
     )
+    print("Run tot.")
     run(
-        model_names=model_names, n_trial=500,
-        disturb_mode="tot", initialguesspar=initialguesspars
-    )
-    run(
-        model_names=model_names, n_trial=500,
-        disturb_mode="sys", initialguesspar=initialguesspars
-    )
-    run(
-        model_names=model_names, n_trial=500,
-        disturb_mode="tot", initialguesspar=initialguesspars
+        model_names=model_names, n_trial=2000,
+        disturb_mode="tot", initialguesspars=initialguesspars
     )
 
 
@@ -51,8 +44,8 @@ def run(model_names, n_trial, disturb_mode, initialguesspars):
     f = open('%s_%s_result.csv' % ("-".join(model_names), disturb_mode), 'w')
 
     attrs = ",".join([
-        "%s_%s" % (model_name, attr) for attr in ATTRS
-        for model_name in model_names
+        "%s_%s" % (model_name, attr) for model_name in model_names
+        for attr in ATTRS
     ]) + "\n"
     f.write(attrs)
 

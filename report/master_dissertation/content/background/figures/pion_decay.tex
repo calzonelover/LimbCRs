@@ -1,19 +1,56 @@
 \begin{tikzpicture}
     \begin{feynman}
-        \vertex (a);
-        \vertex [above right= of a] (b);
-        \vertex [below right= of a] (c);
-        \vertex [left= of a] (p1) {\(\pi^0\)};
-        \vertex [right= of b] (q1) {\(\gamma\)};
-        \vertex [right= of c] (q2) {\(\gamma\)};
-
+    \vertex (a);
+    \vertex [below= of a] (b);
+    \vertex [left= of a] (p1) {\(u\)};
+    \vertex [left= of b] (p2) {\(\bar{u}\)};
+    \vertex [right= of a] (q1) {\(\gamma\)};
+    \vertex [right= of b] (q2) {\(\gamma\)};
+    
         \diagram* {
-            (p1) [particle] -- [scalar] (a),
-            (a) -- (b),
-            (a) -- (c),
-            (b) -- (c),
-            (b) -- [photon] (q1),
-            (c) -- [photon] (q2),
+            (p1) -- [fermion] (a) ,
+            (a) -- [fermion] (b),
+            (b) -- [fermion] (p2) ,
+            (a) -- [photon] (q1),
+            (b) -- [photon] (q2),
         };
     \end{feynman}
 \end{tikzpicture}
+% \begin{tikzpicture}
+%     \begin{feynman}
+%     \vertex (a);
+%     \vertex [below= of a] (b);
+%     \vertex [left= of a] (p1) {\(d\)};
+%     \vertex [left= of b] (p2) {\(\bar{d}\)};
+%     \vertex [right= of a] (q1) {\(\gamma\)};
+%     \vertex [right= of b] (q2) {\(\gamma\)};
+    
+%         \diagram* {
+%             (p1) -- [fermion] (a) ,
+%             (a) -- [fermion] (b),
+%             (b) -- [fermion] (p2) ,
+%             (a) -- [photon] (q1),
+%             (b) -- [photon] (q2),
+%         };
+%     \end{feynman}
+% \end{tikzpicture}
+
+% \begin{tikzpicture}
+%     \begin{feynman}
+%         \vertex (a);
+%         \vertex [above right= of a] (b);
+%         \vertex [below right= of a] (c);
+%         \vertex [left= of a] (p1) {\(\pi^0\)};
+%         \vertex [right= of b] (q1) {\(\gamma\)};
+%         \vertex [right= of c] (q2) {\(\gamma\)};
+
+%         \diagram* {
+%             (p1) [particle] -- [scalar] (a),
+%             (a) -- (b),
+%             (a) -- (c),
+%             (b) -- (c),
+%             (b) -- [photon] (q1),
+%             (c) -- [photon] (q2),
+%         };
+%     \end{feynman}
+% \end{tikzpicture}

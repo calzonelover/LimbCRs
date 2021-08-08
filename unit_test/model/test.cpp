@@ -30,17 +30,17 @@
 #include "../../settings.h"
 #include "test.h"
 
-int main(int argc, char** argv){
+int main(int argc, char **argv)
+{
     // SpectrumModel spectrum_model = SPL;
     // SPL Loss =  356.605
 
-    TFile *read_file = new TFile("data/root/extracted_data.root","READ");
+    TFile *read_file = new TFile("data/root/extracted_data.root", "READ");
     auto histogram = new Histogram();
     histogram->load(read_file);
 
     auto out = Optimizer::optimize(SPL, histogram, Particle_swarm);
     // auto out = Optimizer::optimize(SPL, histogram, Simulated_annealing);
-    
 
     read_file->Close();
     return 0;

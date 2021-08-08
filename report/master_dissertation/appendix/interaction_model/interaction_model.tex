@@ -1,37 +1,57 @@
-\chapter{Interaction Model}
+\chapter{Interaction model}
 \label{appendix:interaction_model}
 
-
-Since we know the relation of $\gamma$-ray spectrum
-from incident proton spectrum collide with a nitrogen atom as
-
-\begin{equation}
-    \frac{dN_\gamma}{dE_\gamma} \propto \int^{E_{\text{max}}}_{E_\gamma} dE'\frac{dN_p}{dE'} \frac{d\sigma^{pN\rightarrow\gamma}(E',E_\gamma)}{dE_\gamma}.
-\end{equation}
-
-Change to discrete form
+Since we are regarding the proton interaction with the Earth's atmosphere 
+as thin-target proton-proton interaction regime.
+We can calculate the $\gamma$-ray spectrum
+from the incident proton spectrum colliding with nitrogen atoms as
+% collide with a nitrogen atom as
 
 \begin{equation}
-    \frac{dN_\gamma}{dE_\gamma} \propto \sum_{E_\gamma}^{E_\text{max}} \frac{E_p}{E_\gamma}\Delta(\ln E')E_\gamma\frac{d\sigma^{pN\rightarrow\gamma}}{dE_\gamma}\frac{dN_p}{dE'},
+    \frac{dN_\gamma}{dE_\gamma} \propto \int^{E_{\text{max}}}_{E_\gamma} dE'\frac{dN_p}{dE'} \frac{d\sigma^{pp\rightarrow\gamma}(E',E_\gamma)}{dE_\gamma}.
 \end{equation}
 
-and adding first term correction for Helium
-collision and define
-$f_{pp}\equiv E_\gamma(d\sigma^{ij\rightarrow\gamma}/dE_\gamma)$
-which came from K\&O model
+This equation can be changed to a discrete form as
+% Change to discrete form
+
+\begin{equation}
+    \frac{dN_\gamma}{dE_\gamma} \propto \sum_{E'=E_\gamma}^{E_\text{max}} \frac{E'}{E_\gamma}\Delta(\ln E')E_\gamma\frac{d\sigma^{pp\rightarrow\gamma}}{dE_\gamma}\frac{dN_p}{dE'}.
+\end{equation}
+
+We can add the contribution from $\alpha$ particles and define
+% and adding first term correction for Helium
+% collision and define
+$f_{pp}\equiv E_\gamma(d\sigma^{pp\rightarrow\gamma}/dE_\gamma)$
+from the K\&O model \citep{K&Omodel} to obtain
 
 \begin{equation}
 \begin{split}
-    \frac{dN_\gamma}{dE_\gamma} &\propto \sum_{E_\text{CR}=E_\gamma}^{E_\text{max}}\frac{E_\text{CR}}{E_\gamma}\Delta(\ln E_\text{CR})\left[ E_\gamma\frac{d\sigma^{pN\rightarrow\gamma}}{dE_\gamma}\left(\frac{dN_p}{dE_\text{CR}}\right) + E_\gamma\frac{d\sigma^{HeN\rightarrow\gamma}}{dE_\gamma}\left(\frac{dN_{He}}{dE_\text{CR}}\right) \right] \\
-    &\propto \sum_{E_\text{CR}=E_\gamma}^{E_\text{max}} \left[ \frac{E_\text{CR}}{E_\gamma}\Delta(\ln E_\text{CR}) \right]\left[ f_{pp}\frac{dN_H}{dE} \left\{ 1+ \frac{\sigma_{\text{HeN}}}{\sigma_\text{pN}}\left(\frac{dN_\text{H}}{dR} \right)^{-1}\frac{dN_\text{He}}{dR}\frac{dR_\text{He}}{dR_H}\right\}\right]
+    \frac{dN_\gamma}{dE_\gamma} &\propto \sum_{E'=E_\gamma}^{E_\text{max}}\frac{E'}{E_\gamma}\Delta(\ln E')\left[ E_\gamma\frac{d\sigma^{pN\rightarrow\gamma}}{dE_\gamma}\left(\frac{dN_p}{dE'}\right) + E_\gamma\frac{d\sigma^{\alpha N\rightarrow\gamma}}{dE_\gamma}\left(\frac{dN_\alpha}{dE'}\right) \right] \\
+    &\propto 
+    \sum_{E'_i}\left[\frac{E'_i}{E_{\gamma}}\Delta(\ln E'_i) \right]
+    \left[ 
+        f_{pp}\frac{dN_p}{dE'_i}
+        \left\{
+            1+\frac{\sigma_{\alpha\rm N}}{\sigma_{p\rm N}}\left(\frac{dN_p}{dR}\right)^{-1} \frac{dN_{\alpha}}{dR} \frac{dR_{\alpha}}{dR_p} 
+        \right\}
+    \right]
+    % \sum_{E_\text{CR}=E_\gamma}^{E_\text{max}} \left[ \frac{E_\text{CR}}{E_\gamma}\Delta(\ln E_\text{CR}) \right]\left[ f_{pp}\frac{dN_H}{dE} \left\{ 1+ \frac{\sigma_{\text{HeN}}}{\sigma_\text{pN}}\left(\frac{dN_\text{H}}{dR} \right)^{-1}\frac{dN_\alpha}{dR}\frac{dR_\alpha}{dR_H}\right\}\right].
 \end{split}
 \end{equation}
 
-In our case, we use the fraction relation of
-crossection between different atom number with
-a limit of relativistics as \cite{WAtwater},
-we have found $\sigma_{\text{HeN}}/\sigma_\text{pN} \approx 1.77$
-\par Lastly, term $dR_\text{He}/dR_\text{H} = 4$
-because the relativistic energy mass relation
-fraction of rigidity between Helium that approximately
-heavier than proton 4 times.
+Here we use the ratio of $\alpha$-nitrogen to proton-nitrogen
+cross section from the parametrization by \cite{WAtwater}
+and find $\sigma_{\text{HeN}}/\sigma_\text{pN} \approx 1.77$.
+We also use $dR_\alpha/dR_p\approx2$ at
+the same energy in the relativistic limit. 
+
+% In our case, we use the fraction relation of
+% cross-section between different atom number with
+% a limit of relativistic as \cite{WAtwater},
+% we have found $\sigma_{\text{HeN}}/\sigma_\text{pN} \approx 1.77$
+% \par Lastly, term $dR_\alpha/dR_\text{H} = 4$
+% because the relativistic energy mass relation
+% fraction of rigidity between Helium that approximately
+% heavier than proton 4 times.
+
+

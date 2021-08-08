@@ -6,6 +6,11 @@ LIBDIR := utility/cpp
 # g++ unit_test/nadir_dependency/nad_vs_e.cpp $(LIBDIR)/*.cpp -o program `root-config --cflags --glibs` -std=c++11
 # g++ unit_test/flx_map/flxmap_compare.cpp $(LIBDIR)/*.cpp -o program `root-config --cflags --glibs` -std=c++11
 
+run_local:
+	g++ unit_test/flx_map/readexpmap_zoom.cpp $(LIBDIR)/*.cpp -o program `root-config --cflags --glibs` -std=c++17
+	# g++ unit_test/model/vsother_ns.cpp $(LIBDIR)/*.cpp -o program `root-config --cflags --glibs` -std=c++17
+	./program
+
 run:
 	# g++ unit_test/model/fit.cpp $(LIBDIR)/*.cpp -o program `root-config --cflags --glibs` -std=c++11
 	# ./program

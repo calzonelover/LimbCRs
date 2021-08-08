@@ -1,0 +1,57 @@
+\begin{thebibliography}{6}
+\providecommand{\natexlab}[1]{#1}
+\providecommand{\url}[1]{\texttt{#1}}
+\expandafter\ifx\csname urlstyle\endcsname\relax
+  \providecommand{\doi}[1]{doi: #1}\else
+  \providecommand{\doi}{doi: \begingroup \urlstyle{rm}\Url}\fi
+
+\bibitem[{Ackermann} et~al.(2014)]{FermiEarth14}
+M.~{Ackermann} et~al.
+\newblock {Inferred Cosmic-Ray Spectrum from Fermi Large Area Telescope
+  {$\gamma$}-Ray Observations of Earth's Limb}.
+\newblock \emph{Physical Review Letters}, 112\penalty0 (15):\penalty0 151103,
+  Apr. 2014.
+\newblock \doi{10.1103/PhysRevLett.112.151103}.
+
+\bibitem[Adriani et~al.(2011)Adriani, Barbarino, Bazilevskaya, Bellotti,
+  Boezio, Bogomolov, Bonechi, Bongi, Bonvicini, Borisov,
+  et~al.]{adriani2011pamela}
+O.~Adriani, G.~Barbarino, G.~Bazilevskaya, R.~Bellotti, M.~Boezio,
+  E.~Bogomolov, L.~Bonechi, M.~Bongi, V.~Bonvicini, S.~Borisov, et~al.
+\newblock Pamela measurements of cosmic-ray proton and helium spectra.
+\newblock \emph{Science}, 332\penalty0 (6025):\penalty0 69--72, 2011.
+
+\bibitem[{Aguilar} et~al.(2015){Aguilar}, {Aisa}, {Alpat}, {Alvino}, {Ambrosi},
+  {Andeen}, {Arruda}, {Attig}, {Azzarello}, {Bachlechner}, and
+  et~al.]{AMS02pr2015}
+M.~{Aguilar}, D.~{Aisa}, B.~{Alpat}, A.~{Alvino}, G.~{Ambrosi}, K.~{Andeen},
+  L.~{Arruda}, N.~{Attig}, P.~{Azzarello}, A.~{Bachlechner}, and et~al.
+\newblock {Precision Measurement of the Proton Flux in Primary Cosmic Rays from
+  Rigidity 1 GV to 1.8 TV with the Alpha Magnetic Spectrometer on the
+  International Space Station}.
+\newblock \emph{Physical Review Letters}, 114\penalty0 (17):\penalty0 171103,
+  May 2015.
+\newblock \doi{10.1103/PhysRevLett.114.171103}.
+
+\bibitem[Atwater and Freier(1986)]{WAtwater}
+T.~W. Atwater and P.~S. Freier.
+\newblock Meson multiplicity versus energy in relativistic nucleus-nucleus
+  collisions.
+\newblock \emph{Phys. Rev. Lett.}, 56:\penalty0 1350--1353, Mar 1986.
+\newblock \doi{10.1103/PhysRevLett.56.1350}.
+
+\bibitem[Kachelriess and Ostapchenko(2012)]{K&Omodel}
+M.~Kachelriess and S.~Ostapchenko.
+\newblock Deriving the cosmic ray spectrum from gamma-ray observations.
+\newblock \emph{Phys. Rev. D}, 86:\penalty0 043004, Aug 2012.
+\newblock \doi{10.1103/PhysRevD.86.043004}.
+\newblock URL \url{https://link.aps.org/doi/10.1103/PhysRevD.86.043004}.
+
+\bibitem[Taylor(2016)]{taylor2016_crspectrumsuperposition}
+A.~M. Taylor.
+\newblock Cosmic rays beyond the knees.
+\newblock \emph{Nature}, 531\penalty0 (7592):\penalty0 43--44, Mar. 2016.
+\newblock \doi{10.1038/531043a}.
+\newblock URL \url{https://doi.org/10.1038/531043a}.
+
+\end{thebibliography}

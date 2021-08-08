@@ -1,0 +1,14 @@
+\beamer@sectionintoc {1}{Objectives}{3}{0}{1}
+\beamer@sectionintoc {2}{Background}{4}{0}{2}
+\beamer@sectionintoc {3}{Flux extraction}{8}{0}{3}
+\beamer@subsectionintoc {3}{1}{Data set}{8}{0}{3}
+\beamer@subsectionintoc {3}{2}{Flux calculation}{9}{0}{3}
+\beamer@subsectionintoc {3}{3}{Exposure calculation}{10}{0}{3}
+\beamer@sectionintoc {4}{Analysis}{16}{0}{4}
+\beamer@subsectionintoc {4}{1}{Power-law spectrum}{16}{0}{4}
+\beamer@subsectionintoc {4}{2}{Proton-proton $\rightarrow $ $\gamma $ model}{17}{0}{4}
+\beamer@subsectionintoc {4}{3}{Optimization}{18}{0}{4}
+\beamer@sectionintoc {5}{Results and Discussion}{21}{0}{5}
+\beamer@subsectionintoc {5}{1}{$\gamma $-ray flux}{21}{0}{5}
+\beamer@subsectionintoc {5}{2}{Optimized results}{24}{0}{5}
+\beamer@sectionintoc {6}{Summary}{27}{0}{6}

@@ -72,7 +72,7 @@ We select photons between 10 GeV and 1 TeV which would be
 correspond to the CR proton rigidity range of roughly 60 GV
 to 2 TV \citep{FermiEarth14}. We also cut photons with
 $\theta_{\rm LAT}>70^\circ$ to avoid mis-reconstructions of
-large off-axis photons.
+highly off-axis photons.
 % Only high energy limb photon will be selected from 10 GeV up to 1 TeV.
 % It makes the traceback analysis for gaining the information of
 % CR proton spectrum in rigidity between 60 GV to 2 TV. The definition 
@@ -90,23 +90,28 @@ large off-axis photons.
 % chunk of energy range at a time as Equation \ref{eq:def_flux}.
 The definition of the Earth's limb flux in the energy bin $i$ is given by
 
+% \textbf{Flux}(E_i) =  \frac{dN}{dE}(E_i) = \left(\int \frac{\text{Cnt}_i}{\text{Exp}_i}\right) \frac{1}{d(\Omega)dE_i}
+
 \begin{equation}
-    \textbf{Flux}(E_i) =  \frac{dN}{dE}(E_i) = \left(\int \frac{\text{Cnt}_i}{\text{Exp}_i}\right) \frac{1}{d(\Omega)dE_i}
+    \textbf{Flux}(E_i) =  \frac{dN}{dE}(E_i) = \left(\sum_{\rm pixel} \frac{\text{Count}_i}{\text{Exposure}_i}\right) \frac{1}{\Delta\Omega\Delta E}
     \label{eq:def_flux}
 \end{equation}
 % \textbf{Flux} \equiv \frac{dN_\gamma}{dE} = \frac{\int_\text{Limb region}(\text{Count map}/\text{Exposure map})}{\Delta\Omega\Delta E}.
 
-where $\text{Cnt}_i$ is the photon count,
-$\text{Exp}_i$ is the exposure, $d(\Omega)$
-is the solid angle size of the limb region, and $dE_i$ is the energy
-bin width. The quantity $\text{Cnt}_i$ and $\text{Exp}_i$ 
-are from count and exposure
-maps which are discussed in the next subsection.
+\noindent where $\text{Count}_i$ is the photon count,
+$\text{Exposure}_i$ is the exposure, $\Delta\Omega$
+is the solid angle size of the limb region, and $\Delta E$ is the energy
+bin width.
+% The count map be divided by the the exposure map and the summation 
+% has taken all the pixel over limb's region.
+% The quantity $\text{Count}_i$ and $\text{Exposure}_i$ 
+% are from count and exposure
+% maps which are discussed in the next subsection.
 Since the CR spectrum follows a power law in the energy range
 of this analysis, we expect a power law in the Earth's
 $\gamma$-ray emission spectrum. Therefore, to calculate the
 Earth's $\gamma$-ray spectrum, we divide the energy into 50 bins
-eqaully spaced in log scale from 10 GeV to 1.0 TeV.
+equally spaced in log scale from 10 GeV to 1.0 TeV.
 % Since the CR spectrum follows a power law as the exponential form 
 %  $dN/dR \propto R^\gamma$ as mentioned in the background section.
 % Then the log-log relation of the flux versus rigidity would behave 
@@ -138,22 +143,36 @@ eqaully spaced in log scale from 10 GeV to 1.0 TeV.
 % CR photon.
 
 
-The flux calculation procedure can be summarized in these following steps.
+The flux calculation procedure can be summarized in the following steps.
 \begin{enumerate}
-    \item Make 2D histograms for which the x-axis is $\phi_{\rm NADIR}$
-    and the y-axis is $\theta_{\rm NADIR}$, with 25 bins per
-    decade of energy
-    \item Select photon data and fill in the 2D histograms
-    \item Calculate similar 2D histograms for exposure maps
-    which include the effective area
-    and livetime of the LAT as it observed the Earth
-    \item Compute the flux for each energy bin by
-    applying Equation \ref{eq:def_flux}
-    % \item Compute the flux by applying Equation \ref{eq:def_flux} in for bin 
+    \item Analyze 50 bins in energy
+    between 10 GeV - 1 TeV with equal logarithmic spacing 
+    % with equal logarithmic spacing between 10 GeV - 1 TeV  
+    \item Create 2D histogram count maps from photon
+    data for each energy bin
+    \item Create 2D histogram exposure maps
+    (effective area $\times$ livetime) from spacecraft data
+    for each energy bin
+    \item Calculate the Earth's $\gamma$-ray flux using the count and exposure maps by Equation  \ref{eq:def_flux}
     \item Perform background subtraction from an average
     background distribution (Define background in range
     $72.0^\circ < \theta_{\rm NADIR} < 80.0^\circ$)
 \end{enumerate}
+% \begin{enumerate}
+%     \item Make 2D histograms for which the x-axis is $\phi_{\rm NADIR}$
+%     and the y-axis is $\theta_{\rm NADIR}$, with 25 bins per
+%     decade of energy
+%     \item Select photon data and fill in the 2D histograms
+%     \item Calculate similar 2D histograms for exposure maps
+%     which include the effective area
+%     and lifetime of the LAT as it observed the Earth
+%     \item Compute the flux for each energy bin by
+%     applying Equation \ref{eq:def_flux}
+%     % \item Compute the flux by applying Equation \ref{eq:def_flux} in for bin 
+%     \item Perform background subtraction from an average
+%     background distribution (Define background in range
+%     $72.0^\circ < \theta_{\rm NADIR} < 80.0^\circ$)
+% \end{enumerate}
 
 
 \subsection{Exposure map calculation}
@@ -177,7 +196,7 @@ corresponding effective area for that pixel.
 % The following content is the full detail of how things going on 
 % under the hood.
 
-\subsubsection{Coordinate Transformations}
+\subsubsection{Coordinate transformations}
 
 Spacecraft's position and orientation (direction of the
 LAT's boresight and solar panel) are recorded in the equatorial
@@ -258,7 +277,7 @@ in equatorial coordinates as declination angle ($\delta_\text{p}$)
 and the right ascension angle ($\alpha_\text{p}$).
 A full representation of the zn and sp coordinates could
 be written as Equation \ref{eq:tf_eq_p}.
-The compact form is in the Equation \ref{eq:rep_tf_eq_p}.
+The compact form is in Equation \ref{eq:rep_tf_eq_p}.
 
 \begin{equation}
     \begin{split}
@@ -283,7 +302,7 @@ a transformation matrix.
 
 The LAT coordinate system is defined such that $\hat{z}_\text{p}$
 points along the boresight and $\hat{x}_\text{p}$ points
-along one of its solar panel.
+along with one of its solar panels.
 The directions of $\hat{x}_\text{p}$ and $\hat{z}_\text{p}$
 are also recorded in the
 equatorial system. Figure \ref{fig:coord_eq_p} shows the
@@ -299,7 +318,7 @@ relationship between the sp and zn coordinate systems.
         Illustration of the local zenith (zn) and the plane of detector
         (p) coordinate systems. The nadir ($\theta_{\rm NADIR}$)
         and azimuthal ($\phi_{\rm NADIR}$) angles of a pixel of
-        interest is also shown.
+        interest are also shown.
     % Coordinate transform between spacecraft and nadir angle
     }
     \label{fig:coord_eq_p}
@@ -312,7 +331,7 @@ and $T_{\text{zn}\rightarrow\text{p}}$,
 we can transform the position of a pixel in a local zenith
 coordinate map into the LAT coordinate system to obtain
 the effective area for that pixel. The exposure for that
-pixel is the sum of effective are $\times$ livetime.
+pixel is the sum of effective are $\times$ lifetime.
 % Again, all those representations just for mapping the LAT's boresight
 % coordinate to link with the nadir coordinate to accumulate the 
 % exposure from the spacecraft's FoV.
@@ -320,19 +339,26 @@ The spacecraft coordinate can be
 written as a dependency of Earth's polar coordinate as Equation \ref{eq:def_r0}
 in the cartesian system.
 
-\begin{equation}
-    \hat{r}_\text{zn} (\theta_\text{N}, \phi_\text{N}) \equiv -\cos\theta_\text{N}\hat{x}_\text{zn} + \sin\theta_\text{N}\cos\phi_\text{N}\hat{z}_\text{zn} + \sin\theta_\text{N}\sin\phi_\text{N}\hat{y}_\text{zn}
-    \label{eq:def_r0}
-\end{equation}
+\begin{equation*}
+\begin{split}
+    \hat{r}_\text{zn} (\theta_\text{NADIR}, \phi_\text{NADIR}) \equiv & -\cos\theta_\text{NADIR}\hat{x}_\text{zn} + \sin\theta_\text{NADIR}\sin\phi_\text{NADIR}\hat{y}_\text{zn} \\
+    & + \sin\theta_\text{NADIR}\cos\phi_\text{NADIR}\hat{z}_\text{zn}
+\end{split}
+\label{eq:def_r0}
+\end{equation*}
+% \begin{equation}
+%     \hat{r}_\text{zn} (\theta_\text{N}, \phi_\text{N}) \equiv -\cos\theta_\text{N}\hat{x}_\text{zn} + \sin\theta_\text{N}\cos\phi_\text{N}\hat{z}_\text{zn} + \sin\theta_\text{N}\sin\phi_\text{N}\hat{y}_\text{zn}
+%     \label{eq:def_r0}
+% \end{equation}
 
 Extracting the relations to simplify the 
 LAT's boresight coordinate could be contained by one inversion of 
 transformation matrix from equatorial to spacecraft and transform it 
-to plane of the detector as written in the compact form in the Equation 
+to plane of the detector as written in the compact form in Equation 
 \ref{eq:def_r0_to_rp}.
 
 \begin{equation}
-    \hat{r}_\text{p} (\theta_\text{N}, \phi_\text{N}) = T_{\text{eq}\rightarrow\text{p}} (\delta^\text{x}_\text{p}, \alpha^\text{x}_\text{p}, \delta^\text{z}_\text{p}, \alpha^\text{z}_\text{p}) \left[T_{\text{eq}\rightarrow\text{zn}} (\delta_\text{zn}, \alpha_\text{zn})\right]^{-1} \hat{r}_\text{zn} (\theta_\text{N}, \phi_\text{N})
+    \hat{r}_\text{p} (\theta_\text{N}, \phi_\text{N}) = T_{\text{eq}\rightarrow\text{p}} (\delta^\text{x}_\text{p}, \alpha^\text{x}_\text{p}, \delta^\text{z}_\text{p}, \alpha^\text{z}_\text{p}) \left[T_{\text{eq}\rightarrow\text{zn}} (\delta_\text{zn}, \alpha_\text{zn})\right]^{-1} \hat{r}_\text{zn} (\theta_\text{NADIR}, \phi_\text{NADIR})
     \label{eq:def_r0_to_rp}
 \end{equation}
 
@@ -345,7 +371,7 @@ to plane of the detector as written in the compact form in the Equation
         The $\hat{z}_\text{p}$ axis
         points along the LAT's boresight
         and the $\hat{x}_\text{p}$ axis
-        points along one of its solar panel.
+        points along with one of its solar panels.
         % Detector's boresight in cartesian and polar coordinate
     }
     \label{fig:tf_lat_pol_car}
@@ -356,7 +382,7 @@ a normalized component of the cartesian unit vector as in Figure
 \ref{fig:tf_lat_pol_car}. The exposure accumulation has been
 calculated in every single grid from the previous relation.
 
-\subsubsection{Parallel Computations}
+\subsubsection{Parallel computations}
 
 The complexity of 
 the code becomes large due to the transformation operation.
@@ -364,14 +390,13 @@ For example, a plain matrix inversion cost $\mathcal{O}(n^3)$ where
 n is 3 because it is a 3 by 3 matrix in this case.
 % Not only the inversion, but
 The matrix multiplication also costs the same amount of
-complexity
-, rendering exposure map calculation a
-very computational intensive task.
+complexity, rendering exposure map calculation a
+very computationally intensive task.
 % which causes a long run in the execution time because 
 % the original program has been designed in sequential execution.
 
 The spacecraft files, which contain the information of the LAT
-position, orientation, and status in rows of 30-second time step,
+position, orientation, and status in rows of the 30-second time step,
 are called the FT2 files. We use 25 energy bins per decade,
 so the bin width is small enough to use the geometric mean
 to represent the mean energy for each bin. 
@@ -394,7 +419,7 @@ the total exposure maps.
 
 The code is implemented
 in Message Passing Interface (MPI). The framework provides 
-a simple protocol for communicate between each process
+a simple protocol for communication between each process
 with a customizable message schema.
 It assists the user to 
 freely control multiple processes with full control of 
@@ -462,7 +487,7 @@ Small tasks are sent to available slaves and skip busy slaves.
 % The idea is simply sending a small task to an available worker and skip a busy worker
 % without disturbing them.
 This mechanism allows the execution to utilize 
-the resource in the cluster without wasting
+the resource in a cluster without wasting
 free slaves. After all tasks are assigned,
 the master process will send a status tag announcing
 that the overall calculation has finished.
@@ -481,11 +506,14 @@ and parallel code is reported in Appendix \ref{appendix:exposure}.
 % in an early period of testing is reported in Appendix \ref{appendix:exposure}.
 
 
-\section{Hadronic Collision Model}
-CR spectrum is well described in power in ridigity where 
-the ridigity is a momentum per charge of the particle.
-The explicit formula for proton power-law spectrum in rigidity
-in Equation \ref{eq:spl} as a single power law (SPL)
+\section{Hadronic collision model}
+CR spectrum is well described by power in ridigity where 
+the ridigity is the momentum per charge of a particle.
+The explicit formula for
+a single power-law (SPL) spectrum in rigidity for proton
+is shown in Equation \ref{eq:spl}
+% proton power-law spectrum in rigidity
+% in Equation \ref{eq:spl} as a single power law (SPL)
 where $\Gamma$ represents the spectral index of the model. 
 % In fact, the spectrum has been observed as the differential flux 
 % in energy.
@@ -495,14 +523,14 @@ energy spectrum is derived in Appendix \ref{appendix:pw_energy}.
 
 \textbf{Single power law (SPL)}
 \begin{equation}
-    \frac{dN}{dR} = R_0R^{-\Gamma}
+    \frac{dN}{dR} = N_0R^{-\Gamma}
     \label{eq:spl}
 \end{equation}
 
-where $R_0$ is the coeffient of the powerlaw.
+where $N_0$ is the normalization of the power law.
 The most crucial part of this work is to determine if there is any 
 breaking in the spectral index of the power law. To represent 
-a single breaking energy, the broken power law (BPL) could be modeled 
+single breaking energy, a broken power law (BPL) could be modeled 
 by Equation \ref{eq:bpl}. 
 
 
@@ -510,19 +538,22 @@ by Equation \ref{eq:bpl}.
 \begin{equation}
 \frac{dN}{dR}=
   \begin{cases}
-    R_0R^{-\Gamma_1}\ :\ E < E_{\text{Break}}\\
-    R_0[R(E_{\text{Break}})]^{\Gamma_2-\Gamma_1}R^{-\Gamma_2}\ :\ E \ge E_{\text{Break}}
+    N_0R^{-\Gamma_1}\ :\ E < E_{\text{Break}}\\
+    N_0[R(E_{\text{Break}})]^{\Gamma_2-\Gamma_1}R^{-\Gamma_2}\ :\ E \ge E_{\text{Break}}
   \end{cases}
   \label{eq:bpl}
 \end{equation}
 
 % The scattering process of the hadronic collision from proton hitting 
 % the atmospheric molecules.
-The collision from incoming protons with kinetic 
+The collision of incoming CR protons with kinetic 
 energy above 10 GeV striking the Earth's atmosphere
-be modeled by proton-proton collision with 
-with the scaling of normalization depending
-on the chemical composition of the air.
+can be modeled by
+thin-target proton-proton interactions for which the normalization
+depends on the chemical composition and density of the air.
+% proton-proton collision with a thin-target 
+% where the scaling of normalization depending
+% on the chemical composition of the air.
 % an approximation that depends on the majority of the air components.
 The proton-proton collision yielding $\gamma$ rays
 as secondary products for a broad and smooth spectrum
@@ -534,32 +565,51 @@ taken from \cite{K&Omodel} as
 % Equation  from \cite{K&Omodel} work.
 
 \begin{equation}
-    \frac{dN_\gamma}{dE_\gamma} \propto \int^{E_{\text{max}}}_{E_\gamma} dE'\frac{dN_p}{dE'} \frac{d\sigma^{pp\rightarrow\gamma}(E',E_\gamma)}{dE_\gamma},
+    \frac{dN_\gamma}{dE_\gamma} \propto \int^{E_{\text{max}}}_{E_\gamma} dE'\frac{dN_p}{dE'} \frac{d\sigma^{pp\rightarrow\gamma}}{dE_\gamma}(E',E_\gamma),
     \label{eq:KO_model}
 \end{equation}
 
-where $d\sigma^{pp\rightarrow\gamma}(E',E_\gamma)/dE_\gamma$ contains 
+\noindent where $d\sigma^{pp\rightarrow\gamma}(E',E_\gamma)/dE_\gamma$ contains 
 the scattering amplitude
-for the kinetic energy of proton $E'$ and the
-energy of $\gamma$ ray $E_\gamma$.
+for the kinetic energy of proton ($E'$) and the
+energy of $\gamma$-ray ($E_\gamma$).
 % of a given kinetic energy proton and the spectrum of the $\gamma$-ray.
-Atmospheric components mostly consists 
-of nitrogen as the majority and the oxygon \citep{atmosCompos}. The cross-section from 
-proton-proton collision and proton-nitrogen collision is roughly 
-approximate as the multiplicative relation since there is plateau 
-curve in the energy range in this analysis. The relation of the proton-proton 
-scattering amplitude and the proton-nitrogen is obtained from \cite{WAtwater}
-where it highly depends on the atomic numbers of the air molecules. 
+Atmospheric components
+consists of ~78\% nitrogen and ~21\% oxigen
+% mostly consists of nitrogen as the majority and the oxygen
+\citep{atmosCompos}.
+% The cross-section from 
+% proton-proton collision and proton-nitrogen collision is roughly 
+% approximate as the multiplicative relation since there is the plateau 
+% curve in the energy range in this analysis.
+The relation of the proton-proton 
+and proton-air scattering amplitudes
+% scattering amplitude and the proton-air
+is obtained from \cite{WAtwater}
+which depends on the
+% where it highly depends on the
+atomic numbers of the air molecules. 
 
-However, the second highest fraction of the arrival CR particles on 
-Earth is an alpha ($\alpha$) particle. The helium nuclei can interact with the nitrogen and produce high energy $\gamma$-rays depends on
-how much kinetic energy $\alpha$-particles is holding. Another 
-estimation has been exploited by applying $\sigma_{\alpha N}/\sigma_{pN}$
-to be a constant around 1.6 at the energy range in GeV from 
-the same relationship of the proton-air collision model. Hence, derived
-equation of the scattering process from incoming 
-proton and $\alpha$-particle with air molecules to produce $\gamma$-ray
-spectrum could be shown as Equation \ref{eq:derived_model}
+
+The second highest fraction of the arrival CR particles on 
+Earth is an alpha ($\alpha$) particle.
+particle (the nucleus of a helium atom) for which the contribution
+to the secondary $\gamma$-ray products is not negligible.
+% The helium nuclei can interact with the nitrogen and produce high energy $\gamma$-rays depends on
+% how much kinetic energy $\alpha$-particles is holding.
+We use $\sigma_{\alpha N}/\sigma_{pN}\approx1.6$ in the energy range of this
+analysis from the hadronic cascade cross-section approximation
+\citep{WAtwater}.
+% Another 
+% estimation has been exploited by applying $\sigma_{\alpha N}/\sigma_{pN}$
+% to be a constant around 1.6 at the energy range in GeV from 
+% the same relationship of the proton-air collision model.
+Hence,
+the $\gamma$-ray spectrum produced from CR proton and
+$\alpha$ scattering with air molecules can be described by
+% derived equation of the scattering process from incoming 
+% proton and $\alpha$-particle with air molecules to produce $\gamma$-ray
+% spectrum could be shown as Equation \ref{eq:derived_model}
 
 \begin{equation}
     \frac{dN_{\gamma}}{dE_\gamma}(E_\gamma) \propto
@@ -567,17 +617,27 @@ spectrum could be shown as Equation \ref{eq:derived_model}
     \left[ 
         f_{pp}\frac{dN_p}{dE'_i}
         \left\{
-            1+\frac{\sigma_{\text{HeN}}}{\sigma{p\rm N}}\left(\frac{dN_p}{dR}\right)^{-1} \frac{dN_{\text{He}}}{dR} \frac{dR_{\text{He}}}{dR_p} 
+            1+\frac{\sigma_{\alpha\rm N}}{\sigma_{p\rm N}}\left(\frac{dN_p}{dR}\right)^{-1} \frac{dN_{\alpha}}{dR} \frac{dR_{\alpha}}{dR_p} 
         \right\}
     \right]
     ,\label{eq:derived_model}
 \end{equation}
 
-The CR helium spectrum would not be measured in this work since there will be multiple parameters that leads to an overwhelming 
-local optimum. The spectrum of $\alpha$-particles is directly measured 
-by \cite{AMS-02Helium} and fix the distribution as one function rather 
-modeled spectrum of CR proton spectrum. The full detail of the 
-equation derivation will be demonstrated in \ref{appendix:interaction_model}.
+where $f_{pp}$ is the proton-proton to $\gamma$ cross section taken from
+\cite{K&Omodel}. % Kachxxx&Ostapxx (20xx).
+The CR
+$\alpha$ spectrum ($dN_\alpha/dR$) % helium spectrum
+would not be measured in this work
+since there will be multiple parameters that lead to an overwhelming 
+local optimum.
+We therefore fix the $\alpha$ spectrum to that measured
+by \cite{AMS-02Helium} and optimize only the proton spectral parameters.
+% The spectrum of $\alpha$-particles is directly measured 
+% by \cite{AMS-02Helium} and fix the distribution as one function rather 
+% than modeled spectrum of CR proton spectrum.
+The full detail of the 
+equation derivation is demonstrated
+in the Appendix \ref{appendix:interaction_model}.
 
 
 % Eventhough converting process requires a derivation, the energy
@@ -587,114 +647,153 @@ equation derivation will be demonstrated in \ref{appendix:interaction_model}.
 
 \section{Optimization}
 Determining the best-fit spectral model requires an objectives function
-to represent how well the model match with an observed data. A proper 
-methodology for fitting or optimization in another word is also 
-a crucial part since it is likely that the local optimum exists in the parameters space. A poor optimization could lead the best-fit
-stuck in a local minimum and yield a poor result. For better escaping 
+to represent how well the model match with the observed data.
+A proper optimization algorithm is
+% A proper methodology for fitting or optimization in another word is also 
+a crucial part since it is likely that the local optima exist in the parameters space. A poor optimization could lead the best-fit
+stuck in a local minimum and yield a poor result. To avoid 
 local optima, heuristic optimization is employed for finding the 
-best-fit of the model in parameter space.
+global best-fit of the model in parameter space.
 
 
 \subsubsection{Poisson likelihood function}
-An objective function is defined as Poisson likelihood function 
-in the Equation \ref{eq:likelihood}. The reason behind the selection 
-of the Poisson function came from the observed model and measurement is 
-considered as a number of photons in each bin of the histogram. 
-Converting the model spectrum to be a count histogram is simply
-multiplied by the integral of the exposure map in the limb region.
+An objective function is defined as the logarithmic of Poisson likelihood function 
+in Equation \ref{eq:likelihood}
+because we would like to evaluate the Poisson probability ($P_\text{pois}$)
+that we observe $n_{\text{i,measurement}}$ photons if the model yields
+$n_{\text{i,model}}$ photons for the $i^{th}$ bin of $N$ energy bins.
+% The reason behind the selection 
+% of the Poisson function came from the observed model and measurement is 
+% considered as a number of photons in each bin of the histogram. 
+Converting
+a spectral model into
+% the model spectrum to be
+a count histogram is simply
+multiplying the model flux and the exposure
+% multiplied by the integral of the exposure map
+in the limb region.
+We can then calculate the likelihood of a given model by
 
 \begin{equation}
-    \mathcal{L} = \prod_{i=1}^{N} P_{\text{pois}}(n_{\text{i,model}}, n_{\text{i,measurement}})
+    \text{log-likelihood} = -\sum_{i=1}^{N} \log P_{\text{pois}}(n_{\text{i,model}}, n_{\text{i,measurement}})
     \label{eq:likelihood}
 \end{equation}
 
-Since the spectrum order is in different order of magnitude, then a
-proper way to define an objective function is to redefine a
-likelihood as a log-likelihood function for numerically
-convenient like Eq \ref{eq:loglikelihood}. 
+The negative sign is included in the definition of the log likelihood
+function to make the numerical algorithm more convenient by requiring
+minimization rather than maximization of the objective function. 
 
-\begin{equation}
-    Sum = \sum_{i=1}^{N} -\log P_{\text{pois}}(n_{\text{i,model}}, n_{\text{i,measurement}})
-    \label{eq:loglikelihood}
-\end{equation}
+% \begin{equation}
+%     \mathcal{L} = \prod_{i=1}^{N} P_{\text{pois}}(n_{\text{i,model}}, n_{\text{i,measurement}})
+%     \label{eq:likelihood}
+% \end{equation}
 
-To sum up, a given proton spectrum yield a distribution of $\gamma$-ray
-spectrum to be converted into a count histogram and comparing with the 
-real measurement. Not only for numerical convenient but the negative sign 
-also makes an algorithm to minimize the system rather than maximize 
-a likelihood.
+% Since the spectrum order is in different order of magnitude, then a
+% proper way to define an objective function is to redefine a
+% likelihood as a log-likelihood function for numerically
+% convenient like Eq \ref{eq:loglikelihood}. 
+
+% \begin{equation}
+%     Sum = \sum_{i=1}^{N} -\log P_{\text{pois}}(n_{\text{i,model}}, n_{\text{i,measurement}})
+%     \label{eq:loglikelihood}
+% \end{equation}
+
+% To sum up, a given proton spectrum yield a distribution of $\gamma$-ray
+% spectrum to be converted into a count histogram and comparing with the 
+% real measurement. Not only for numerical convenience but the negative sign 
+% also makes an algorithm to minimize the system rather than maximize 
+% a likelihood.
 
 \subsubsection{Particle Swarm Optimization (PSO)}
 
-In the early phase of the optimization, a plain gradient descent 
-optimization has been used for model fitting. The result turns out 
-that with different initial parameters, the different best-fit model 
-has changed which implies the local minimum in the problem. 
-Even there is no method to guarantee the global minimum but the heuristic
+In the early phase of the analysis, the plain gradient descent 
+optimization was used for model fitting. The result turned out 
+that different initial
+parameters yielded different best-fit model which implied
+the local minima in the problem.
+% parameters, the different best-fit model 
+% has changed which implies the local minimum in the problem. 
+There is no method to guarantee the global minimum but the heuristic
 optimization could be a better option for handling this type of problem.
 One kind of most widely used algorithm is particle swarm
-optimization (PSO) and it is invented by \cite{pso_optimize}.
+optimization (PSO) invented by \cite{pso_optimize}.
 
-In order to get a best fit spectral indices, employing the Particle Swarm Optimization (PSO)
-by randomly initiate many particles in a given range of the parameter space and find the
-local and global best fit in each step of the iteration. Then rest of them would slowly move
+In order to get the best-fit CR spectral model, we employ the PSO
+by randomly initiating many particles in a given range of
+the parameter space and finding the sets of parameters which represent the
+local and global best fit in a given step of the iteration.
+In the next iteration, we slowly move those particles % Then rest of them would slowly move
 toward to the local and global position in parameter space with a proper weight. 
 The iteration process will stop when the standard deviation of the objective function from 
-every particle less than a decimal. The explicit formula for every iteration $k$,
-particle $i$ move with velocity $v_k^i$ is
+every particle is less than a certain threshold.
+The explicit formula for every
+$k$ iteration which moves particle $i$ with velocity $v_k^i$ is
 
 \begin{equation}
     v^i_{k+1} = \omega v^i_k + c^br^b_k[b^i_k-x^i_k] + c^Br^B_k[B^i_k-x^i_k],
     \label{eq:pso}
 \end{equation}
-and updating the particle $i$ with
+and we update the position of particle $i$ ($x^i_k$) in the parameter space with
+% updating the particle $i$ with
 \begin{equation}
     x^i_{k+1} = x^i_k + v^i_{k+1}.
     \label{eq:pso_update}
 \end{equation}
-where
-\begin{itemize}
-    \item $x^i_k$ represent variable that particle $i$ hold
-    \item $b$ and $B$ are best local and global parameter sets along the optimization process
-    \item Set $\omega = 0.2$, $c^b = 0.2$ and $c^B = 0.3$
-\end{itemize}
+where $b$ and $B$ are best local and global parameter sets
+along the optimization process
+and set $\omega = 0.2$, $c^b = 0.2$ and $c^B = 0.3$.
+% \begin{itemize}
+%     \item $x^i_k$ represent variable that particle $i$ hold
+%     \item $b$ and $B$ are best local and global parameter sets along the optimization process
+%     \item Set $\omega = 0.2$, $c^b = 0.2$ and $c^B = 0.3$
+% \end{itemize}
 
 \section{Statistical significance}
 
-Certainly, larger model parameters or complexity would yield 
-a better performance except it is overfitting the problem.
-The critical issue is to answer how much significance the alternative 
-model could outperform the trivial model. As the language of statistics 
-would consider as two hypotheses. One for null and one for alternative 
-approach. 
+Models with a larger number of parameters or complexity certainly
+yield better performance except that they overfit the problem.
+% Certainly, larger model parameters or complexity would yield 
+% a better performance except it is overfitting the problem.
+The critical issue is to answer how significant such alternative 
+model could outperform the null-hypothesis model.
+% As the language of statistics 
+% would consider as two hypotheses. One for null and one for an alternative 
+% approach. 
 
-For this case, BPL has 2 more degrees of freedom (DOF) than SPL.
-Unquestionably, if there is a good optimization procedure, 
-the objectives function would say BPL is better SPL. As mentioned 
-from the previous paragraph, the significance level has to be taken
-into account to put the weight on the study. Theoretically, regarding 
-the model likelihood with a given set of parameters could be determined 
-in the general case as Wilk's theorem define the relation in 
-Equation \ref{eq:wilk}.
+In this work, the BPL model has 2 more degrees of freedom (DOF) than
+the SPL model does and always result in a better fit than the SPL does.
+% SPL.
+% Unquestionably, if there is a good optimization procedure, 
+% the objectives function would say BPL is better SPL. As mentioned 
+% in the previous paragraph, the significance level has to be taken
+% into account to put the weight on the study.
+% Theoretically, regarding 
+% the model likelihood with a given set of parameters could be determined 
+% in the general case as Wilk's theorem define the relation in 
+% Equation \ref{eq:wilk}.
 
-\begin{equation}
-    \mathcal{L} \equiv \prod_{\alpha=1}^n f(x_\alpha, \theta_1, \theta_2, ..., \theta_h)
-    \label{eq:wilk}
-\end{equation}
-where 
-\begin{itemize}
-    \item $x_\alpha$ is represent a variant from model and data
-    \item $\theta_i$ is a degree of freedom (DOF)
-\end{itemize}
+% \begin{equation}
+%     \mathcal{L} \equiv \prod_{\alpha=1}^n f(x_\alpha, \theta_1, \theta_2, ..., \theta_h)
+%     \label{eq:wilk}
+% \end{equation}
+% where 
+% \begin{itemize}
+%     \item $x_\alpha$ is represent a variant from model and data
+%     \item $\theta_i$ is a degree of freedom (DOF)
+% \end{itemize}
 
-The practical usage to compare the null hypothesis and the alternative 
-hypothesis as similar to one-tail hypothesis testing with a given 
-dependency in more DOF has been adopted by \cite{Huelsenbeck}.
+To compare the null (SPL) and alternative (BPL) hypothesis,
+we use the one-tail testing taken into account the difference
+in DOF as adopted by
+% The practical usage to compare the null hypothesis and the alternative 
+% hypothesis is similar to one-tail hypothesis testing with a given 
+% dependency in more DOF has been
+ adopted by \cite{Huelsenbeck}.
 This method called ``Likelihood ratio test (LRT)''. The compact formula 
-is shown in Equation \ref{eq:lrt}.
+is 
 
 \begin{equation}
-    \text{LRT} = -2\ln\left(\frac{\mathcal{L}_\text{null}}{\mathcal{L}_\text{alternative}}\right)
+    \text{LRT} = -2\ln\left(\frac{\mathcal{L}_\text{null}}{\mathcal{L}_\text{alternative}}\right).
     \label{eq:lrt}
 \end{equation}
 
