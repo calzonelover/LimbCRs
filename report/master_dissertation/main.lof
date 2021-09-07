@@ -1,0 +1,79 @@
+\babel@toc {nil}{}
+\contentsline {figure}{\numberline {2.1}{\ignorespaces Wulf's apparatus and the balloon experimental results}}{4}%
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces { An early version schematic view of electrometer used by Thedor Wulf }}}{4}%
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces { Ionization rate from Victor Hess (left) and Werner Kolhörster (right) }}}{4}%
+\contentsline {figure}{\numberline {2.2}{\ignorespaces (left) Clay's experiment on the geographical variation of CR intensity. Main locations where CR intensity was measured during 8 Compton's expeditions in 1932. (right) The Pb-shielded ionization chamber, organized by Compton. Image is taken from \cite {text_cr_geomagnetic_effect} }}{5}%
+\contentsline {figure}{\numberline {2.3}{\ignorespaces Latitude variation of CR intensity for various seasons \citep {compton1937cosmic} }}{6}%
+\contentsline {figure}{\numberline {2.4}{\ignorespaces The CR spectrum showing the superposition of different populations of sources \citep {taylor2016_crspectrumsuperposition} }}{7}%
+\contentsline {figure}{\numberline {2.5}{\ignorespaces Simplified schematic of CR proton air shower (Image taken from Cosmic Rays, Wikipedia, Magnus Manske, 2011) }}{9}%
+\contentsline {figure}{\numberline {2.6}{\ignorespaces Feynman's diagram of the neutral pion ($\pi ^0$) decay into two $\gamma $-rays.}}{9}%
+\contentsline {figure}{\numberline {2.7}{\ignorespaces Lepton-antilepton annihilation path diagram.}}{10}%
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces { Lightweight leptons }}}{10}%
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Mediumweight leptons}}}{10}%
+\contentsline {subfigure}{\numberline {(c)}{\ignorespaces { Heavyweight leptons }}}{10}%
+\contentsline {figure}{\numberline {2.8}{\ignorespaces First-order Feynman's diagrams for the Compton and Inverse Compton processes. }}{11}%
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {First branch}}}{11}%
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces { Second branch }}}{11}%
+\contentsline {figure}{\numberline {2.9}{\ignorespaces Intensity of $\gamma $-ray $>$ 1 GeV in galactic coordinates (Image credit: NASA/DOE/\textit {Fermi} LAT Collaboration).}}{12}%
+\contentsline {figure}{\numberline {2.10}{\ignorespaces Main components of the LAT and the GBM on the \textit {Fermi} Space Telescope \citep {fermi_lat_instrument_first_year}}}{13}%
+\contentsline {figure}{\numberline {2.11}{\ignorespaces Main components of the LAT (Image taken from https://fermi.gsfc.nasa.gov)}}{14}%
+\contentsline {figure}{\numberline {2.12}{\ignorespaces Schematic of $\gamma $-ray detection of the LAT (Image taken from https://fermi.gsfc.nasa.gov) }}{15}%
+\contentsline {figure}{\numberline {2.13}{\ignorespaces LAT's particle tracker. (a) The ideal case where the conversion happens in an early layer and leaves a footprint along with multiple layers (b). (c) The photon skips the first layer and be converted in another layer with a missed hit in 1st and 2nd of Si trackers (d). (e) Conversion occurs in structural materials and is traced by the following Si trackers. \citep {FermiLAT} }}{16}%
+\contentsline {figure}{\numberline {2.14}{\ignorespaces LAT's calorimeter \citep {FermiLAT}}}{16}%
+\contentsline {figure}{\numberline {2.15}{\ignorespaces Flow chart of LAT's data acquisition system (DAQ) (Image taken from \citealt {FermiLAT})}}{17}%
+\contentsline {figure}{\numberline {2.16}{\ignorespaces LAT's effective area as a function of energy for normally incidence photons \citep {lat_p8_performance}. Front means the effective area of an event that photon hits the conversion layer at the top and decays into a pair of electron-position. Back represents the effective area of the event that photons pass through the top part and be converted to the bottom of the TKR module. The total effective area (black) is the combination of front and back. }}{19}%
+\contentsline {figure}{\numberline {2.17}{\ignorespaces Effective area versus incidence angle \citep {lat_p8_performance} }}{19}%
+\contentsline {figure}{\numberline {2.18}{\ignorespaces Effective area versus $\phi _\text {LAT}$ \citep {lat_p8_performance} }}{20}%
+\contentsline {figure}{\numberline {2.19}{\ignorespaces Effective area along with the energy of each event class \citep {lat_p8_performance}}}{20}%
+\contentsline {figure}{\numberline {3.1}{\ignorespaces CR elemental spectra from various experiments \citep {review_particle_physics2012}}}{23}%
+\contentsline {figure}{\numberline {3.2}{\ignorespaces World map with computed geomagnetic vertical cutoff rigidity contour lines on a given date \citep *{map_cr_rigidity_cutoff} }}{24}%
+\contentsline {figure}{\numberline {3.3}{\ignorespaces The East-West asymmetry of the Earth's $\gamma $-ray intensity }}{24}%
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces { Explorer XI \citep {kraushaar1965explorer} }}}{24}%
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces { OSO-3 \citep {Kraushaar72} }}}{24}%
+\contentsline {figure}{\numberline {3.4}{\ignorespaces $\gamma $-ray intensity along the zenith angle \citep {kraushaar1965explorer} }}{25}%
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces { observing above 20\textdegree geomagnetic latitude }}}{25}%
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces { observing below 20\textdegree geomagnetic latitude }}}{25}%
+\contentsline {figure}{\numberline {3.5}{\ignorespaces The Earth's centered intensity plot from the satellite based observations }}{26}%
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces { SAS-2 experiment \citep {Thompson81} }}}{26}%
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces { EGRET experiment \citep {Petry05} }}}{26}%
+\contentsline {figure}{\numberline {3.6}{\ignorespaces Calculated $\gamma $-ray intensity at different atmospheric depth \citep {Morris84} }}{27}%
+\contentsline {figure}{\numberline {3.7}{\ignorespaces $\gamma $-ray spectrum from proton-nuclei interactions \citep {Morris84} }}{27}%
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces { Earth's limb $\gamma $-ray spectrum }}}{27}%
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces { Lunar's atmospheric $\gamma $-ray spectrum }}}{27}%
+\contentsline {figure}{\numberline {3.8}{\ignorespaces $\gamma $-rays intensity from limb emission in 4 energy ranges \citep {fermilat_gamma_induced} }}{28}%
+\contentsline {figure}{\numberline {3.9}{\ignorespaces CR proton spectrum from AMS-02 and earlier direct measurements \citep {AMS02pr2015} }}{29}%
+\contentsline {figure}{\numberline {4.1}{\ignorespaces Schematics of the Earth's $\gamma $-ray production from CR interaction with the upper atmosphere. }}{30}%
+\contentsline {figure}{\numberline {4.2}{\ignorespaces Illustration of the relationship between the equatorial (eq) and local-zenith (zn) coordinate systems for the LAT. }}{33}%
+\contentsline {figure}{\numberline {4.3}{\ignorespaces Illustration of the local zenith (zn) and the plane of detector (p) coordinate systems. The nadir ($\theta _{\rm NADIR}$) and azimuthal ($\phi _{\rm NADIR}$) angles of a pixel of interest are also shown. }}{34}%
+\contentsline {figure}{\numberline {4.4}{\ignorespaces A vector pointing to a pixel of interest (grey arrow) in the plane of detector (p) coordinates. The $\hat {z}_\text {p}$ axis points along the LAT's boresight and the $\hat {x}_\text {p}$ axis points along with one of its solar panels. }}{35}%
+\contentsline {figure}{\numberline {4.5}{\ignorespaces Spawning the king and slave processes}}{36}%
+\contentsline {figure}{\numberline {4.6}{\ignorespaces Master process sends a small task to slaves.}}{37}%
+\contentsline {figure}{\numberline {4.7}{\ignorespaces Asynchronous assignment of tasks to available slaves.}}{37}%
+\contentsline {figure}{\numberline {5.1}{\ignorespaces Distribution of number of photons above 20 MeV with nadir angle ($\theta _{\rm NADIR}$) before (left) and after (right) altitude correction. Top panels show 2D histograms of number of photons in each $\theta _{\rm NADIR}$ and altitude (in km) bin. Bottom panels show the projection of the 2D histograms in the top panels onto the $\theta _{\rm NADIR}$ axis in which photons from all altitudes are accumulated into each $\theta _{\rm NADIR}$ bin. }}{43}%
+\contentsline {figure}{\numberline {5.2}{\ignorespaces An example distribution of $\gamma $ rays above 10 GeV from 1 week of LAT data }}{44}%
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces { 2D histogram of photons above 10~GeV binned in nadir angle ($\theta _{\rm NADIR}$) along the radial direction and azimuthal angle ($\phi _{\rm NADIR}$) along the azimuthal direction. }}}{44}%
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces { Distribution of photon counts with $\phi _{\rm NADIR}$ for $0^\circ <\theta _{\rm NADIR}<150^\circ $. }}}{44}%
+\contentsline {figure}{\numberline {5.3}{\ignorespaces Earth's $\gamma $-ray intensity in $\phi _\text {NADIR}$ axis}}{44}%
+\contentsline {figure}{\numberline {5.4}{\ignorespaces Count maps in the local zenith coordinates. The bright emission ring is located at the limb ($\theta _{\rm NADIR}\approx 68^\circ $). The radial axis is in range $60^\circ <\theta _{\rm NADIR}<80^\circ $ and the clockwise direction is starting from $\phi _{\rm NADIR}=0^\circ $ to $\phi _{\rm NADIR}=360^\circ $ . }}{45}%
+\contentsline {figure}{\numberline {5.5}{\ignorespaces Exposure maps in local-zenith coordinates in 4 energy bands. The Earth's limb is indicated by the dotted circle in which the north, east, south, and west part of the limb are labeled. }}{46}%
+\contentsline {figure}{\numberline {5.6}{\ignorespaces Measured Earth's limb $\gamma $-ray spectrum from $68.4^\circ <\theta _{\rm NADIR}<70.0^\circ $ by this work. }}{46}%
+\contentsline {figure}{\numberline {5.7}{\ignorespaces Flux maps of of the Earth's $\gamma $-ray emission in local zenith coordinates where the Earth is at the center of each panel and the ring is the $\gamma $-ray emission from the limb. }}{47}%
+\contentsline {figure}{\numberline {5.8}{\ignorespaces The Earth's $\gamma $-ray spectra calculated from the SPL (blue) and BPL (green) models of CR proton which best fit to the measured spectrum in the thin-target regime (red). }}{49}%
+\contentsline {figure}{\numberline {5.9}{\ignorespaces Best-fit CR proton spectra from this work (red) compared to the direct measurements by AMS-02 (blue) and PAMELA (green). }}{49}%
+\contentsline {figure}{\numberline {A.1}{\ignorespaces Benchmarking of the serial and parallel code in the low level language. }}{61}%
+\contentsline {figure}{\numberline {C.1}{\ignorespaces Schematics of $\gamma $-ray propagation from diffusive background}}{63}%
+\contentsline {figure}{\numberline {E.1}{\ignorespaces The distribution of the fitted results by the SPL model of different simulated realizations of the Earth's $\gamma $-ray spectrum which is randomly distorted by the statistical (a) and total (b) uncertainties of the data. }}{66}%
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces { Statistical deviation }}}{66}%
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces { Total deviation }}}{66}%
+\contentsline {figure}{\numberline {E.2}{\ignorespaces The distribution of the fitted results by the BPL model of different simulated realizations of the distorted Earth’s $\gamma $-ray spectrum by the statistical uncertainties of the data. The first spectral index ($\Gamma _1$), second spectral index ($\Gamma _2$) and breaking energy ($E_\text {break}$) in GeV are shown in (a), (b) and (c) sequentially. }}{67}%
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {First spectral index}}}{67}%
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Second spectral index}}}{67}%
+\contentsline {subfigure}{\numberline {(c)}{\ignorespaces {Breaking energy}}}{67}%
+\contentsline {figure}{\numberline {E.3}{\ignorespaces The distribution of the fitted results by the BPL model of different simulated realizations of the distorted Earth’s $\gamma $-ray spectrum by the statistical uncertainties and the systematical error from the instrument (total uncertainties). The first spectral index ($\Gamma _1$), second spectral index ($\Gamma _2$) and breaking energy ($E_\text {break}$) in GeV are shown in (a), (b), and (c) sequentially. }}{67}%
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {First spectral index}}}{67}%
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Second spectral index}}}{67}%
+\contentsline {subfigure}{\numberline {(c)}{\ignorespaces {Breaking energy}}}{67}%
+\contentsline {figure}{\numberline {F.1}{\ignorespaces North-South limb's $\gamma $-ray spectrum (red) and the fitted models.}}{69}%
+\contentsline {figure}{\numberline {F.2}{\ignorespaces Best-fit CR proton spectrum from North-South $\gamma $-ray spectrum (red) compared to the measurements by AMS-02 (blue) and PAMELA (green). }}{70}%
+\contentsline {figure}{\numberline {G.1}{\ignorespaces Effective area versus photon energy}}{71}%
+\contentsline {figure}{\numberline {G.2}{\ignorespaces Effective area versus incident angle}}{71}%

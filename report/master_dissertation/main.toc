@@ -1,0 +1,54 @@
+\babel@toc {nil}{}
+\contentsline {chapter}{ACKNOWLEDGEMENTS}{iii}%
+\contentsline {chapter}{ABSTRACT (ENGLISH)}{iv}%
+\contentsline {chapter}{\MakeTextUppercase {List of Tables}}{vii}%
+\contentsline {chapter}{\MakeTextUppercase {List of Figures}}{viii}%
+\contentsline {chapter}{\MakeUppercase {Chapter}\mbox {~}\numberline {I}\mbox {~~}\MakeUppercase {Introduction}}{1}%
+\contentsline {section}{\numberline {1.1}Overview}{1}%
+\contentsline {section}{\numberline {1.2}Objectives}{2}%
+\contentsline {section}{\numberline {1.3}Outline of thesis}{3}%
+\afterpage {\addtoccont }
+\contentsline {chapter}{\MakeUppercase {Chapter}\mbox {~}\numberline {II}\mbox {~~}\MakeUppercase {Background}}{4}%
+\contentsline {section}{\numberline {2.1}Cosmic ray}{4}%
+\contentsline {subsection}{\numberline {2.1.1}History}{4}%
+\contentsline {subsection}{\numberline {2.1.2}Physical properties}{7}%
+\contentsline {subsection}{\numberline {2.1.3}$\gamma $-ray production}{8}%
+\contentsline {subsubsection}{Astrophysical sources of $\gamma $ rays}{11}%
+\contentsline {section}{\numberline {2.2}\textit {Fermi} Large Area Telescope (LAT)}{12}%
+\contentsline {subsection}{\numberline {2.2.1}Overview}{13}%
+\contentsline {subsection}{\numberline {2.2.2}Large Area Telescope (LAT)}{14}%
+\contentsline {subsubsection}{Anti-coincidence Detector (ACD)}{14}%
+\contentsline {subsubsection}{Tracker (TKR)}{15}%
+\contentsline {subsubsection}{Calorimeter (CAL)}{15}%
+\contentsline {subsubsection}{Data Acquisition System (DAQ)}{17}%
+\contentsline {subsection}{\numberline {2.2.3}Event reconstruction}{18}%
+\contentsline {subsection}{\numberline {2.2.4}LAT performance and characteristics}{18}%
+\contentsline {chapter}{\MakeUppercase {Chapter}\mbox {~}\numberline {III}\mbox {~~}\MakeUppercase {Literature Review}}{22}%
+\contentsline {section}{\numberline {3.1}Cosmic ray}{22}%
+\contentsline {section}{\numberline {3.2}Earth's $\gamma $-ray}{25}%
+\contentsline {chapter}{\MakeUppercase {Chapter}\mbox {~}\numberline {IV}\mbox {~~}\MakeUppercase {Methodology}}{30}%
+\contentsline {section}{\numberline {4.1}Data selection}{31}%
+\contentsline {section}{\numberline {4.2}Flux extraction}{31}%
+\contentsline {subsection}{\numberline {4.2.1}Exposure map calculation}{32}%
+\contentsline {subsubsection}{Coordinate transformations}{32}%
+\contentsline {subsubsection}{Parallel computations}{35}%
+\contentsline {section}{\numberline {4.3}Hadronic collision model}{38}%
+\contentsline {section}{\numberline {4.4}Optimization}{39}%
+\contentsline {subsubsection}{Poisson likelihood function}{40}%
+\contentsline {subsubsection}{Particle Swarm Optimization (PSO)}{40}%
+\contentsline {section}{\numberline {4.5}Statistical significance}{41}%
+\contentsline {chapter}{\MakeUppercase {Chapter}\mbox {~}\numberline {V}\mbox {~~}\MakeUppercase {Results and discussion}}{42}%
+\contentsline {section}{\numberline {5.1}Limb angle correction}{42}%
+\contentsline {section}{\numberline {5.2}Earth's limb $\gamma $-ray spectrum measurement}{43}%
+\contentsline {section}{\numberline {5.3}Best fit results}{48}%
+\contentsline {chapter}{\MakeUppercase {Chapter}\mbox {~}\numberline {VI}\mbox {~~}\MakeUppercase {Conclusion}}{50}%
+\contentsline {chapter}{\MakeUppercase {References}}{51}%
+\contentsline {chapter}{\MakeUppercase {Appendices}}{59}%
+\contentsline {section}{Appendix\mbox {~}\numberline {A}Parallel computation of the exposure map}{60}%
+\contentsline {section}{Appendix\mbox {~}\numberline {B}Power law in energy}{62}%
+\contentsline {section}{Appendix\mbox {~}\numberline {C}Subtracting $\gamma $-ray background}{63}%
+\contentsline {section}{Appendix\mbox {~}\numberline {D}Interaction model}{65}%
+\contentsline {section}{Appendix\mbox {~}\numberline {E}Error Estimation with Monte Carlo simulation method}{66}%
+\contentsline {section}{Appendix\mbox {~}\numberline {F}Analysis of $\gamma $-ray from North and South Directions}{69}%
+\contentsline {section}{Appendix\mbox {~}\numberline {G}Effective area of ULTRACLEANVETO class}{71}%
+\contentsline {chapter}{BIOGRAPHY}{72}%

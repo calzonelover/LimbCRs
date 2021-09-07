@@ -1,0 +1,54 @@
+This is BibTeX, Version 0.99d (TeX Live 2019/Debian)
+Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
+The top-level auxiliary file: main.aux
+The style file: muthesis.bst
+Database file #1: JABTHESISBIB.bib
+Warning--entry type for "XCOMNIST" isn't style-file defined
+--line 26 of file JABTHESISBIB.bib
+Reallocated wiz_functions (elt_size=4) to 6000 items from 3000.
+Warning--empty pages in CRComposition2017
+Warning--empty journal in cr_shower_img
+Warning--empty booktitle in map_cr_rigidity_cutoff
+Warning--empty pages in map_cr_rigidity_cutoff
+You've used 91 entries,
+            3150 wiz_defined-function locations,
+            1290 strings with 43056 characters,
+and the built_in function-call counts, 57226 in all, are:
+= -- 4726
+> -- 2845
+< -- 71
++ -- 1414
+- -- 791
+* -- 3878
+:= -- 8652
+add.period$ -- 282
+call.type$ -- 91
+change.case$ -- 708
+chr.to.int$ -- 90
+cite$ -- 95
+duplicate$ -- 3995
+empty$ -- 3930
+format.name$ -- 1028
+if$ -- 11459
+int.to.chr$ -- 2
+int.to.str$ -- 1
+missing$ -- 905
+newline$ -- 462
+num.names$ -- 366
+pop$ -- 1709
+preamble$ -- 1
+purify$ -- 595
+quote$ -- 0
+skip$ -- 2171
+stack$ -- 0
+substring$ -- 2379
+swap$ -- 2185
+text.length$ -- 13
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 813
+warning$ -- 4
+while$ -- 377
+width$ -- 0
+write$ -- 1188
+(There were 5 warnings)

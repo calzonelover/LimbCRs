@@ -1,0 +1,580 @@
+\begin{thebibliography}{91}
+\providecommand{\natexlab}[1]{#1}
+\expandafter\ifx\csname urlstyle\endcsname\relax
+  \providecommand{\doi}[1]{doi:\discretionary{}{}{}#1}\else
+  \providecommand{\doi}{doi:\discretionary{}{}{}\begingroup
+  \urlstyle{rm}\Url}\fi
+
+\bibitem[{Abdo et~al.(2009)Abdo, Ackermann, Ajello, Atwood, Baldini
+  et~al.}]{fermilat_gamma_induced}
+Abdo, A.~A., Ackermann, M., Ajello, M., Atwood, W.~B., Baldini, L., Ballet, J.,
+  et~al. (2009).
+\newblock Fermi large area telescope observations of the cosmic-ray induced
+  $\ensuremath{\gamma}$-ray emission of the earth's atmosphere.
+\newblock \emph{Phys. Rev. D}, 80, 122004.
+
+\bibitem[{{Abdo} et~al.(2009){Abdo}, {Ackermann}, {Ajello}, {Atwood}, {Baldini}
+  et~al.}]{FermiEarth09}
+{Abdo}, A.~A., {Ackermann}, M., {Ajello}, M., {Atwood}, W.~B., {Baldini}, L.,
+  {Ballet}, J., et~al. (2009).
+\newblock {Fermi large area telescope observations of the cosmic-ray induced
+  {$\gamma$}-ray emission of the Earth's atmosphere}.
+\newblock \emph{Physical Review D}, 80(12), 122004.
+
+\bibitem[{Abraham et~al.(2010)Abraham, Abreu, Aglietta, Ahn, Allard
+  et~al.}]{abraham2010measurement}
+Abraham, J., Abreu, P., Aglietta, M., Ahn, E., Allard, D., Allen, J., et~al.
+  (2010).
+\newblock Measurement of the energy spectrum of cosmic rays above 1018 ev using
+  the pierre auger observatory.
+\newblock \emph{Physics Letters B}, 685(4-5), 239--246.
+
+\bibitem[{{Ackermann} et~al.(2014){Ackermann}, {Ajello}, {Albert}, {Allafort},
+  {Baldini} et~al.}]{FermiEarth14}
+{Ackermann}, M., {Ajello}, M., {Albert}, A., {Allafort}, A., {Baldini}, L.,
+  {Barbiellini}, G., et~al. (2014).
+\newblock {Inferred Cosmic-Ray Spectrum from Fermi Large Area Telescope
+  {$\gamma$}-Ray Observations of Earth's Limb}.
+\newblock \emph{Physical Review Letters}, 112(15), 151103.
+
+\bibitem[{{Ackermann} et~al.(2012){Ackermann}, {Ajello}, {Allafort}, {Atwood},
+  {Baldini} et~al.}]{ElectronPositron2012}
+{Ackermann}, M., {Ajello}, M., {Allafort}, A., {Atwood}, W.~B., {Baldini}, L.,
+  {Barbiellini}, G., et~al. (2012).
+\newblock {Measurement of Separate Cosmic-Ray Electron and Positron Spectra
+  with the Fermi Large Area Telescope}.
+\newblock \emph{Physical Review Letters}, 108(1), 011103.
+
+\bibitem[{Adriani et~al.(2009)Adriani, Barbarino, Bazilevskaya, Bellotti,
+  Boezio et~al.}]{adriani2009anomalous}
+Adriani, O., Barbarino, G., Bazilevskaya, G., Bellotti, R., Boezio, M.,
+  Bogomolov, E., et~al. (2009).
+\newblock An anomalous positron abundance in cosmic rays with energies 1.5--100
+  gev.
+\newblock \emph{Nature}, 458(7238), 607--609.
+
+\bibitem[{Adriani et~al.(2011)Adriani, Barbarino, Bazilevskaya, Bellotti,
+  Boezio et~al.}]{adriani2011pamela}
+Adriani, O., Barbarino, G., Bazilevskaya, G., Bellotti, R., Boezio, M.,
+  Bogomolov, E., et~al. (2011).
+\newblock Pamela measurements of cosmic-ray proton and helium spectra.
+\newblock \emph{Science}, 332(6025), 69--72.
+
+\bibitem[{{Aguilar} et~al.(2015){Aguilar}, {Aisa}, {Alpat}, {Alvino}, {Ambrosi}
+  et~al.}]{Heliumflux2015}
+{Aguilar}, M., {Aisa}, D., {Alpat}, B., {Alvino}, A., {Ambrosi}, G., {Andeen},
+  K., et~al. (2015).
+\newblock {Precision Measurement of the Helium Flux in Primary Cosmic Rays of
+  Rigidities 1.9 GV to 3 TV with the Alpha Magnetic Spectrometer on the
+  International Space Station}.
+\newblock \emph{Physical Review Letters}, 115(21), 211101.
+
+\bibitem[{Aguilar et~al.(2015)Aguilar, Aisa, Alpat, Alvino, Ambrosi
+  et~al.}]{AMS-02Helium}
+Aguilar, M., Aisa, D., Alpat, B., Alvino, A., Ambrosi, G., Andeen, K., et~al.
+  (2015).
+\newblock Precision measurement of the helium flux in primary cosmic rays of
+  rigidities 1.9 gv to 3 tv with the alpha magnetic spectrometer on the
+  international space station.
+\newblock \emph{Phys. Rev. Lett.}, 115, 211101.
+
+\bibitem[{{Aguilar} et~al.(2015){Aguilar}, {Aisa}, {Alpat}, {Alvino}, {Ambrosi}
+  et~al.}]{AMS02pr2015}
+{Aguilar}, M., {Aisa}, D., {Alpat}, B., {Alvino}, A., {Ambrosi}, G., {Andeen},
+  K., et~al. (2015).
+\newblock {Precision Measurement of the Proton Flux in Primary Cosmic Rays from
+  Rigidity 1 GV to 1.8 TV with the Alpha Magnetic Spectrometer on the
+  International Space Station}.
+\newblock \emph{Physical Review Letters}, 114(17), 171103.
+
+\bibitem[{Amsler et~al.(2008)}]{amsler2008particle}
+Amsler, C., et~al. (2008).
+\newblock Particle data group.
+\newblock \emph{Phys. Lett. B}, 667(1).
+
+\bibitem[{Atwater \& Freier(1986{\natexlab{a}})}]{WAtwater}
+Atwater, T.~W., \& Freier, P.~S. (1986{\natexlab{a}}).
+\newblock Meson multiplicity versus energy in relativistic nucleus-nucleus
+  collisions.
+\newblock \emph{Phys. Rev. Lett.}, 56, 1350--1353.
+
+\bibitem[{Atwater \& Freier(1986{\natexlab{b}})}]{atwater1986meson}
+Atwater, T.~W., \& Freier, P.~S. (1986{\natexlab{b}}).
+\newblock Meson multiplicity versus energy in relativistic nucleus-nucleus
+  collisions.
+\newblock \emph{Physical review letters}, 56(13), 1350.
+
+\bibitem[{{Atwood} et~al.(2013){Atwood}, {Albert}, {Baldini}, {Tinivella},
+  {Bregeon} et~al.}]{Pass8}
+{Atwood}, W., {Albert}, A., {Baldini}, L., {Tinivella}, M., {Bregeon}, J.,
+  {Pesce-Rollins}, M., et~al. (2013).
+\newblock {Pass 8: Toward the Full Realization of the Fermi-LAT Scientific
+  Potential}.
+\newblock \emph{arXiv e-prints}, arXiv:1303.3514.
+
+\bibitem[{{Atwood} et~al.(2009){Atwood}, {Abdo}, {Ackermann}, {Althouse},
+  {Anderson} et~al.}]{FermiLAT}
+{Atwood}, W.~B., {Abdo}, A.~A., {Ackermann}, M., {Althouse}, W., {Anderson},
+  B., {Axelsson}, M., et~al. (2009).
+\newblock {The Large Area Telescope on the Fermi Gamma-Ray Space Telescope
+  Mission}.
+\newblock \emph{The Astrophysical Journal}, 697, 1071--1102.
+
+\bibitem[{Baldini(2014)}]{baldini2014space}
+Baldini, L. (2014).
+\newblock Space-based cosmic-ray and gamma-ray detectors: a review.
+\newblock \emph{arXiv preprint arXiv:1407.7631}.
+
+\bibitem[{Becquerel(1896)}]{Becquerel1896}
+Becquerel, H. (1896).
+\newblock {On the rays emitted by phosphorescence}.
+\newblock \emph{Compt.\ Rend.\ Hebd.\ Seances Acad.\ Sci.}, 122(8), 420--421.
+
+\bibitem[{Belolaptikov et~al.(1997)Belolaptikov, Budnev, Sinegovsky, Padusenko,
+  Wiebusch et~al.}]{belolaptikov1997baikal}
+Belolaptikov, I., Budnev, N., Sinegovsky, S., Padusenko, A., Wiebusch, C.,
+  Moroz, A., et~al. (1997).
+\newblock The baikal underwater neutrino telescope: Design, performance and
+  first results.
+\newblock Tech. rep., SCAN-9704016.
+
+\bibitem[{Beringer et~al.(2012)Beringer, Arguin, Barnett, Copic, Dahl
+  et~al.}]{review_particle_physics2012}
+Beringer, J., Arguin, J.~F., Barnett, R.~M., Copic, K., Dahl, O., Groom, D.~E.,
+  et~al. (2012).
+\newblock Review of particle physics.
+\newblock \emph{Phys. Rev. D}, 86, 010001.
+
+\bibitem[{Bird et~al.(1994)Bird, Corbato, Dai, Dawson, Elbert
+  et~al.}]{bird1994cosmic}
+Bird, D., Corbato, S., Dai, H., Dawson, B., Elbert, J., Emerson, B., et~al.
+  (1994).
+\newblock The cosmic-ray energy spectrum observed by the fly's eye.
+\newblock \emph{The Astrophysical Journal}, 424, 491--502.
+
+\bibitem[{Carlson et~al.(1950)Carlson, Hooper, \& King}]{Carlson50}
+Carlson, A., Hooper, J., \& King, D. (1950).
+\newblock Lxiii. nuclear transmutations produced by cosmic-ray particles of
+  great energy.-\textit{Part V}. the neutral mesons.
+\newblock \emph{Philosophical Magazine Series 7}, 41(318), 701--724.
+
+\bibitem[{{Clay}(1927)}]{Clay1927}
+{Clay}, J. (1927).
+\newblock {Penetrating Radiation I.}
+\newblock In Proceedings of the Royal Academy of Sciences Amsterdam. vol.~30,
+  pp. 1115--1127.
+
+\bibitem[{{Clay}(1928)}]{Clay1928}
+{Clay}, J. (1928).
+\newblock {Penetrating Radiation II.}
+\newblock In Proceedings of the Royal Academy of Sciences Amsterdam. vol.~31,
+  pp. 1091--1097.
+
+\bibitem[{Compton \& Turner(1937)}]{compton1937cosmic}
+Compton, A.~H., \& Turner, R. (1937).
+\newblock Cosmic rays on the pacific ocean.
+\newblock \emph{Physical Review}, 52(8), 799.
+
+\bibitem[{Curie(1923)}]{curie1923pierre}
+Curie, M. (1923).
+\newblock Pierre Curie.
+\newblock Macmillan.
+
+\bibitem[{De~Angelis(2014)}]{de2014atmospheric}
+De~Angelis, A. (2014).
+\newblock Atmospheric ionization and cosmic rays: studies and measurements
+  before 1912.
+\newblock \emph{Astroparticle Physics}, 53, 19--26.
+
+\bibitem[{Dembinski et~al.(2017)Dembinski, Engel, Fedynitch, Gaisser, Riehn, \&
+  Stanev}]{CRComposition2017}
+Dembinski, H.~P., Engel, R., Fedynitch, A., Gaisser, T., Riehn, F., \& Stanev,
+  T. (2017).
+\newblock Data-driven model of the cosmic-ray flux and mass composition from 10
+  {GeV} to {\textdollar}10{\^{}}$\lbrace$11$\rbrace${\textdollar} {GeV}.
+\newblock In Proceedings of 35th International Cosmic Ray Conference
+  {\textemdash} {PoS}({ICRC}2017). Sissa Medialab.
+
+\bibitem[{Dermer \& Powale(2013)}]{cr_from_snr_2013}
+Dermer, C.~D., \& Powale, G. (2013).
+\newblock Gamma rays from cosmic rays in supernova remnants.
+\newblock \emph{Astronomy {\&} Astrophysics}, 553, A34.
+
+\bibitem[{Dorman(2009)}]{text_cr_geomagnetic_effect}
+Dorman, L. (2009).
+\newblock First measurements of cosmic ray geomagnetic effects and the problem
+  of {CR} nature.
+\newblock In Astrophysics and Space Science Library, Springer Netherlands. pp.
+  1--8.
+
+\bibitem[{{Dorman} et~al.(1970){Dorman}, {Fedchenko}, {Granitsky}, \&
+  {Rishe}}]{DormanFunction1970}
+{Dorman}, L.~I., {Fedchenko}, S.~G., {Granitsky}, L.~V., \& {Rishe}, G.~A.
+  (1970).
+\newblock {Coupling and barometer coefficients for measurements of cosmic ray
+  variations at altitudes of 260-400 mb}.
+\newblock In International Cosmic Ray Conference. vol.~2, p. 233.
+
+\bibitem[{Ertley(2014)}]{cr_shower_img}
+Ertley, C. (2014).
+\newblock Studying the polarization of hard x-ray solar flares with the gamma
+  ray polarimeter experiment (grape).
+
+\bibitem[{Fermi(1949)}]{fermi1949origin}
+Fermi, E. (1949).
+\newblock On the origin of the cosmic radiation.
+\newblock \emph{Physical review}, 75(8), 1169.
+
+\bibitem[{Fricke \& Schlegel(2017)}]{fricke2017julius}
+Fricke, R.~G., \& Schlegel, K. (2017).
+\newblock Julius elster and hans geitel-dioscuri of physics and pioneer
+  investigators in atmospheric electricity.
+\newblock \emph{History of Geo-and Space Sciences}, 8(1), 1.
+
+\bibitem[{Gaisser et~al.(2013)Gaisser, Stanev, \& Tilav}]{gaisser2013cosmic}
+Gaisser, T.~K., Stanev, T., \& Tilav, S. (2013).
+\newblock Cosmic ray energy spectrum from measurements of air showers.
+\newblock \emph{Frontiers of Physics}, 8(6), 748--758.
+
+\bibitem[{Gerward(1999)}]{gerward1999paul}
+Gerward, L. (1999).
+\newblock Paul villard and his discovery of gamma rays.
+\newblock \emph{Physics in perspective}, 1(4), 367--383.
+
+\bibitem[{Gray(1949)}]{gray1949cosmic}
+Gray, G.~W. (1949).
+\newblock Cosmic rays.
+\newblock \emph{Scientific American}, 180(3), 28--39.
+
+\bibitem[{Greisen(1966)}]{gzk_cr_limit}
+Greisen, K. (1966).
+\newblock End to the cosmic-ray spectrum?
+\newblock \emph{Physical Review Letters}, 16(17), 748--750.
+
+\bibitem[{Haino et~al.(2004)Haino, Sanuki, Abe, Anraku, Asaoka
+  et~al.}]{bess_experiment}
+Haino, S., Sanuki, T., Abe, K., Anraku, K., Asaoka, Y., Fuke, H., et~al.
+  (2004).
+\newblock Measurements of primary and atmospheric cosmic-ray spectra with the
+  bess-tev spectrometer.
+\newblock \emph{Physics Letters B}, 594(1-2), 35–46.
+
+\bibitem[{Halzen \& Klein(2010)}]{halzen2010invited}
+Halzen, F., \& Klein, S.~R. (2010).
+\newblock Invited review article: Icecube: an instrument for neutrino
+  astronomy.
+\newblock \emph{Review of Scientific Instruments}, 81(8), 081101.
+
+\bibitem[{Hess(1912)}]{hess1912beobachtungen}
+Hess, V.~F. (1912).
+\newblock {\"U}ber beobachtungen der durchdringenden strahlung bei sieben
+  freiballonfahrten.
+\newblock \emph{Phys. Z.}, 13, 1084--1091.
+
+\bibitem[{Huelsenbeck \& Crandall(1997)}]{Huelsenbeck}
+Huelsenbeck, J.~P., \& Crandall, K.~A. (1997).
+\newblock Phylogeny estimation and hypothesis testing using maximum likelihood.
+\newblock \emph{Annual Review of Ecology and Systematics}, 28(1), 437--466.
+
+\bibitem[{Hörandel(2013)}]{EarlyCRGerman}
+Hörandel, J.~R. (2013).
+\newblock Early cosmic-ray work published in german.
+\newblock \emph{AIP Conference Proceedings}, 1516(1), 52--60.
+
+\bibitem[{{Isbert} et~al.(2002){Isbert}, {Case}, {Granger}, {Guzik}, {Price}
+  et~al.}]{atic2002}
+{Isbert}, J., {Case}, G., {Granger}, D., {Guzik}, T.~G., {Price}, B.,
+  {Stewart}, M., et~al. (2002).
+\newblock {Atic, a Balloon Borne Calorimeter for Cosmic Ray Measurements}.
+\newblock In CALORIMETRY IN PARTICLE PHYSICS. Proceedings of the Tenth
+  International Conference. Held 25-29 March 2002 in Pasadena. pp. 89--94.
+
+\bibitem[{Kachelrie\ss{} \& Ostapchenko(2012)}]{K&Omodel}
+Kachelrie\ss{}, M., \& Ostapchenko, S. (2012).
+\newblock Deriving the cosmic ray spectrum from gamma-ray observations.
+\newblock \emph{Phys. Rev. D}, 86, 043004.
+
+\bibitem[{{Kelner} et~al.(2006){Kelner}, {Aharonian}, \&
+  {Bugayov}}]{Kelner2006}
+{Kelner}, S.~R., {Aharonian}, F.~A., \& {Bugayov}, V.~V. (2006).
+\newblock {Energy spectra of gamma rays, electrons, and neutrinos produced at
+  proton-proton interactions in the very high energy regime}.
+\newblock \emph{Physical Review D}, 74(3), 034018.
+
+\bibitem[{{Kennedy} \& {Eberhart}(1995)}]{pso_optimize}
+{Kennedy}, J., \& {Eberhart}, R. (1995).
+\newblock Particle swarm optimization.
+\newblock In Proc. of ICNN'95 - Int. Conf. on Neural Networks. Perth, WA,
+  Australia, vol.~4, p. 1942.
+
+\bibitem[{Kirk \& Neddermeyer(1968)}]{kirk1968scattering}
+Kirk, T.~B., \& Neddermeyer, S.~H. (1968).
+\newblock Scattering of high-energy positive and negative muons on electrons.
+\newblock \emph{Physical Review}, 171(5), 1412.
+
+\bibitem[{Kolh{\"o}rster(1934)}]{kolhorster1934cosmic}
+Kolh{\"o}rster, W. (1934).
+\newblock Cosmic rays under 600 metres of water.
+\newblock \emph{Nature}, 133(3359), 419--419.
+
+\bibitem[{Kraushaar \& Clark(1962)}]{kraushaar1962search}
+Kraushaar, W., \& Clark, G. (1962).
+\newblock Search for primary cosmic gamma rays with the satellite explorer xi.
+\newblock \emph{Physical Review Letters}, 8(3), 106.
+
+\bibitem[{Kraushaar et~al.(1965)Kraushaar, Clark, Garmire, Helmken, Higbie, \&
+  Agogino}]{kraushaar1965explorer}
+Kraushaar, W., Clark, G., Garmire, G., Helmken, H., Higbie, P., \& Agogino, M.
+  (1965).
+\newblock Explorer xi experiment on cosmic gamma rays.
+\newblock \emph{The Astrophysical Journal}, 141, 845.
+
+\bibitem[{{Kraushaar} et~al.(1972){Kraushaar}, {Clark}, {Garmire}, {Borken},
+  {Higbie} et~al.}]{Kraushaar72}
+{Kraushaar}, W.~L., {Clark}, G.~W., {Garmire}, G.~P., {Borken}, R., {Higbie},
+  P., {Leong}, V., \& {Thorsos}, T. (1972).
+\newblock {High-Energy Cosmic Gamma-Ray Observations from the OSO-3 Satellite}.
+\newblock \emph{The Astrophysical Journal}, 177, 341.
+
+\bibitem[{Lesur(2006)}]{lesur2006introducing}
+Lesur, V. (2006).
+\newblock Introducing localized constraints in global geomagnetic field
+  modelling.
+\newblock \emph{Earth, planets and space}, 58(4), 477--483.
+
+\bibitem[{Linsley(1963)}]{linsley1963evidence}
+Linsley, J. (1963).
+\newblock Evidence for a primary cosmic-ray particle with energy 10 20 ev.
+\newblock \emph{Physical Review Letters}, 10(4), 146.
+
+\bibitem[{Madlee et~al.(2020)Madlee, Mitthumsiri, Ruffolo, Digel, \&
+  Nuntiyakul}]{madlee2020}
+Madlee, S., Mitthumsiri, W., Ruffolo, D., Digel, S., \& Nuntiyakul, W. (2020).
+\newblock First analysis of earth's stratospheric gamma-ray emission in
+  geographical coordinates with fermi lat.
+\newblock \emph{Journal of Geophysical Research: Space Physics}, 125, 28151.
+
+\bibitem[{Maldera(2019)}]{lat_p8_performance}
+Maldera, S. (2019).
+\newblock Fermi-lat performance,.
+\newblock
+  \url{https://www.slac.stanford.edu/exp/glast/groups/canda/lat_Performance.htm}.
+\newblock Accessed: 2021-04-19.
+
+\bibitem[{Michelson et~al.(2010)Michelson, Atwood, \&
+  Ritz}]{fermi_lat_instrument_first_year}
+Michelson, P.~F., Atwood, W.~B., \& Ritz, S. (2010).
+\newblock Fermi gamma-ray space telescope: high-energy results from the first
+  year.
+\newblock \emph{Reports on Progress in Physics}, 73(7), 074901.
+
+\bibitem[{Millikan(1932)}]{millikan1932cosmic}
+Millikan, R.~A. (1932).
+\newblock Cosmic-ray ionization and electroscope-constants as a function of
+  pressure.
+\newblock \emph{Physical Review}, 39(3), 397.
+
+\bibitem[{M.J.~Berger(2010)}]{XCOMNIST}
+M.J.~Berger, J.~H. (2010).
+\newblock Xcom: Photon cross sections database.
+\newblock (accessed: 07.06.2018).
+
+\bibitem[{{Morris}(1984)}]{Morris84}
+{Morris}, D.~J. (1984).
+\newblock {Production of high-energy gamma rays by cosmic ray interactions in
+  the atmosphere and lunar surface}.
+\newblock \emph{Journal of Geophysical Research}, 89, 10685--10696.
+
+\bibitem[{Morrison(1958)}]{morrison1958gamma}
+Morrison, P. (1958).
+\newblock On gamma-ray astronomy.
+\newblock \emph{Il Nuovo Cimento (1955-1965)}, 7(6), 858--865.
+
+\bibitem[{Neddermeyer \& Anderson(1937)}]{neddermeyer1937note}
+Neddermeyer, S.~H., \& Anderson, C.~D. (1937).
+\newblock Note on the nature of cosmic-ray particles.
+\newblock \emph{Physical Review}, 51(10), 884.
+
+\bibitem[{{Nuntiyakul} et~al.(2014){Nuntiyakul}, {Evenson}, {Ruffolo},
+  {S{\'a}iz}, {Bieber} et~al.}]{LatSur2014}
+{Nuntiyakul}, W., {Evenson}, P., {Ruffolo}, D., {S{\'a}iz}, A., {Bieber},
+  J.~W., {Clem}, J., et~al. (2014).
+\newblock {Latitude Survey Investigation of Galactic Cosmic Ray Solar
+  Modulation during 1994-2007}.
+\newblock \emph{The Astrophysical Journal}, 795, 11.
+
+\bibitem[{Orth \& Buffington(1976)}]{orth1976secondary}
+Orth, C.~D., \& Buffington, A. (1976).
+\newblock Secondary cosmic-ray electrons and positrons from 1 to 100 gev in the
+  upper atmosphere and interstellar space, and interpretation of a recent
+  positron flux measurement.
+\newblock \emph{The Astrophysical Journal}, 206, 312--332.
+
+\bibitem[{{Petry}(2005)}]{Petry05}
+{Petry}, D. (2005).
+\newblock {The Earth's Gamma-ray Albedo as observed by EGRET}.
+\newblock In F.~A. {Aharonian}, H.~J. {V{\"o}lk}, \& D.~{Horns} (Eds.), High
+  Energy Gamma-Ray Astronomy. \emph{American Institute of Physics Conference
+  Series}, vol. 745, pp. 709--714.
+
+\bibitem[{Rochester \& Butler(1953)}]{rochester1953new}
+Rochester, G., \& Butler, C. (1953).
+\newblock The new unstable cosmic-ray particles.
+\newblock \emph{Reports on Progress in Physics}, 16(1), 364.
+
+\bibitem[{{Rossi}(1930)}]{Rossi1930}
+{Rossi}, B. (1930).
+\newblock {On the Magnetic Deflection of Cosmic Rays}.
+\newblock \emph{Physical Review}, 36, 606--606.
+
+\bibitem[{Rossi(1934)}]{rossi1934}
+Rossi, B. (1934).
+\newblock Directional measurements on the cosmic rays near the geomagnetic
+  equator.
+\newblock \emph{Phys. Rev.}, 45, 212--214.
+
+\bibitem[{Rossi \& Greisen(1941)}]{rossi1941cosmic}
+Rossi, B., \& Greisen, K. (1941).
+\newblock Cosmic-ray theory.
+\newblock \emph{Reviews of Modern Physics}, 13(4), 240.
+
+\bibitem[{{Ruffolo} et~al.(2016){Ruffolo}, {S{\'a}iz}, {Mangeard}, {Kamyan},
+  {Muangha} et~al.}]{Ruffolo16}
+{Ruffolo}, D., {S{\'a}iz}, A., {Mangeard}, P.-S., {Kamyan}, N., {Muangha}, P.,
+  {Nutaro}, T., et~al. (2016).
+\newblock {Monitoring Short-term Cosmic-ray Spectral Variations Using Neutron
+  Monitor Time-delay Measurements}.
+\newblock \emph{The Astrophysical Journal}, 817, 38.
+
+\bibitem[{Seo et~al.(2004)Seo, Ahn, Beatty, Coutu, Choi et~al.}]{cream2004}
+Seo, E., Ahn, H., Beatty, J., Coutu, S., Choi, M., DuVernois, M., et~al.
+  (2004).
+\newblock Cosmic-ray energetics and mass (cream) balloon project.
+\newblock \emph{Advances in Space Research}, 33(10), 1777--1785.
+\newblock The Next Generation in Scientific Ballooning.
+
+\bibitem[{Shea et~al.(1965)Shea, Smart, \& McCracken}]{shea1965study}
+Shea, M., Smart, D., \& McCracken, K. (1965).
+\newblock A study of vertical cutoff rigidities using sixth degree simulations
+  of the geomagnetic field.
+\newblock \emph{Journal of Geophysical Research}, 70(17), 4117--4130.
+
+\bibitem[{Sigl(2012)}]{sigl2012high}
+Sigl, G. (2012).
+\newblock High energy neutrinos and cosmic rays.
+\newblock \emph{arXiv preprint arXiv:1202.0466}.
+
+\bibitem[{{Skobeltzyn}(1929)}]{1929Natur123411S}
+{Skobeltzyn}, D. (1929).
+\newblock {The Angular Distribution of Compton Recoil Electrons}.
+\newblock \emph{Nature}, 123(3098), 411--412.
+
+\bibitem[{Skobeltzyn(1985)}]{skobeltzyn1985early}
+Skobeltzyn, D.~V. (1985).
+\newblock The early stage of cosmic ray particle research.
+\newblock In Early History of Cosmic Ray Studies, Springer. pp. 47--52.
+
+\bibitem[{{Stecker}(1973)}]{Stecker73}
+{Stecker}, F.~W. (1973).
+\newblock {Simple Model for Scanning-angle Distribution of Planetary Albedo
+  Gamma-rays}.
+\newblock \emph{Nature Physical Science}, 242, 59--60.
+
+\bibitem[{{Stephens} \& {Badhwar}(1981)}]{Stephens1981}
+{Stephens}, S.~A., \& {Badhwar}, G.~D. (1981).
+\newblock {Production spectrum of gamma rays in interstellar space through
+  neutral pion decay}.
+\newblock \emph{Astrophysics and Space Science}, 76, 213--233.
+
+\bibitem[{St{\"o}rmer(1934)}]{stormer1934critical}
+St{\"o}rmer, C. (1934).
+\newblock Critical remarks on a paper by g. lema{\^\i}tre and ms vallarta on
+  cosmic radiation.
+\newblock \emph{Physical Review}, 45(11), 835.
+
+\bibitem[{Svensson(1958)}]{Svensson58}
+Svensson, G. (1958).
+\newblock The cosmic ray photon and $\pi^0$-meson energy spectra at 29-30 km
+  above sea-level.
+\newblock \emph{Arkiv Fysik}, 13, 347.
+
+\bibitem[{Taylor(2016)}]{taylor2016_crspectrumsuperposition}
+Taylor, A.~M. (2016).
+\newblock Cosmic rays beyond the knees.
+\newblock \emph{Nature}, 531(7592), 43--44.
+
+\bibitem[{Th{\'e}bault et~al.(2015)Th{\'e}bault, Finlay, Beggan, Alken, Aubert
+  et~al.}]{IGRF12}
+Th{\'e}bault, E., Finlay, C.~C., Beggan, C.~D., Alken, P., Aubert, J., Barrois,
+  O., et~al. (2015).
+\newblock International geomagnetic reference field: the 12th generation.
+\newblock \emph{Earth, Planets and Space}, 67(1), 79.
+
+\bibitem[{{Thompson} et~al.(1981){Thompson}, {Simpson}, \& {Ozel}}]{Thompson81}
+{Thompson}, D.~J., {Simpson}, G.~A., \& {Ozel}, M.~E. (1981).
+\newblock {SAS 2 observations of the earth albedo gamma radiation above 35
+  MeV}.
+\newblock \emph{Journal of Geophysical Research}, 86, 1265--1270.
+
+\bibitem[{Trenn(1976)}]{trenn1976rutherford}
+Trenn, T.~J. (1976).
+\newblock Rutherford on the alpha-beta-gamma classification of radioactive
+  rays.
+\newblock \emph{Isis}, 67(1), 61--75.
+
+\bibitem[{{Tsyganenko}(1987)}]{Tsyganenko1987}
+{Tsyganenko}, N.~A. (1987).
+\newblock {Global quantitative models of the geomagnetic field in the cislunar
+  magnetosphere for different disturbance levels}.
+\newblock \emph{Planetary and Space Science}, 35, 1347--1358.
+
+\bibitem[{{\"U}tikofer(2007)}]{map_cr_rigidity_cutoff}
+{\"U}tikofer, R.~B. (2007).
+\newblock 30th international cosmic ray conference characteristics of near
+  real-time cutoff calculations on a local and global scale.
+
+\bibitem[{Van~Allen \& Frank(1959)}]{van1959radiation}
+Van~Allen, J.~A., \& Frank, L.~A. (1959).
+\newblock Radiation around the earth to a radial distance of 107,400 km.
+\newblock \emph{Nature}, 183(4659), 430--434.
+
+\bibitem[{{Van Oosterom} \& {Strackee}(1983)}]{solidangle}
+{Van Oosterom}, A., \& {Strackee}, J. (1983).
+\newblock The solid angle of a plane triangle.
+\newblock \emph{IEEE Transactions on Biomedical Engineering}, BME-30(2),
+  125--126.
+
+\bibitem[{Wallace \& Hobbs(2006)}]{atmosCompos}
+Wallace, J.~M., \& Hobbs, P.~V. (2006).
+\newblock Atmospheric.
+\newblock Science.
+
+\bibitem[{Watson(2000)}]{watson2000ultra}
+Watson, A. (2000).
+\newblock Ultra-high-energy cosmic rays: the experimental situation.
+\newblock \emph{Physics Reports}, 333, 309--327.
+
+\bibitem[{Wilks(1938)}]{Wilks1938}
+Wilks, S.~S. (1938).
+\newblock The large-sample distribution of the likelihood ratio for testing
+  composite hypotheses.
+\newblock \emph{Ann. Math. Statist.}, 9(1), 60--62.
+
+\bibitem[{Wilson(1921)}]{wilson1921}
+Wilson, C. T.~R. (1921).
+\newblock Iii. investigations on lighting discharges and on the electric field
+  of thunderstorms.
+\newblock \emph{Philosophical Transactions of the Royal Society of London.
+  Series A, Containing Papers of a Mathematical or Physical Character},
+  221(582-593), 73--115.
+
+\bibitem[{Yoshida et~al.(1994)Yoshida, Hayashida, Honda, Honda, Imaizumi
+  et~al.}]{yoshida1994lateral}
+Yoshida, S., Hayashida, N., Honda, K., Honda, M., Imaizumi, S., Inoue, N.,
+  et~al. (1994).
+\newblock Lateral distribution of charged particles in giant air showers above
+  1 eev observed by agasa.
+\newblock \emph{Journal of Physics G: Nuclear and Particle Physics}, 20(4),
+  651.
+
+\end{thebibliography}
